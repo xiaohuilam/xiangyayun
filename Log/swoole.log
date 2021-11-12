@@ -1,0 +1,4 @@
+[2021-11-12 14:04:48 #19067.8]	INFO	Server is shutdown now
+[2021-11-12 14:37:13 $23062.0]	WARNING	check_worker_exit_status: worker#0[pid=23071] abnormal exit, status=0, signal=2
+[2021-11-12 15:55:30 $7070.0]	WARNING	check_worker_exit_status: worker#9[pid=7088] abnormal exit, status=0, signal=2
+[2021-11-12 17:03:22 #7994.8]	INFO	Server is shutdown now

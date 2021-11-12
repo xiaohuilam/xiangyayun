@@ -1,0 +1,57 @@
+[2021-11-12 13:54:30][trigger][error]:[Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9501], Error: Address already in use[98] in /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php:58
+Stack trace:
+#0 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php(58): Swoole\Server->__construct()
+#1 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Core.php(104): EasySwoole\EasySwoole\ServerManager->createSwooleServer()
+#2 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(112): EasySwoole\EasySwoole\Core->createServer()
+#3 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(52): EasySwoole\EasySwoole\Command\DefaultCommand\Server->start()
+#4 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/command/src/CommandManager.php(101): EasySwoole\EasySwoole\Command\DefaultCommand\Server->exec()
+#5 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(62): EasySwoole\Command\CommandManager->run()
+#6 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/bin/easyswoole(33): EasySwoole\EasySwoole\Command\CommandRunner->run()
+#7 /home/meanshare/PhpstormProjects/cloud/easyswoole(7): require('...')
+#8 {main}
+  thrown at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php line:58]
+[2021-11-12 14:37:13][trigger][error]:[Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9502], Error: Address already in use[98] in /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php:58
+Stack trace:
+#0 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php(58): Swoole\Server->__construct()
+#1 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Core.php(104): EasySwoole\EasySwoole\ServerManager->createSwooleServer()
+#2 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(112): EasySwoole\EasySwoole\Core->createServer()
+#3 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(52): EasySwoole\EasySwoole\Command\DefaultCommand\Server->start()
+#4 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/command/src/CommandManager.php(101): EasySwoole\EasySwoole\Command\DefaultCommand\Server->exec()
+#5 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(62): EasySwoole\Command\CommandManager->run()
+#6 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/bin/easyswoole(33): EasySwoole\EasySwoole\Command\CommandRunner->run()
+#7 /home/meanshare/PhpstormProjects/cloud/easyswoole(7): require('...')
+#8 {main}
+  thrown at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php line:58]
+[2021-11-12 14:37:23][trigger][error]:[Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9502], Error: Address already in use[98] in /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php:58
+Stack trace:
+#0 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php(58): Swoole\Server->__construct()
+#1 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Core.php(104): EasySwoole\EasySwoole\ServerManager->createSwooleServer()
+#2 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(112): EasySwoole\EasySwoole\Core->createServer()
+#3 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(52): EasySwoole\EasySwoole\Command\DefaultCommand\Server->start()
+#4 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/command/src/CommandManager.php(101): EasySwoole\EasySwoole\Command\DefaultCommand\Server->exec()
+#5 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(62): EasySwoole\Command\CommandManager->run()
+#6 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/bin/easyswoole(33): EasySwoole\EasySwoole\Command\CommandRunner->run()
+#7 /home/meanshare/PhpstormProjects/cloud/easyswoole(7): require('...')
+#8 {main}
+  thrown at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php line:58]
+[2021-11-12 14:39:47][trigger][error]:[strlen(): Argument #1 ($string) must be of type string, array given at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/redis/src/Client.php line:48]
+[2021-11-12 14:40:01][trigger][error]:[strlen(): Argument #1 ($string) must be of type string, array given at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/redis/src/Client.php line:48]
+[2021-11-12 14:40:06][trigger][error]:[strlen(): Argument #1 ($string) must be of type string, array given at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/redis/src/Client.php line:48]
+[2021-11-12 14:41:04][trigger][error]:[strlen(): Argument #1 ($string) must be of type string, array given at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/redis/src/Client.php line:48]
+[2021-11-12 15:32:00][trigger][error]:[Class "App\HttpController\Common\Base" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Api.php line:7]
+[2021-11-12 15:32:03][trigger][error]:[Class "App\HttpController\Common\Base" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Api.php line:7]
+[2021-11-12 15:32:35][trigger][error]:[[Semantical Error] The annotation "@Param" in method App\Controller\Api::login() was never imported. Did you maybe forget to add a "use" statement for this annotation? at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/doctrine-annotations/src/AnnotationException.php line:56]
+[2021-11-12 15:32:56][trigger][error]:[[Semantical Error] The annotation "@Param" in method App\Controller\Api::login() was never imported. Did you maybe forget to add a "use" statement for this annotation? at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/doctrine-annotations/src/AnnotationException.php line:56]
+[2021-11-12 15:37:55][trigger][error]:[validate fail for column mobile at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/http-annotation/src/AnnotationController.php line:310]
+[2021-11-12 15:38:03][trigger][error]:[validate fail for column password at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/http-annotation/src/AnnotationController.php line:310]
+[2021-11-12 15:46:22][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:22][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:23][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:23][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:23][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:23][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:23][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:49][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:50][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:50][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
+[2021-11-12 15:46:50][trigger][error]:[Class "EasySwoole\Jwt\Jwt" not found at file:/home/meanshare/PhpstormProjects/cloud/App/Controller/Common/Base.php line:152]
