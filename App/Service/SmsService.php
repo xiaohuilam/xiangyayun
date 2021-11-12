@@ -10,7 +10,7 @@ class SmsService
 
     }
 
-    public static function Verify($username, $code)
+    public static function FindCode($username, $code)
     {
         return true;
     }

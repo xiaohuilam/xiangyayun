@@ -58,9 +58,9 @@ class Api extends Base
         $username = $this->GetParam('username');
         $password = $this->GetParam('password');
         $sms_code = $this->GetParam('sms_code');
-        $code = SmsService::Verify($username, $sms_code);
+        $code = SmsService::FindCode($username, $sms_code);
 
-        if ($code) {
+        if ($code->data) {//Verify
 
         }
     }
