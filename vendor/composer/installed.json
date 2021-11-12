@@ -1892,6 +1892,57 @@
             "install-path": "../easyswoole/validate"
         },
         {
+            "name": "easyswoole/verifycode",
+            "version": "3.0.2",
+            "version_normalized": "3.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easy-swoole/verify-code.git",
+                "reference": "d79497dc1b1c7bbaeceb0c62fea6a9a96f7957cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/easy-swoole/verify-code/zipball/d79497dc1b1c7bbaeceb0c62fea6a9a96f7957cb",
+                "reference": "d79497dc1b1c7bbaeceb0c62fea6a9a96f7957cb",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "easyswoole/spl": "^1.0",
+                "ext-gd": "*",
+                "php": ">=7.1"
+            },
+            "time": "2020-07-28T04:12:59+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "EasySwoole\\VerifyCode\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "YF",
+                    "email": "291323003@qq.com"
+                },
+                {
+                    "name": "evalor",
+                    "email": "mipone@foxmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/easy-swoole/verify-code/issues",
+                "source": "https://github.com/easy-swoole/verify-code/tree/3.0.2"
+            },
+            "install-path": "../easyswoole/verifycode"
+        },
+        {
             "name": "myclabs/deep-copy",
             "version": "1.10.2",
             "version_normalized": "1.10.2.0",

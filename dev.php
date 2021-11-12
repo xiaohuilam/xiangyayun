@@ -29,5 +29,9 @@ return [
         'displayConsole' => true,
         'ignoreCategory' => []
     ],
+    "CLOUD" => [
+        'is_cdn' => false,
+        'real_ip_header' => '',
+    ],
     'TEMP_DIR' => null
 ];

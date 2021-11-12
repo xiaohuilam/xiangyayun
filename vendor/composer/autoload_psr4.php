@@ -14,6 +14,7 @@ return array(
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Opis\\Closure\\' => array($vendorDir . '/opis/closure/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
+    'EasySwoole\\VerifyCode\\' => array($vendorDir . '/easyswoole/verifycode/src'),
     'EasySwoole\\Validate\\' => array($vendorDir . '/easyswoole/validate/src'),
     'EasySwoole\\Utility\\' => array($vendorDir . '/easyswoole/utility/src'),
     'EasySwoole\\Trigger\\' => array($vendorDir . '/easyswoole/trigger/src'),

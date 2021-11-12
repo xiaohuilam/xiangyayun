@@ -23,10 +23,10 @@ class EasySwooleEvent implements Event
 
 
         $config = new Config();
-        $config->setDatabase('easyswoole_orm');
-        $config->setUser('root');
-        $config->setPassword('');
-        $config->setHost('127.0.0.1');
+        $config->setDatabase('hiy');
+        $config->setUser('hiy');
+        $config->setPassword('4iDzkRhTX44GZz3z');
+        $config->setHost('119.23.58.76');
         $config->setTimeout(15); // 超时时间
         //连接池配置
         $config->setGetObjectTimeout(3.0); //设置获取连接池对象超时时间

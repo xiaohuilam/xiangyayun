@@ -3,10 +3,15 @@
 use App\Model\BaseModel;
 use EasySwoole\ORM\DbManager;
 
-if (!function_exists('helloEasySwoole')) {
-    function helloEasySwoole()
+if (!function_exists('config')) {
+    function config($key, $value = null)
     {
-        echo 'Hello EasySwoole!';
+        $instance = \EasySwoole\EasySwoole\Config::getInstance();;
+        if ($value) {
+            $instance->setConf('CLOUD.' . $key, $value);
+        } else {
+            return $instance->getConf('CLOUD.' . $key);
+        }
     }
 }
 

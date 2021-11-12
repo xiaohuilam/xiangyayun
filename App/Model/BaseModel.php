@@ -6,5 +6,4 @@ use EasySwoole\ORM\AbstractModel;
 
 class BaseModel extends AbstractModel
 {
-
 }

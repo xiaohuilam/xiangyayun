@@ -19,6 +19,24 @@ class Base extends AnnotationController
     const  SecretKey = 'upu.cn';
     protected $data = [];
 
+    protected function GetParam($key)
+    {
+        return $this->request()->getRequestParam($key);
+    }
+
+    protected function SetUserId($user_id)
+    {
+        $this->Set('user_id', $user_id);
+    }
+
+    protected function JsonImage($byte)
+    {
+        $this->SetData();
+        $this->response()->withStatus(200);
+        $this->response()->withHeader('Content-Type', 'image/png');
+        $this->response()->write($byte);
+    }
+
     protected function actionNotFound(?string $action)
     {
         $d['code'] = 404;
@@ -29,13 +47,16 @@ class Base extends AnnotationController
     protected function GetClientIP()
     {
         $server_params = $this->request()->getServerParams();
-        $user_agent = $this->request()->getHeaderLine('user-agent');
+        if (!config('is_cdn')) {
+            return $server_params['remote_addr'];
+        } else {
+            $this->request()->getHeaderLine(config('real_ip_header'));
+        }
     }
 
     protected function GetUserAgent()
     {
-        $server_params = $this->request()->getServerParams();
-        $user_agent = $this->request()->getHeaderLine('user-agent');
+        return $this->request()->getHeaderLine('user-agent');
     }
 
     private function Guester()
@@ -98,23 +119,31 @@ class Base extends AnnotationController
         $this->JsonWrite($d);
     }
 
-    protected function Error($message = null, $data = null)
+    protected function Error($message = null, $data = null, $redirect = null)
     {
         $d['code'] = 3;
         $d['message'] = $message ?? 'Error';
         if ($data) {
             $d['data'] = $data;
         }
+        if ($redirect) {
+            $d['redirect'] = $redirect;
+        }
+
         $this->JsonWrite($d);
     }
 
-    protected function Success($message = null, $data = null)
+    protected function Success($message = null, $data = null, $redirect = null)
     {
         $d['code'] = 1;
         $d['message'] = $message ?? 'Success';
         if ($data) {
             $d['data'] = $data;
         }
+        if ($redirect) {
+            $d['redirect'] = $redirect;
+        }
+
         $this->JsonWrite($d);
     }
 
@@ -129,8 +158,7 @@ class Base extends AnnotationController
 
     protected function Get($key)
     {
-        return $this->data[$key];
-
+        return array_key_exists($key, $this->data) ? $this->data[$key] : null;
     }
 
     protected function Set($key, $value)

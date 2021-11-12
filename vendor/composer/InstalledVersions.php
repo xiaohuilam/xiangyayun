@@ -27,24 +27,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '8d078494aa95d21b254b5e8efa209e19cf2367a5',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '8d078494aa95d21b254b5e8efa209e19cf2367a5',
     ),
     'doctrine/instantiator' => 
     array (
@@ -315,6 +315,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '7219ebf26145c10d5c49b922cc34501bdb226588',
+    ),
+    'easyswoole/verifycode' => 
+    array (
+      'pretty_version' => '3.0.2',
+      'version' => '3.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd79497dc1b1c7bbaeceb0c62fea6a9a96f7957cb',
     ),
     'myclabs/deep-copy' => 
     array (
