@@ -28,9 +28,29 @@ class WechatService
         ]);
     }
 
-    public static function SendCode($open_id, $action, $code, $expire, $url)
+    public static function SendPayNotify($user_id, $open_id, $amount, $order_no)
     {
         WechatPushJob([
+            'user_id' => $user_id,
+            'open_id' => $open_id,
+            'params' => [
+                'first' => '您有一笔订单需要支付',
+                'keyword1' => 'PC端发起',
+                'keyword2' => '支付宝',
+                'keyword3' => ['10001', '#F00'],
+                'keyword4' => [$amount . '元', '#F00'],
+                'remark' => '您可以点击查看详情或直接支付该笔订单',
+            ],
+            'action' => 'pay_notify',
+            'url' => 'https://upy.cn/user/order_no/' . $order_no,
+        ]);
+
+    }
+
+    public static function SendCode($user_id, $open_id, $action, $code, $expire, $url)
+    {
+        WechatPushJob([
+            'user_id' => $user_id,
             'open_id' => $open_id,
             'params' => [
                 'keyword1' => $action,
@@ -42,7 +62,7 @@ class WechatService
         ]);
     }
 
-    public static function SendTemplateMessage($open_id, $params, $action, $url)
+    public static function SendTemplateMessage($user_id, $open_id, $params, $action, $url)
     {
         $temp = WechatPushTemp::create()->get(['action' => $action]);
         if ($temp) {
@@ -53,6 +73,7 @@ class WechatService
                 'url' => $url,
                 'data' => $params,
             ]);
+            LogService::WechatPushLogError($user_id, $open_id, $params);
             return true;
         }
         info('发送模板消息失败');

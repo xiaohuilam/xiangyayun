@@ -6071,3 +6071,62 @@ Stack trace:
 [2021-11-13 16:16:32][info][info]:[监听UCS队列成功]
 [2021-11-13 16:16:32][info][info]:[监听SMS队列成功]
 [2021-11-13 16:16:32][info][info]:[监听系统推送队列成功]
+[2021-11-13 16:17:30][info][info]:[SetData:[]]
+[2021-11-13 16:31:06][info][info]:[监听UCS队列成功]
+[2021-11-13 16:31:06][info][info]:[监听SMS队列成功]
+[2021-11-13 16:31:06][info][info]:[监听系统推送队列成功]
+[2021-11-13 17:03:08][info][info]:[SetData:[]]
+[2021-11-13 17:03:16][trigger][error]:[Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9502], Error: Address already in use[98] in /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php:58
+Stack trace:
+#0 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php(58): Swoole\Server->__construct()
+#1 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Core.php(104): EasySwoole\EasySwoole\ServerManager->createSwooleServer()
+#2 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(112): EasySwoole\EasySwoole\Core->createServer()
+#3 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(52): EasySwoole\EasySwoole\Command\DefaultCommand\Server->start()
+#4 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/command/src/CommandManager.php(101): EasySwoole\EasySwoole\Command\DefaultCommand\Server->exec()
+#5 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(62): EasySwoole\Command\CommandManager->run()
+#6 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/bin/easyswoole(33): EasySwoole\EasySwoole\Command\CommandRunner->run()
+#7 /home/meanshare/PhpstormProjects/cloud/easyswoole(7): require('...')
+#8 {main}
+  thrown at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php line:58]
+[2021-11-13 17:03:25][trigger][notice]:[Swoole\Event::rshutdown(): Event::wait() in shutdown function is deprecated at file:Unknown line:0]
+[2021-11-13 17:03:32][info][info]:[监听UCS队列成功]
+[2021-11-13 17:03:32][info][info]:[监听SMS队列成功]
+[2021-11-13 17:03:32][info][info]:[监听系统推送队列成功]
+[2021-11-13 17:03:39][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:13:12][info][info]:[监听UCS队列成功]
+[2021-11-13 17:13:12][info][info]:[监听SMS队列成功]
+[2021-11-13 17:13:12][info][info]:[监听系统推送队列成功]
+[2021-11-13 17:13:14][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:15:04][info][info]:[监听UCS队列成功]
+[2021-11-13 17:15:04][info][info]:[监听SMS队列成功]
+[2021-11-13 17:15:04][info][info]:[监听系统推送队列成功]
+[2021-11-13 17:15:06][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:16:51][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:20:19][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:20:26][info][info]:[监听UCS队列成功]
+[2021-11-13 17:20:26][info][info]:[监听SMS队列成功]
+[2021-11-13 17:20:26][info][info]:[监听系统推送队列成功]
+[2021-11-13 17:20:28][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:22:17][info][info]:[监听UCS队列成功]
+[2021-11-13 17:22:17][info][info]:[监听SMS队列成功]
+[2021-11-13 17:22:17][info][info]:[监听系统推送队列成功]
+[2021-11-13 17:22:19][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:22:21][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:24:38][info][info]:[SetData:{"sms_code":100000}]
+[2021-11-13 17:24:38][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:26:30][info][info]:[SetData:[]]
+[2021-11-13 17:37:26][info][info]:[监听UCS队列成功]
+[2021-11-13 17:37:26][info][info]:[监听SMS队列成功]
+[2021-11-13 17:37:26][info][info]:[监听系统推送队列成功]
+[2021-11-13 17:37:51][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:37:51][trigger][warning]:[Undefined array key "user_id" at file:/home/meanshare/PhpstormProjects/cloud/App/Process/WechatPushProcess.php line:19]
+[2021-11-13 17:40:40][info][info]:[监听UCS队列成功]
+[2021-11-13 17:40:40][info][info]:[监听SMS队列成功]
+[2021-11-13 17:40:40][info][info]:[监听系统推送队列成功]
+[2021-11-13 17:40:42][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:40:42][trigger][warning]:[Undefined array key "user_id" at file:/home/meanshare/PhpstormProjects/cloud/App/Process/WechatPushProcess.php line:19]
+[2021-11-13 17:40:46][info][info]:[接到发送模板消息队列]
+[2021-11-13 17:41:22][info][info]:[监听UCS队列成功]
+[2021-11-13 17:41:22][info][info]:[监听SMS队列成功]
+[2021-11-13 17:41:22][info][info]:[监听系统推送队列成功]
+[2021-11-13 17:41:26][info][info]:[接到发送模板消息队列]

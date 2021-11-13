@@ -40,6 +40,29 @@ return [
                 'SIGN_NAME' => '象牙云'
             ],
         ],
+        "PAY" => [
+            "WECHAT" => [
+                "APP_ID" => "",
+                "MINI_APP_ID" => "",
+                "MCH_ID" => "",
+                "KEY" => "",
+                "NOTIFY_URL" => "",
+                "API_CLIENT_CERT" => "",
+                "API_CLIENT_KEY" => "",
+            ],
+            "ALIPAY" => [
+                "APP_ID" => "",
+                "PUBLIC_KEY" => "",
+                "PRIVATE_KEY" => "",
+                "CERT_MODE" => true,//是否使用证书签名
+                "ALIPAY_CERT_PUBLIC_KEY_PATH" => "",//支付宝公钥证书路径
+                "ALIPAY_ROOT_CERT_PATH" => "",//支付宝根证书路径
+                "MERCHANT_CERT_PATH" => "",//商户应用公钥证书
+                "MERCHANT_PRIVATE_KEY_PATH" => "",//应用私钥证书地址
+                "RETURN_URL" => "",
+                "NOTIFY_URL" => "",
+            ],
+        ],
         "WECHAT" => [
             'appId' => 'wxa94cec11d95af0e9',
             // 微信公众平台后台配置的 Token

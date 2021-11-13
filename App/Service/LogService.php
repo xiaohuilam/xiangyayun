@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Model\UserLog;
+use App\Model\WechatPushLog;
 
 class LogService
 {
@@ -56,5 +57,27 @@ class LogService
             'status' => 1,
             'message' => $msg
         ])->save(0);
+    }
+
+    public static function WechatPushLogSuccess($user_id, $open_id, $params)
+    {
+        WechatPushLog::create([
+            'create_time' => date('Y-m-d H:i:s'),
+            'user_id' => $user_id,
+            'open_id' => $open_id,
+            'status' => 1,
+            'params' => json_encode($params),
+        ])->save();
+    }
+
+    public static function WechatPushLogError($user_id, $open_id, $params)
+    {
+        WechatPushLog::create([
+            'create_time' => date('Y-m-d H:i:s'),
+            'user_id' => $user_id,
+            'open_id' => $open_id,
+            'status' => 0,
+            'params' => json_encode($params),
+        ])->save();
     }
 }

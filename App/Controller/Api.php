@@ -32,6 +32,10 @@ class Api extends Base
     {
         $username = $this->GetParam('username');
         $verifycode = $this->GetParam('verifycode');
+        $sms_code = $this->Get('sms_code');
+        if ($verifycode != $sms_code) {
+            return $this->Error('验证码错误!');
+        }
         $ip = $this->GetClientIP();
         $ua = $this->GetUserAgent();
         if (LogService::FindLoginByIp($ip)) {
@@ -44,10 +48,6 @@ class Api extends Base
         if (!$user) {
             LogService:: LoginError(0, $username, $ip, $ua, '用户名或密码错误');
             return $this->Error('用户不存在');
-        }
-        if ($user->password != md5($password)) {
-            LogService:: LoginError($user->id, $username, $ip, $ua, '用户名或密码错误');
-            return $this->Error('用户名或密码错误');
         }
         if ($user->status != 1) {
             LogService:: LoginError($user->id, $username, $ip, $ua, '用户不可登录');
@@ -132,7 +132,7 @@ class Api extends Base
 
         $VCode = new \EasySwoole\VerifyCode\VerifyCode($config);
         $drawCode = $VCode->DrawCode();
-        $this->Set('code', $drawCode->getImageCode());
+        $this->Set('img_code', $drawCode->getImageCode());
         return $this->JsonImage($drawCode->getImageByte());
     }
 
@@ -144,7 +144,7 @@ class Api extends Base
      */
     public function send_code()
     {
-        $code = $this->Get('code');
+        $code = $this->Get('img_code');
         $code = '1111';
         if (!$code) {
             return $this->Error('验证码错误!');
@@ -179,8 +179,8 @@ class Api extends Base
             $sms_code = 100000;
             $this->Set('sms_code', $sms_code);
             if ($user && $user->wx_openid) {
-                WechatService::SendCode($user->wx_openid, '登录会员中心', $sms_code, '5分钟', 'http://upy.cn/');
-                return $this->Success('发送成功');
+                WechatService::SendCode($user->id, $user->wx_openid, '登录会员中心', $sms_code, '5分钟', 'http://upy.cn/');
+                return $this->Success('发送微信消息成功!');
             }
 
             SmsJob([
@@ -190,21 +190,29 @@ class Api extends Base
                     '注册用户', $code
                 ],
             ]);
-            return $this->Success('发送成功');
+            return $this->Success('发送手机短信成功');
         }
         return $this->Error('请认真填写短信用途');
     }
 
     public function test_wechat()
     {
+        WechatService::SendPayNotify(1, 'otbIy0R2VgjMxNwBntbVMYgCfwus', 1000, 111);
+    }
+
+    public function test_pay()
+    {
         WechatPushJob([
             'open_id' => 'otbIy0R2VgjMxNwBntbVMYgCfwus',
             'params' => [
-                'keyword1' => '登录验证',
-                'keyword2' => '123456',
-                'keyword3' => '5分钟',
+                'first' => '您有一笔订单需要支付',
+                'keyword1' => 'PC端发起',
+                'keyword2' => '支付宝',
+                'keyword3' => ['10001', '#F00'],
+                'keyword4' => ['100.00元', '#F00'],
+                'remark' => '您可以点击查看详情或直接支付该笔订单',
             ],
-            'action' => 'code',
+            'action' => 'pay_notify',
             'url' => 'https://upy.cn/user',
         ]);
     }
