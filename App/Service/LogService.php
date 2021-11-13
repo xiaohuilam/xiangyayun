@@ -20,13 +20,26 @@ class LogService
         ])->save(0);
     }
 
-    public static function FindLoginByIP($ip, $username)
+
+    public static function FindLoginByUserName($username)
     {
         $count = UserLog::create();
-        $counts = $count->where('status', 0)
-            ->where('create_time', date('Y-m-d H:i:s', strtotime('- 5 minutes')), '>')
-            ->where('ip', $ip)->where('username', $username, '=', 'OR')->count();
-        if ($counts >= 5) {
+        $user_counts = $count->where('status', 0)
+            ->where('create_time', date('Y-m-d H:i:s', strtotime('- 10 minutes')), '>')
+            ->where('username', $username, '=')->count();
+        if ($user_counts >= 5) {
+            return true;
+        }
+        return false;
+    }
+
+    public static function FindLoginByIp($ip)
+    {
+        $count = UserLog::create();
+        $ip_counts = $count->where('status', 0)
+            ->where('create_time', date('Y-m-d H:i:s', strtotime('- 10 minutes')), '>')
+            ->where('ip', $ip, '=')->count();
+        if ($ip_counts >= 5) {
             return true;
         }
         return false;

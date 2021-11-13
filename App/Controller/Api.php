@@ -3,18 +3,26 @@
 namespace App\Controller;
 
 use App\Controller\Common\Base;
+use App\Queue\UcsQueue;
 use App\Service\LogService;
 use App\Service\SmsService;
 use App\Service\UserService;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
+use EasySwoole\Queue\Job;
 use EasySwoole\VerifyCode\Conf;
 
 class Api extends Base
 {
+    public function test()
+    {
+        if (UcsJob(['status' => true])) {
+            $this->Success();
+        }
+    }
 
     /**
-     * @Param(name="username",required="")
-     * @Param(name="password",required="")
+     * @Param(name="username",required="",lengthMin="11")
+     * @Param(name="password",required="",lengthMin="6")
      */
     public function login()
     {
@@ -22,8 +30,11 @@ class Api extends Base
         $password = $this->GetParam('password');
         $ip = $this->GetClientIP();
         $ua = $this->GetUserAgent();
-        if (LogService::FindLoginByIP($ip, $username)) {
-            return $this->Error('错误次数过多,请稍后再试试!');
+        if (LogService::FindLoginByIp($ip)) {
+            return $this->Error('该IP错误次数过多,请稍后再试试!');
+        }
+        if (LogService::FindLoginByUserName($username)) {
+            return $this->Error('该用户错误次数过多,请稍后再试试!');
         }
         $user = UserService::FindByUserName($username);
         if (!$user) {
@@ -48,9 +59,9 @@ class Api extends Base
     }
 
     /**
-     * @Param(name="username",required="")
+     * @Param(name="username",required="",lengthMin="11")
      * @Param(name="password",required="",lengthMin="6")
-     * @Param(name="sms_code",integer="")
+     * @Param(name="sms_code",integer="",lengthMin="6")
      */
     public function register()
     {
@@ -74,6 +85,7 @@ class Api extends Base
             ->setImageWidth(100)
             ->setImageHeight(40)
             ->setFontSize(14)
+            ->setCharset('1234567890')
             ->setLength(4);
 
         $VCode = new \EasySwoole\VerifyCode\VerifyCode($config);
@@ -84,8 +96,8 @@ class Api extends Base
 
 
     /**
-     * @Param(name="username",required="")
-     * @Param(name="verifycode",required="")
+     * @Param(name="username",required="",lengthMin="11")
+     * @Param(name="verifycode",required="",lengthMin="4")
      */
     public function send_code()
     {
@@ -102,7 +114,18 @@ class Api extends Base
         if ($user) {
             return $this->Error('用户已注册!请直接登录', null, '/login');
         }
-        SmsService::Send($username);
+        $sms_code = 100000;
+        //判断该IP或该用户今天收到了多少短信
+        if ($sms_code) {
+
+        }
+        SmsJob([
+            'mobile' => $username,
+            'action' => 'action_code',
+            'params' => [
+                '注册用户', $code
+            ],
+        ]);
         return $this->Success('发送成功', null, '/user/dashboard');
     }
 }

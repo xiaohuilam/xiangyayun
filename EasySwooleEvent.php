@@ -4,11 +4,18 @@
 namespace EasySwoole\EasySwoole;
 
 
+use App\Process\SmsProcess;
+use App\Process\UcsProcess;
+use App\Queue\SmsQueue;
+use App\Queue\UcsQueue;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\ORM\DbManager;
 use EasySwoole\ORM\Db\Connection;
 use EasySwoole\ORM\Db\Config;
+use EasySwoole\Queue\Queue;
+use EasySwoole\Redis\Config\RedisConfig;
+use EasySwoole\RedisPool\RedisPool;
 
 class EasySwooleEvent implements Event
 {
@@ -38,10 +45,21 @@ class EasySwooleEvent implements Event
 
         DbManager::getInstance()->addConnection(new Connection($config));
 
+
     }
 
     public static function mainServerCreate(EventRegister $register)
     {
+        $redisData = \EasySwoole\EasySwoole\Config::getInstance()->getConf('REDIS');
+        $redisConfig = new RedisConfig($redisData);
+        $driver = new \EasySwoole\Queue\Driver\RedisQueue($redisConfig);
+        UcsQueue::getInstance($driver);
+        //注册消费进程
+        \EasySwoole\Component\Process\Manager::getInstance()->addProcess(new UcsProcess());
+
+
+        SmsQueue::getInstance($driver);
+        \EasySwoole\Component\Process\Manager::getInstance()->addProcess(new SmsProcess());
 
     }
 }

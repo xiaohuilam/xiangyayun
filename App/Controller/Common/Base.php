@@ -204,11 +204,11 @@ class Base extends AnnotationController
         $jwtObject->setJti(md5(time())); // jwt id 用于标识该jwt
 
         // 自定义数据
-        echo("SetData:" . json_encode($this->data, true));
+        info("SetData:" . json_encode($this->data, true));
 
         $jwtObject->setData($this->data);
         $token = $jwtObject->__toString();
-        $this->response()->setCookie('token', $token, 3600, '/');
+        $this->response()->setCookie('token', $token);
         $this->token = $token;
     }
 }

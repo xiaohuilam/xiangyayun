@@ -15,6 +15,29 @@ if (!function_exists('config')) {
     }
 }
 
+if (!function_exists('info')) {
+    function info($message)
+    {
+        \EasySwoole\EasySwoole\Logger::getInstance()->log($message, \EasySwoole\Log\LoggerInterface::LOG_LEVEL_INFO, 'info');
+    }
+}
+
+if (!function_exists('UcsJob')) {
+    function UcsJob($data)
+    {
+        $job = new EasySwoole\Queue\Job();
+        $job->setJobData($data);
+        return App\Queue\UcsQueue::getInstance()->producer()->push($job);
+    }
+}
+if (!function_exists('SmsJob')) {
+    function SmsJob($data)
+    {
+        $job = new EasySwoole\Queue\Job();
+        $job->setJobData($data);
+        return App\Queue\UcsQueue::getInstance()->producer()->push($job);
+    }
+}
 if (!function_exists('DBSave')) {
     function DBSave($table, $value = null)
     {

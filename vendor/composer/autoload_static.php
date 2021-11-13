@@ -8,6 +8,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
 {
     public static $files = array (
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
@@ -24,13 +28,21 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'T' => 
+        array (
+            'TencentCloud\\' => 13,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
+            'Psr\\Http\\Client\\' => 16,
+            'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
         ),
@@ -38,12 +50,19 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             'Opis\\Closure\\' => 13,
         ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
+        ),
         'F' => 
         array (
             'FastRoute\\' => 10,
         ),
         'E' => 
         array (
+            'EasySwoole\\WeChat\\' => 18,
             'EasySwoole\\VerifyCode\\' => 22,
             'EasySwoole\\Validate\\' => 20,
             'EasySwoole\\Utility\\' => 19,
@@ -56,17 +75,22 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
             'EasySwoole\\Session\\' => 19,
             'EasySwoole\\Redis\\' => 17,
             'EasySwoole\\RedisPool\\' => 21,
+            'EasySwoole\\Queue\\' => 17,
             'EasySwoole\\Pool\\Tests\\' => 22,
             'EasySwoole\\Pool\\' => 16,
             'EasySwoole\\Phpunit\\' => 19,
+            'EasySwoole\\Pay\\' => 15,
             'EasySwoole\\ParserDown\\' => 22,
             'EasySwoole\\ORM\\' => 15,
             'EasySwoole\\Mysqli\\Tests\\' => 24,
             'EasySwoole\\Mysqli\\' => 18,
             'EasySwoole\\Log\\' => 15,
+            'EasySwoole\\LinuxDash\\' => 21,
             'EasySwoole\\Jwt\\' => 15,
             'EasySwoole\\Http\\Tests\\' => 22,
             'EasySwoole\\Http\\' => 16,
+            'EasySwoole\\HttpClient\\Test\\' => 27,
+            'EasySwoole\\HttpClient\\' => 22,
             'EasySwoole\\HttpAnnotation\\' => 26,
             'EasySwoole\\EasySwoole\\' => 22,
             'EasySwoole\\DoctrineAnnotation\\Tests\\' => 36,
@@ -108,13 +132,34 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
+        'TencentCloud\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tencentcloud/tencentcloud-sdk-php/src/TencentCloud',
+        ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+        ),
+        'Psr\\Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Prophecy\\' => 
         array (
@@ -128,9 +173,25 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
         ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'EasySwoole\\WeChat\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/wechat/src',
         ),
         'EasySwoole\\VerifyCode\\' => 
         array (
@@ -180,6 +241,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             0 => __DIR__ . '/..' . '/easyswoole/redis-pool/src',
         ),
+        'EasySwoole\\Queue\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/queue/src',
+        ),
         'EasySwoole\\Pool\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/pool/tests',
@@ -191,6 +256,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         'EasySwoole\\Phpunit\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/phpunit/src',
+        ),
+        'EasySwoole\\Pay\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/pay/src',
         ),
         'EasySwoole\\ParserDown\\' => 
         array (
@@ -212,6 +281,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             0 => __DIR__ . '/..' . '/easyswoole/log/src',
         ),
+        'EasySwoole\\LinuxDash\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/linux-dash/src',
+        ),
         'EasySwoole\\Jwt\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/jwt/src',
@@ -223,6 +296,14 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         'EasySwoole\\Http\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/http/src',
+        ),
+        'EasySwoole\\HttpClient\\Test\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/http-client/tests',
+        ),
+        'EasySwoole\\HttpClient\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/http-client/src',
         ),
         'EasySwoole\\HttpAnnotation\\' => 
         array (
@@ -296,6 +377,16 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             0 => __DIR__ . '/../..' . '/App',
             1 => __DIR__ . '/..' . '/easyswoole/easyswoole/App',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
         ),
     );
 
@@ -717,6 +808,7 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         'PharIo\\Version\\VersionConstraintParser' => __DIR__ . '/..' . '/phar-io/version/src/VersionConstraintParser.php',
         'PharIo\\Version\\VersionConstraintValue' => __DIR__ . '/..' . '/phar-io/version/src/VersionConstraintValue.php',
         'PharIo\\Version\\VersionNumber' => __DIR__ . '/..' . '/phar-io/version/src/VersionNumber.php',
+        'QcloudApi' => __DIR__ . '/..' . '/tencentcloud/tencentcloud-sdk-php/src/QcloudApi/QcloudApi.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
         'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',
@@ -933,6 +1025,7 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be::$prefixesPsr0;
             $loader->classMap = ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be::$classMap;
 
         }, null, ClassLoader::class);

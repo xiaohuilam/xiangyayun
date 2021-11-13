@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '8d078494aa95d21b254b5e8efa209e19cf2367a5',
+    'reference' => 'e331ea35a90feff4290c3d192d7ee15a2eaa1116',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '8d078494aa95d21b254b5e8efa209e19cf2367a5',
+      'reference' => 'e331ea35a90feff4290c3d192d7ee15a2eaa1116',
     ),
     'doctrine/instantiator' => 
     array (
@@ -137,6 +137,15 @@
       ),
       'reference' => '62a60688a1629e4e67753177b4971e777d2cf50a',
     ),
+    'easyswoole/http-client' => 
+    array (
+      'pretty_version' => '1.5.0',
+      'version' => '1.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6f1f247495983d0494465851c263f2b2c893f8bb',
+    ),
     'easyswoole/jwt' => 
     array (
       'pretty_version' => '1.2.0',
@@ -145,6 +154,15 @@
       array (
       ),
       'reference' => '77be68dbde0baa820f8b420fbf45adcff0b6c2a1',
+    ),
+    'easyswoole/linux-dash' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd355417c5fc8055b3c87abd681a6d6a7e88838b8',
     ),
     'easyswoole/log' => 
     array (
@@ -182,6 +200,15 @@
       ),
       'reference' => 'ec25cae8a6196016b643315b9c0dbda01716c4f7',
     ),
+    'easyswoole/pay' => 
+    array (
+      'pretty_version' => '1.3.0',
+      'version' => '1.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c822f76e3af381744b1158dd022e90b9f1a96f7b',
+    ),
     'easyswoole/phpunit' => 
     array (
       'pretty_version' => '1.1.0',
@@ -199,6 +226,15 @@
       array (
       ),
       'reference' => 'b65b7fa63e69ef8adcc60fa0736b06fa76f376b2',
+    ),
+    'easyswoole/queue' => 
+    array (
+      'pretty_version' => '3.0.3',
+      'version' => '3.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd993927f320bd5e0fc8221e60fa148d45a6ec814',
     ),
     'easyswoole/redis' => 
     array (
@@ -298,6 +334,42 @@
       array (
       ),
       'reference' => 'd79497dc1b1c7bbaeceb0c62fea6a9a96f7957cb',
+    ),
+    'easyswoole/wechat' => 
+    array (
+      'pretty_version' => '2.0.1',
+      'version' => '2.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'df909505b111d98fb37462d72ad615e2d452e317',
+    ),
+    'guzzlehttp/guzzle' => 
+    array (
+      'pretty_version' => '7.4.0',
+      'version' => '7.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '868b3571a039f0ebc11ac8f344f4080babe2cb94',
+    ),
+    'guzzlehttp/promises' => 
+    array (
+      'pretty_version' => '1.5.1',
+      'version' => '1.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fe752aedc9fd8fcca3fe7ad05d419d32998a06da',
+    ),
+    'guzzlehttp/psr7' => 
+    array (
+      'pretty_version' => '2.1.0',
+      'version' => '2.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '089edd38f5b8abba6cb01567c2a8aaa47cec4c72',
     ),
     'myclabs/deep-copy' => 
     array (
@@ -447,6 +519,56 @@
       ),
       'reference' => 'c814a05837f2edb0d1471d6e3f4ab3501ca3899a',
     ),
+    'pimple/pimple' => 
+    array (
+      'pretty_version' => 'v3.5.0',
+      'version' => '3.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a94b3a4db7fb774b3d78dad2315ddc07629e1bed',
+    ),
+    'psr/container' => 
+    array (
+      'pretty_version' => '2.0.2',
+      'version' => '2.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c71ecc56dfe541dbd90c5360474fbc405f8d5963',
+    ),
+    'psr/http-client' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2dfb5f6c5eff0e91e20e913f8c5452ed95b86621',
+    ),
+    'psr/http-client-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'psr/http-factory' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
+    ),
+    'psr/http-factory-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
     'psr/http-message' => 
     array (
       'pretty_version' => '1.0.1',
@@ -455,6 +577,40 @@
       array (
       ),
       'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+    ),
+    'psr/http-message-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'psr/log' => 
+    array (
+      'pretty_version' => '1.1.4',
+      'version' => '1.1.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+    ),
+    'psr/simple-cache' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '408d5eafb83c57f6365a3ca330ff23aa4a5fa39b',
+    ),
+    'ralouphie/getallheaders' => 
+    array (
+      'pretty_version' => '3.0.3',
+      'version' => '3.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '120b605dfeb996808c31b6477290a714d356e822',
     ),
     'sebastian/cli-parser' => 
     array (
@@ -600,6 +756,15 @@
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
     ),
+    'symfony/deprecation-contracts' => 
+    array (
+      'pretty_version' => 'v2.4.0',
+      'version' => '2.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5f38c8804a9e97d23e0c8d63341088cd8a22d627',
+    ),
     'symfony/polyfill-ctype' => 
     array (
       'pretty_version' => 'v1.23.0',
@@ -608,6 +773,15 @@
       array (
       ),
       'reference' => '46cd95797e9df938fdd2b03693b5fca5e64b01ce',
+    ),
+    'tencentcloud/tencentcloud-sdk-php' => 
+    array (
+      'pretty_version' => '3.0.518',
+      'version' => '3.0.518.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '34cb759d16da7a67782105d05e5dcfe7eb1e3c4c',
     ),
     'theseer/tokenizer' => 
     array (
