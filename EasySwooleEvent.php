@@ -6,8 +6,10 @@ namespace EasySwoole\EasySwoole;
 
 use App\Process\SmsProcess;
 use App\Process\UcsProcess;
+use App\Process\WechatPushProcess;
 use App\Queue\SmsQueue;
 use App\Queue\UcsQueue;
+use App\Queue\WechatPushQueue;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\ORM\DbManager;
@@ -52,14 +54,18 @@ class EasySwooleEvent implements Event
     {
         $redisData = \EasySwoole\EasySwoole\Config::getInstance()->getConf('REDIS');
         $redisConfig = new RedisConfig($redisData);
-        $driver = new \EasySwoole\Queue\Driver\RedisQueue($redisConfig);
+        $driver = new \EasySwoole\Queue\Driver\RedisQueue($redisConfig, 'ucs_queue');
         UcsQueue::getInstance($driver);
         //注册消费进程
         \EasySwoole\Component\Process\Manager::getInstance()->addProcess(new UcsProcess());
 
-
+        $driver = new \EasySwoole\Queue\Driver\RedisQueue($redisConfig, 'sms_queue');
         SmsQueue::getInstance($driver);
         \EasySwoole\Component\Process\Manager::getInstance()->addProcess(new SmsProcess());
+
+        $driver = new \EasySwoole\Queue\Driver\RedisQueue($redisConfig, 'wechat_push_queue');
+        WechatPushQueue::getInstance($driver);
+        \EasySwoole\Component\Process\Manager::getInstance()->addProcess(new WechatPushProcess());
 
     }
 }

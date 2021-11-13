@@ -14,7 +14,7 @@ class UcsProcess extends AbstractProcess
         go(function () {
             info('监听UCS队列成功');
             UcsQueue::getInstance()->consumer()->listen(function (Job $job) {
-                sleep(2);
+                info('接到UCS队列');
                 var_dump($job->getJobData());
             });
         });

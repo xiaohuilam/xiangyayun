@@ -35,7 +35,24 @@ if (!function_exists('SmsJob')) {
     {
         $job = new EasySwoole\Queue\Job();
         $job->setJobData($data);
-        return App\Queue\UcsQueue::getInstance()->producer()->push($job);
+        return App\Queue\SmsQueue::getInstance()->producer()->push($job);
+    }
+}
+if (!function_exists('WechatPushJob')) {
+    function WechatPushJob($data)
+    {
+        $job = new EasySwoole\Queue\Job();
+        $job->setJobData($data);
+        return App\Queue\WechatPushQueue::getInstance()->producer()->push($job);
+    }
+}
+//function SendTemplateMessage($open_id, $params, $action, $url)
+if (!function_exists('SystemJob')) {
+    function SystemJob($data)
+    {
+        $job = new EasySwoole\Queue\Job();
+        $job->setJobData($data);
+        return App\Queue\SystemQueue::getInstance()->producer()->push($job);
     }
 }
 if (!function_exists('DBSave')) {

@@ -1139,3 +1139,11 @@
 [2021-11-13 10:22:51 $28421.0]	WARNING	check_worker_exit_status: worker#12[pid=28457] abnormal exit, status=255, signal=0
 [2021-11-13 10:37:46 $920.0]	WARNING	check_worker_exit_status: worker#13[pid=944] abnormal exit, status=255, signal=0
 [2021-11-13 11:31:07 #1709.8]	INFO	Server is shutdown now
+[2021-11-13 12:40:44 $10667.0]	WARNING	check_worker_exit_status: worker#13[pid=10691] abnormal exit, status=255, signal=0
+[2021-11-13 12:41:56 $11218.0]	WARNING	check_worker_exit_status: worker#13[pid=11240] abnormal exit, status=255, signal=0
+[2021-11-13 12:42:16 $11375.0]	WARNING	check_worker_exit_status: worker#13[pid=11397] abnormal exit, status=255, signal=0
+[2021-11-13 14:12:48 #4154.8]	INFO	Server is shutdown now
+[2021-11-13 14:52:47 $17782.0]	WARNING	check_worker_exit_status: worker#9[pid=17800] abnormal exit, status=0, signal=2
+[2021-11-13 14:53:04 #18185.8]	INFO	Server is shutdown now
+[2021-11-13 15:32:16 #32564.8]	INFO	Server is shutdown now
+[2021-11-13 16:05:43 #8380.8]	INFO	Server is shutdown now
