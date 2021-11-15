@@ -87,6 +87,19 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/danielstjules/stringy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/alibabacloud/tea" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/xin/container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/alibabacloud/tea-fileform" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/xin/helper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/alipaysdk/easysdk" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mtdowling/jmespath.php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/adbario/php-dot-notation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/songshenzong/support" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/easyswoole/file-watcher" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/chillerlan/php-qrcode" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/chillerlan/php-settings-container" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

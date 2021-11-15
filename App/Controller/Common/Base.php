@@ -29,7 +29,7 @@ class Base extends AnnotationController
         $this->Set('user_id', $user_id);
     }
 
-    protected function JsonImage($byte)
+    protected function WriteImage($byte)
     {
         $this->SetData();
         $this->response()->withStatus(200);
@@ -169,7 +169,7 @@ class Base extends AnnotationController
     protected function GetData()
     {
         try {
-            $token = $this->request()->getHeaderLine('token');
+            $token = $this->request()->getCookieParams('token');
             if (!$token) {
                 return null;
             }

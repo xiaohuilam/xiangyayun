@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '992c5f4a96cfbe8ec5e1415013ea76e6c9322ece',
+    'reference' => '54e31248e6d48696b5a68ba6233396c1fc6f8546',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,7 +44,70 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '992c5f4a96cfbe8ec5e1415013ea76e6c9322ece',
+      'reference' => '54e31248e6d48696b5a68ba6233396c1fc6f8546',
+    ),
+    'adbario/php-dot-notation' => 
+    array (
+      'pretty_version' => '2.2.0',
+      'version' => '2.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'eee4fc81296531e6aafba4c2bbccfc5adab1676e',
+    ),
+    'alibabacloud/tea' => 
+    array (
+      'pretty_version' => '3.1.22',
+      'version' => '3.1.22.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f9c9b2c927253a1c23a5381cc655e41311be7f65',
+    ),
+    'alibabacloud/tea-fileform' => 
+    array (
+      'pretty_version' => '0.3.4',
+      'version' => '0.3.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4bf0c75a045c8115aa8cb1a394bd08d8bb833181',
+    ),
+    'alipaysdk/easysdk' => 
+    array (
+      'pretty_version' => '2.2.0',
+      'version' => '2.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7a1cfa83c7e140bded957498ea072c77611e6480',
+    ),
+    'chillerlan/php-qrcode' => 
+    array (
+      'pretty_version' => '4.3.1',
+      'version' => '4.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'be3beb936c21fe53a4e7e8f7f3582e9f02443666',
+    ),
+    'chillerlan/php-settings-container' => 
+    array (
+      'pretty_version' => '2.1.2',
+      'version' => '2.1.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ec834493a88682dd69652a1eeaf462789ed0c5f5',
+    ),
+    'danielstjules/stringy' => 
+    array (
+      'pretty_version' => '3.1.0',
+      'version' => '3.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e',
     ),
     'doctrine/instantiator' => 
     array (
@@ -144,6 +207,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'ade5227642588bb5b29fcbc250263337f6723370',
+    ),
+    'easyswoole/file-watcher' => 
+    array (
+      'pretty_version' => '1.0.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cb23e7332baf9a8e6a1b065269baa4e51aadecfb',
     ),
     'easyswoole/http' => 
     array (
@@ -397,6 +469,15 @@ private static $installed = array (
       ),
       'reference' => '089edd38f5b8abba6cb01567c2a8aaa47cec4c72',
     ),
+    'mtdowling/jmespath.php' => 
+    array (
+      'pretty_version' => '2.6.1',
+      'version' => '2.6.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9b87907a81b87bc76d19a7fb2d61e61486ee9edb',
+    ),
     'myclabs/deep-copy' => 
     array (
       'pretty_version' => '1.10.2',
@@ -556,12 +637,12 @@ private static $installed = array (
     ),
     'psr/container' => 
     array (
-      'pretty_version' => '2.0.2',
-      'version' => '2.0.2.0',
+      'pretty_version' => '1.1.2',
+      'version' => '1.1.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'c71ecc56dfe541dbd90c5360474fbc405f8d5963',
+      'reference' => '513e0666f7216c7459170d56df27dfcefe1689ea',
     ),
     'psr/http-client' => 
     array (
@@ -782,6 +863,15 @@ private static $installed = array (
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
     ),
+    'songshenzong/support' => 
+    array (
+      'pretty_version' => '2.0.5',
+      'version' => '2.0.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '34973c04ffcf226e503f1c3a69d30ac49f7621f6',
+    ),
     'symfony/deprecation-contracts' => 
     array (
       'pretty_version' => 'v2.4.0',
@@ -800,14 +890,23 @@ private static $installed = array (
       ),
       'reference' => '46cd95797e9df938fdd2b03693b5fca5e64b01ce',
     ),
-    'tencentcloud/tencentcloud-sdk-php' => 
+    'symfony/polyfill-mbstring' => 
     array (
-      'pretty_version' => '3.0.518',
-      'version' => '3.0.518.0',
+      'pretty_version' => 'v1.23.1',
+      'version' => '1.23.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '34cb759d16da7a67782105d05e5dcfe7eb1e3c4c',
+      'reference' => '9174a3d80210dca8daa7f31fec659150bbeabfc6',
+    ),
+    'tencentcloud/tencentcloud-sdk-php' => 
+    array (
+      'pretty_version' => '3.0.519',
+      'version' => '3.0.519.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6bc48a35816095f823384afe3fedc5ee776f1be9',
     ),
     'theseer/tokenizer' => 
     array (
@@ -826,6 +925,24 @@ private static $installed = array (
       array (
       ),
       'reference' => '6964c76c7804814a842473e0c8fd15bab0f18e25',
+    ),
+    'xin/container' => 
+    array (
+      'pretty_version' => '2.0.1',
+      'version' => '2.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '97bb67f87dd851545938a1f2fe0ffbd379e3ff81',
+    ),
+    'xin/helper' => 
+    array (
+      'pretty_version' => '1.0.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '02a58132dae2aea2d1c0b8e66f55125969224747',
     ),
   ),
 );

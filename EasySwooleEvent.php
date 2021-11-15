@@ -10,8 +10,12 @@ use App\Process\WechatPushProcess;
 use App\Queue\SmsQueue;
 use App\Queue\UcsQueue;
 use App\Queue\WechatPushQueue;
+use App\Timer\AuthTimer;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
+use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
+use EasySwoole\FileWatcher\FileWatcher;
+use EasySwoole\FileWatcher\WatchRule;
 use EasySwoole\ORM\DbManager;
 use EasySwoole\ORM\Db\Connection;
 use EasySwoole\ORM\Db\Config;
@@ -67,5 +71,30 @@ class EasySwooleEvent implements Event
         WechatPushQueue::getInstance($driver);
         \EasySwoole\Component\Process\Manager::getInstance()->addProcess(new WechatPushProcess());
 
+
+        //系统定时任务
+        Crontab::getInstance()->addTask(\App\Crontab\SystemCrontab::class);
+
+
+        $watcher = new FileWatcher();
+        $rule = new WatchRule(EASYSWOOLE_ROOT . "/App"); // 设置监控规则和监控目录
+        $watcher->addRule($rule);
+        $watcher->setOnChange(function () {
+            Logger::getInstance()->info('file change ,reload!!!');
+            ServerManager::getInstance()->getSwooleServer()->reload();
+        });
+        $watcher->attachServer(ServerManager::getInstance()->getSwooleServer());
+        //定时器
+        $register->add(EventRegister::onWorkerStart, function (\swoole_server $server, $workerId) {
+            //如何避免定时器因为进程重启而丢失
+            //例如在第一个进程 添加一个10秒的定时器
+            if ($workerId == 0) {
+                \EasySwoole\Component\Timer::getInstance()->loop(5 * 1000, function () {
+                    // 从数据库，或者是redis中，去获取下个就近10秒内需要执行的任务
+                    info('开始扫描认证订单');
+                    AuthTimer::run();
+                });
+            }
+        });
     }
 }

@@ -7,7 +7,7 @@ use EasySwoole\Jwt\Jwt;
 
 class LoginBase extends Base
 {
-    private function GetUserId()
+    protected function GetUserId()
     {
         return $this->Get('user_id');
     }

@@ -29,7 +29,7 @@ class SmsService
     }
 
     // 短信
-    public static function TencentCloudSMS($mobile, $action, $params)
+    private static function TencentCloudSMS($mobile, $action, $params)
     {
         $template = SmsTemplate::create()->get([
             'action' => $action

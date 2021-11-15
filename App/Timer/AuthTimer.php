@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Timer;
+
+use App\Service\AuthService;
+
+class AuthTimer
+{
+    public static function run()
+    {
+        $user_auths = AuthService::SelectAllNotAuth();
+        foreach ($user_auths as $key => $value) {
+            if ($value->auth_type == "alipay") {
+                info('扫描订单' . $value->order_no);
+                AuthService::AlipayQueryForTimer($value,$value->order_out_no);
+            }
+        }
+    }
+
+}

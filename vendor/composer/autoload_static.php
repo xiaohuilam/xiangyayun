@@ -12,17 +12,33 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'd767e4fc2dc52fe66584ab8c6684783e' => __DIR__ . '/..' . '/adbario/php-dot-notation/src/helpers.php',
+        '65fec9ebcfbb3cbb4fd0d519687aea01' => __DIR__ . '/..' . '/danielstjules/stringy/src/Create.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '0d0b82117c23db94c492fee02b2ed01f' => __DIR__ . '/..' . '/songshenzong/support/src/StringsHelpers.php',
+        'd96a90b43bcdea846705672ffd4e9294' => __DIR__ . '/..' . '/songshenzong/support/src/BashEchoHelpers.php',
         '9b6dc314513b9d7378b369ea8dd75d52' => __DIR__ . '/../..' . '/App/Common/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'x' => 
+        array (
+            'xin\\helper\\' => 11,
+            'xin\\container\\' => 14,
+        ),
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'c' => 
+        array (
+            'chillerlan\\Settings\\' => 20,
+            'chillerlan\\QRCode\\' => 18,
         ),
         'W' => 
         array (
@@ -34,7 +50,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Stringy\\' => 8,
+            'Songshenzong\\Support\\' => 21,
         ),
         'P' => 
         array (
@@ -49,6 +68,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         'O' => 
         array (
             'Opis\\Closure\\' => 13,
+        ),
+        'J' => 
+        array (
+            'JmesPath\\' => 9,
         ),
         'G' => 
         array (
@@ -92,6 +115,7 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
             'EasySwoole\\HttpClient\\Test\\' => 27,
             'EasySwoole\\HttpClient\\' => 22,
             'EasySwoole\\HttpAnnotation\\' => 26,
+            'EasySwoole\\FileWatcher\\' => 23,
             'EasySwoole\\EasySwoole\\' => 22,
             'EasySwoole\\DoctrineAnnotation\\Tests\\' => 36,
             'EasySwoole\\DoctrineAnnotation\\' => 30,
@@ -118,15 +142,35 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         'A' => 
         array (
             'App\\' => 4,
+            'Alipay\\EasySDK\\' => 15,
+            'AlibabaCloud\\Tea\\FileForm\\' => 26,
+            'AlibabaCloud\\Tea\\' => 17,
+            'Adbar\\' => 6,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'xin\\helper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/xin/helper/src',
+        ),
+        'xin\\container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/xin/container/src',
+        ),
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'chillerlan\\Settings\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chillerlan/php-settings-container/src',
+        ),
+        'chillerlan\\QRCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chillerlan/php-qrcode/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -136,9 +180,21 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             0 => __DIR__ . '/..' . '/tencentcloud/tencentcloud-sdk-php/src/TencentCloud',
         ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Stringy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/danielstjules/stringy/src',
+        ),
+        'Songshenzong\\Support\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/songshenzong/support/src',
         ),
         'Psr\\SimpleCache\\' => 
         array (
@@ -172,6 +228,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         'Opis\\Closure\\' => 
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
+        ),
+        'JmesPath\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mtdowling/jmespath.php/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -309,6 +369,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             0 => __DIR__ . '/..' . '/easyswoole/http-annotation/src',
         ),
+        'EasySwoole\\FileWatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/file-watcher/src',
+        ),
         'EasySwoole\\EasySwoole\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/easyswoole/src',
@@ -377,6 +441,22 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         array (
             0 => __DIR__ . '/../..' . '/App',
             1 => __DIR__ . '/..' . '/easyswoole/easyswoole/App',
+        ),
+        'Alipay\\EasySDK\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alipaysdk/easysdk/php/src',
+        ),
+        'AlibabaCloud\\Tea\\FileForm\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alibabacloud/tea-fileform/src',
+        ),
+        'AlibabaCloud\\Tea\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alibabacloud/tea/src',
+        ),
+        'Adbar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/adbario/php-dot-notation/src',
         ),
     );
 

@@ -6,7 +6,9 @@ use App\Controller\Common\Base;
 use App\Model\WechatPushTemp;
 use App\Queue\UcsQueue;
 use App\Service\LogService;
+use App\Service\RechargeService;
 use App\Service\SmsService;
+use App\Service\UcsService;
 use App\Service\UserService;
 use App\Service\WechatService;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
@@ -18,9 +20,17 @@ class Api extends Base
 {
     public function test()
     {
-        if (UcsJob(['status' => true])) {
-            $this->Success();
-        }
+        WechatService:: SendToManagerError('服务器异常', "您的127.0.0.1服务器有问题!", "请及时处理!", "http://www.baidu.com");
+//        $url = RechargeService::Alipay();
+//        return $this->Success('1', $url);
+//        if (UcsJob(['status' => true])) {
+//            $this->Success();
+//        }
+    }
+
+    public function start()
+    {
+        UcsService::Start(1);
     }
 
 
@@ -133,7 +143,7 @@ class Api extends Base
         $VCode = new \EasySwoole\VerifyCode\VerifyCode($config);
         $drawCode = $VCode->DrawCode();
         $this->Set('img_code', $drawCode->getImageCode());
-        return $this->JsonImage($drawCode->getImageByte());
+        return $this->WriteImage($drawCode->getImageByte());
     }
 
 
@@ -179,7 +189,7 @@ class Api extends Base
             $sms_code = 100000;
             $this->Set('sms_code', $sms_code);
             if ($user && $user->wx_openid) {
-                WechatService::SendCode($user->id, $user->wx_openid, '登录会员中心', $sms_code, '5分钟', 'http://upy.cn/');
+                WechatService::SendCode($user->id, '登录会员中心', $sms_code, '5分钟', 'http://upy.cn/');
                 return $this->Success('发送微信消息成功!');
             }
 
@@ -198,23 +208,6 @@ class Api extends Base
     public function test_wechat()
     {
         WechatService::SendPayNotify(1, 'otbIy0R2VgjMxNwBntbVMYgCfwus', 1000, 111);
-    }
-
-    public function test_pay()
-    {
-        WechatPushJob([
-            'open_id' => 'otbIy0R2VgjMxNwBntbVMYgCfwus',
-            'params' => [
-                'first' => '您有一笔订单需要支付',
-                'keyword1' => 'PC端发起',
-                'keyword2' => '支付宝',
-                'keyword3' => ['10001', '#F00'],
-                'keyword4' => ['100.00元', '#F00'],
-                'remark' => '您可以点击查看详情或直接支付该笔订单',
-            ],
-            'action' => 'pay_notify',
-            'url' => 'https://upy.cn/user',
-        ]);
     }
 
     public function test_loadtemplate()
