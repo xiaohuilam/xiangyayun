@@ -3,6 +3,7 @@
 namespace App\Process;
 
 use App\Queue\UcsQueue;
+use App\Service\UcsService;
 use EasySwoole\Component\Process\AbstractProcess;
 use EasySwoole\Queue\Job;
 use EasySwoole\Queue\Queue;
@@ -15,7 +16,9 @@ class UcsProcess extends AbstractProcess
             info('监听UCS队列成功');
             UcsQueue::getInstance()->consumer()->listen(function (Job $job) {
                 info('接到UCS队列');
-                var_dump($job->getJobData());
+                $data = $job->getJobData();
+                var_dump($data);
+                UcsService::SendAction($data['instance_id'], $data['params']);
             });
         });
     }

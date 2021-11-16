@@ -131,6 +131,7 @@ class Base extends AnnotationController
         }
 
         $this->JsonWrite($d);
+        return false;
     }
 
     protected function Success($message = null, $data = null, $redirect = null)

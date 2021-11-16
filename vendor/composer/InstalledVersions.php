@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '54e31248e6d48696b5a68ba6233396c1fc6f8546',
+    'reference' => 'bde825318f4c4f77bb16cddeef9790b4490c05f1',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '54e31248e6d48696b5a68ba6233396c1fc6f8546',
+      'reference' => 'bde825318f4c4f77bb16cddeef9790b4490c05f1',
     ),
     'adbario/php-dot-notation' => 
     array (
@@ -901,12 +901,12 @@ private static $installed = array (
     ),
     'tencentcloud/tencentcloud-sdk-php' => 
     array (
-      'pretty_version' => '3.0.519',
-      'version' => '3.0.519.0',
+      'pretty_version' => '3.0.520',
+      'version' => '3.0.520.0',
       'aliases' => 
       array (
       ),
-      'reference' => '6bc48a35816095f823384afe3fedc5ee776f1be9',
+      'reference' => '0c24fd3a0f049e172f063773e7ded59e14e95236',
     ),
     'theseer/tokenizer' => 
     array (

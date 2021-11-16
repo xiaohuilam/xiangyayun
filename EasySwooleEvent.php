@@ -11,6 +11,7 @@ use App\Queue\SmsQueue;
 use App\Queue\UcsQueue;
 use App\Queue\WechatPushQueue;
 use App\Timer\AuthTimer;
+use App\Timer\UcsTimer;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
@@ -91,8 +92,13 @@ class EasySwooleEvent implements Event
             if ($workerId == 0) {
                 \EasySwoole\Component\Timer::getInstance()->loop(5 * 1000, function () {
                     // 从数据库，或者是redis中，去获取下个就近10秒内需要执行的任务
-                    info('开始扫描认证订单');
+                    info('开始扫描支付宝认证订单');
                     AuthTimer::run();
+                });
+                \EasySwoole\Component\Timer::getInstance()->loop(5 * 1000, function () {
+                    // 从数据库，或者是redis中，去获取下个就近10秒内需要执行的任务
+                    info('开始扫描UCS实例,进行一系列操作');
+                    UcsTimer::run();
                 });
             }
         });

@@ -21,6 +21,12 @@ if (!function_exists('info')) {
         \EasySwoole\EasySwoole\Logger::getInstance()->log($message, \EasySwoole\Log\LoggerInterface::LOG_LEVEL_INFO, 'info');
     }
 }
+if (!function_exists('error')) {
+    function error($message)
+    {
+        \EasySwoole\EasySwoole\Logger::getInstance()->log($message, \EasySwoole\Log\LoggerInterface::LOG_LEVEL_ERROR, 'error');
+    }
+}
 
 if (!function_exists('UcsJob')) {
     function UcsJob($data)

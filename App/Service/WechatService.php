@@ -115,7 +115,7 @@ class WechatService
                     'remark' => $remark,
                 ],
                 'action' => 'error',
-                'url' => $url,
+                'url' => config('SYSTEM.APP_URL') . $url,
             ]);
         }
     }

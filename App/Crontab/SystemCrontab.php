@@ -32,6 +32,7 @@ class SystemCrontab extends AbstractCronTask
 
     public function onException(\Throwable $throwable, int $taskId, int $workerIndex)
     {
+        error($throwable->getMessage());
         // 捕获run方法内所抛出的异常
     }
 }

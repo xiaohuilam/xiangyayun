@@ -21,6 +21,7 @@ class LoginBase extends Base
                 return true;
             }
         }
+        $this->Error('请登录', null, '/user/login');
         return false;
     }
 
