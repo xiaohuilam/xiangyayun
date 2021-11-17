@@ -10,7 +10,7 @@ class RechargeService
     private static function WechatConfig()
     {
         $config = config('PAY.WECHAT');
-        $wechatConfig = new \EasySwoole\Pay\Wechat\Config();
+        $wechatConfig = new \EasySwoole\Pay\WeChat\Config();
         $wechatConfig->setAppId($config['APP_ID']);      // 除了小程序以外使用该APPID
         $wechatConfig->setMiniAppId($config['MINI_APP_ID']);  // 小程序使用该APPID
         $wechatConfig->setMchId($config['MCH_ID']);
