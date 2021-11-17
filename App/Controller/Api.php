@@ -8,6 +8,7 @@ use App\Queue\UcsQueue;
 use App\Service\LogService;
 use App\Service\QrcodeService;
 use App\Service\RechargeService;
+use App\Service\RedisService;
 use App\Service\SmsService;
 use App\Service\UcsService;
 use App\Service\UserService;
@@ -35,14 +36,26 @@ class Api extends Base
     }
 
     //二维码登录
-    public function qrcode_login()
+    public function wx_qrcode_login()
     {
-        $data = WechatService::GetQrcode("LOGIN");
+        $data = WechatService::GetQrcode("QRCODE_LOGIN");
+
         $byte = QrcodeService::Qrcode($data['url']);
         //服务端获取EventKey
-
+        $Ticket = $data['Ticket'];
+        $this->Set('ticket', $Ticket);
+        RedisService::Set($Ticket, 0);
         return $this->ImageWrite($byte);
-        //return $this->Success('', $data);
+    }
+
+    public function wx_qrcode_status()
+    {
+        //状态
+        $ticket = $this->Get('ticket');
+        $user_id = RedisService::Get($ticket);
+        if ($user_id) {
+            return $this->Success('微信登录成功!');
+        }
     }
 
     /**

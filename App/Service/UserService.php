@@ -50,6 +50,13 @@ class UserService
         ]);
     }
 
+    public static function FindByWxOpenId($wx_openid)
+    {
+        return User::create()->get([
+            'wx_openid' => $wx_openid
+        ]);
+    }
+
     //用户充值
     public static function Recharge($user_id, $amount, $action)
     {

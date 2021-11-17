@@ -99,6 +99,15 @@ class WechatService
         }
     }
 
+    private static function FindByOpenId($open_id)
+    {
+
+    }
+
+    private static function QrcodeLogin($open_id, $ticket)
+    {
+    }
+
     public static function MessageServer()
     {
         $officialAccount = Factory::officialAccount(config('WECHAT'));
@@ -107,10 +116,17 @@ class WechatService
             var_dump($message);
             $data = $message->transformForJsonRequest();
             var_dump($data);
-            var_dump($data['Ticket']);
             switch ($message->getType()) {
                 case 'event':
                     $text = '收到事件消息';
+                    if ($data['EventKey'] == "QRCODE_LOGIN") {
+                        $wx_openid = $data['FromUserName'];
+                        $user = UserService::FindByWxOpenId($wx_openid);
+                        if ($user) {
+                            RedisService::Set($data['Ticket'], $user->id);
+                            $text = "扫码登录成功!";
+                        }
+                    }
                     break;
                 case 'text':
                     $text = '收到文字消息';
