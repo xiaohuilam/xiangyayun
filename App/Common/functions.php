@@ -28,6 +28,15 @@ if (!function_exists('error')) {
     }
 }
 
+if (!function_exists('EmailJob')) {
+    function EmailJob($data)
+    {
+        $job = new EasySwoole\Queue\Job();
+        $job->setJobData($data);
+        return App\Queue\EmailQueue::getInstance()->producer()->push($job);
+    }
+}
+
 if (!function_exists('UcsJob')) {
     function UcsJob($data)
     {

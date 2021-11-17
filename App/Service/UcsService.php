@@ -56,10 +56,44 @@ class UcsService
         return UcsSystem::create()->get(['id' => $system_id]);
     }
 
-    public static function GetPrice($plan_id, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $count)
+    public static function FindUcsPlanById($plan_id)
+    {
+        return UcsPlan::create()->get([
+            "id" => $plan_id
+        ]);
+    }
+
+    public static function FindUcsPlanByUcsInstance($ucs_instance)
+    {
+
+        return UcsPlan::create()->get([
+            'cpu' => $ucs_instance->cpu,
+            'memory' => $ucs_instance->memory,
+            'ucs_region_id' => $ucs_instance->ucs_region_id,
+        ]);
+    }
+
+    public static function GetReNewPrice($instance_id, $time_type, $time_length,)
+    {
+        //找到实例
+        $ucs_instance = self::FindUcsInstanceById($instance_id);
+        //判断是否为固定价格续费
+        if ($ucs_instance->renew_type == 1) {
+            return $ucs_instance->renew_price;
+        }
+        //非固定价格续费,开始计算价格
+
+        $harddisk = [];
+        self::FindUcsStorageRalationByUcsInstanceId($instance_id)->toArray();
+        $ucs_plan = self::FindUcsPlanByUcsInstance($ucs_instance);
+        $ip_number = 1;
+        $price = self::GetPrice($ucs_plan, $harddisk, $ucs_instance->bandwidth, $ip_number, $time_type, $time_length, 1);
+        return $price['total'];
+    }
+
+    public static function GetPrice($ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $count)
     {
         //bandwidth基础带宽
-        $ucs_plan = UcsPlan::create()->get(['id' => $plan_id]);
         $price = [];
         $plan_price = match ($time_type) {
             "day" => $ucs_plan->price_day * $time_length,
@@ -115,11 +149,6 @@ class UcsService
         return $price;
     }
 
-    public static function GetUcsPlan($plan_id)
-    {
-        return UcsPlan::create()->get(['id' => $plan_id]);
-    }
-
     public static function GetQueueMaster($ucs_plan)
     {
 
@@ -149,10 +178,6 @@ class UcsService
         return null;
     }
 
-    public static function CheckIP()
-    {
-
-    }
 
     public static function GetEnableIP($ucs_region_id, $ip_number)
     {
@@ -183,7 +208,7 @@ class UcsService
         $master->update();
 
         //创建UCS实例数据
-        $instance_id = UcsInstance::create([
+        $instance = UcsInstance::create([
             'user_id' => $user_id,
             'ucs_region_id' => $ucs_plan->ucs_region_id,
             'ucs_master_id' => $master->id,
@@ -201,14 +226,15 @@ class UcsService
             'vnc_port' => '59000',
             'public_mac' => 'public_mac',
             'private_mac' => 'private_mac',
-        ])->save();
+        ]);
+        $instance->save();
 
 
         //修改IP地址状态为已占用,并且给实例
         $ip_address = self::GetEnableIP($ucs_plan->ucs_region_id, $ip_number);
         foreach ($ip_address as $key => $value) {
             $value->occ_status = 1;
-            $value->ucs_instance_id = $instance_id;
+            $value->ucs_instance_id = $instance->id;
             $value->update();
         }
 
@@ -227,16 +253,15 @@ class UcsService
                 default => "",
             };
             UcsStorageRalation::create([
-                'ucs_instance_id' => $instance_id,
+                'ucs_instance_id' => $instance->id,
                 'ucs_storage_plan_id' => $v['ucs_storage_plan_id'],
                 'type' => $v['type'],
                 'iops' => $ucs_storage_plan->iops,
                 'path' => $path,
             ])->save();
         }
-        self::CreateAction($instance_id);
-
-        return true;
+        self::CreateAction($instance->id);
+        return $instance;
     }
 
     //发送操作至服务器

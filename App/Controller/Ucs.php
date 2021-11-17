@@ -46,7 +46,8 @@ class Ucs extends LoginBase
         $time_type = $this->GetParam('time_type');
         $time_length = $this->GetParam('time_length');
         $count = $this->GetParam('count');
-        $price = UcsService::GetPrice($plan_id, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $count);
+        $ucs_plan = UcsService::FindUcsPlanById($plan_id);
+        $price = UcsService::GetPrice($ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $count);
         return $this->Success('计算价格成功!', $price);
     }
 
@@ -101,7 +102,16 @@ class Ucs extends LoginBase
      */
     public function renew()
     {
-
+        //续费
+        $instance_id = $this->GetParam('instance_id');
+        if ($this->CheckIsMine($instance_id)) {
+            $price = UcsService::GetReNewPrice($instance_id);
+            if ($price > 0) {
+                //
+                $user_id = $this->GetUserId();
+                UserService::Consume($user_id, $price, '服务器续费');
+            }
+        }
     }
 
     /**
@@ -121,7 +131,7 @@ class Ucs extends LoginBase
         //创建实例
         $system_id = $this->GetParam('system_id');
         $plan_id = $this->GetParam('plan_id');
-        $ucs_plan = UcsService::GetUcsPlan($plan_id);
+        $ucs_plan = UcsService::FindUcsPlanById($plan_id);
         if (!$ucs_plan) {
             return $this->Error('套餐不存在!');
         }
@@ -168,7 +178,8 @@ class Ucs extends LoginBase
             WechatService::SendToManagerError('UCS_IP资源不足', 'UCS线路IP资源不足,请尽快添加资源!', '请尽快处理', '/admin/');
             return $this->Error('资源不足!');
         }
-        $price = UcsService::GetPrice($plan_id, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $count);
+
+        $price = UcsService::GetPrice($ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $count);
         //检查自己是否能够买得起
         $amount = $price['total'];
         if ($amount < 0) {
@@ -189,10 +200,13 @@ class Ucs extends LoginBase
                 WechatService::SendToManagerError('UCS_MASTER资源不足', 'UCS宿主机资源不足,请尽快添加资源!', '请尽快处理', '/admin/');
                 return $this->Error('资源不足!');
             }
-            $flag = UserService::Consume($user_id, $price['instance_price'], '购买云服务器');
-            if ($flag) {
+            $user_finance = UserService::Consume($user_id, $price['instance_price'], '购买云服务器', 'ucs', 0);
+            if ($user_finance) {
                 //消费成功
-                UcsService::CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length);
+                $user_instance = UcsService::CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length);
+                //更新订单中的实例ID
+                $user_finance->instance_id = $user_instance->id;
+                $user_finance->update();
             } else {
                 return $this->Error('消费异常');
             }

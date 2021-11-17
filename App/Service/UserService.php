@@ -3,7 +3,7 @@
 namespace App\Service;
 
 use App\Model\User;
-use App\Model\UserConsume;
+use App\Model\UserFinance;
 use EasySwoole\Mysqli\QueryBuilder;
 use mysql_xdevapi\SqlStatement;
 
@@ -74,7 +74,7 @@ class UserService
             return false;
         }
 
-        $user_consume = UserConsume::create([
+        $user_consume = UserFinance::create([
             'user_id' => $user_id,
             'create_time' => date('Y-m-d H:i:s'),
             'action' => $action,
@@ -93,17 +93,19 @@ class UserService
     }
 
     //消费金额
-    public static function Consume($user_id, $amount, $action)
+    public static function Consume($user_id, $amount, $action, $type, $instance_id)
     {
         $user = User::create()->get(['id' => $user_id]);
         if ((!$user) || $amount < 1 || $amount > $user->balance) {
             return false;
         }
-        $user_consume = UserConsume::create([
+        $user_consume = UserFinance::create([
             'user_id' => $user_id,
             'create_time' => date('Y-m-d H:i:s'),
             'action' => $action,
             'amount' => $amount,
+            'type' => $type,
+            'instance_id' => $instance_id,
             'balance' => $user->balance,
         ]);
         $user_consume->save();
@@ -112,9 +114,8 @@ class UserService
                 'balance' => QueryBuilder::dec($amount)
             ])) {
                 //消费成功
-                return true;
             }
         }
-        return false;
+        return $user_consume;
     }
 }

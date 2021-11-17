@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Controller\Common\Base;
 use App\Model\WechatPushTemp;
 use App\Queue\UcsQueue;
+use App\Service\EmailService;
 use App\Service\LogService;
 use App\Service\QrcodeService;
 use App\Service\RechargeService;
@@ -255,6 +256,11 @@ class Api extends Base
     public function test_loadtemplate()
     {
         WechatService::LoadMessageTemplate();
+    }
+
+    public function test_email()
+    {
+        EmailService::SendEmailJob("1015653737@qq.com", "test", ["aa" => "111"]);
     }
 
     public function test_sms()

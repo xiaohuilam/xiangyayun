@@ -32,10 +32,10 @@ return [
     "CLOUD" => [
         "EMAIL" => [
             "HOST" => "smtp.qq.com",
-            "PORT" => "443",
-            "SSL" => true,
-            "USERNAME" => "Admin1314",
-            "PASSWORD" => "admin1314",
+            "PORT" => "25",
+            "SSL" => false,
+            "USERNAME" => "1015653737@qq.com",
+            "PASSWORD" => "pdjmwfyquvcjbcfh",
             "FROM" => "1015653737@qq.com"
         ],
         "SYSTEM" => [
