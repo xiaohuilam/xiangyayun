@@ -135,7 +135,7 @@ class RechargeService
     public static function WechatNotify($param)
     {
         $pay = new \EasySwoole\Pay\Pay();
-        $data = $pay->weChat(self::WechatConfig())->verify($param);
+        return $pay->weChat(self::WechatConfig())->verify($param);
     }
 
     public static function AlipayNotify($param)
