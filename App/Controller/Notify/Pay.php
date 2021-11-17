@@ -32,6 +32,6 @@ class Pay extends Base
         } catch (\EasySwoole\Pay\Exceptions\InvalidArgumentException $e) {
             error('微信支付验签失败!');
         }
-        $this->TextWrite(\EasySwoole\Pay\AliPay\AliPay::success());
+        $this->TextWrite(\EasySwoole\Pay\WeChat\WeChat::success());
     }
 }
