@@ -92,7 +92,9 @@ class RechargeService
         $user_recharge = UserRecharge::create()
             ->where('order_no', $order_no)
             ->get();
+        info("入账订单:" . json_encode($user_recharge));
         if ($user_recharge && $user_recharge->status = 0) {
+            info('找到订单');
             //存在订单，并且没有处理订单
             $user_recharge->order_out_no = $order_out_no;
             $user_recharge->status = 1;
