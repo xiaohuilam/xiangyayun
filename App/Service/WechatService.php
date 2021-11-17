@@ -105,6 +105,9 @@ class WechatService
         $server = $officialAccount->server;
         $server->push(function (\EasySwoole\WeChat\Kernel\Contracts\MessageInterface $message) {
             var_dump($message);
+            $data = $message->transformForJsonRequest();
+            var_dump($data);
+            var_dump($data['Ticket']);
             switch ($message->getType()) {
                 case 'event':
                     $text = '收到事件消息';
