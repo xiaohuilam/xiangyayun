@@ -183,6 +183,7 @@ class Base extends AnnotationController
         try {
             $token = $this->request()->getCookieParams('token');
             if (!$token) {
+                info("GetData:NULL");
                 return null;
             }
             $jwtObject = Jwt::getInstance()->setSecretKey(self::SecretKey)->decode($token);
