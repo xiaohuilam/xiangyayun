@@ -126,6 +126,7 @@ class RechargeService
         $bean->setSpbillCreateIp($ip);
         $pay = new Pay();
         $data = $pay->weChat($wechatConfig)->scan($bean);
+        WechatService::SendPayNotify($app_name, '微信支付', $user_id, $amount, $order_no);
         return $data->getCodeUrl();
     }
 
@@ -159,7 +160,7 @@ class RechargeService
 
         $res = $pay->aliPay(self::AlipayConfig())->web($order);
         // 将所有请求参数转为数组
-        WechatService::SendPayNotify($user_id);
+        WechatService::SendPayNotify($app_name, '支付宝支付', $user_id, $amount, $order_no);
         return \EasySwoole\Pay\AliPay\GateWay::NORMAL . "?" . http_build_query($res->toArray());
     }
 
