@@ -99,15 +99,6 @@ class WechatService
         }
     }
 
-    private static function FindByOpenId($open_id)
-    {
-
-    }
-
-    private static function QrcodeLogin($open_id, $ticket)
-    {
-    }
-
     public static function MessageServer()
     {
         $officialAccount = Factory::officialAccount(config('WECHAT'));
