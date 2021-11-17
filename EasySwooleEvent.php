@@ -28,9 +28,14 @@ class EasySwooleEvent implements Event
 {
     public static function initialize()
     {
+
         \EasySwoole\Component\Di::getInstance()->set(\EasySwoole\EasySwoole\SysConst::HTTP_CONTROLLER_NAMESPACE, 'App\\Controller\\');
         date_default_timezone_set('Asia/Shanghai');
-        $redisPoolConfig = \EasySwoole\RedisPool\RedisPool::getInstance()->register(new \EasySwoole\Redis\Config\RedisConfig());
+
+        $redisData = \EasySwoole\EasySwoole\Config::getInstance()->getConf('REDIS');
+        $redisConfig = new RedisConfig($redisData);
+
+        $redisPoolConfig = \EasySwoole\RedisPool\RedisPool::getInstance()->register($redisConfig);
         // 配置连接池连接数
         $redisPoolConfig->setMinObjectNum(5);
         $redisPoolConfig->setMaxObjectNum(20);
