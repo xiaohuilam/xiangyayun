@@ -145,7 +145,7 @@ class WechatService
     {
         $officialAccount = Factory::officialAccount(config('WECHAT'));
         //生成一个随机字符串
-        return $officialAccount->qrcode->temporary($token, 6 * 24 * 3600);
+        return $officialAccount->qrcode->temporary($token, 600);
     }
 
     //微信推送异常消息给管理员

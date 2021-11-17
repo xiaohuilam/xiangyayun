@@ -6,6 +6,7 @@ use App\Controller\Common\Base;
 use App\Model\WechatPushTemp;
 use App\Queue\UcsQueue;
 use App\Service\LogService;
+use App\Service\QrcodeService;
 use App\Service\RechargeService;
 use App\Service\SmsService;
 use App\Service\UcsService;
@@ -38,7 +39,9 @@ class Api extends Base
     {
         $code = "adsfdasf";
         $data = WechatService::GetQrcode($code);
-        return $this->Success('', $data);
+        $byte = QrcodeService::Qrcode($data['url']);
+        return $this->ImageWrite($byte);
+        //return $this->Success('', $data);
     }
 
     /**
