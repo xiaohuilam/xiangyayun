@@ -9,6 +9,30 @@ use mysql_xdevapi\SqlStatement;
 
 class UserService
 {
+    public static function SuccessUserAuth($user_id)
+    {
+        $user = User::create()->get(['id' => $user_id]);
+        if (!$user) {
+            return false;
+        }
+        $user->auth_status = 1;
+        return $user->update();
+    }
+
+    public static function CreateUser($username, $password, $qq, $email)
+    {
+        $user = User::create([
+            'username' => $username,
+            'password' => md5($password),
+            'create_time' => date('Y-m-d H:i:s'),
+            'qq' => $qq,
+            'email' => $email ?? $qq . "@qq.com",
+            'status' => 1,
+            'nickname' => '手机用户' . substr($username, -4)
+        ]);
+        $user->save();
+        return $user;
+    }
 
     //通过ID查询用户
     public static function FindById($user_id)

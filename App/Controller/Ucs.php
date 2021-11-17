@@ -21,6 +21,7 @@ class Ucs extends LoginBase
      * @Param(name="time_type",inArray=["day","month","year"])
      * @Param(name="time_length",integer="")
      * @Param(name="count",integer="")
+     * 计算价格
      */
     public function get_price()
     {
@@ -68,6 +69,7 @@ class Ucs extends LoginBase
 
     /**
      * @Param(name="instance_id",integer="")
+     * 关机
      */
     public function shutdown()
     {
@@ -78,8 +80,10 @@ class Ucs extends LoginBase
         }
     }
 
+
     /**
      * @Param(name="instance_id",integer="")
+     * 强制关机
      */
     public function force_shutdown()
     {
@@ -88,6 +92,16 @@ class Ucs extends LoginBase
             UcsService::ForceShutdownAction($instance_id);
             return $this->Success('成功!');
         }
+    }
+
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * 续费实例
+     */
+    public function renew()
+    {
+
     }
 
     /**
@@ -99,6 +113,7 @@ class Ucs extends LoginBase
      * @Param(name="time_length",integer="")
      * @Param(name="count",integer="")
      * @Param(name="system_id",required="")
+     * 创建实例
      */
     public function buy()
     {
@@ -121,7 +136,7 @@ class Ucs extends LoginBase
         }
         if ($ucs_region->auth_status) {
             if (!$user->auth_status) {
-                return $this->Error('本地域需实名认证,请先完成实名认证!');
+                return $this->Error('该地域需实名认证,请先完成实名认证!');
             }
         }
         $harddisk = $this->GetParam('harddisk');
@@ -133,6 +148,9 @@ class Ucs extends LoginBase
             $value = json_decode($value, true);
             if (!array_key_exists('ucs_storage_plan_id', $value)) {
                 return $this->Error('磁盘类型不能为空!');
+            }
+            if (!array_key_exists('type', $value)) {
+                return $this->Error('磁盘类别不能为空!');
             }
             if (!array_key_exists('size', $value)) {
                 return $this->Error('磁盘大小不能为空!');

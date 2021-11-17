@@ -59,6 +59,7 @@ class AuthService
         return false;
     }
 
+    //生成订单号
     private static function GetOrderNo($length = 6)
     {
         //字符组合
@@ -134,10 +135,11 @@ class AuthService
         return false;
     }
 
+    //获取15分钟未认证成功的订单
     public static function SelectAllNotAuth()
     {
         return UserAuth::create()
-            ->where('create_time', date('Y-m-d H:i:s', strtotime('-10 minutes')), '>')
+            ->where('create_time', date('Y-m-d H:i:s', strtotime('-15 minutes')), '>')
             ->where('finish_status', 0)
             ->all();
     }
@@ -149,12 +151,14 @@ class AuthService
         $result = Factory::member()->identification()->query($certify_id);
         var_dump($result);
         if ($result->passed == "T") {
-            //通过
+            //认证成功则修改用户认证状态
+            UserService::SuccessUserAuth($user_auth->user_id);
             $user_auth->finish_status = 1;
             $user_auth->update();
         }
     }
 
+    //获取支付宝配置项
     private static function GetAlipayOptions()
     {
         $options = new Config();

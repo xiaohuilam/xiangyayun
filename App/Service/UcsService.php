@@ -35,6 +35,12 @@ class UcsService
             ->all();
     }
 
+    //续费
+    public static function ReNew($instance_id)
+    {
+
+
+    }
 
     //$instance_id
     public static function FindUcsStorageRalationByUcsInstanceId($instance_id)

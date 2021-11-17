@@ -33,10 +33,16 @@ class Api extends Base
         UcsService::Start(1);
     }
 
+    //二维码登录
+    public function qrcode_login()
+    {
+
+    }
 
     /**
      * @Param(name="username",required="",lengthMin="11")
      * @Param(name="verifycode",required="",lengthMin="6")
+     * 验证码登录
      */
     public function verifycode_login()
     {
@@ -75,6 +81,7 @@ class Api extends Base
     /**
      * @Param(name="username",required="",lengthMin="11")
      * @Param(name="password",required="",lengthMin="6")
+     * 密码登录
      */
     public function password_login()
     {
@@ -114,6 +121,8 @@ class Api extends Base
      * @Param(name="username",required="",lengthMin="11")
      * @Param(name="password",required="",lengthMin="6")
      * @Param(name="sms_code",integer="",lengthMin="6")
+     * @Param(name="qq",required="",lengthMin="5")
+     * 注册
      */
     public function register()
     {
@@ -121,11 +130,20 @@ class Api extends Base
         $username = $this->GetParam('username');
         $password = $this->GetParam('password');
         $sms_code = $this->GetParam('sms_code');
-        $code = SmsService::FindCode($username, $sms_code);
+        $qq = $this->GetParam('qq');
+        $email = $this->GetParam('email');
 
-        if ($code->data) {//Verify
-
+        $code = $this->Get('sms_code');
+        if (!$code) {
+            //没有获取图形验证码就开始发短信,多半是有人搞事情
+            return $this->Error('验证码错误!');
         }
+        if ($code && $sms_code && $sms_code == $code) {//Verify
+            //不为空且验证成功
+            $user = UserService::CreateUser($username, $password, $qq, $email);
+            return $this->Success('注册成功!', $user, '/user/auth');
+        }
+        return $this->Error('验证码错误!');
     }
 
 
@@ -157,6 +175,7 @@ class Api extends Base
         $code = $this->Get('img_code');
         $code = '1111';
         if (!$code) {
+            //没有获取图形验证码就开始发短信,多半是有人搞事情
             return $this->Error('验证码错误!');
         }
         $username = $this->GetParam('username');

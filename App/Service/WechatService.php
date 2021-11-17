@@ -99,6 +99,54 @@ class WechatService
         }
     }
 
+    public static function MessageServer()
+    {
+        $officialAccount = Factory::officialAccount(config('WECHAT'));
+        $server = $officialAccount->server;
+        $server->push(function (\EasySwoole\WeChat\Kernel\Contracts\MessageInterface $message) {
+            switch ($message->getType()) {
+                case 'event':
+                    $text = '收到事件消息';
+                    break;
+                case 'text':
+                    $text = '收到文字消息';
+                    break;
+                case 'image':
+                    $text = '收到图片消息';
+                    break;
+                case 'voice':
+                    $text = '收到语音消息';
+                    break;
+                case 'video':
+                    $text = '收到视频消息';
+                    break;
+                case 'location':
+                    $text = '收到坐标消息';
+                    break;
+                case 'link':
+                    $text = '收到链接消息';
+                    break;
+                case 'file':
+                    $text = '收到文件消息';
+                    break;
+                // ... 其它消息
+                default:
+                    $text = '收到其它消息';
+                    break;
+            }
+
+            return new \EasySwoole\WeChat\Kernel\Messages\Text($text);
+        });
+        return $server;
+    }
+
+    public static function GetQrcode()
+    {
+        $officialAccount = Factory::officialAccount(config('WECHAT'));
+        //生成一个随机字符串
+        $result = $officialAccount->qrcode->temporary('foo', 6 * 24 * 3600);
+    }
+
     //微信推送异常消息给管理员
     public static function SendToManagerError($title, $describe, $remark, $url)
     {
