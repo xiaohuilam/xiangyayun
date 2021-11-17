@@ -23,6 +23,7 @@ class Pay extends Base
     public function wechat()
     {
         $params = $this->request()->getBody()->__toString();
+        var_dump($params);
         $data = RechargeService::WechatNotify($params);
         var_dump($data);
         if ($data) {
