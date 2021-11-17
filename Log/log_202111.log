@@ -32873,3 +32873,6 @@ Available properties: name, preHandler, type, description, from, defaultValue, a
 [2021-11-16 20:58:19][info][info]:[file change ,reload!!!]
 [2021-11-16 20:58:24][info][info]:[file change ,reload!!!]
 [2021-11-16 20:58:28][info][info]:[file change ,reload!!!]
+[2021-11-17 12:45:11][info][info]:[监听UCS队列成功]
+[2021-11-17 12:45:11][info][info]:[监听SMS队列成功]
+[2021-11-17 12:45:11][info][info]:[监听系统推送队列成功]
