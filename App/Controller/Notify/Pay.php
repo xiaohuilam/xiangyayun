@@ -24,13 +24,13 @@ class Pay extends Base
     {
         $params = $this->request()->getBody()->__toString();
         var_dump($params);
-        $data = RechargeService::WechatNotify($params);
-        var_dump($data);
-        if ($data) {
-            //验证成功
-            $order_no = $params['out_trade_no'];
-            $order_out_no = $params['trade_no'];
+        try {
+            $data = RechargeService::WechatNotify($params);
+            $order_out_no = $data->get('transaction_id');
+            $order_no = $data->get('out_trade_no');
             RechargeService::EntryAmount($order_no, $order_out_no);
+        } catch (\EasySwoole\Pay\Exceptions\InvalidArgumentException $e) {
+            error('微信支付验签失败!');
         }
         $this->TextWrite(\EasySwoole\Pay\AliPay\AliPay::success());
     }
