@@ -72,7 +72,6 @@ class WechatService
             ]);
             self::SendTemplateMessageThread($admin['wechat_open_id'], $temp->template_id, $url, $params);
         } else if ($user_id) {
-
             $user = User::create()->get(['id' => $user_id]);
             if ($user && $user->wx_openid) {
                 self::SendTemplateMessageThread($user->wx_openid, $temp->template_id, $url, $params);

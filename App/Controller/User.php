@@ -21,7 +21,6 @@ class User extends LoginBase
         $ip = $this->GetClientIP();
         $url = RechargeService::Pay($type, $amount, $user_id, $ip);
         if (!$qrcode) {
-
             return $this->Success('获取充值链接成功!', $url);
         }
         $byte = QrcodeService::Qrcode($url);
