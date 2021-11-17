@@ -4,9 +4,11 @@
 namespace EasySwoole\EasySwoole;
 
 
+use App\Process\EmailProcess;
 use App\Process\SmsProcess;
 use App\Process\UcsProcess;
 use App\Process\WechatPushProcess;
+use App\Queue\EmailQueue;
 use App\Queue\SmsQueue;
 use App\Queue\UcsQueue;
 use App\Queue\WechatPushQueue;
@@ -77,6 +79,11 @@ class EasySwooleEvent implements Event
         $driver = new \EasySwoole\Queue\Driver\RedisQueue($redisConfig, 'wechat_push_queue');
         WechatPushQueue::getInstance($driver);
         \EasySwoole\Component\Process\Manager::getInstance()->addProcess(new WechatPushProcess());
+
+
+        $driver = new \EasySwoole\Queue\Driver\RedisQueue($redisConfig, 'email_queue');
+        EmailQueue::getInstance($driver);
+        \EasySwoole\Component\Process\Manager::getInstance()->addProcess(new EmailProcess());
 
 
         //系统定时任务

@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '0dfde48a7ba81e9f680082f7b2161bf8b4c11e28',
+    'reference' => 'f7d86787f9d4b5f412187cfc501d7b5053debb9f',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '0dfde48a7ba81e9f680082f7b2161bf8b4c11e28',
+      'reference' => 'f7d86787f9d4b5f412187cfc501d7b5053debb9f',
     ),
     'adbario/php-dot-notation' => 
     array (
@@ -334,6 +334,15 @@
       array (
       ),
       'reference' => '77dfb0021823db4c3fa5c304053026d211e68339',
+    ),
+    'easyswoole/smtp' => 
+    array (
+      'pretty_version' => '2.0.1',
+      'version' => '2.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '218b8f312b8c0bd837874f036c94ba4490964b2d',
     ),
     'easyswoole/socket' => 
     array (

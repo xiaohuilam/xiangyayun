@@ -39,6 +39,7 @@ return array(
     'EasySwoole\\Spl\\Test\\' => array($vendorDir . '/easyswoole/spl/test'),
     'EasySwoole\\Spl\\' => array($vendorDir . '/easyswoole/spl/src'),
     'EasySwoole\\Socket\\' => array($vendorDir . '/easyswoole/socket/src'),
+    'EasySwoole\\Smtp\\' => array($vendorDir . '/easyswoole/smtp/src'),
     'EasySwoole\\Session\\Test\\' => array($vendorDir . '/easyswoole/session/tests'),
     'EasySwoole\\Session\\' => array($vendorDir . '/easyswoole/session/src'),
     'EasySwoole\\Redis\\' => array($vendorDir . '/easyswoole/redis/src'),

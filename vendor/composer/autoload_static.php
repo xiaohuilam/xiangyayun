@@ -94,6 +94,7 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
             'EasySwoole\\Spl\\Test\\' => 20,
             'EasySwoole\\Spl\\' => 15,
             'EasySwoole\\Socket\\' => 18,
+            'EasySwoole\\Smtp\\' => 16,
             'EasySwoole\\Session\\Test\\' => 24,
             'EasySwoole\\Session\\' => 19,
             'EasySwoole\\Redis\\' => 17,
@@ -284,6 +285,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         'EasySwoole\\Socket\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/socket/src',
+        ),
+        'EasySwoole\\Smtp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/smtp/src',
         ),
         'EasySwoole\\Session\\Test\\' => 
         array (

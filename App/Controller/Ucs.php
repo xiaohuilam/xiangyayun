@@ -185,6 +185,7 @@ class Ucs extends LoginBase
         for ($i = 0; $i < $count; $i++) {
             $master = UcsService::GetQueueMaster($ucs_plan);
             if (!$master) {
+                //发送相关警告给管理员
                 WechatService::SendToManagerError('UCS_MASTER资源不足', 'UCS宿主机资源不足,请尽快添加资源!', '请尽快处理', '/admin/');
                 return $this->Error('资源不足!');
             }

@@ -17,7 +17,8 @@
     "alipaysdk/easysdk": "^2.2",
     "easyswoole/file-watcher": "^1.0",
     "chillerlan/php-qrcode": "^4.0",
-    "easyswoole/session": "3.x"
+    "easyswoole/session": "3.x",
+    "easyswoole/smtp": "2.x"
   },
   "autoload": {
     "psr-4": {

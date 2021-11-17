@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13f71baa4b5bf473a7c04982b4bcd8ce",
+    "content-hash": "712603ca96fea0661a54ca6be1a70e41",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -2158,6 +2158,61 @@
                 "source": "https://github.com/easy-swoole/session/tree/3.0.1"
             },
             "time": "2021-01-09T03:36:48+00:00"
+        },
+        {
+            "name": "easyswoole/smtp",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easy-swoole/smtp.git",
+                "reference": "218b8f312b8c0bd837874f036c94ba4490964b2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/easy-swoole/smtp/zipball/218b8f312b8c0bd837874f036c94ba4490964b2d",
+                "reference": "218b8f312b8c0bd837874f036c94ba4490964b2d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-swoole": ">=4.4.4",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "easyswoole/swoole-ide-helper": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasySwoole\\Smtp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "RunsTp",
+                    "email": "runstp@163.com"
+                },
+                {
+                    "name": "Stitch",
+                    "email": "975975398@qq.com"
+                }
+            ],
+            "description": "EasySwoole mailer component",
+            "support": {
+                "issues": "https://github.com/easy-swoole/smtp/issues",
+                "source": "https://github.com/easy-swoole/smtp/tree/2.0.1"
+            },
+            "time": "2021-08-24T02:52:43+00:00"
         },
         {
             "name": "easyswoole/socket",

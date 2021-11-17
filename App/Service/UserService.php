@@ -57,6 +57,15 @@ class UserService
         ]);
     }
 
+    //微信绑定用户
+    public static function BindWxOpenId($user_id, $wx_openid)
+    {
+        $user = self::FindById($user_id);
+        $user->wx_openid = $wx_openid;
+        $user->update();
+        return $user;
+    }
+
     //用户充值
     public static function Recharge($user_id, $amount, $action)
     {

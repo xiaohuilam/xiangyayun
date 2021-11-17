@@ -30,6 +30,14 @@ return [
         'ignoreCategory' => []
     ],
     "CLOUD" => [
+        "EMAIL" => [
+            "HOST" => "smtp.qq.com",
+            "PORT" => "443",
+            "SSL" => true,
+            "USERNAME" => "Admin1314",
+            "PASSWORD" => "admin1314",
+            "FROM" => "1015653737@qq.com"
+        ],
         "SYSTEM" => [
             "APP_NAME" => "象牙云",
             "APP_URL" => "https://hiy.cn",

@@ -99,6 +99,27 @@ class WechatService
         }
     }
 
+    public static function QRCODE_BIND($data)
+    {
+        $wx_openid = $data['FromUserName'];
+        //把ticket保存的USERID，找到然后绑定!
+        $user_id = RedisService::Get($data['Ticket']);
+        UserService::BindWxOpenId($user_id, $wx_openid);
+        return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码绑定成功!");
+    }
+
+    public static function QRCODE_LOGIN($data)
+    {
+        $wx_openid = $data['FromUserName'];
+        $user = UserService::FindByWxOpenId($wx_openid);
+        if ($user) {
+            RedisService::Set($data['Ticket'], $user->id);
+            return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码登录成功!");
+        } else {
+            return new \EasySwoole\WeChat\Kernel\Messages\Text("未注册绑定用户!请点击此处绑定!");
+        }
+    }
+
     public static function MessageServer()
     {
         $officialAccount = Factory::officialAccount(config('WECHAT'));
@@ -109,14 +130,11 @@ class WechatService
             var_dump($data);
             switch ($message->getType()) {
                 case 'event':
-                    $text = '收到事件消息';
                     if ($data['EventKey'] == "QRCODE_LOGIN") {
-                        $wx_openid = $data['FromUserName'];
-                        $user = UserService::FindByWxOpenId($wx_openid);
-                        if ($user) {
-                            RedisService::Set($data['Ticket'], $user->id);
-                            $text = "扫码登录成功!";
-                        }
+                        return self::QRCODE_LOGIN($data);
+                    }
+                    if ($data['EventKey'] == "QRCODE_LOGIN") {
+                        return self::QRCODE_BIND($data);
                     }
                     break;
                 case 'text':
