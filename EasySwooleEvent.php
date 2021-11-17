@@ -12,6 +12,7 @@ use App\Queue\UcsQueue;
 use App\Queue\WechatPushQueue;
 use App\Timer\AuthTimer;
 use App\Timer\UcsTimer;
+use App\Tools\Session;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;

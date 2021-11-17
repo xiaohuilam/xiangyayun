@@ -16,7 +16,8 @@
     "easyswoole/http-client": "^1.5",
     "alipaysdk/easysdk": "^2.2",
     "easyswoole/file-watcher": "^1.0",
-    "chillerlan/php-qrcode": "^4.0"
+    "chillerlan/php-qrcode": "^4.0",
+    "easyswoole/session": "3.x"
   },
   "autoload": {
     "psr-4": {

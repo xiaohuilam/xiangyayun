@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'bde825318f4c4f77bb16cddeef9790b4490c05f1',
+    'reference' => '0dfde48a7ba81e9f680082f7b2161bf8b4c11e28',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'bde825318f4c4f77bb16cddeef9790b4490c05f1',
+      'reference' => '0dfde48a7ba81e9f680082f7b2161bf8b4c11e28',
     ),
     'adbario/php-dot-notation' => 
     array (
