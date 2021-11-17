@@ -36,7 +36,9 @@ class Api extends Base
     //二维码登录
     public function qrcode_login()
     {
-
+        $code = "adsfdasf";
+        $data = WechatService::GetQrcode($code);
+        return $this->Success('', $data);
     }
 
     /**

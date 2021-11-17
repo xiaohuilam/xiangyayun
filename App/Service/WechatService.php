@@ -104,6 +104,7 @@ class WechatService
         $officialAccount = Factory::officialAccount(config('WECHAT'));
         $server = $officialAccount->server;
         $server->push(function (\EasySwoole\WeChat\Kernel\Contracts\MessageInterface $message) {
+            var_dump($message);
             switch ($message->getType()) {
                 case 'event':
                     $text = '收到事件消息';
@@ -140,11 +141,11 @@ class WechatService
         return $server;
     }
 
-    public static function GetQrcode()
+    public static function GetQrcode($token)
     {
         $officialAccount = Factory::officialAccount(config('WECHAT'));
         //生成一个随机字符串
-        $result = $officialAccount->qrcode->temporary('foo', 6 * 24 * 3600);
+        return $officialAccount->qrcode->temporary($token, 6 * 24 * 3600);
     }
 
     //微信推送异常消息给管理员
