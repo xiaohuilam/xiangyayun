@@ -42,10 +42,10 @@ class Api extends Base
 
         $byte = QrcodeService::Qrcode($data['url']);
         //服务端获取EventKey
-        $Ticket = $data['Ticket'];
-        $this->Set('ticket', $Ticket);
-        var_dump($Ticket);
-        RedisService::Set($Ticket, 0);
+        $ticket = $data['ticket'];
+        $this->Set('ticket', $ticket);
+        var_dump($ticket);
+        RedisService::Set($ticket, 0);
         return $this->ImageWrite($byte);
     }
 

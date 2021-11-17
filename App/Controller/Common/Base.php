@@ -220,7 +220,7 @@ class Base extends AnnotationController
 
         $jwtObject->setData($this->data);
         $token = $jwtObject->__toString();
-        $this->response()->setCookie('token', $token);
         $this->token = $token;
+        $this->response()->setCookie('token', $this->token);
     }
 }
