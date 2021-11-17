@@ -46,13 +46,62 @@ return [
         ],
         "PAY" => [
             "WECHAT" => [
-                "APP_ID" => "",
+                "APP_ID" => "wxa94cec11d95af0e9",
                 "MINI_APP_ID" => "",
-                "MCH_ID" => "",
-                "KEY" => "",
-                "NOTIFY_URL" => "",
-                "API_CLIENT_CERT" => "",
-                "API_CLIENT_KEY" => "",
+                "MCH_ID" => "1565047471",
+                "KEY" => "JKHJKAHKJfhkhjskafhjahdsjkufhadj",
+                "NOTIFY_URL" => "https://notify.hiy.cn/notify/pay/wechat",
+                "API_CLIENT_CERT" => "-----BEGIN CERTIFICATE-----
+MIID7DCCAtSgAwIBAgIUbyRvBLMQiNJsk1OV0b34ptTMyAowDQYJKoZIhvcNAQEL
+BQAwXjELMAkGA1UEBhMCQ04xEzARBgNVBAoTClRlbnBheS5jb20xHTAbBgNVBAsT
+FFRlbnBheS5jb20gQ0EgQ2VudGVyMRswGQYDVQQDExJUZW5wYXkuY29tIFJvb3Qg
+Q0EwHhcNMjExMTE3MDQzMzU2WhcNMjYxMTE2MDQzMzU2WjB+MRMwEQYDVQQDDAox
+NTY1MDQ3NDcxMRswGQYDVQQKDBLlvq7kv6HllYbmiLfns7vnu58xKjAoBgNVBAsM
+IeWbm+W3neixoeeJmeS6keiuoeeul+aciemZkOWFrOWPuDELMAkGA1UEBgwCQ04x
+ETAPBgNVBAcMCFNoZW5aaGVuMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEA4Y5uY1OCrt2J2ihUS22sYwxgxyPMLuChun8jb9N1rOtsUizYMAy0GxYpaq8O
+0ZpYECAWMGNs1OevxP4Ye7L8InzGHE0ew4WnZ4dpMqQ+ljLR9BtTvfj8HLE4X1bD
+Gs/fmdzVz7NPJfln5cdZ/TkU16wCvAf3CDMNPydH3zm66QzC7v7psAHn9AL4k7ee
+48+1W3WNHM3cQ4InEiJeTftSHaYP4os7Jg0fUmljbqdfUjPH8/oDt0iLD1j3/sCr
+1JLNuuVKjudUAibWGhregEKe0CiwoZMrzIb2LRBDg96od/UcsjgidjWnIyXXXreb
+VbTsoJZKOE9yNx+iAdupvEBDLwIDAQABo4GBMH8wCQYDVR0TBAIwADALBgNVHQ8E
+BAMCBPAwZQYDVR0fBF4wXDBaoFigVoZUaHR0cDovL2V2Y2EuaXRydXMuY29tLmNu
+L3B1YmxpYy9pdHJ1c2NybD9DQT0xQkQ0MjIwRTUwREJDMDRCMDZBRDM5NzU0OTg0
+NkMwMUMzRThFQkQyMA0GCSqGSIb3DQEBCwUAA4IBAQCfA3CA9/Yk0onBlYC1tQx9
+dwWEdmljXslqxzOprESq/L0TTc3GLjZpQP5H8kzuBmRzbvYim9EHyrtRBWu/aqIB
+tliYylbJFs47ISm9EapaPra6p6xkThq8Q71PQKFrGczUFUiibg5zvrmXk8sIsrZb
+FV+Mdty0ltmVBIZGMH0GuzeBK/HvOCab46GyrzWpZw/4KZHQ0OheF45HwxIxcPpE
+lYg1qA1uk/b/7fksxjHa7Y4Ao2l4mzJr7e3lHHSaeQFtabY1tnkrOQzvgocHtTfc
+dgQwcoF8qHpJnuoxTUnMW+PgHRZkBsJyBYpK4T/cUY1OQVvi72JXMHQlxIBhtTUN
+-----END CERTIFICATE-----",
+                "API_CLIENT_KEY" => "-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDhjm5jU4Ku3Yna
+KFRLbaxjDGDHI8wu4KG6fyNv03Ws62xSLNgwDLQbFilqrw7RmlgQIBYwY2zU56/E
+/hh7svwifMYcTR7Dhadnh2kypD6WMtH0G1O9+PwcsThfVsMaz9+Z3NXPs08l+Wfl
+x1n9ORTXrAK8B/cIMw0/J0ffObrpDMLu/umwAef0AviTt57jz7VbdY0czdxDgicS
+Il5N+1Idpg/iizsmDR9SaWNup19SM8fz+gO3SIsPWPf+wKvUks265UqO51QCJtYa
+Gt6AQp7QKLChkyvMhvYtEEOD3qh39RyyOCJ2NacjJddet5tVtOyglko4T3I3H6IB
+26m8QEMvAgMBAAECggEBANmxMfFDZFmJD8cyLUkvbLWb+Lu6XRLRUsZAdt8y49wk
+y8Lz7SNS33FVDlwc4NyDboMBtOi2zQ8fHZGu+8pHkPloG3ytIgfrMwrEsk9iHdWw
+7tn+lfBAInM+x/2cK2nxPwmtDd8MXFN2R0SKBtxS/z64kVsRBOcw/pP5QXC8sxzA
+l6Yy29p2PiL4czt2z3+bmEvMlBCJLBvolccjBDjc82z4seycKevvKj1hUzbTKiKK
+VqevzMRpgHuIGbvhMq1Njg5E1pHXUAjZpsjPaJ0DWm3wmdPm/BsZxzpPl9scvwBv
+zTxn3dosGVwIZtrj9VI2dG6R+cgL2qrWuKCTSBls2sECgYEA/yBkeWyMDq6wYHP3
+uV2AKz0rcMfMLsUK3JBUi9FT/5i7xPXAO0h+Dg20Z4Spstlejh8WeorXi85Oam3x
+el1IfPIDYh4RbMnP0E/nOjUUNaEcFyyBPa9Q5gM3nh1+cVvFsG6wPCoptNmeTDQL
+r0Bz3eujDCSMDMEqAZJTpyDG7GkCgYEA4lQfKmKycUhW7I0VUKeyT29UQwk0Iwoc
+fsAxqeasCEBiwtVLQaAqO3SMP+RUzNfxTzFy47PrcttnKpW8NYkY9Q6tugw+jxG0
+pXQ+jCuIEajggD+olj8vSWAyvxjwvnabWX/pgutffBK0prk9EuVeCqfHUdor7243
+JYevmzQ3H9cCgYAeQF4Jk9hrqUUausWGAlM/TUqIXfiVFyI5kxejWJfoN9kT+rvn
+i6n+yps4px9kKKgwm/kTYME8P6NGtXCrvMHqptvF16DjUG7G2aKmYULbNRZanRla
+Eh66l2kR45dpo6MmT4mwKKO3YRKHIKi+CBt1FgrIVtEQdhsgApTOvXE4+QKBgE3o
+51GP6B1W6ZVEe7HoCFmP2VG6OVhWgrifMHlsDoxInbaz9dQBbohI9n6H+ykIrOi1
+/PalWMeQ/1KJeOB08UJqayNAU8isL6NFAML/uTdbCu0a/M27smtv0gg2baki6xdE
+EP4gSB5N0iISYhO/IUBJwTNMBxPEvPcOXkTvFIrBAoGAMpOaWFkA1IpwjT+FasHd
+HnuDTkhYSZg8oNTxM81qEWll/4v43yjTPGwXcDfqmMnaiYmBmGmaIHCEy/fMS0wM
+U9jfj53+kJ/dtcNYCnTrkDRGb4Gtysg/hfLLh+swagywenxpJkBGGZSlIEY+RPja
+rodnjf927gnA85Fp2eigUn8=
+-----END PRIVATE KEY-----",
             ],
             "ALIPAY" => [
                 "APP_ID" => "2021001165608852",
@@ -62,8 +111,8 @@ return [
                 "ALIPAY_CERT_PUBLIC_KEY_PATH" => "/cert/alipayCertPublicKey_RSA2.crt",//支付宝公钥证书路径
                 "ALIPAY_ROOT_CERT_PATH" => "/cert/alipayRootCert.crt",//支付宝根证书路径
                 "MERCHANT_CERT_PATH" => "/cert/appCertPublicKey_2021001165608852.crt",//商户应用公钥证书
-                "RETURN_URL" => "https://notify.hiy.cn/notify/alipay",
-                "NOTIFY_URL" => "https://www.hiy.cn/user/recharge",
+                "RETURN_URL" => "https://www.hiy.cn/user/recharge",
+                "NOTIFY_URL" => "https://notify.hiy.cn/notify/pay/alipay",
             ],
         ],
         "WECHAT" => [

@@ -4,6 +4,8 @@ namespace App\Service;
 
 use App\Model\User;
 use App\Model\UserConsume;
+use EasySwoole\Mysqli\QueryBuilder;
+use mysql_xdevapi\SqlStatement;
 
 class UserService
 {
@@ -22,6 +24,32 @@ class UserService
         return User::create()->get([
             'username' => $username
         ]);
+    }
+
+    //用户充值
+    public static function Recharge($user_id, $amount, $action)
+    {
+        $user = User::create()->get(['id' => $user_id]);
+        if ((!$user) || $amount < 0) {
+            return false;
+        }
+
+        $user_consume = UserConsume::create([
+            'user_id' => $user_id,
+            'create_time' => date('Y-m-d H:i:s'),
+            'action' => $action,
+            'amount' => $amount,
+            'balance' => $user->balance,
+        ]);
+        $user_consume->save();
+        if ($user_consume->id) {
+            if ($user->update([
+                'balance' => QueryBuilder::inc($amount)
+            ])) {
+                //消费成功
+                return true;
+            }
+        }
     }
 
     //消费金额

@@ -29,14 +29,6 @@ class Base extends AnnotationController
         $this->Set('user_id', $user_id);
     }
 
-    protected function WriteImage($byte)
-    {
-        $this->SetData();
-        $this->response()->withStatus(200);
-        $this->response()->withHeader('Content-Type', 'image/png');
-        $this->response()->write($byte);
-    }
-
     protected function actionNotFound(?string $action)
     {
         $d['code'] = 404;
@@ -156,6 +148,21 @@ class Base extends AnnotationController
         $this->response()->withStatus(200);
     }
 
+    protected function ImageWrite($byte)
+    {
+        $this->SetData();
+        $this->response()->withStatus(200);
+        $this->response()->withHeader('Content-Type', 'image/png');
+        $this->response()->write($byte);
+    }
+
+    protected function TextWrite($string)
+    {
+        $this->SetData();
+        $this->response()->withStatus(200);
+        $this->response()->withHeader('Content-Type', 'text/plain');
+        $this->response()->write($string);
+    }
 
     protected function Get($key)
     {

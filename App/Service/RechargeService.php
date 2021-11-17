@@ -3,9 +3,24 @@
 namespace App\Service;
 
 use App\Model\UserRecharge;
+use TencentCloud\Ump\V20200918\Models\Config;
 
 class RechargeService
 {
+    private static function WechatConfig()
+    {
+        $config = config('PAY.WECHAT');
+        $wechatConfig = new \EasySwoole\Pay\Wechat\Config();
+        $wechatConfig->setAppId($config['APP_ID']);      // 除了小程序以外使用该APPID
+        $wechatConfig->setMiniAppId($config['MINI_APP_ID']);  // 小程序使用该APPID
+        $wechatConfig->setMchId($config['MCH_ID']);
+        $wechatConfig->setKey($config['KEY']);
+        $wechatConfig->setNotifyUrl($config['NOTIFY_URL']);
+        $wechatConfig->setApiClientCert($config['API_CLIENT_CERT']);//客户端证书
+        $wechatConfig->setApiClientKey($config['API_CLIENT_KEY']); //客户端证书秘钥
+        return $wechatConfig;
+    }
+
     private static function AlipayConfig()
     {
         $config = config('PAY.ALIPAY');
@@ -47,7 +62,7 @@ class RechargeService
         return 'PAY' . date('YmdHis') . $randstr;
     }
 
-    public static function Pay($type, $amount, $user_id)
+    public static function Pay($type, $amount, $user_id, $ip)
     {
         $order_no = self::GetOrderNo(6);
         $recharge_id = UserRecharge::create([
@@ -58,11 +73,66 @@ class RechargeService
             'create_time' => date('Y-m-d H:i:s'),
             'status' => 0
         ])->save();
+        if (!$recharge_id) {
+            return null;
+        }
         switch ($type) {
             case "alipay":
                 return self:: Alipay($order_no, $amount, $user_id);
                 break;
+            case "wechat":
+                return self::Wechat($order_no, $amount, $user_id, $ip);
+                break;
         }
+    }
+
+    //充值成功入账
+    public static function EntryAmount($order_no, $order_out_no)
+    {
+        $user_recharge = UserRecharge::create()
+            ->where('order_no', $order_no)
+            ->get();
+        if ($user_recharge && $user_recharge->status = 0) {
+            //存在订单，并且没有处理订单
+            $user_recharge->order_out_no = $order_out_no;
+            $user_recharge->status = 1;
+            $user_recharge->finish_time = date('Y-m-d H:i:s');
+            $user_recharge->update();
+            if ($user_recharge->amount) {
+                $type = match ($user_recharge->type) {
+                    "alipay" => '支付宝',
+                    "wechat" => '微信',
+                    default => "",
+                };
+                //充值并且记录流水
+                $flag = UserService::Recharge($user_recharge->user_id, $user_recharge->amount, $type . '充值');
+                if (!$flag) {
+                    error("充值失败!订单号:" . $user_recharge->order_no . "\t金额:" . $user_recharge->amount);
+                }
+            }
+        }
+    }
+
+
+    public static function Wechat($order_no, $amount, $user_id, $ip)
+    {
+        $app_name = config('SYSTEM.APP_NAME');
+        $wechatConfig = self::WechatConfig();
+        $bean = new \EasySwoole\Pay\WeChat\RequestBean\Scan();
+        $bean->setOutTradeNo($order_no);
+        $bean->setProductId('1');
+        $bean->setBody("[" . $app_name . "]充值" . $amount . "元,会员ID:" . $user_id); // 示例商品标题(仅供参考)
+        $bean->setTotalFee($amount * 100);
+        $bean->setSpbillCreateIp($ip);
+        $pay = new Pay();
+        $data = $pay->weChat($wechatConfig)->scan($bean);
+        return $data->getCodeUrl();
+    }
+
+    public static function WechatNotify($param)
+    {
+        $pay = new \EasySwoole\Pay\Pay();
+        $data = $pay->weChat(self::WechatConfig())->verify($param);
     }
 
     public static function AlipayNotify($param)
@@ -70,8 +140,7 @@ class RechargeService
         $pay = new \EasySwoole\Pay\Pay();
         $order = new \EasySwoole\Pay\AliPay\RequestBean\NotifyRequest($param, true);
         $aliPay = $pay->aliPay(self::AlipayConfig());
-        $result = $aliPay->verify($order);
-        var_dump($result);
+        return $aliPay->verify($order);
     }
 
     public static function Alipay($order_no, $amount, $user_id)

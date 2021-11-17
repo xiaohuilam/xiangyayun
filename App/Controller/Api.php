@@ -143,7 +143,7 @@ class Api extends Base
         $VCode = new \EasySwoole\VerifyCode\VerifyCode($config);
         $drawCode = $VCode->DrawCode();
         $this->Set('img_code', $drawCode->getImageCode());
-        return $this->WriteImage($drawCode->getImageByte());
+        return $this->ImageWrite($drawCode->getImageByte());
     }
 
 

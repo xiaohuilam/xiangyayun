@@ -16,9 +16,16 @@ class User extends LoginBase
         //充值金额 充值方式
         $type = $this->GetParam('type');
         $amount = $this->GetParam('amount');
+        $qrcode = $this->GetParam('qrcode');
         $user_id = $this->GetUserId();
-        $url = RechargeService::Pay($type, $amount, $user_id);
-        return $this->Success('获取充值链接成功!', $url);
+        $ip = $this->GetClientIP();
+        $url = RechargeService::Pay($type, $amount, $user_id, $ip);
+        if (!$qrcode) {
+
+            return $this->Success('获取充值链接成功!', $url);
+        }
+        $byte = QrcodeService::Qrcode($url);
+        return $this->ImageWrite($byte);
     }
 
     //支付宝认证初始化
@@ -53,7 +60,7 @@ class User extends LoginBase
         $order_no = $this->GetParam('order_no');
         $auth = AuthService::AlipayCertify($order_no);
         $byte = QrcodeService::Qrcode($auth);
-        $this->WriteImage($byte);
+        $this->ImageWrite($byte);
     }
 
     //认证状态查询

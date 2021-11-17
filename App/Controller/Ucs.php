@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Controller\Common\LoginBase;
 use App\Model\UcsInstance;
+use App\Model\UcsRegion;
 use App\Model\User;
 use App\Service\UcsService;
 use App\Service\UserService;
@@ -101,12 +102,27 @@ class Ucs extends LoginBase
      */
     public function buy()
     {
+
         //创建实例
         $system_id = $this->GetParam('system_id');
         $plan_id = $this->GetParam('plan_id');
         $ucs_plan = UcsService::GetUcsPlan($plan_id);
         if (!$ucs_plan) {
             return $this->Error('套餐不存在!');
+        }
+        $ucs_region = UcsRegion::create()->get(['id' => $ucs_plan->ucs_region_id]);
+        if (!$ucs_region) {
+            return $this->Error('地域不存在');
+        }
+        $user_id = $this->GetUserId();
+        $user = User::create()->get(['id' => $user_id]);
+        if (!$user) {
+            return $this->Error('用户不存在!');
+        }
+        if ($ucs_region->auth_status) {
+            if (!$user->auth_status) {
+                return $this->Error('本地域需实名认证,请先完成实名认证!');
+            }
         }
         $harddisk = $this->GetParam('harddisk');
         if (!is_array($harddisk)) {
@@ -140,7 +156,6 @@ class Ucs extends LoginBase
         if ($amount < 0) {
             return $this->Error('消费金额不能低于0元!');
         }
-        $user_id = $this->GetUserId();
         $user = User::create()->get(['id' => $user_id]);
         if ($user_id && $user) {
             return $this->Error('数据异常,请重新登录!');
