@@ -124,7 +124,7 @@ class RechargeService
         $bean->setBody("[" . $app_name . "]充值" . $amount . "元,会员ID:" . $user_id); // 示例商品标题(仅供参考)
         $bean->setTotalFee($amount * 100);
         $bean->setSpbillCreateIp($ip);
-        $pay = new Pay();
+        $pay = new \EasySwoole\Pay\Pay();
         $data = $pay->weChat($wechatConfig)->scan($bean);
         WechatService::SendPayNotify($app_name, '微信支付', $user_id, $amount, $order_no);
         return $data->getCodeUrl();
