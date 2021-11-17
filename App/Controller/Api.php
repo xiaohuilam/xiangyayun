@@ -56,6 +56,7 @@ class Api extends Base
         if ($user_id) {
             return $this->Success('微信登录成功!');
         }
+        return $this->Error('等待扫码中');
     }
 
     /**
