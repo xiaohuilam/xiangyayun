@@ -283,3 +283,4 @@
 [2021-11-18 19:00:30 $5207.0]	INFO	Server is reloading all workers now
 [2021-11-18 19:01:39 $5207.0]	INFO	Server is reloading all workers now
 [2021-11-18 19:02:00 $5207.0]	INFO	Server is reloading all workers now
+[2021-11-18 20:29:16 $5207.0]	WARNING	check_worker_exit_status: worker#2[pid=16657] abnormal exit, status=0, signal=2

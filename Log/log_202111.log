@@ -21953,3 +21953,20 @@ Stack trace:
 [2021-11-18 20:29:10][info][info]:[实例过期关机:1]
 [2021-11-18 20:29:10][info][info]:[接到UCS队列]
 [2021-11-18 20:29:10][info][info]:[发送请求给宿主机返回:]
+[2021-11-18 20:29:15][info][info]:[开始扫描UCS实例,进行一系列操作]
+[2021-11-18 20:29:15][info][info]:[开始扫描支付宝认证订单]
+[2021-11-18 20:29:15][info][info]:[实例过期关机:1]
+[2021-11-18 20:29:15][info][info]:[接到UCS队列]
+[2021-11-18 20:29:15][info][info]:[发送请求给宿主机返回:]
+[2021-11-18 20:29:16][trigger][error]:[Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9502], Error: Address already in use[98] in /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php:58
+Stack trace:
+#0 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php(58): Swoole\Server->__construct()
+#1 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Core.php(104): EasySwoole\EasySwoole\ServerManager->createSwooleServer()
+#2 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(112): EasySwoole\EasySwoole\Core->createServer()
+#3 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Server.php(52): EasySwoole\EasySwoole\Command\DefaultCommand\Server->start()
+#4 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/command/src/CommandManager.php(101): EasySwoole\EasySwoole\Command\DefaultCommand\Server->exec()
+#5 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(62): EasySwoole\Command\CommandManager->run()
+#6 /home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/bin/easyswoole(33): EasySwoole\EasySwoole\Command\CommandRunner->run()
+#7 /home/meanshare/PhpstormProjects/cloud/easyswoole(7): require('...')
+#8 {main}
+  thrown at file:/home/meanshare/PhpstormProjects/cloud/vendor/easyswoole/easyswoole/src/ServerManager.php line:58]
