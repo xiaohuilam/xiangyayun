@@ -2,15 +2,23 @@
 
 namespace App\Controller;
 
-use App\Controller\Common\LoginBase;
+use App\Controller\Common\UserLoginBase;
 use App\Service\AuthService;
 use App\Service\QrcodeService;
 use App\Service\RechargeService;
+use App\Service\RedisService;
+use App\Service\UserService;
+use App\Service\WechatService;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
-use EasySwoole\Redis\CommandHandle\Auth;
 
-class User extends LoginBase
+class User extends UserLoginBase
 {
+
+    /**
+     * @Param(name="type",required="",inArray=["wechat","alipay_pc","alipay_h5"])
+     * @Param(name="amount",money="")
+     * @Param(name="qrcode",inArray=[1,0])
+     */
     public function recharge()
     {
         //充值金额 充值方式
@@ -25,6 +33,32 @@ class User extends LoginBase
         }
         $byte = QrcodeService::Qrcode($url);
         return $this->ImageWrite($byte);
+    }
+
+    public function wx_qrcode_bind()
+    {
+        $data = WechatService::GetQrcode("QRCODE_BIND");
+        $byte = QrcodeService::Qrcode($data['url']);
+        //服务端获取EventKey
+        $ticket = $data['ticket'];
+        $this->Set('ticket', $ticket);
+        $user_id = $this->GetUserId();
+        RedisService::SetWxBindTicket($ticket, $user_id);
+        return $this->ImageWrite($byte);
+    }
+
+    public function info()
+    {
+        $user_id = $this->GetUserId();
+        if ($user_id) {
+            $user = UserService::FindById($user_id);
+            if ($user) {
+                $data['nickname'] = $user->nickname;
+                $data['username'] = $user->username;
+                return $this->Success('获取用户信息成功', $data);
+            }
+        }
+        return $this->Error('未登录');
     }
 
     //支付宝认证初始化

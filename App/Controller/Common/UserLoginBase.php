@@ -5,7 +5,7 @@ namespace App\Controller\Common;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Jwt\Jwt;
 
-class LoginBase extends Base
+class UserLoginBase extends Base
 {
     protected function GetUserId()
     {

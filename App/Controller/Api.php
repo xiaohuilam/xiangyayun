@@ -45,8 +45,7 @@ class Api extends Base
         //服务端获取EventKey
         $ticket = $data['ticket'];
         $this->Set('ticket', $ticket);
-        var_dump($ticket);
-        RedisService::Set($ticket, 0);
+        RedisService::SetWxLoginTicket($ticket, 0);
         return $this->ImageWrite($byte);
     }
 
@@ -55,7 +54,7 @@ class Api extends Base
         //状态
         $ticket = $this->Get('ticket');
         var_dump($ticket);
-        $user_id = RedisService::Get($ticket);
+        $user_id = RedisService::GetWxLoginTicket($ticket);
         var_dump($user_id);
         if ($user_id) {
             return $this->Success('微信登录成功!');

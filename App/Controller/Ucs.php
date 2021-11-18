@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Controller\Common\LoginBase;
+use App\Controller\Common\UserLoginBase;
 use App\Model\UcsInstance;
 use App\Model\UcsRegion;
 use App\Model\User;
@@ -11,7 +11,7 @@ use App\Service\UserService;
 use App\Service\WechatService;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
-class Ucs extends LoginBase
+class Ucs extends UserLoginBase
 {
     /**
      * @Param(name="plan_id",required="")
@@ -60,12 +60,12 @@ class Ucs extends LoginBase
             return $this->Error('实例不存在');
         }
         if ($instance->user_id != $user_id) {
-            return $this->Error('实例并非是您的!');
+            return $this->Error('该实例不是您的!');
         }
         if ($instance->lock_status == 1) {
             return $this->Error('实例已被锁定');
         }
-        return true;
+        return $instance;
     }
 
     /**
@@ -77,7 +77,69 @@ class Ucs extends LoginBase
         $instance_id = $this->GetParam('instance_id');
         if ($this->CheckIsMine($instance_id)) {
             UcsService::ShutdownAction($instance_id);
-            return $this->Success('成功!');
+            return $this->Success('发送关机指令成功!');
+        }
+    }
+
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * 开机
+     */
+    public function start()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        if ($this->CheckIsMine($instance_id)) {
+            UcsService::StartAction($instance_id);
+            return $this->Success('发送开机指令成功!');
+        }
+    }
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * 硬重新启动
+     */
+    public function force_restart()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        if ($this->CheckIsMine($instance_id)) {
+            UcsService::ForceReStartAction($instance_id);
+            return $this->Success('发送硬重启指令成功!');
+        }
+    }
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * 软重新启动
+     */
+    public function restart()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        if ($this->CheckIsMine($instance_id)) {
+            UcsService::ReStartAction($instance_id);
+            return $this->Success('发送软重启指令成功!');
+        }
+    }
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * @Param(name="system_id",integer="")
+     * @Param(name="password",required="",lengthMin="6")
+     * 重装系统
+     */
+    public function reset_system()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        $instance = $this->CheckIsMine($instance_id);
+        if ($instance) {
+            $system_id = $this->GetParam('system_id');
+            $system = UcsService::FindUcsSystemById($system_id);
+            if (!$system) {
+                return $this->Error('系统版本不正确!');
+            }
+            $password = $this->GetParam('password');
+            UcsService::ResetSystemAction($instance, $system, $password);
+            return $this->Success('发送重装系统指令成功!');
         }
     }
 
@@ -91,7 +153,7 @@ class Ucs extends LoginBase
         $instance_id = $this->GetParam('instance_id');
         if ($this->CheckIsMine($instance_id)) {
             UcsService::ForceShutdownAction($instance_id);
-            return $this->Success('成功!');
+            return $this->Success('发送强制关机指令成功!');
         }
     }
 
@@ -111,6 +173,58 @@ class Ucs extends LoginBase
                 $user_id = $this->GetUserId();
                 UserService::Consume($user_id, $price, '服务器续费');
             }
+        }
+    }
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * 获取实例防火墙参数
+     */
+    public function get_firewall()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        if ($this->CheckIsMine($instance_id)) {
+            $firewall_rules = UcsService::FindUcsFirewallByUcsInstanceId($instance_id);
+            return $this->Success('获取防火墙规则成功', $firewall_rules);
+        }
+    }
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * @Param(name="priority",integer="")
+     * @Param(name="action",inArray=["accept","drop","reject","continue","return"])
+     * @Param(name="direction",inArray=["in","out","full"])
+     * @Param(name="protocol",inArray=["tcp","udp","full"])
+     * @Param(name="src_port_range",required="")
+     * @Param(name="dst_port_range",required="")
+     * @Param(name="src_ip",required="")
+     * @Param(name="dst_ip",required="")
+     * 编辑实例防火墙参数
+     */
+    public function edit_firewall()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        if ($this->CheckIsMine($instance_id)) {
+            $params = [];
+            $params['id'] = $this->GetParam('id');
+            $params['priority'] = $this->GetParam('priority');
+            $params['action'] = $this->GetParam('action');
+            $params['protocol'] = $this->GetParam('protocol');
+            $params['src_port_range'] = $this->GetParam('src_port_range');
+            $params['dst_port_range'] = $this->GetParam('dst_port_range');
+            $params['src_ip'] = $this->GetParam('src_ip');
+            $params['dst_ip'] = $this->GetParam('dst_ip');
+            $flag = UcsService::EditUcsFirewall($params);
+            if ($params['id']) {
+                if ($flag) {
+                    return $this->Success('修改防火墙规则成功');
+                }
+                return $this->Error('修改防火墙规则失败');
+            }
+            if ($flag) {
+                return $this->Success('添加防火墙规则成功');
+            }
+            return $this->Error('添加防火墙规则失败');
         }
     }
 

@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'f7d86787f9d4b5f412187cfc501d7b5053debb9f',
+    'reference' => '011c187ca8b69c34485a8b3f2353ec9718c0de9f',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'f7d86787f9d4b5f412187cfc501d7b5053debb9f',
+      'reference' => '011c187ca8b69c34485a8b3f2353ec9718c0de9f',
     ),
     'adbario/php-dot-notation' => 
     array (

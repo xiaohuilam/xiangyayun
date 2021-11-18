@@ -77,8 +77,11 @@ class RechargeService
             return null;
         }
         switch ($type) {
-            case "alipay":
-                return self:: Alipay($order_no, $amount, $user_id);
+            case "alipay_pc":
+                return self:: AlipayPc($order_no, $amount, $user_id);
+                break;
+            case "alipay_h5":
+                return self:: AlipayH5($order_no, $amount, $user_id);
                 break;
             case "wechat":
                 return self::Wechat($order_no, $amount, $user_id, $ip);
@@ -148,7 +151,28 @@ class RechargeService
         return $aliPay->verify($order);
     }
 
-    public static function Alipay($order_no, $amount, $user_id)
+    public static function AlipayH5($order_no, $amount, $user_id)
+    {
+
+        $app_name = config('SYSTEM.APP_NAME');
+        $pay = new \EasySwoole\Pay\Pay();
+        ## (面向对象风格)设置请求参数 biz_content，组件自动帮你组装成对应的格式
+        $order = new \EasySwoole\Pay\AliPay\RequestBean\Wap();
+        // (必须)设置 商户订单号(商户订单号。64 个字符以内的大小，仅支持字母、数字、下划线。需保证该参数在商户端不重复。)
+        $order->setOutTradeNo($order_no); // 示例订单号(仅供参考)
+        // (必须)设置 订单总金额
+        $order->setTotalAmount($amount); // 示例订单总金额，单位：元(仅供参考)
+        // (必须)设置 商品标题/交易标题/订单标题/订单关键字等。注意：不可使用特殊字符，如 /，=，& 等。
+        $order->setSubject("[" . $app_name . "]充值" . $amount . "元,会员ID:" . $user_id); // 示例商品标题(仅供参考)
+        $order->setBody("订单编号:" . $order_no);
+
+        $res = $pay->aliPay(self::AlipayConfig())->wap($order);
+        // 将所有请求参数转为数组
+        WechatService::SendPayNotify($app_name, '支付宝H5支付', $user_id, $amount, $order_no);
+        return \EasySwoole\Pay\AliPay\GateWay::NORMAL . "?" . http_build_query($res->toArray());
+    }
+
+    public static function AlipayPc($order_no, $amount, $user_id)
     {
         $app_name = config('SYSTEM.APP_NAME');
         $pay = new \EasySwoole\Pay\Pay();
@@ -164,7 +188,7 @@ class RechargeService
 
         $res = $pay->aliPay(self::AlipayConfig())->web($order);
         // 将所有请求参数转为数组
-        WechatService::SendPayNotify($app_name, '支付宝支付', $user_id, $amount, $order_no);
+        WechatService::SendPayNotify($app_name, '支付宝PC端支付', $user_id, $amount, $order_no);
         return \EasySwoole\Pay\AliPay\GateWay::NORMAL . "?" . http_build_query($res->toArray());
     }
 

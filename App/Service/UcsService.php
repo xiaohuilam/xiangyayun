@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Model\UcsFirewall;
 use App\Model\UcsInstance;
 use App\Model\UcsIp;
 use App\Model\UcsMaster;
@@ -51,6 +52,18 @@ class UcsService
             ->all();
     }
 
+    //获取UCS列表
+    public static function SelectListPage($where, $page, $size)
+    {
+        $ucs_instances = UcsInstance::create();
+        foreach ($where as $key => $value) {
+            $ucs_instances->where($value);
+        }
+        $ucs_instances
+            ->limit($size * ($page - 1), $size)
+            ->all();
+    }
+
     public static function FindUcsSystemById($system_id)
     {
         return UcsSystem::create()->get(['id' => $system_id]);
@@ -60,6 +73,27 @@ class UcsService
     {
         return UcsPlan::create()->get([
             "id" => $plan_id
+        ]);
+    }
+
+    public static function EditUcsFirewall($params)
+    {
+        $ucs_firewall = null;
+        if (array_key_exists('id', $params)) {
+            $ucs_firewall = UcsFirewall::create()->get(['id' => $params['id']]);
+            //存在即修改
+            if ($ucs_firewall) {
+                return UcsFirewall::create()->update($params, ['id' => $params['id']]);
+            }
+            return false;
+        }
+        return UcsFirewall::create($params)->save();
+    }
+
+    public static function FindUcsFirewallByUcsInstanceId($ucs_instance_id)
+    {
+        return UcsFirewall::create()->get([
+            "ucs_instance_id" => $ucs_instance_id
         ]);
     }
 
@@ -354,6 +388,38 @@ class UcsService
         $params['action'] = 'reset_password';
         $params['password'] = $password;
         self::SendActionJob($instance_id, $params);
+    }
+
+    public static function ResetSystemAction($ucs_instance, $system, $password)
+    {
+        //修改数据库相关操作
+        $params['action'] = 'reset_system';
+        $params['password'] = $password;
+
+
+        //把数据库参数拿出来 给咱们的宿主机发过去
+        $params['vnc_port'] = $ucs_instance->vnc_port;
+
+        $params['public_mac'] = $ucs_instance->public_mac;
+        $params['private_mac'] = $ucs_instance->private_mac;
+        $params['vnc_password'] = $ucs_instance->vnc_password;
+        $params['password'] = $ucs_instance->password;
+        //获取操作系统参数
+        $params['mirror_name'] = $system->mirror_name;
+        $params['cpu'] = $ucs_instance->cpu;
+        $params['cpu_ratio'] = $ucs_instance->cpu_ratio;
+        $params['memory'] = $ucs_instance->memory;
+        $params['bandwidth'] = $ucs_instance->bandwidth;
+
+        //获取IP地址参数
+        $ucs_ip = self::SelectUcsIPByUcsInstanceId($ucs_instance->id);
+        $params['ip_address'] = $ucs_ip;
+
+        //获取磁盘相关参数
+        $harddisk = self::FindUcsStorageRalationByUcsInstanceId($ucs_instance->id);
+
+        $params['harddisk'] = $harddisk;
+        self::SendActionJob($ucs_instance->id, $params);
     }
 
     //重设服务器IP地址
