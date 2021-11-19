@@ -6,6 +6,7 @@ use App\Controller\Common\AdminLoginBase;
 use App\Service\QrcodeService;
 use App\Service\RedisService;
 use App\Service\WechatService;
+use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
 class Profile extends AdminLoginBase
 {

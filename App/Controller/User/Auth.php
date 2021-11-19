@@ -5,6 +5,7 @@ namespace App\Controller\User;
 use App\Controller\Common\UserLoginBase;
 use App\Service\AuthService;
 use App\Service\QrcodeService;
+use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
 class Auth extends UserLoginBase
 {

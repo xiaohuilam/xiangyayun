@@ -9,6 +9,7 @@ use App\Service\UserLogService;
 use App\Service\UserService;
 use App\Service\WechatService;
 use EasySwoole\VerifyCode\Conf;
+use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
 class Api extends Base
 {

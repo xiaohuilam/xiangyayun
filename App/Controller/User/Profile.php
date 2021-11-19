@@ -7,6 +7,7 @@ use App\Service\QrcodeService;
 use App\Service\RedisService;
 use App\Service\UserService;
 use App\Service\WechatService;
+use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
 class Profile extends UserLoginBase
 {

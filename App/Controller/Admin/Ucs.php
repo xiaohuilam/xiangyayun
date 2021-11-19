@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\Common\AdminAuthBase;
 use App\Service\UcsService;
+use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
 class Ucs extends AdminAuthBase
 {
