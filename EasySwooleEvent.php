@@ -20,6 +20,8 @@ use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\FileWatcher\FileWatcher;
 use EasySwoole\FileWatcher\WatchRule;
+use EasySwoole\Http\Request;
+use EasySwoole\Http\Response;
 use EasySwoole\ORM\DbManager;
 use EasySwoole\ORM\Db\Connection;
 use EasySwoole\ORM\Db\Config;
@@ -35,6 +37,19 @@ class EasySwooleEvent implements Event
         \EasySwoole\Component\Di::getInstance()->set(\EasySwoole\EasySwoole\SysConst::HTTP_CONTROLLER_NAMESPACE, 'App\\Controller\\');
         date_default_timezone_set('Asia/Shanghai');
 
+
+        \EasySwoole\Component\Di::getInstance()->set(\EasySwoole\EasySwoole\SysConst::HTTP_GLOBAL_ON_REQUEST, function (Request $request, Response $response) {
+            // 获取 header 中 language 参数
+            $response->withHeader('Access-Control-Allow-Origin', '*');
+            $response->withHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+            $response->withHeader('Access-Control-Allow-Credentials', 'true');
+            $response->withHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With ,Token');
+            if ($request->getMethod() === 'OPTIONS') {
+                $response->withStatus(\EasySwoole\Http\Message\Status::CODE_OK);
+                return false;
+            }
+            return true;
+        });
         $redisData = \EasySwoole\EasySwoole\Config::getInstance()->getConf('REDIS');
         $redisConfig = new RedisConfig($redisData);
 
