@@ -186,7 +186,7 @@ class Base extends AnnotationController
     protected function GetData()
     {
         try {
-            $token = $this->request()->getCookieParams('token');
+            $token = $this->request()->getHeaderLine('token');
             if (!$token) {
                 info("GetData:NULL");
                 return null;
@@ -227,6 +227,7 @@ class Base extends AnnotationController
         $jwtObject->setData($this->data);
         $token = $jwtObject->__toString();
         $this->token = $token;
+        $this->response()->withHeader("token", $this->token);
         $this->response()->setCookie('token', $this->token);
     }
 }
