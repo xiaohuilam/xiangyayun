@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 use App\Controller\Common\UserLoginBase;
 use App\Model\UcsInstance;

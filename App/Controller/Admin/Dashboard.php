@@ -8,7 +8,6 @@ class Dashboard extends AdminAuthBase
 {
     public function index()
     {
-
         return $this->Success();
     }
 }

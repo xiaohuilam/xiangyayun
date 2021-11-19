@@ -14,6 +14,7 @@ use App\Model\UcsSystem;
 
 class UcsService
 {
+    //根据实例ID查找实例
     public static function FindUcsInstanceById($instance_id)
     {
         return UcsInstance::create()->get([
@@ -29,6 +30,7 @@ class UcsService
             ->all();
     }
 
+    //根据实例ID获取实例IP地址
     public static function SelectUcsIPByUcsInstanceId($instance_id)
     {
         return UcsIp::create()
@@ -43,7 +45,7 @@ class UcsService
 
     }
 
-    //$instance_id
+    //根据实例ID查找实例磁盘
     public static function FindUcsStorageRalationByUcsInstanceId($instance_id)
     {
         //获取相关磁盘参数
@@ -64,11 +66,13 @@ class UcsService
             ->all();
     }
 
+    //根据系统ID查找系统
     public static function FindUcsSystemById($system_id)
     {
         return UcsSystem::create()->get(['id' => $system_id]);
     }
 
+    //根据套餐ID查找套餐
     public static function FindUcsPlanById($plan_id)
     {
         return UcsPlan::create()->get([
@@ -76,6 +80,7 @@ class UcsService
         ]);
     }
 
+    //编辑实例安全组规则
     public static function EditUcsFirewall($params)
     {
         $ucs_firewall = null;
@@ -90,6 +95,7 @@ class UcsService
         return UcsFirewall::create($params)->save();
     }
 
+    //查找实例安全组规则
     public static function FindUcsFirewallByUcsInstanceId($ucs_instance_id)
     {
         return UcsFirewall::create()->get([
@@ -234,9 +240,10 @@ class UcsService
     }
 
     //$harddisk ['ucs_storage_plan_id':'1',"size":'20']
+    //创建实例
     public static function CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length)
     {
-        //宿主机
+        //宿主机,队列+1
         $master = self::GetQueueMaster($ucs_plan);
         $master->queue = 1;
         $master->update();
@@ -390,6 +397,7 @@ class UcsService
         self::SendActionJob($instance_id, $params);
     }
 
+    //重装系统
     public static function ResetSystemAction($ucs_instance, $system, $password)
     {
         //修改数据库相关操作
