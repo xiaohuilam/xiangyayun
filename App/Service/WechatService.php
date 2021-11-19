@@ -75,7 +75,7 @@ class WechatService
             $user = User::create()->get(['id' => $user_id]);
             if ($user && $user->wx_openid) {
                 self::SendTemplateMessageThread($user->wx_openid, $temp->template_id, $url, $params);
-                LogService::WechatPushLogError($user_id, $user->wx_openid, $params);
+                UserLogService::WechatPushLogSuccess($user_id, $user->wx_openid, $params);
                 return true;
             }
             return false;

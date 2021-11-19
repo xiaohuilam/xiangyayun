@@ -11,4 +11,17 @@ class AdminService
         return Admin::create()->get(['username' => $username]);
     }
 
+    public static function FindByWxOpenId($wx_openid)
+    {
+        return Admin::create()->get(['wechat_open_id' => $wx_openid]);
+    }
+
+    public static function BindWxOpenId($admin_id, $wx_openid)
+    {
+        return Admin::create()->update([
+            'wechat_open_id' => $wx_openid
+        ], ['id' => $admin_id]);
+
+    }
+
 }

@@ -4,62 +4,74 @@ namespace App\Service;
 
 class RedisService
 {
-    public static function SetWxLoginTicket($Ticket, $user_id)
+    //登录用户的ticket
+    public static function SetWxLoginUserTicket($Ticket, $user_id)
     {
-        self::Set("LOGIN" . $Ticket, $user_id);
+        self::Set("WX_LOGIN_USER" . $Ticket, $user_id);
     }
 
-    public static function GetWxLoginTicket($Ticket)
+    //登录用户的ticket
+    public static function GetWxLoginUserTicket($Ticket)
     {
-        return self::Get("LOGIN" . $Ticket);
+        return self::Get("WX_LOGIN_USER" . $Ticket);
     }
 
-    public static function SetWxBindTicket($Ticket, $user_id)
+    //绑定用户的ticket
+    public static function SetWxBindUserTicket($Ticket, $user_id)
     {
-        self::Set("WX_BIND" . $Ticket, $user_id);
+        self::Set("WX_BIND_USER" . $Ticket, $user_id);
     }
 
-    public static function GetWxBindTicket($Ticket)
+    //绑定用户的ticket
+    public static function GetWxBindUserTicket($Ticket)
     {
-        return self::Get("WX_BIND" . $Ticket);
+        return self::Get("WX_BIND_USER" . $Ticket);
     }
 
 
+    //管理员登录的ticket
     public static function SetWxLoginAdminTicket($Ticket, $user_id)
     {
-        self::Set("LOGIN_ADMIN" . $Ticket, $user_id);
+        self::Set("WX_LOGIN_ADMIN" . $Ticket, $user_id);
     }
 
+    //管理员登录的ticket
     public static function GetWxLoginAdminTicket($Ticket)
     {
-        return self::Get("LOGIN_ADMIN" . $Ticket);
+        return self::Get("WX_LOGIN_ADMIN" . $Ticket);
     }
 
+    //管理员绑定的ticket
     public static function SetWxBindAdminTicket($Ticket, $user_id)
     {
         self::Set("WX_BIND_ADMIN" . $Ticket, $user_id);
     }
 
+    //管理员绑定的ticket
     public static function GetWxBindAdminTicket($Ticket)
     {
         return self::Get("WX_BIND_ADMIN" . $Ticket);
     }
 
+    //管理员的权限列表
     public static function SetAdminAuthGroup($admin_id, $auth_ids)
     {
         return self::Set('AdminAuthGroup.' . $admin_id, $auth_ids);
     }
 
+    //管理员的权限列表
     public static function GetAdminAuthGroup($admin_id)
     {
         return self::Get('AdminAuthGroup.' . $admin_id);
     }
 
+    //系统路由列表
     public static function GetAdminAuth()
     {
         return self::Get('AdminAuth');
     }
 
+    //系统路由列表
     public static function SetAdminAuth($admin_auth)
     {
         return self::Set('AdminAuth', $admin_auth);

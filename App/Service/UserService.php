@@ -3,7 +3,9 @@
 namespace App\Service;
 
 use App\Model\User;
+use App\Model\UserAuth;
 use App\Model\UserFinance;
+use App\Model\UserLog;
 use EasySwoole\Mysqli\QueryBuilder;
 use mysql_xdevapi\SqlStatement;
 
@@ -19,7 +21,8 @@ class UserService
         return $user->update();
     }
 
-    public static function CreateUser($username, $password, $qq, $email)
+    //创建用户并保存日志
+    public static function CreateUser($username, $password, $qq, $email, $ip, $ua)
     {
         $user = User::create([
             'username' => $username,
@@ -31,7 +34,20 @@ class UserService
             'nickname' => '手机用户' . substr($username, -4)
         ]);
         $user->save();
+        $new_params = [
+            'nickname' => $user->nickname,
+            'email' => $email,
+            'qq' => $qq,
+        ];
+        UserLogService::RegisterLog($username, $user->id, $ip, $ua, $new_params);
         return $user;
+    }
+
+    public static function FindUserAuth($user_auth_id)
+    {
+        return UserAuth::create()->get([
+            'id' => $user_auth_id
+        ]);
     }
 
     //通过ID查询用户
@@ -40,6 +56,27 @@ class UserService
         return User::create()->get([
             'id' => $user_id
         ]);
+    }
+
+    //更新用户资料
+    public static function UpdateUserInfo($user_id, $nickname, $email, $qq, $ip, $ua)
+    {
+        $user = self::FindById($user_id);
+
+        $old_params = [
+            'email' => $user->email,
+            'qq' => $user->qq,
+            'nickname' => $user->nickname,
+        ];
+        $new_params = [
+            'nickname' => $nickname,
+            'email' => $email,
+            'qq' => $qq,
+        ];
+        //记录日志
+        UserLogService::UpdateInfoLog($user_id, $user->username, $ip, $ua, $old_params, $new_params);
+        //记录日志,然后修改
+        return User::create()->update($new_params, ['id' => $user_id]);
     }
 
     //通过用户名查询用户

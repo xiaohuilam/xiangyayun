@@ -3,6 +3,7 @@
 use App\Model\BaseModel;
 use EasySwoole\ORM\DbManager;
 
+//获取自定义配置项值
 if (!function_exists('config')) {
     function config($key, $value = null)
     {
@@ -14,7 +15,7 @@ if (!function_exists('config')) {
         }
     }
 }
-
+//日志
 if (!function_exists('info')) {
     function info($message)
     {

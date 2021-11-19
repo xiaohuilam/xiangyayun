@@ -63,7 +63,7 @@ class Api extends Base
         $byte = QrcodeService::Qrcode($data['url']);
         //服务端获取EventKey
         $ticket = $data['ticket'];
-        $this->Set('ticket', $ticket);
+        $this->Set('admin.ticket', $ticket);
         RedisService::SetWxLoginAdminTicket($ticket, 0);
         return $this->ImageWrite($byte);
     }
@@ -71,7 +71,7 @@ class Api extends Base
     public function wx_qrcode_status()
     {
         //状态
-        $ticket = $this->Get('ticket');
+        $ticket = $this->Get('admin.ticket');
         var_dump($ticket);
         $user_id = RedisService::GetWxLoginAdminTicket($ticket);
         var_dump($user_id);

@@ -3,6 +3,7 @@
 namespace App\Controller\Message;
 
 use App\Controller\Common\Base;
+use App\Service\AdminService;
 use App\Service\RedisService;
 use App\Service\UserService;
 use App\Service\WechatService;
@@ -29,10 +30,14 @@ class Wechat extends Base
     private function Event($data)
     {
         switch ($data['EventKey']) {
-            case "QRCODE_LOGIN":
-                return $this->QRCODE_LOGIN($data);
-            case "QRCODE_BIND":
-                return $this->QRCODE_BIND($data);
+            case "QRCODE_USER_LOGIN":
+                return $this->QRCODE_USER_LOGIN($data);
+            case "QRCODE_USER_BIND":
+                return $this->QRCODE_USER_BIND($data);
+            case "QRCODE_ADMIN_LOGIN":
+                return $this->QRCODE_ADMIN_LOGIN($data);
+            case "QRCODE_ADMIN_BIND":
+                return $this->QRCODE_ADMIN_BIND($data);
         }
     }
 
@@ -74,22 +79,45 @@ class Wechat extends Base
     }
 
     //微信二维码绑定
-    private function QRCODE_BIND($data)
+    private function QRCODE_USER_BIND($data)
     {
         $wx_openid = $data['FromUserName'];
         //把ticket保存的USERID，找到然后绑定!
-        $user_id = RedisService::GetWxBindTicket($data['Ticket']);
+        $user_id = RedisService::GetWxBindUserTicket($data['Ticket']);
         UserService::BindWxOpenId($user_id, $wx_openid);
         return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码绑定成功!");
     }
 
     //微信二维码登录
-    private function QRCODE_LOGIN($data)
+    private function QRCODE_USER_LOGIN($data)
     {
         $wx_openid = $data['FromUserName'];
         $user = UserService::FindByWxOpenId($wx_openid);
         if ($user) {
-            RedisService::SetWxLoginTicket($data['Ticket'], $user->id);
+            RedisService::SetWxLoginUserTicket($data['Ticket'], $user->id);
+            return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码登录成功!");
+        } else {
+            return new \EasySwoole\WeChat\Kernel\Messages\Text("未注册绑定用户!请点击此处绑定!");
+        }
+    }
+
+    //微信二维码绑定
+    private function QRCODE_ADMIN_BIND($data)
+    {
+        $wx_openid = $data['FromUserName'];
+        //把ticket保存的USERID，找到然后绑定!
+        $admin_id = RedisService::GetWxBindAdminTicket($data['Ticket']);
+        AdminService::BindWxOpenId($admin_id, $wx_openid);
+        return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码绑定管理员成功!");
+    }
+
+    //微信二维码登录
+    private function QRCODE_ADMIN_LOGIN($data)
+    {
+        $wx_openid = $data['FromUserName'];
+        $admin = AdminService::FindByWxOpenId($wx_openid);
+        if ($admin) {
+            RedisService::SetWxLoginAdminTicket($data['Ticket'], $admin->id);
             return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码登录成功!");
         } else {
             return new \EasySwoole\WeChat\Kernel\Messages\Text("未注册绑定用户!请点击此处绑定!");
