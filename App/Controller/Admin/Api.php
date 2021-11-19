@@ -48,7 +48,7 @@ class Api extends Base
     /**
      * @Param(name="username",required="",lengthMin="11")
      * @Param(name="password",required="",lengthMin="6")
-     * 密码登录
+     *
      */
     public function verifycode_login()
     {

@@ -103,6 +103,7 @@ class UcsService
         ]);
     }
 
+    //根据实例查找套餐
     public static function FindUcsPlanByUcsInstance($ucs_instance)
     {
 
@@ -113,7 +114,8 @@ class UcsService
         ]);
     }
 
-    public static function GetReNewPrice($instance_id, $time_type, $time_length,)
+    //获取续费价格
+    public static function GetReNewPrice($instance_id, $time_type, $time_length)
     {
         //找到实例
         $ucs_instance = self::FindUcsInstanceById($instance_id);
@@ -124,13 +126,22 @@ class UcsService
         //非固定价格续费,开始计算价格
 
         $harddisk = [];
-        self::FindUcsStorageRalationByUcsInstanceId($instance_id)->toArray();
+        $harddisk = self::FindUcsStorageRalationByUcsInstanceId($instance_id)->toArray();
         $ucs_plan = self::FindUcsPlanByUcsInstance($ucs_instance);
-        $ip_number = 1;
+        if (!$ucs_plan) {
+            //如果套餐已经不存在了,则返回0
+            return 0;
+        }
+        $ips = self::SelectUcsIPByUcsInstanceId($instance_id);
+        if(!$ips){
+            return 0;
+        }
+        $ip_number = $ips->count();
         $price = self::GetPrice($ucs_plan, $harddisk, $ucs_instance->bandwidth, $ip_number, $time_type, $time_length, 1);
         return $price['total'];
     }
 
+    //获取价格
     public static function GetPrice($ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $count)
     {
         //bandwidth基础带宽
