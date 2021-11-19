@@ -152,6 +152,7 @@ class Base extends AnnotationController
     protected function JsonWrite($data)
     {
         $this->SetData();
+        $data['token'] = $this->token;
         $this->response()->write(json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         $this->response()->withHeader('Content-type', 'application/json;charset=utf-8');
         $this->response()->withStatus(200);
@@ -227,7 +228,5 @@ class Base extends AnnotationController
         $jwtObject->setData($this->data);
         $token = $jwtObject->__toString();
         $this->token = $token;
-        $this->response()->withHeader("token", $this->token);
-        $this->response()->setCookie('token', $this->token);
     }
 }
