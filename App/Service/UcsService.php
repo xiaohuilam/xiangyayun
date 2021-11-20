@@ -21,16 +21,27 @@ class UcsService
             'id' => $instance_id
         ]);
     }
-    public static function SelectRegion(){
+
+    public static function SelectRegion()
+    {
         return UcsRegion::create()->all();
     }
-    public static function SelectPlanByUcsRegionId($ucs_region_id){
-        return UcsPlan::create()->where('ucs_region_id',$ucs_region_id)->all();
+
+    public static function SelectSystem()
+    {
+        return UcsSystem::create()->all();
     }
-    public static function SelectStorageByUcsRegionId($ucs_region_id){
+
+    public static function SelectPlanByUcsRegionId($ucs_region_id)
+    {
+        return UcsPlan::create()->where('ucs_region_id', $ucs_region_id)->all();
+    }
+
+    public static function SelectStorageByUcsRegionId($ucs_region_id)
+    {
         return UcsStoragePlan::create()
             ->alias('a')
-            ->join('ucs_storage b','a.ucs_storage_id=b.id')
+            ->join('ucs_storage b', 'a.ucs_storage_id=b.id')
             ->where('b.ucs_region_id', $ucs_region_id)->all();
     }
 
@@ -145,7 +156,7 @@ class UcsService
             return 0;
         }
         $ips = self::SelectUcsIPByUcsInstanceId($instance_id);
-        if(!$ips){
+        if (!$ips) {
             return 0;
         }
         $ip_number = $ips->count();

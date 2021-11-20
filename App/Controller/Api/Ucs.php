@@ -18,11 +18,18 @@ class Ucs extends Base
         $data = [];
         foreach ($ucs_region as $key => $value) {
             $item = $value->toArray();
-            $item['plan'] = UcsService::SelectPlanByUcsRegionId($value->ucs_region_id);
-            $item['disk'] = UcsService::SelectStorageByUcsRegionId($value->ucs_region_id);
+            $item['plan'] = UcsService::SelectPlanByUcsRegionId($value->id);
+            $item['disk'] = UcsService::SelectStorageByUcsRegionId($value->id);
             $data[] = $item;
         }
         return $this->Success('1', $data);
+    }
+
+    public function system()
+    {
+        $data = UcsService::SelectSystem();
+        return $this->Success('', $data);
+
     }
 
     public function region()
