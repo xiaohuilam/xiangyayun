@@ -21,6 +21,14 @@ class UcsService
             'id' => $instance_id
         ]);
     }
+    public static function SelectRegion(){
+        $ucs_region =UcsRegion::create()->all();
+        return $ucs_region;
+    }
+    public static function SelectPlanByUcsRegionId($ucs_region_id){
+        $plan = UcsPlan::create()->where('ucs_region_id',$ucs_region_id)->all();
+        return $plan;
+    }
 
     //获取UCS即将过期的实例
     public static function SelectUcsInstanceBySoonExpire()
