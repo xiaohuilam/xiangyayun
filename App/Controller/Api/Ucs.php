@@ -12,13 +12,29 @@ use EasySwoole\VerifyCode\Conf;
 
 class Ucs extends Base
 {
-    public function region(){
-        $region = UcsService::SelectRegion();
-        return $this->Success('1',$region);
+    public function config()
+    {
+        $ucs_region = UcsService::SelectRegion();
+        $data = [];
+        foreach ($ucs_region as $key => $value) {
+            $item = $value->toArray();
+            $item['plan'] = UcsService::SelectPlanByUcsRegionId($value->ucs_region_id);
+            $item['disk'] = UcsService::SelectStorageByUcsRegionId($value->ucs_region_id);
+            $data[] = $item;
+        }
+        return $this->Success('1', $data);
     }
-    public function plan(){
-        $ucs_region_id=$this->GetParam('ucs_region_id');
+
+    public function region()
+    {
+        $region = UcsService::SelectRegion();
+        return $this->Success('1', $region);
+    }
+
+    public function plan()
+    {
+        $ucs_region_id = $this->GetParam('ucs_region_id');
         $plan = UcsService::SelectPlanByUcsRegionId($ucs_region_id);
-        return $this->Success('1',$plan);
+        return $this->Success('1', $plan);
     }
 }

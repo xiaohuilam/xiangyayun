@@ -22,12 +22,16 @@ class UcsService
         ]);
     }
     public static function SelectRegion(){
-        $ucs_region =UcsRegion::create()->all();
-        return $ucs_region;
+        return UcsRegion::create()->all();
     }
     public static function SelectPlanByUcsRegionId($ucs_region_id){
-        $plan = UcsPlan::create()->where('ucs_region_id',$ucs_region_id)->all();
-        return $plan;
+        return UcsPlan::create()->where('ucs_region_id',$ucs_region_id)->all();
+    }
+    public static function SelectStorageByUcsRegionId($ucs_region_id){
+        return UcsStoragePlan::create()
+            ->alias('a')
+            ->join('ucs_storage b','a.ucs_storage_id=b.id')
+            ->where('b.ucs_region_id', $ucs_region_id)->all();
     }
 
     //获取UCS即将过期的实例
