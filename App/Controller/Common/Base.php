@@ -95,12 +95,13 @@ class Base extends AnnotationController
             $this->Validate($throwable);
         } else {
             error('严重异常:' . $throwable->getMessage());
+            $this->Error('服务器异常');
         }
     }
 
     protected function Validate($throwable)
     {
-        $d['code'] = 2;
+        $d['code'] = 400;
         $d['message'] = $throwable->getMessage();
         if ($throwable) {
             $d['data'] = [
@@ -108,6 +109,22 @@ class Base extends AnnotationController
                 'error' => $throwable->getValidate()->getError()->getErrorRuleMsg(),
             ];
         }
+        $this->JsonWrite($d);
+    }
+
+    public function NotLogin($message = null, $data = null, $redirect = null)
+    {
+        $d['code'] = 401;//200 400/tip 401/Auth Expire 402 / quanxian /500
+        $d['message'] = $message ?? 'No Permission';
+        $d['token'] = $this->token;
+        $this->JsonWrite($d);
+    }
+
+    public function AuthExpire($message = null, $data = null, $redirect = null)
+    {
+        $d['code'] = 402;//200 400/tip 401/Auth Expire 402 / quanxian /500
+        $d['message'] = $message ?? 'No Permission';
+        $d['token'] = $this->token;
         $this->JsonWrite($d);
     }
 
@@ -122,7 +139,7 @@ class Base extends AnnotationController
 
     protected function Error($message = null, $data = null, $redirect = null)
     {
-        $d['code'] = 3;
+        $d['code'] = 500;
         $d['message'] = $message ?? 'Error';
         if ($data) {
             $d['data'] = $data;
@@ -137,7 +154,7 @@ class Base extends AnnotationController
 
     protected function Success($message = null, $data = null, $redirect = null)
     {
-        $d['code'] = 1;
+        $d['code'] = 200;
         $d['message'] = $message ?? 'Success';
         if ($data) {
             $d['data'] = $data;

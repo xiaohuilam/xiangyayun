@@ -13,6 +13,7 @@ use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
 class Api extends Base
 {
+
     //二维码登录
     public function wx_qrcode_login()
     {

@@ -348,9 +348,9 @@ class UcsService
         if ($ucs_master) {
             $client = new \EasySwoole\HttpClient\HttpClient($ucs_master->api);
             $aes = new AesService($ucs_master['token']);
-            $string = $aes->encrypt(json_encode($params));
-            $d['encrypt'] = $string;
-            $response = $client->postJson(json_encode($d));
+            $string = $aes->encrypt(json_encode($params['action']));
+            $params['sign'] = $string;
+            $response = $client->postJson(json_encode($params));
             $return = $response->json(true);
             info('发送请求给宿主机返回:' . $return);
         }
