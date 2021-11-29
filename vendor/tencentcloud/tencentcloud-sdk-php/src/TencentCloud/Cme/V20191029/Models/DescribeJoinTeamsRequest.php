@@ -20,19 +20,19 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeJoinTeams请求参数结构体
  *
- * @method string getPlatform() 获取平台名称，指定访问的平台。
- * @method void setPlatform(string $Platform) 设置平台名称，指定访问的平台。
+ * @method string getPlatform() 获取平台 Id，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
+ * @method void setPlatform(string $Platform) 设置平台 Id，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
  * @method string getMemberId() 获取团队成员　ID。
  * @method void setMemberId(string $MemberId) 设置团队成员　ID。
- * @method integer getOffset() 获取分页偏移量，默认值：0
- * @method void setOffset(integer $Offset) 设置分页偏移量，默认值：0
+ * @method integer getOffset() 获取分页偏移量，默认值：0。
+ * @method void setOffset(integer $Offset) 设置分页偏移量，默认值：0。
  * @method integer getLimit() 获取返回记录条数，默认值：30，最大值：30。
  * @method void setLimit(integer $Limit) 设置返回记录条数，默认值：30，最大值：30。
  */
 class DescribeJoinTeamsRequest extends AbstractModel
 {
     /**
-     * @var string 平台名称，指定访问的平台。
+     * @var string 平台 Id，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
      */
     public $Platform;
 
@@ -42,7 +42,7 @@ class DescribeJoinTeamsRequest extends AbstractModel
     public $MemberId;
 
     /**
-     * @var integer 分页偏移量，默认值：0
+     * @var integer 分页偏移量，默认值：0。
      */
     public $Offset;
 
@@ -52,9 +52,9 @@ class DescribeJoinTeamsRequest extends AbstractModel
     public $Limit;
 
     /**
-     * @param string $Platform 平台名称，指定访问的平台。
+     * @param string $Platform 平台 Id，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
      * @param string $MemberId 团队成员　ID。
-     * @param integer $Offset 分页偏移量，默认值：0
+     * @param integer $Offset 分页偏移量，默认值：0。
      * @param integer $Limit 返回记录条数，默认值：30，最大值：30。
      */
     function __construct()

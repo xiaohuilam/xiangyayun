@@ -84,9 +84,18 @@ class UcsService
         foreach ($where as $key => $value) {
             $ucs_instances->where($value);
         }
-        $ucs_instances
-            ->limit($size * ($page - 1), $size)
-            ->all();
+        $model = $ucs_instances
+            ->limit($size * ($page - 1), $size)->withTotalCount();
+
+        // 列表数据
+
+        $data['list'] = $model->all(null);
+
+        $result = $model->lastQueryResult();
+
+        // 总条数
+        $data['total'] = $result->getTotalCount();
+        return $data;
     }
 
     //根据系统ID查找系统

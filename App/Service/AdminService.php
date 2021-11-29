@@ -6,6 +6,11 @@ use App\Model\Admin;
 
 class AdminService
 {
+    public static function FindById($admin_id)
+    {
+        return Admin::create()->get(['id' => $admin_id]);
+    }
+
     public static function FindByUserName($username)
     {
         return Admin::create()->get(['username' => $username]);

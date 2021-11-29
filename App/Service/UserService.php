@@ -43,10 +43,18 @@ class UserService
         return $user;
     }
 
-    public static function FindUserAuth($user_auth_id)
+    public static function FindUserAuthByAuthId($user_auth_id)
     {
         return UserAuth::create()->get([
             'id' => $user_auth_id
+        ]);
+    }
+
+    public static function FindUserAuthByUserId($user_id)
+    {
+        return UserAuth::create()->get([
+            'user_id' => $user_id,
+            'finish_status' => 1
         ]);
     }
 
@@ -59,7 +67,7 @@ class UserService
     }
 
     //更新用户资料
-    public static function UpdateUserInfo($user_id, $nickname, $email, $qq, $ip, $ua)
+    public static function UpdateUserInfo($user_id, $nickname, $email, $qq, $wechat, $ip, $ua)
     {
         $user = self::FindById($user_id);
 
@@ -67,11 +75,13 @@ class UserService
             'email' => $user->email,
             'qq' => $user->qq,
             'nickname' => $user->nickname,
+            'wechat' => $user->wechat,
         ];
         $new_params = [
             'nickname' => $nickname,
             'email' => $email,
             'qq' => $qq,
+            'wechat' => $wechat
         ];
         //记录日志
         UserLogService::UpdateInfoLog($user_id, $user->username, $ip, $ua, $old_params, $new_params);

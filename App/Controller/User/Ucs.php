@@ -14,6 +14,20 @@ use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 class Ucs extends UserLoginBase
 {
     /**
+     * @Param(name="page",integer="")
+     * @Param(name="size",integer="")
+     */
+    public function instance_list()
+    {
+        $page = $this->GetParam('page') ?? 1;
+        $size = $this->GetParam('size') ?? 10;
+        $user_id = $this->GetUserId();
+        $where[] = ["user_id" => $user_id];
+        $data = UcsService::SelectListPage($where, $page, $size);
+        return $this->Success('获取列表成功', $data);
+    }
+
+    /**
      * @Param(name="plan_id",required="")
      * @Param(name="harddisk",required="")
      * @Param(name="bandwidth",integer="")

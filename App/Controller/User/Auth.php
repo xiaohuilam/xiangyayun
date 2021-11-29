@@ -14,18 +14,25 @@ class Auth extends UserLoginBase
     /**
      * @Param(name="cert_name",required="")
      * @Param(name="cert_number",required="",lengthMin="18",lengthMax="18")
+     * @Param(name="cert_mobile",required="",lengthMin="11",lengthMax="11")
      * 支付宝初始化信息
      */
     public function alipay_auth_init()
     {
         $cert_name = $this->GetParam('cert_name');
         $cert_number = $this->GetParam('cert_number');
+        $cert_mobile = $this->GetParam('cert_mobile');
+        var_dump($this->GetParam());
+        var_dump($cert_name);
+        $user_id = $this->GetUserId();
         if (AuthService::CheckCertNumber($cert_number)) {
             $ip = $this->GetClientIP();
             $ua = $this->GetUserAgent();
+            var_dump($ip);
+            var_dump($ua);
             $certify_id = AuthService::AlipayInit($cert_name, $cert_number);
             if ($certify_id) {
-                $user_auth = AuthService:: SaveUserAuth($cert_name, $cert_number, 'alipay', $ip, $ua, $certify_id);
+                $user_auth = AuthService:: SaveUserAuth($user_id,$cert_mobile, $cert_name, $cert_number, 'alipay', $ip, $ua, $certify_id);
                 $d['order_no'] = $user_auth->order_no;
                 return $this->Success('生成认证订单成功!', $d);
             }
@@ -56,9 +63,10 @@ class Auth extends UserLoginBase
     {
         $order_no = $this->GetParam('order_no');
         $flag = AuthService::GetStatus($order_no);
+        $data['status'] = $flag;
         if ($flag) {
-            return $this->Success('认证成功!', null, '/user/auth');
+            return $this->Success('认证成功!', $data, '/user/auth');
         }
-        return $this->Error('等待认证');
+        return $this->Success('等待认证', $data);
     }
 }

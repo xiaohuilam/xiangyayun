@@ -42,7 +42,9 @@ class Api extends Base
             return $this->Error('账号或密码错误');
         }
         $this->SetAdminId($admin->id);
-        return $this->Success('登录成功!');
+        $this->SetData();
+        $data['token'] = $this->token;
+        return $this->Success('登录成功!', $data);
     }
 
     /**

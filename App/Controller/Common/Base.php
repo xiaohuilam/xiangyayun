@@ -112,32 +112,29 @@ class Base extends AnnotationController
         $this->JsonWrite($d);
     }
 
-    public function NotLogin($message = null, $data = null, $redirect = null)
+    public function NotLogin($message = null, $data = [], $redirect = null)
     {
         $d['code'] = 401;//200 400/tip 401/Auth Expire 402 / quanxian /500
         $d['message'] = $message ?? 'No Permission';
-        $d['token'] = $this->token;
         $this->JsonWrite($d);
     }
 
-    public function AuthExpire($message = null, $data = null, $redirect = null)
+    public function AuthExpire($message = null, $data = [], $redirect = null)
     {
         $d['code'] = 402;//200 400/tip 401/Auth Expire 402 / quanxian /500
         $d['message'] = $message ?? 'No Permission';
-        $d['token'] = $this->token;
         $this->JsonWrite($d);
     }
 
 
-    public function Permission($message = null, $data = null, $redirect = null)
+    public function Permission($message = null, $data = [], $redirect = null)
     {
         $d['code'] = 403;//200 400/tip 401/Auth Expire 402 / quanxian /500
         $d['message'] = $message ?? 'No Permission';
-        $d['token'] = $this->token;
         $this->JsonWrite($d);
     }
 
-    protected function Error($message = null, $data = null, $redirect = null)
+    protected function Error($message = null, $data = [], $redirect = null)
     {
         $d['code'] = 500;
         $d['message'] = $message ?? 'Error';
@@ -152,13 +149,11 @@ class Base extends AnnotationController
         return false;
     }
 
-    protected function Success($message = null, $data = null, $redirect = null)
+    protected function Success($message = null, $data = [], $redirect = null)
     {
         $d['code'] = 200;
         $d['message'] = $message ?? 'Success';
-        if ($data) {
-            $d['data'] = $data;
-        }
+        $d['data'] = $data;
         if ($redirect) {
             $d['redirect'] = $redirect;
         }
@@ -169,7 +164,6 @@ class Base extends AnnotationController
     protected function JsonWrite($data)
     {
         $this->SetData();
-        $data['token'] = $this->token;
         $this->response()->write(json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         $this->response()->withHeader('Content-type', 'application/json;charset=utf-8');
         $this->response()->withStatus(200);
@@ -204,7 +198,7 @@ class Base extends AnnotationController
     protected function GetData()
     {
         try {
-            $token = $this->request()->getHeaderLine('token');
+            $token = $this->request()->getHeaderLine('authorization');
             if (!$token) {
                 info("GetData:NULL");
                 return null;

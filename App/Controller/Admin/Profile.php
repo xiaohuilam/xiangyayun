@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Controller\Common\AdminLoginBase;
+use App\Service\AdminAuthService;
+use App\Service\AdminService;
 use App\Service\QrcodeService;
 use App\Service\RedisService;
 use App\Service\WechatService;
@@ -14,6 +16,20 @@ class Profile extends AdminLoginBase
     public function update()
     {
 
+    }
+
+    public function router_list()
+    {
+        $admin_id = $this->GetAdminId();
+        $data = AdminAuthService::FindRouterListByAdminId($admin_id);
+        return $this->Success('', $data);
+    }
+
+    public function admin_info()
+    {
+        $admin_id = $this->GetAdminId();
+        $data = AdminService::FindById($admin_id);
+        return $this->Success('', $data);
     }
 
     //绑定微信二维码

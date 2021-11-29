@@ -30,6 +30,7 @@ class Profile extends UserLoginBase
      * @Param(name="nickname",required="",lengthMin="1",lengthMax="10")
      * @Param(name="email",required="",lengthMin="4")
      * @Param(name="qq",integer="",lengthMin="6",lengthMax="11")
+     * @Param(name="wechat",required="",lengthMin="3")
      */
     public function update()
     {
@@ -39,24 +40,59 @@ class Profile extends UserLoginBase
             return $this->Error('请输入正确的邮件地址');
         }
         $qq = $this->GetParam('qq');
+        $wechat = $this->GetParam('wechat');
         $user_id = $this->GetUserId();
         $ip = $this->GetClientIP();
         $ua = $this->GetUserAgent();
-        UserService::UpdateUserInfo($user_id, $nickname, $email, $qq, $ip, $ua);
+        UserService::UpdateUserInfo($user_id, $nickname, $email, $qq,$wechat, $ip, $ua);
+        return $this->Success('修改资料成功!');
+    }
+
+    //获取待办事项
+    public function todo_list()
+    {
+        $data = [
+            'renew' => 1,
+            'order' => 1,
+            'work_order' => 1
+        ];
+        return $this->Success('获取信息成功', $data);
+    }
+
+    //获取实名认证信息
+    public function auth_info()
+    {
+        $user_id = $this->GetUserId();
+        $data = UserService::FindUserAuthByUserId($user_id);
+        return $this->Success('', $data);
+    }
+
+    //获取第三方账号绑定列表
+    public function bind_list()
+    {
+        $data = [
+            'wechat' => 1,
+            'qq' => 1,
+            'alipay' => 1,
+            'weibo' => 1,
+            'github' => 1,
+            'paypal' => 1
+        ];
+        return $this->Success('获取信息成功', $data);
     }
 
     //获取用户信息成功
-    public function info()
+    public function user_info()
     {
         $user_id = $this->GetUserId();
         $data = [];
         $user = UserService::FindById($user_id);
         //##过滤掉不需要的字段
-        $data['user'] = $user;
-        $auth = UserService::FindUserAuth($user->auth_id);;
-        //##过滤掉不需要的字段
-        $data['auth'] = $auth;
-        return $this->Success('获取用户信息成功', $data);
+//        $auth = UserService::FindUserAuth($user->auth_id);;
+//        //##过滤掉不需要的字段
+//        $data['auth'] = $auth;
+        $user = $user->toArray();
+        return $this->Success('获取用户信息成功', $user);
     }
 
     //获取用户状态

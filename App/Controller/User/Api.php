@@ -115,7 +115,9 @@ class Api extends Base
         }
         $this->SetUserId($user->id);
         UserLogService:: LoginSuccess($user->id, $username, $ip, $ua, '登录成功');
-        return $this->Success();
+        $this->SetData();
+        $data['token'] = $this->token;
+        return $this->Success('登录成功', $data);
     }
 
     /**

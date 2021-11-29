@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Model\AdminAuthGroup;
 
 use App\Model\AdminAuth;
+use App\Model\AdminAuthMeta;
 
 class AdminAuthService
 {
@@ -27,6 +28,22 @@ class AdminAuthService
         }
         return false;
     }
+
+    public static function FindRouterListByAdminId($admin_id)
+    {
+        $auth_ids = self::FindAdminAuthGroupByAdminId($admin_id);
+        var_dump($auth_ids);
+        $auth_ids = explode(',', $auth_ids);
+        $admin_auth = AdminAuth::create()->where('id', $auth_ids, 'in')->all();
+        $data = [];
+        foreach ($admin_auth as $key => $value) {
+            $item = $value->toArray();
+            $item['meta'] = AdminAuthMeta::create()->get(['admin_auth_id' => $value->id])->toArray();
+            $data[] = $item;
+        }
+        return TreeService::GetTree($admin_auth);
+    }
+
 
     //查询管理员权限路由表
     public static function SelectAdminAuth()

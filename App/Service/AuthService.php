@@ -74,19 +74,21 @@ class AuthService
     }
 
     //保存认证信息
-    public static function SaveUserAuth($cert_name, $cert_number, $cert_type, $ip, $ua, $order_out_no)
+    public static function SaveUserAuth($user_id, $cert_mobile, $cert_name, $cert_number, $cert_type, $ip, $ua, $order_out_no)
     {
         $order_no = self::GetOrderNo();
         //开始认证
         $user_auth = UserAuth::create([
+            'user_id' => $user_id,
             'cert_name' => $cert_name,
             'cert_number' => $cert_number,
+            'cert_mobile' => $cert_mobile,
             'order_no' => $order_no,
             'order_out_no' => $order_out_no,
             'cert_type' => $cert_type,
             'create_time' => date('Y-m-d H:i:s'),
-            'ip' => $ip,
-            'ua' => $ua,
+            'create_ip' => $ip,
+            'create_ua' => $ua,
         ]);
         $user_auth->save();
         return $user_auth;
@@ -154,6 +156,7 @@ class AuthService
             //认证成功则修改用户认证状态
             UserService::SuccessUserAuth($user_auth->user_id);
             $user_auth->finish_status = 1;
+            $user_auth->finish_time = date('Y-m-d H:i:s');
             $user_auth->update();
         }
     }

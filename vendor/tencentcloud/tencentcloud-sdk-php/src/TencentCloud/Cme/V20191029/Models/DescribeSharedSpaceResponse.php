@@ -23,9 +23,7 @@ use TencentCloud\Common\AbstractModel;
  * @method integer getTotalCount() 获取查询到的共享空间总数。
  * @method void setTotalCount(integer $TotalCount) 设置查询到的共享空间总数。
  * @method array getAuthorizerSet() 获取各个共享空间对应的授权者信息。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method void setAuthorizerSet(array $AuthorizerSet) 设置各个共享空间对应的授权者信息。
-注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
@@ -38,7 +36,6 @@ class DescribeSharedSpaceResponse extends AbstractModel
 
     /**
      * @var array 各个共享空间对应的授权者信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public $AuthorizerSet;
 
@@ -50,7 +47,6 @@ class DescribeSharedSpaceResponse extends AbstractModel
     /**
      * @param integer $TotalCount 查询到的共享空间总数。
      * @param array $AuthorizerSet 各个共享空间对应的授权者信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()

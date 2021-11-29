@@ -6312,17 +6312,17 @@
         },
         {
             "name": "tencentcloud/tencentcloud-sdk-php",
-            "version": "3.0.520",
-            "version_normalized": "3.0.520.0",
+            "version": "3.0.529",
+            "version_normalized": "3.0.529.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TencentCloud/tencentcloud-sdk-php.git",
-                "reference": "0c24fd3a0f049e172f063773e7ded59e14e95236"
+                "reference": "f422cad975d2b145bd9d1510f2ed976a9c0b9993"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TencentCloud/tencentcloud-sdk-php/zipball/0c24fd3a0f049e172f063773e7ded59e14e95236",
-                "reference": "0c24fd3a0f049e172f063773e7ded59e14e95236",
+                "url": "https://api.github.com/repos/TencentCloud/tencentcloud-sdk-php/zipball/f422cad975d2b145bd9d1510f2ed976a9c0b9993",
+                "reference": "f422cad975d2b145bd9d1510f2ed976a9c0b9993",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6335,7 +6335,7 @@
                 "guzzlehttp/guzzle": "^6.3 || ^7.0",
                 "php": ">=5.6.0"
             },
-            "time": "2021-11-16T00:44:42+00:00",
+            "time": "2021-11-29T00:37:45+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -6362,7 +6362,7 @@
             "homepage": "https://github.com/TencentCloud/tencentcloud-sdk-php",
             "support": {
                 "issues": "https://github.com/TencentCloud/tencentcloud-sdk-php/issues",
-                "source": "https://github.com/TencentCloud/tencentcloud-sdk-php/tree/3.0.520"
+                "source": "https://github.com/TencentCloud/tencentcloud-sdk-php/tree/3.0.529"
             },
             "install-path": "../tencentcloud/tencentcloud-sdk-php"
         },
