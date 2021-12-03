@@ -47,5 +47,41 @@ class TreeService
         }
         return $tree;
     }
+
+    public static function GetSystemClassTree($data)
+    {
+        //ucs_system_class_idforeach ()
+        $system_class_list = [];
+        foreach ($data as $value) {
+            $flag = true;
+            foreach ($system_class_list as $v) {
+                //先判断是否有相同类
+                if ($v['value'] == $value['ucs_system_class_id']) {
+                    //有就不能加进去
+                    $flag = false;
+                    break;
+                }
+            }
+            if ($flag) {
+                $system = [];
+                foreach ($data as $v) {
+                    if ($v['ucs_system_class_id'] == $value['ucs_system_class_id']) {
+                        $temp['label'] = $v->system_version;
+                        $temp['value'] = $v->id;
+                        if (array_key_exists('disabled', $v)) {
+                            //disabled
+                            $temp['disabled'] = true;
+                        }
+                        $system[] = $temp;
+                    }
+                }
+                $item['label'] = $value->system_class;
+                $item['value'] = $value->ucs_system_class_id;
+                $item['children'] = $system;
+                $system_class_list[] = $item;
+            }
+        }
+        return $system_class_list;
+    }
 }
 

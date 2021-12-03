@@ -50,6 +50,30 @@ class UcsService
         return UcsSystemClass::create()->all();
     }
 
+    public static function SelectSystemTree($ucs_instance = null)
+    {
+        $data = UcsSystem::create()->alias('a')
+            ->join('ucs_system_class b', 'b.id=a.ucs_system_class_id')
+            ->field([
+                'b.system_class',
+                'b.icon',
+                'a.*'
+            ])
+            ->all();
+        $d = [];
+        foreach ($data as $value) {
+            $item = $value->toArray(false);
+            if ($ucs_instance) {
+                //判断能否使用该系统
+                if ($ucs_instance->cpu < $item['min_cpu'] && $ucs_instance->memory < $item['min_memory']) {
+
+                }
+            }
+            $d[] = $item;
+        }
+        return $d;
+    }
+
     public static function SelectPlanByUcsRegionId($ucs_region_id)
     {
         return UcsPlan::create()->where('ucs_region_id', $ucs_region_id)->all();

@@ -104,22 +104,29 @@ class Ucs extends UserLoginBase
     public function get_system()
     {
         $instance_id = $this->GetParam('instance_id');
-        $data = UcsService::SelectSystemClass();
-        $system_list = [];
-        foreach ($data as $value) {
-            $systems = UcsService::SelectSystem($value->id);
-            $system = [];
-            foreach ($systems as $v) {
-                $temp['label'] = $v->system_version;
-                $temp['value'] = $v->id;
-                $system[] = $temp;
-            }
-            $item['label'] = $value->system_class;
-            $item['value'] = $value->id;
-            $item['children'] = $system;
-            $system_list[] = $item;
+        if ($this->CheckIsMine($instance_id)) {
+            $ucs_instance = UcsService::FindUcsInstanceById($instance_id);
+            $data = UcsService::SelectSystemTree();
+            $data = TreeService::GetSystemClassTree($data);
+            return $this->Success('获取系统列表成功', $data);
         }
-        return $this->Success('', $system_list);
+//        $instance_id = $this->GetParam('instance_id');
+//        $data = UcsService::SelectSystemClass();
+//        $system_list = [];
+//        foreach ($data as $value) {
+//            $systems = UcsService::SelectSystem($value->id);
+//            $system = [];
+//            foreach ($systems as $v) {
+//                $temp['label'] = $v->system_version;
+//                $temp['value'] = $v->id;
+//                $system[] = $temp;
+//            }
+//            $item['label'] = $value->system_class;
+//            $item['value'] = $value->id;
+//            $item['children'] = $system;
+//            $system_list[] = $item;
+//        }
+//        return $this->Success('', $system_list);
     }
 
 
