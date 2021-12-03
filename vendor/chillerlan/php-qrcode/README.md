@@ -6,7 +6,6 @@ namespaced, cleaned up, improved and other stuff.
 [![PHP Version Support][php-badge]][php]
 [![Packagist version][packagist-badge]][packagist]
 [![License][license-badge]][license]
-[![Travis CI][travis-badge]][travis]
 [![CodeCov][coverage-badge]][coverage]
 [![Scrunitizer CI][scrutinizer-badge]][scrutinizer]
 [![Packagist downloads][downloads-badge]][downloads]<br/>
@@ -19,8 +18,6 @@ namespaced, cleaned up, improved and other stuff.
 [packagist]: https://packagist.org/packages/chillerlan/php-qrcode
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-qrcode.svg
 [license]: https://github.com/chillerlan/php-qrcode/blob/main/LICENSE
-[travis-badge]: https://img.shields.io/travis/com/chillerlan/php-qrcode/main?logo=travis
-[travis]: https://travis-ci.com/github/chillerlan/php-qrcode
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-qrcode.svg?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-qrcode
 [scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-qrcode.svg?logo=scrutinizer
@@ -62,8 +59,8 @@ via terminal: `composer require chillerlan/php-qrcode`
 
 Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^3.2` - see [releases](https://github.com/chillerlan/php-qrcode/releases) for valid versions.
 For PHP version ... 
-  - 7.4+ use `^4.2`
-  - 7.2+ use `^3.3`
+  - 7.4+ use `^4.3`
+  - 7.2+ use `^3.4.1` (PHP 7.2 is EOL and 7.3 soon! v3.4.1 also supports PHP8 - however, it's no longer supported)
   - 7.0+ use `^2.0` (PHP 7.0 and 7.1 are EOL!)
   - 5.6+ use `^1.0` (please let PHP 5 die!)
 
@@ -89,7 +86,8 @@ Wait, what was that? Please again, slower! See [Advanced usage](https://github.c
 - WordPress [Simple 2FA `simple-2fa`](https://wordpress.org/plugins/simple-2fa/)
 - WoltLab Suite [two-step-verification](http://pluginstore.woltlab.com/file/3007-two-step-verification/)  
 - [Cachet](https://github.com/CachetHQ/Cachet)
-- [Appwrite](https://github.com/appwrite/appwrite)  
+- [Appwrite](https://github.com/appwrite/appwrite)
+- [twill](https://github.com/area17/twill)
 - other uses: [dependents](https://github.com/chillerlan/php-qrcode/network/dependents) / [packages](https://github.com/chillerlan/php-qrcode/network/dependents?dependent_type=PACKAGE)
 
 ### Shameless advertising

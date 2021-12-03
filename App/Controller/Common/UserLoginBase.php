@@ -2,6 +2,8 @@
 
 namespace App\Controller\Common;
 
+use App\Service\RedisService;
+use App\Service\UserService;
 use EasySwoole\EasySwoole\Logger;
 use EasySwoole\Jwt\Jwt;
 
@@ -10,6 +12,17 @@ class UserLoginBase extends Base
     protected function GetUserId()
     {
         return $this->Get('user_id');
+    }
+
+    protected function GetUser()
+    {
+        $user_id = $this->GetUserId();
+        $user = RedisService::GetUser($user_id);
+        if (!$user) {
+            $user = UserService::FindById($user_id);
+            RedisService::SetUser($user_id, $user);
+        }
+        return $user;
     }
 
     protected function onRequest(?string $action): ?bool

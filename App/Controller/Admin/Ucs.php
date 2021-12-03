@@ -22,11 +22,11 @@ class Ucs extends AdminAuthBase
         $size = $this->GetParam('size') ?? 10;
         $user_id = $this->GetParam('user_id') ?? 0;
         if ($user_id) {
-            $where[] = ["user_id" => $user_id];
+            $where[] = ["a.user_id" => $user_id];
         }
         $ucs_region_id = $this->GetParam('ucs_region_id');
         if ($user_id) {
-            $where[] = ["ucs_region_id" => $ucs_region_id];
+            $where[] = ["a.ucs_region_id" => $ucs_region_id];
         }
         $data = UcsService:: SelectListPage($where, $page, $size);
         return $this->Success('获取实例列表成功!', $data);

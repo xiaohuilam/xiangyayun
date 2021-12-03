@@ -18,7 +18,7 @@ class UcsProcess extends AbstractProcess
                 info('接到UCS队列');
                 $data = $job->getJobData();
                 var_dump($data);
-                UcsService::SendAction($data['instance_id'], $data['params']);
+                UcsService::SendAction($data['task_id'], $data['instance_id'], $data['params']);
             });
         });
     }

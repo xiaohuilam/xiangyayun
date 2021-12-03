@@ -6,6 +6,7 @@ use App\Controller\Common\UserLoginBase;
 use App\Model\UcsInstance;
 use App\Model\UcsRegion;
 use App\Model\User;
+use App\Service\TreeService;
 use App\Service\UcsService;
 use App\Service\UserService;
 use App\Service\WechatService;
@@ -22,7 +23,7 @@ class Ucs extends UserLoginBase
         $page = $this->GetParam('page') ?? 1;
         $size = $this->GetParam('size') ?? 10;
         $user_id = $this->GetUserId();
-        $where[] = ["user_id" => $user_id];
+        $where[] = ["a.user_id" => $user_id];
         $data = UcsService::SelectListPage($where, $page, $size);
         return $this->Success('获取列表成功', $data);
     }
@@ -90,9 +91,35 @@ class Ucs extends UserLoginBase
     {
         $instance_id = $this->GetParam('instance_id');
         if ($this->CheckIsMine($instance_id)) {
-            UcsService::ShutdownAction($instance_id);
+            UcsService::ShutdownAction($instance_id, 0);
             return $this->Success('发送关机指令成功!');
         }
+    }
+
+
+    /**
+     * @Param(name="instance_id",integer="")
+     *获取系统列表
+     */
+    public function get_system()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        $data = UcsService::SelectSystemClass();
+        $system_list = [];
+        foreach ($data as $value) {
+            $systems = UcsService::SelectSystem($value->id);
+            $system = [];
+            foreach ($systems as $v) {
+                $temp['label'] = $v->system_version;
+                $temp['value'] = $v->id;
+                $system[] = $temp;
+            }
+            $item['label'] = $value->system_class;
+            $item['value'] = $value->id;
+            $item['children'] = $system;
+            $system_list[] = $item;
+        }
+        return $this->Success('', $system_list);
     }
 
 
@@ -104,7 +131,8 @@ class Ucs extends UserLoginBase
     {
         $instance_id = $this->GetParam('instance_id');
         if ($this->CheckIsMine($instance_id)) {
-            UcsService::StartAction($instance_id);
+            $user = $this->GetUser();
+            UcsService::StartAction($instance_id, 0, $user->nickname);
             return $this->Success('发送开机指令成功!');
         }
     }
@@ -117,7 +145,8 @@ class Ucs extends UserLoginBase
     {
         $instance_id = $this->GetParam('instance_id');
         if ($this->CheckIsMine($instance_id)) {
-            UcsService::ForceReStartAction($instance_id);
+            $user = $this->GetUser();
+            UcsService::ForceReStartAction($instance_id, 0, $user->nickname);
             return $this->Success('发送硬重启指令成功!');
         }
     }
@@ -130,7 +159,8 @@ class Ucs extends UserLoginBase
     {
         $instance_id = $this->GetParam('instance_id');
         if ($this->CheckIsMine($instance_id)) {
-            UcsService::ReStartAction($instance_id);
+            $user = $this->GetUser();
+            UcsService::ReStartAction($instance_id, 0, $user->nickname);
             return $this->Success('发送软重启指令成功!');
         }
     }
@@ -152,7 +182,8 @@ class Ucs extends UserLoginBase
                 return $this->Error('系统版本不正确!');
             }
             $password = $this->GetParam('password');
-            UcsService::ResetSystemAction($instance, $system, $password);
+            $user = $this->GetUser();
+            UcsService::ResetSystemAction($instance, $system, $password, 0, $user->nickname);
             return $this->Success('发送重装系统指令成功!');
         }
     }
@@ -166,7 +197,8 @@ class Ucs extends UserLoginBase
     {
         $instance_id = $this->GetParam('instance_id');
         if ($this->CheckIsMine($instance_id)) {
-            UcsService::ForceShutdownAction($instance_id);
+            $user = $this->GetUser();
+            UcsService::ForceShutdownAction($instance_id, 0, $user->nickname);
             return $this->Success('发送强制关机指令成功!');
         }
     }
@@ -255,7 +287,6 @@ class Ucs extends UserLoginBase
      */
     public function buy()
     {
-
         //创建实例
         $system_id = $this->GetParam('system_id');
         $plan_id = $this->GetParam('plan_id');
@@ -331,7 +362,7 @@ class Ucs extends UserLoginBase
             $user_finance = UserService::Consume($user_id, $price['instance_price'], '购买云服务器', 'ucs', 0);
             if ($user_finance) {
                 //消费成功
-                $user_instance = UcsService::CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length);
+                $user_instance = UcsService::CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, 0, $user->nickname);
                 //更新订单中的实例ID
                 $user_finance->instance_id = $user_instance->id;
                 $user_finance->update();

@@ -263,17 +263,17 @@
         },
         {
             "name": "chillerlan/php-qrcode",
-            "version": "4.3.1",
-            "version_normalized": "4.3.1.0",
+            "version": "4.3.2",
+            "version_normalized": "4.3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillerlan/php-qrcode.git",
-                "reference": "be3beb936c21fe53a4e7e8f7f3582e9f02443666"
+                "reference": "b625396e0752d79747a55205ae7e191eeb459dcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillerlan/php-qrcode/zipball/be3beb936c21fe53a4e7e8f7f3582e9f02443666",
-                "reference": "be3beb936c21fe53a4e7e8f7f3582e9f02443666",
+                "url": "https://api.github.com/repos/chillerlan/php-qrcode/zipball/b625396e0752d79747a55205ae7e191eeb459dcd",
+                "reference": "b625396e0752d79747a55205ae7e191eeb459dcd",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -288,7 +288,7 @@
                 "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "phan/phan": "^3.2.2",
+                "phan/phan": "^5.3",
                 "phpunit/phpunit": "^9.5",
                 "setasign/fpdf": "^1.8.2"
             },
@@ -296,7 +296,7 @@
                 "chillerlan/php-authenticator": "Yet another Google authenticator! Also creates URIs for mobile apps.",
                 "setasign/fpdf": "Required to use the QR FPDF output."
             },
-            "time": "2021-01-05T21:21:28+00:00",
+            "time": "2021-11-18T08:46:03+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -334,7 +334,7 @@
             ],
             "support": {
                 "issues": "https://github.com/chillerlan/php-qrcode/issues",
-                "source": "https://github.com/chillerlan/php-qrcode/tree/4.3.1"
+                "source": "https://github.com/chillerlan/php-qrcode/tree/4.3.2"
             },
             "funding": [
                 {
@@ -1839,17 +1839,17 @@
         },
         {
             "name": "easyswoole/pay",
-            "version": "1.3.0",
-            "version_normalized": "1.3.0.0",
+            "version": "1.3.1",
+            "version_normalized": "1.3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/pay.git",
-                "reference": "c822f76e3af381744b1158dd022e90b9f1a96f7b"
+                "reference": "23e0bd7126a1811ef4ffc9cb4bfc84eee57c450d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/pay/zipball/c822f76e3af381744b1158dd022e90b9f1a96f7b",
-                "reference": "c822f76e3af381744b1158dd022e90b9f1a96f7b",
+                "url": "https://api.github.com/repos/easy-swoole/pay/zipball/23e0bd7126a1811ef4ffc9cb4bfc84eee57c450d",
+                "reference": "23e0bd7126a1811ef4ffc9cb4bfc84eee57c450d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1869,7 +1869,7 @@
             "require-dev": {
                 "easyswoole/phpunit": "^1.0.0"
             },
-            "time": "2021-07-24T01:33:24+00:00",
+            "time": "2021-11-18T11:19:50+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -1884,7 +1884,7 @@
             "description": "use online payment easily just like echo \"hello world\";",
             "support": {
                 "issues": "https://github.com/easy-swoole/pay/issues",
-                "source": "https://github.com/easy-swoole/pay/tree/1.3.0"
+                "source": "https://github.com/easy-swoole/pay/tree/1.3.1"
             },
             "install-path": "../easyswoole/pay"
         },
@@ -2651,17 +2651,17 @@
         },
         {
             "name": "easyswoole/validate",
-            "version": "2.1.2",
-            "version_normalized": "2.1.2.0",
+            "version": "2.1.3",
+            "version_normalized": "2.1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/validate.git",
-                "reference": "7219ebf26145c10d5c49b922cc34501bdb226588"
+                "reference": "65a7ebc015be11394388cd16073cfc8d2dc41fa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/validate/zipball/7219ebf26145c10d5c49b922cc34501bdb226588",
-                "reference": "7219ebf26145c10d5c49b922cc34501bdb226588",
+                "url": "https://api.github.com/repos/easy-swoole/validate/zipball/65a7ebc015be11394388cd16073cfc8d2dc41fa4",
+                "reference": "65a7ebc015be11394388cd16073cfc8d2dc41fa4",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2680,7 +2680,7 @@
             "require-dev": {
                 "easyswoole/phpunit": "^1.0"
             },
-            "time": "2021-09-08T07:47:03+00:00",
+            "time": "2021-12-01T01:52:52+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2708,7 +2708,7 @@
             ],
             "support": {
                 "issues": "https://github.com/easy-swoole/validate/issues",
-                "source": "https://github.com/easy-swoole/validate/tree/2.1.2"
+                "source": "https://github.com/easy-swoole/validate/tree/2.1.3"
             },
             "install-path": "../easyswoole/validate"
         },
@@ -3389,17 +3389,17 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.13.1",
-            "version_normalized": "4.13.1.0",
+            "version": "v4.13.2",
+            "version_normalized": "4.13.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "63a79e8daa781cac14e5195e63ed8ae231dd10fd"
+                "reference": "210577fe3cf7badcc5814d99455df46564f3c077"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/63a79e8daa781cac14e5195e63ed8ae231dd10fd",
-                "reference": "63a79e8daa781cac14e5195e63ed8ae231dd10fd",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/210577fe3cf7badcc5814d99455df46564f3c077",
+                "reference": "210577fe3cf7badcc5814d99455df46564f3c077",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3416,7 +3416,7 @@
                 "ircmaxell/php-yacc": "^0.0.7",
                 "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
             },
-            "time": "2021-11-03T20:52:16+00:00",
+            "time": "2021-11-30T19:35:32+00:00",
             "bin": [
                 "bin/php-parse"
             ],
@@ -3448,7 +3448,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.13.1"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.13.2"
             },
             "install-path": "../nikic/php-parser"
         },
@@ -3920,17 +3920,17 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.8",
-            "version_normalized": "9.2.8.0",
+            "version": "9.2.9",
+            "version_normalized": "9.2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "cf04e88a2e3c56fc1a65488afd493325b4c1bc3e"
+                "reference": "f301eb1453c9e7a1bc912ee8b0ea9db22c60223b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/cf04e88a2e3c56fc1a65488afd493325b4c1bc3e",
-                "reference": "cf04e88a2e3c56fc1a65488afd493325b4c1bc3e",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f301eb1453c9e7a1bc912ee8b0ea9db22c60223b",
+                "reference": "f301eb1453c9e7a1bc912ee8b0ea9db22c60223b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3961,7 +3961,7 @@
                 "ext-pcov": "*",
                 "ext-xdebug": "*"
             },
-            "time": "2021-10-30T08:01:38+00:00",
+            "time": "2021-11-19T15:21:02+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3994,7 +3994,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.8"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.9"
             },
             "funding": [
                 {
@@ -6059,17 +6059,17 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.4.0",
-            "version_normalized": "2.4.0.0",
+            "version": "v2.5.0",
+            "version_normalized": "2.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "5f38c8804a9e97d23e0c8d63341088cd8a22d627"
+                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5f38c8804a9e97d23e0c8d63341088cd8a22d627",
-                "reference": "5f38c8804a9e97d23e0c8d63341088cd8a22d627",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/6f981ee24cf69ee7ce9736146d1c57c2780598a8",
+                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6081,11 +6081,11 @@
             "require": {
                 "php": ">=7.1"
             },
-            "time": "2021-03-23T23:28:01+00:00",
+            "time": "2021-07-12T14:48:14+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-main": "2.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -6115,7 +6115,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.4.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
             },
             "funding": [
                 {
@@ -6312,17 +6312,17 @@
         },
         {
             "name": "tencentcloud/tencentcloud-sdk-php",
-            "version": "3.0.529",
-            "version_normalized": "3.0.529.0",
+            "version": "3.0.531",
+            "version_normalized": "3.0.531.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TencentCloud/tencentcloud-sdk-php.git",
-                "reference": "f422cad975d2b145bd9d1510f2ed976a9c0b9993"
+                "reference": "13377c6ba92197789bbac7e6033763e23847566b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TencentCloud/tencentcloud-sdk-php/zipball/f422cad975d2b145bd9d1510f2ed976a9c0b9993",
-                "reference": "f422cad975d2b145bd9d1510f2ed976a9c0b9993",
+                "url": "https://api.github.com/repos/TencentCloud/tencentcloud-sdk-php/zipball/13377c6ba92197789bbac7e6033763e23847566b",
+                "reference": "13377c6ba92197789bbac7e6033763e23847566b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6335,7 +6335,7 @@
                 "guzzlehttp/guzzle": "^6.3 || ^7.0",
                 "php": ">=5.6.0"
             },
-            "time": "2021-11-29T00:37:45+00:00",
+            "time": "2021-12-01T01:13:26+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -6362,7 +6362,7 @@
             "homepage": "https://github.com/TencentCloud/tencentcloud-sdk-php",
             "support": {
                 "issues": "https://github.com/TencentCloud/tencentcloud-sdk-php/issues",
-                "source": "https://github.com/TencentCloud/tencentcloud-sdk-php/tree/3.0.529"
+                "source": "https://github.com/TencentCloud/tencentcloud-sdk-php/tree/3.0.531"
             },
             "install-path": "../tencentcloud/tencentcloud-sdk-php"
         },

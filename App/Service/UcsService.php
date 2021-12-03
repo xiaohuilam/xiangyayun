@@ -11,6 +11,9 @@ use App\Model\UcsRegion;
 use App\Model\UcsStoragePlan;
 use App\Model\UcsStorageRalation;
 use App\Model\UcsSystem;
+use App\Model\UcsSystemClass;
+use App\Model\UcsTask;
+use App\Status\UcsActStatus;
 
 class UcsService
 {
@@ -22,14 +25,29 @@ class UcsService
         ]);
     }
 
+    public static function FindUcsRegionById($id)
+    {
+        return UcsRegion::create()->get(['id' => $id]);
+    }
+
     public static function SelectRegion()
     {
         return UcsRegion::create()->all();
     }
 
-    public static function SelectSystem()
+    public static function SelectSystem($ucs_system_class_id = 0)
     {
+        if ($ucs_system_class_id) {
+            return UcsSystem::create()->all([
+                'ucs_system_class_id' => $ucs_system_class_id
+            ]);
+        }
         return UcsSystem::create()->all();
+    }
+
+    public static function SelectSystemClass()
+    {
+        return UcsSystemClass::create()->all();
     }
 
     public static function SelectPlanByUcsRegionId($ucs_region_id)
@@ -80,22 +98,77 @@ class UcsService
     //获取UCS列表
     public static function SelectListPage($where, $page, $size)
     {
-        $ucs_instances = UcsInstance::create();
-        foreach ($where as $key => $value) {
-            $ucs_instances->where($value);
+        $ucs_instances = UcsInstance::create()->alias('a');
+        $ucs_instances->field([
+            'a.id',
+            'a.cpu',
+            'a.memory',
+            'a.bandwidth',
+            'a.user_id',
+            'a.create_time',
+            'a.expire_time',
+            'a.run_status',
+            'a.renew_status',
+            'a.act_status',
+            'a.name as instance_name',
+            'b.name as region_name'
+        ]);
+        $ucs_instances = $ucs_instances->join('ucs_region b', 'a.ucs_region_id=b.id');
+        foreach ($where as $value) {
+            $ucs_instances = $ucs_instances->where($value);
         }
         $model = $ucs_instances
             ->limit($size * ($page - 1), $size)->withTotalCount();
 
         // 列表数据
 
-        $data['list'] = $model->all(null);
+        $list = $model->all();
+        $temp = [];
+        foreach ($list as $key => $value) {
+            $item = $value->toRawArray();
+            if ($value->instance_name) {
+                $item['instance_name'] = $value->instance_name;
+            }
+            if ($value->region_name) {
+                $item['region_name'] = $value->region_name;
+            }
+            //获取资源状态
+            $resource_status = RedisService::GetUcsResourceStatus($value->id);
+            if ($resource_status) {
+                $item['resource_status'] = $resource_status;
+            } else {
+                $data = [];
+                $data['load'] = [
+                    'tips' => '运行流畅',
+                    'ratio' => 0
+                ];
+                $data['cpu'] = [
+                    'num' => $value->cpu,
+                    'ratio' => 0
+                ];
+                $data['memory'] = [
+                    'use' => 0,
+                    'total' => $value->memory,
+                    'ratio' => 0
+                ];
 
+                $data['harddisk'] = [
+                    'use' => 0,
+                    'total' => $value->memory,
+                    'ratio' => 0
+                ];
+                $item['resource_status'] = $data;
+            }
+            $item['act_tips'] = UcsActStatus::ConvertToString($item['act_status']);
+            $temp[] = $item;
+        }
+        $d = [];
+        $d['list'] = $temp;
         $result = $model->lastQueryResult();
 
         // 总条数
-        $data['total'] = $result->getTotalCount();
-        return $data;
+        $d['total'] = $result->getTotalCount();
+        return $d;
     }
 
     //根据系统ID查找系统
@@ -284,7 +357,7 @@ class UcsService
 
     //$harddisk ['ucs_storage_plan_id':'1',"size":'20']
     //创建实例
-    public static function CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length)
+    public static function CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $resolved_type = 0, $resolved_name = '客户自己')
     {
         //宿主机,队列+1
         $master = self::GetQueueMaster($ucs_plan);
@@ -344,13 +417,14 @@ class UcsService
                 'path' => $path,
             ])->save();
         }
-        self::CreateAction($instance->id);
+        self::CreateAction($instance->id, 'create', $resolved_type, $resolved_name);
         return $instance;
     }
 
     //发送操作至服务器
-    public static function SendAction($instance_id, $params)
+    public static function SendAction($task_id, $instance_id, $params)
     {
+        self::ActionUcsTask($task_id, ['action' => date('Y-m-d H:i:s')]);
         $params['instance_id'] = $instance_id;
         $instance = UcsInstance::create()->get(['id' => $instance_id]);
         $ucs_master = UcsMaster::create()->where('id', $instance->ucs_master_id)->get();
@@ -361,13 +435,24 @@ class UcsService
             $params['sign'] = $string;
             $response = $client->postJson(json_encode($params));
             $return = $response->json(true);
+
+            var_dump([
+                'api_status' => $response->getStatusCode(),
+                'api_message' => $return
+            ]);
+            self::ActionUcsTask($task_id, [
+                'api_status' => $response->getStatusCode(),
+                'api_message' => $return
+            ]);
             info('发送请求给宿主机返回:' . $return);
         }
     }
 
-    public static function SendActionJob($instance_id, $params)
+    public static function SendActionJob($instance_id, $params, $resolved_type, $resolved_name)
     {
+        $ucs_task = self::CreateUcsTask($instance_id, $resolved_type, $resolved_name, $params);
         UcsJob([
+            'task_id' => $ucs_task->id,
             'instance_id' => $instance_id,
             'params' => $params
         ]);
@@ -375,7 +460,7 @@ class UcsService
 
 
     //创建实例
-    public static function CreateAction($instance_id, $action = 'create')
+    public static function CreateAction($instance_id, $action = 'create', $resolved_type = 0, $resolved_name = '客户自己')
     {
         $ucs_instance = self::FindUcsInstanceById($instance_id);
         $params['action'] = $action;
@@ -402,46 +487,70 @@ class UcsService
 
         $params['harddisk'] = $harddisk;
 
-        self::SendActionJob($instance_id, $params);
+        self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
+    }
+
+    //
+    public static function CreateUcsTask($instance_id, $resolved_type = 0, $resolved_name = '客户自己', $params)
+    {
+        $data['ucs_instance_id'] = $instance_id;
+        $instance = UcsInstance::create()->get(['id' => $instance_id]);
+        $data['ucs_master_id'] = $instance->ucs_master_id;
+        $data['user_id'] = $instance->user_id;
+        $data['resolved_type'] = $resolved_type;
+        $data['resolved_name'] = $resolved_name;
+        $data['resolved_time'] = date('Y-m-d H:i:s');
+        $data['action'] = $params['action'];
+        $data['params'] = json_encode($params);
+        $ucs_task = UcsTask::create($data);
+        $ucs_task->save();
+        return $ucs_task;
+    }
+
+    public static function ActionUcsTask($task_id, $data = [])
+    {
+        UcsTask::create()->update($data, ['id' => $task_id]);
     }
 
     //重新创建实例
-    public static function ReCreateAction($instance_id)
+    public static function ReCreateAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
         return self::Create($instance_id, 're_create');
     }
 
     //开机实例
-    public static function StartAction($instance_id)
+    public static function StartAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
         $params['action'] = 'start';
-        self::SendActionJob($instance_id, $params);
+        self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
 
+
     //重启
-    public static function ReStartAction($instance_id)
+    public static function ReStartAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
         $params['action'] = 'restart';
-        self::SendActionJob($instance_id, $params);
+        self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
 
     //关机
-    public static function ShutdownAction($instance_id)
+    public static function ShutdownAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
         $params['action'] = 'shutdown';
-        self::SendActionJob($instance_id, $params);
+        $params['action'] = 'shutdown';
+        self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
 
     //重设服务器密码
-    public static function ResetPasswordAction($instance_id, $password)
+    public static function ResetPasswordAction($instance_id, $password, $resolved_type = 0, $resolved_name = '客户自己')
     {
         $params['action'] = 'reset_password';
         $params['password'] = $password;
-        self::SendActionJob($instance_id, $params);
+        self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
 
     //重装系统
-    public static function ResetSystemAction($ucs_instance, $system, $password)
+    public static function ResetSystemAction($ucs_instance, $system, $password, $resolved_type = 0, $resolved_name = '客户自己')
     {
         //修改数据库相关操作
         $params['action'] = 'reset_system';
@@ -470,28 +579,28 @@ class UcsService
         $harddisk = self::FindUcsStorageRalationByUcsInstanceId($ucs_instance->id);
 
         $params['harddisk'] = $harddisk;
-        self::SendActionJob($ucs_instance->id, $params);
+        self::SendActionJob($ucs_instance->id, $params, $resolved_type, $resolved_name);
     }
 
     //重设服务器IP地址
-    public static function ResetIPAddressAction($instance_id, $ip_address)
+    public static function ResetIPAddressAction($instance_id, $ip_address, $resolved_type = 0, $resolved_name = '客户自己')
     {
         $params['action'] = 'reset_ip_address';
         $params['ip_address'] = $ip_address;
-        self::SendActionJob($instance_id, $params);
+        self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
 
     //强制重启
-    public static function ForceReStartAction($instance_id)
+    public static function ForceReStartAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
         $params['action'] = 'force_restart';
-        self::SendActionJob($instance_id, $params);
+        self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
 
     //强制关机
-    public static function ForceShutdownAction($instance_id)
+    public static function ForceShutdownAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
         $params['action'] = 'force_shutdown';
-        self::SendActionJob($instance_id, $params);
+        self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
 }

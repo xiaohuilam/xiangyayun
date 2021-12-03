@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '9204a1a7caa2b3bb3032b356f3944d5554ffedf0',
+    'reference' => '188ebbf79763e4cba808cdb4ac56fd2c1ca80e1f',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '9204a1a7caa2b3bb3032b356f3944d5554ffedf0',
+      'reference' => '188ebbf79763e4cba808cdb4ac56fd2c1ca80e1f',
     ),
     'adbario/php-dot-notation' => 
     array (
@@ -84,12 +84,12 @@ private static $installed = array (
     ),
     'chillerlan/php-qrcode' => 
     array (
-      'pretty_version' => '4.3.1',
-      'version' => '4.3.1.0',
+      'pretty_version' => '4.3.2',
+      'version' => '4.3.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'be3beb936c21fe53a4e7e8f7f3582e9f02443666',
+      'reference' => 'b625396e0752d79747a55205ae7e191eeb459dcd',
     ),
     'chillerlan/php-settings-container' => 
     array (
@@ -300,12 +300,12 @@ private static $installed = array (
     ),
     'easyswoole/pay' => 
     array (
-      'pretty_version' => '1.3.0',
-      'version' => '1.3.0.0',
+      'pretty_version' => '1.3.1',
+      'version' => '1.3.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'c822f76e3af381744b1158dd022e90b9f1a96f7b',
+      'reference' => '23e0bd7126a1811ef4ffc9cb4bfc84eee57c450d',
     ),
     'easyswoole/phpunit' => 
     array (
@@ -426,12 +426,12 @@ private static $installed = array (
     ),
     'easyswoole/validate' => 
     array (
-      'pretty_version' => '2.1.2',
-      'version' => '2.1.2.0',
+      'pretty_version' => '2.1.3',
+      'version' => '2.1.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => '7219ebf26145c10d5c49b922cc34501bdb226588',
+      'reference' => '65a7ebc015be11394388cd16073cfc8d2dc41fa4',
     ),
     'easyswoole/verifycode' => 
     array (
@@ -511,12 +511,12 @@ private static $installed = array (
     ),
     'nikic/php-parser' => 
     array (
-      'pretty_version' => 'v4.13.1',
-      'version' => '4.13.1.0',
+      'pretty_version' => 'v4.13.2',
+      'version' => '4.13.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '63a79e8daa781cac14e5195e63ed8ae231dd10fd',
+      'reference' => '210577fe3cf7badcc5814d99455df46564f3c077',
     ),
     'opis/closure' => 
     array (
@@ -583,12 +583,12 @@ private static $installed = array (
     ),
     'phpunit/php-code-coverage' => 
     array (
-      'pretty_version' => '9.2.8',
-      'version' => '9.2.8.0',
+      'pretty_version' => '9.2.9',
+      'version' => '9.2.9.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'cf04e88a2e3c56fc1a65488afd493325b4c1bc3e',
+      'reference' => 'f301eb1453c9e7a1bc912ee8b0ea9db22c60223b',
     ),
     'phpunit/php-file-iterator' => 
     array (
@@ -883,12 +883,12 @@ private static $installed = array (
     ),
     'symfony/deprecation-contracts' => 
     array (
-      'pretty_version' => 'v2.4.0',
-      'version' => '2.4.0.0',
+      'pretty_version' => 'v2.5.0',
+      'version' => '2.5.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '5f38c8804a9e97d23e0c8d63341088cd8a22d627',
+      'reference' => '6f981ee24cf69ee7ce9736146d1c57c2780598a8',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -910,12 +910,12 @@ private static $installed = array (
     ),
     'tencentcloud/tencentcloud-sdk-php' => 
     array (
-      'pretty_version' => '3.0.529',
-      'version' => '3.0.529.0',
+      'pretty_version' => '3.0.531',
+      'version' => '3.0.531.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f422cad975d2b145bd9d1510f2ed976a9c0b9993',
+      'reference' => '13377c6ba92197789bbac7e6033763e23847566b',
     ),
     'theseer/tokenizer' => 
     array (

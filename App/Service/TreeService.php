@@ -6,7 +6,7 @@ use phpDocumentor\Reflection\Type;
 
 class TreeService
 {
-    public static function GetTree($arr, $pid = 0, $level = 0)
+    public static function GetTree($arr, $pid = 0, $level = 0, $parent_key = 'parent_id')
     {
         if (!$arr) {
             return null;
@@ -19,7 +19,7 @@ class TreeService
             } else {
                 $temp = $v->toArray();
             }
-            if ($temp['parent_id'] == $pid) {
+            if ($temp[$parent_key] == $pid) {
                 $temp['level'] = $level;
                 $child = self::GetTree($arr, $temp['id'], $level + 1);
                 if (count($child) > 0) {

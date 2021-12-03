@@ -3,6 +3,7 @@
 namespace App\Controller\User;
 
 use App\Controller\Common\UserLoginBase;
+use App\Service\HideService;
 use App\Service\QrcodeService;
 use App\Service\RedisService;
 use App\Service\UserService;
@@ -44,7 +45,7 @@ class Profile extends UserLoginBase
         $user_id = $this->GetUserId();
         $ip = $this->GetClientIP();
         $ua = $this->GetUserAgent();
-        UserService::UpdateUserInfo($user_id, $nickname, $email, $qq,$wechat, $ip, $ua);
+        UserService::UpdateUserInfo($user_id, $nickname, $email, $qq, $wechat, $ip, $ua);
         return $this->Success('修改资料成功!');
     }
 
@@ -63,7 +64,15 @@ class Profile extends UserLoginBase
     public function auth_info()
     {
         $user_id = $this->GetUserId();
-        $data = UserService::FindUserAuthByUserId($user_id);
+        $auth_info = UserService::FindUserAuthByUserId($user_id);
+        $auth_info = $auth_info->toArray();
+        $data['cert_bankcard'] = $auth_info['cert_bankcard'];
+        $data['cert_mobile'] = HideService::Mobile($auth_info['cert_mobile']);
+        $data['cert_name'] = $auth_info['cert_name'];
+        $data['cert_number'] = HideService::IdCard($auth_info['cert_number']);
+        $data['finish_time'] = $auth_info['finish_time'];
+        $data['finish_status'] = $auth_info['finish_status'];
+
         return $this->Success('', $data);
     }
 

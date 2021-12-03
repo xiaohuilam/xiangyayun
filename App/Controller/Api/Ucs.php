@@ -29,7 +29,6 @@ class Ucs extends Base
     {
         $data = UcsService::SelectSystem();
         return $this->Success('', $data);
-
     }
 
     public function region()

@@ -79,6 +79,13 @@ class Api extends Base
         return $this->Success();
     }
 
+    //判断是否需要验证码
+    public function need_verifycode()
+    {
+
+
+    }
+
     /**
      * @Param(name="username",required="",lengthMin="11")
      * @Param(name="password",required="",lengthMin="6")
