@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '188ebbf79763e4cba808cdb4ac56fd2c1ca80e1f',
+    'reference' => '0d6abe4b5cd920517938d422705f110a8a6ef7d0',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '188ebbf79763e4cba808cdb4ac56fd2c1ca80e1f',
+      'reference' => '0d6abe4b5cd920517938d422705f110a8a6ef7d0',
     ),
     'adbario/php-dot-notation' => 
     array (
@@ -583,21 +583,21 @@ private static $installed = array (
     ),
     'phpunit/php-code-coverage' => 
     array (
-      'pretty_version' => '9.2.9',
-      'version' => '9.2.9.0',
+      'pretty_version' => '9.2.10',
+      'version' => '9.2.10.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f301eb1453c9e7a1bc912ee8b0ea9db22c60223b',
+      'reference' => 'd5850aaf931743067f4bfc1ae4cbd06468400687',
     ),
     'phpunit/php-file-iterator' => 
     array (
-      'pretty_version' => '3.0.5',
-      'version' => '3.0.5.0',
+      'pretty_version' => '3.0.6',
+      'version' => '3.0.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'aa4be8575f26070b100fccb67faabb28f21f66f8',
+      'reference' => 'cf1c2e7c203ac650e352f4cc675a7021e7d1b3cf',
     ),
     'phpunit/php-invoker' => 
     array (
@@ -910,12 +910,12 @@ private static $installed = array (
     ),
     'tencentcloud/tencentcloud-sdk-php' => 
     array (
-      'pretty_version' => '3.0.531',
-      'version' => '3.0.531.0',
+      'pretty_version' => '3.0.534',
+      'version' => '3.0.534.0',
       'aliases' => 
       array (
       ),
-      'reference' => '13377c6ba92197789bbac7e6033763e23847566b',
+      'reference' => 'ea31ddd80800a69294ab9037d17b896d098a9cad',
     ),
     'theseer/tokenizer' => 
     array (
