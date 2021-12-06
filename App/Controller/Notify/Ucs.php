@@ -22,7 +22,7 @@ class Ucs extends Base
                 'progress' => $progress,
                 'notify_message' => $notify_message
             ], [
-                'id' => $notify_message
+                'id' => $task_id
             ]);
         }
     }
