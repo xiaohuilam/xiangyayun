@@ -454,7 +454,7 @@ class UcsService
     //发送操作至服务器
     public static function SendAction($task_id, $instance_id, $params)
     {
-        self::ActionUcsTask($task_id, ['action' => date('Y-m-d H:i:s')]);
+        self::ActionUcsTask($task_id, ['action_time' => date('Y-m-d H:i:s')]);
         $params['instance_id'] = $instance_id;
         $params['task_id'] = $task_id;
         $instance = UcsInstance::create()->get(['id' => $instance_id]);

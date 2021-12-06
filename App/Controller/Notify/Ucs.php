@@ -17,7 +17,11 @@ class Ucs extends Base
         $notify_message = $this->GetParam('notify_message');
         $task = UcsTask::create()->get(['id' => $task_id]);
         if ($task) {
-            UcsService::ChangeActStatus($task->ucs_instance_id, UcsActStatus::NORMAL);
+            if ($progress == 100) {
+                //完成操作开始修改状态
+                if($task->action){}
+                UcsService::ChangeActStatus($task->ucs_instance_id, UcsActStatus::NORMAL);
+            }
             UcsTask::create()->update([
                 'progress' => $progress,
                 'notify_message' => $notify_message
