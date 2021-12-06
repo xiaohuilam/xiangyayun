@@ -2,8 +2,6 @@
 
 namespace App\Service;
 
-use phpDocumentor\Reflection\Type;
-
 class TreeService
 {
     public static function GetTree($arr, $pid = 0, $level = 0, $parent_key = 'parent_id')

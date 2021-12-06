@@ -10,6 +10,7 @@ use App\Service\TreeService;
 use App\Service\UcsService;
 use App\Service\UserService;
 use App\Service\WechatService;
+use App\Status\UcsRunStatus;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
 class Ucs extends UserLoginBase
@@ -83,6 +84,18 @@ class Ucs extends UserLoginBase
         return $instance;
     }
 
+    //检查是否过期
+    private function CheckExpire($instance_id)
+    {
+        $instance = $this->CheckIsMine($instance_id);
+        if ($instance) {
+            if ($instance->expire_time < date('Y-m-d H:i:s')) {
+                return $this->Error('业务已到期,无法操作');
+            }
+        }
+        return $instance;
+    }
+
     /**
      * @Param(name="instance_id",integer="")
      * 关机
@@ -90,13 +103,15 @@ class Ucs extends UserLoginBase
     public function shutdown()
     {
         $instance_id = $this->GetParam('instance_id');
-        if ($this->CheckIsMine($instance_id)) {
-            var_dump(
-                
-                1
-            );
-            UcsService::ShutdownAction($instance_id, 0);
-            return $this->Success('发送关机指令成功!');
+        //检查是否是我自己的,以及是否过期
+        $instance = $this->CheckExpire($instance_id);
+        if ($instance) {
+            if ($instance->run_status == UcsRunStatus::RUN) {
+                UcsService::ShutdownAction($instance_id, 0);
+                return $this->Success('发送关机指令成功!');
+            } else {
+                return $this->Error('当前实例状态不允许执行关机');
+            }
         }
     }
 
@@ -108,7 +123,8 @@ class Ucs extends UserLoginBase
     public function get_system()
     {
         $instance_id = $this->GetParam('instance_id');
-        if ($this->CheckIsMine($instance_id)) {
+        //检查是否过期
+        if ($this->CheckExpire($instance_id)) {
             $ucs_instance = UcsService::FindUcsInstanceById($instance_id);
             $data = UcsService::SelectSystemTree();
             $data = TreeService::GetSystemClassTree($data);
@@ -141,7 +157,7 @@ class Ucs extends UserLoginBase
     public function start()
     {
         $instance_id = $this->GetParam('instance_id');
-        if ($this->CheckIsMine($instance_id)) {
+        if ($this->CheckExpire($instance_id)) {
             $user = $this->GetUser();
             UcsService::StartAction($instance_id, 0, $user->nickname);
             return $this->Success('发送开机指令成功!');
@@ -155,7 +171,7 @@ class Ucs extends UserLoginBase
     public function force_restart()
     {
         $instance_id = $this->GetParam('instance_id');
-        if ($this->CheckIsMine($instance_id)) {
+        if ($this->CheckExpire($instance_id)) {
             $user = $this->GetUser();
             UcsService::ForceReStartAction($instance_id, 0, $user->nickname);
             return $this->Success('发送硬重启指令成功!');
@@ -169,7 +185,8 @@ class Ucs extends UserLoginBase
     public function restart()
     {
         $instance_id = $this->GetParam('instance_id');
-        if ($this->CheckIsMine($instance_id)) {
+        //检查是否过期
+        if ($this->CheckExpire($instance_id)) {
             $user = $this->GetUser();
             UcsService::ReStartAction($instance_id, 0, $user->nickname);
             return $this->Success('发送软重启指令成功!');
@@ -185,7 +202,8 @@ class Ucs extends UserLoginBase
     public function reset_system()
     {
         $instance_id = $this->GetParam('instance_id');
-        $instance = $this->CheckIsMine($instance_id);
+        //检查是否过期
+        $instance = $this->CheckExpire($instance_id);
         if ($instance) {
             $system_id = $this->GetParam('system_id');
             $system = UcsService::FindUcsSystemById($system_id);
@@ -207,7 +225,8 @@ class Ucs extends UserLoginBase
     public function force_shutdown()
     {
         $instance_id = $this->GetParam('instance_id');
-        if ($this->CheckIsMine($instance_id)) {
+        //检查是否过期
+        if ($this->CheckExpire($instance_id)) {
             $user = $this->GetUser();
             UcsService::ForceShutdownAction($instance_id, 0, $user->nickname);
             return $this->Success('发送强制关机指令成功!');
@@ -223,6 +242,7 @@ class Ucs extends UserLoginBase
     {
         //续费
         $instance_id = $this->GetParam('instance_id');
+        //续费只需要检查是不是自己的,有没有被锁定
         if ($this->CheckIsMine($instance_id)) {
             $price = UcsService::GetReNewPrice($instance_id);
             if ($price > 0) {
@@ -261,7 +281,7 @@ class Ucs extends UserLoginBase
     public function edit_firewall()
     {
         $instance_id = $this->GetParam('instance_id');
-        if ($this->CheckIsMine($instance_id)) {
+        if ($this->CheckExpire($instance_id)) {
             $params = [];
             $params['id'] = $this->GetParam('id');
             $params['priority'] = $this->GetParam('priority');

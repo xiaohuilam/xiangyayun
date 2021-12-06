@@ -468,10 +468,6 @@ class UcsService
             $response = $client->postJson(json_encode($params));
             $return = $response->json(true);
 
-            var_dump([
-                'api_status' => $response->getStatusCode(),
-                'api_message' => $return
-            ]);
             self::ActionUcsTask($task_id, [
                 'api_status' => $response->getStatusCode(),
                 'api_message' => json_encode($return)
@@ -635,9 +631,11 @@ class UcsService
         $ucs_ip = self::SelectUcsIPByUcsInstanceId($ucs_instance->id);
         $params['ip_address'] = $ucs_ip;
 
+        var_dump(1111111);
         //获取磁盘相关参数
         $harddisk = self::FindUcsStorageRalationByUcsInstanceId($ucs_instance->id);
 
+        var_dump($harddisk);
         $params['harddisk'] = $harddisk;
         self::SendActionJob($ucs_instance->id, $params, $resolved_type, $resolved_name);
     }
