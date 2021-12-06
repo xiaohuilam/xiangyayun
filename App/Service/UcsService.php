@@ -55,18 +55,24 @@ class UcsService
         $data = UcsSystem::create()->alias('a')
             ->join('ucs_system_class b', 'b.id=a.ucs_system_class_id')
             ->field([
-                'b.system_class',
                 'b.icon',
-                'a.*'
+                'a.min_cpu',
+                'a.min_memory',
+                'a.ucs_system_class_id',
+                'a.id',
+                'a.system_version',
+                'b.system_class'
             ])
             ->all();
+		        	var_dump($data);
         $d = [];
         foreach ($data as $value) {
             $item = $value->toArray(false);
+            $item['system_class']=$value->system_class;
             if ($ucs_instance) {
                 //判断能否使用该系统
                 if ($ucs_instance->cpu < $item['min_cpu'] && $ucs_instance->memory < $item['min_memory']) {
-
+		        	$item['disabled']=false;
                 }
             }
             $d[] = $item;

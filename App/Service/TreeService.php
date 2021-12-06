@@ -66,8 +66,8 @@ class TreeService
                 $system = [];
                 foreach ($data as $v) {
                     if ($v['ucs_system_class_id'] == $value['ucs_system_class_id']) {
-                        $temp['label'] = $v->system_version;
-                        $temp['value'] = $v->id;
+                        $temp['label'] = $v['system_version'];
+                        $temp['value'] = $v['id'];
                         if (array_key_exists('disabled', $v)) {
                             //disabled
                             $temp['disabled'] = true;
@@ -75,8 +75,8 @@ class TreeService
                         $system[] = $temp;
                     }
                 }
-                $item['label'] = $value->system_class;
-                $item['value'] = $value->ucs_system_class_id;
+                $item['label'] = $value['system_class'];
+                $item['value'] = $value['ucs_system_class_id'];
                 $item['children'] = $system;
                 $system_class_list[] = $item;
             }
