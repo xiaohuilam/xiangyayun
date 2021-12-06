@@ -484,13 +484,21 @@ class UcsService
     //修改操作状态
     public static function ChangeActStatus($instance_id, $act_status)
     {
-        var_dump($instance_id);
         UcsInstance::create()->update([
             'act_status' => $act_status
         ], [
             'id' => $instance_id
         ]);
-        var_dump($act_status);
+    }
+
+    //修改运行状态
+    public static function ChangeRunStatus($instance_id, $run_status)
+    {
+        UcsInstance::create()->update([
+            'run_status' => $run_status
+        ], [
+            'id' => $instance_id
+        ]);
     }
 
 

@@ -7,6 +7,7 @@ use App\Model\UcsTask;
 use App\Service\RedisService;
 use App\Service\UcsService;
 use App\Status\UcsActStatus;
+use App\Status\UcsRunStatus;
 
 class Ucs extends Base
 {
@@ -20,9 +21,14 @@ class Ucs extends Base
             $status = $task->status;
             if ($progress == 100) {
                 //完成操作开始修改状态
-                if ($task->action) {
-                    $status = 1;
+                $status = 1;
+                //运行状态修改
+                if ($task->action == "start") {
+                    UcsService::ChangeRunStatus($task->ucs_instance_id, UcsRunStatus::RUN);
+                } else if ($task->action == "shutdown") {
+                    UcsService::ChangeRunStatus($task->ucs_instance_id, UcsRunStatus::POWEROFF);
                 }
+                //修改操作状态
                 UcsService::ChangeActStatus($task->ucs_instance_id, UcsActStatus::NORMAL);
             }
             UcsTask::create()->update([
