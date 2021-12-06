@@ -62,3 +62,11 @@
 [2021-12-06 17:26:11 $28501.0]	INFO	Server is reloading all workers now
 [2021-12-06 17:26:26 $28501.0]	INFO	Server is reloading all workers now
 [2021-12-06 17:28:06 $28501.0]	INFO	Server is reloading all workers now
+[2021-12-06 17:33:07 $28501.0]	INFO	Server is reloading all workers now
+[2021-12-06 17:33:35 $28501.0]	INFO	Server is reloading all workers now
+[2021-12-06 17:33:38 $28501.0]	INFO	Server is reloading all workers now
+[2021-12-06 17:33:46 $28501.0]	INFO	Server is reloading all workers now
+[2021-12-06 17:33:47 $28501.0]	INFO	Server is reloading all workers now
+[2021-12-06 17:34:57 $28501.0]	INFO	Server is reloading all workers now
+[2021-12-06 17:36:52 $1605.0]	INFO	Server is reloading all workers now
+[2021-12-06 17:37:45 $1605.0]	WARNING	check_worker_exit_status: worker#12[pid=1626] abnormal exit, status=0, signal=2
