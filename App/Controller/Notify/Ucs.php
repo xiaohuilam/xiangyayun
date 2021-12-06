@@ -3,14 +3,28 @@
 namespace App\Controller\Notify;
 
 use App\Controller\Common\Base;
+use App\Model\UcsTask;
 use App\Service\RedisService;
+use App\Service\UcsService;
+use App\Status\UcsActStatus;
 
 class Ucs extends Base
 {
-
     public function notify()
     {
-
+        $task_id = $this->GetParam('task_id');
+        $progress = $this->GetParam('progress');
+        $notify_message = $this->GetParam('notify_message');
+        $task = UcsTask::create()->get(['id' => $task_id]);
+        if ($task) {
+            UcsService::ChangeActStatus($task->ucs_instance_id, UcsActStatus::NORMAL);
+            UcsTask::create()->update([
+                'progress' => $progress,
+                'notify_message' => $notify_message
+            ], [
+                'id' => $notify_message
+            ]);
+        }
     }
 
     public function flow()

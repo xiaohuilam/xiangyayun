@@ -20,6 +20,8 @@ class UcsActStatus
     const ForceReStart = 5;
     //重装系统中
     const ReSystem = 6;
+    //重设密码中
+    const RePwd = 7;
 
     public static function ConvertToString($ActStatus)
     {
@@ -33,6 +35,8 @@ class UcsActStatus
                 return '关机中';
             case 3:
                 return '开机中';
+            case 4:
+                return '重启中';
             default:
                 return '未知状态';
         }

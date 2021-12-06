@@ -91,6 +91,10 @@ class Ucs extends UserLoginBase
     {
         $instance_id = $this->GetParam('instance_id');
         if ($this->CheckIsMine($instance_id)) {
+            var_dump(
+                
+                1
+            );
             UcsService::ShutdownAction($instance_id, 0);
             return $this->Success('发送关机指令成功!');
         }

@@ -64,15 +64,15 @@ class UcsService
                 'b.system_class'
             ])
             ->all();
-		        	var_dump($data);
+        var_dump($data);
         $d = [];
         foreach ($data as $value) {
             $item = $value->toArray(false);
-            $item['system_class']=$value->system_class;
+            $item['system_class'] = $value->system_class;
             if ($ucs_instance) {
                 //判断能否使用该系统
                 if ($ucs_instance->cpu < $item['min_cpu'] && $ucs_instance->memory < $item['min_memory']) {
-		        	$item['disabled']=false;
+                    $item['disabled'] = false;
                 }
             }
             $d[] = $item;
@@ -456,6 +456,7 @@ class UcsService
     {
         self::ActionUcsTask($task_id, ['action' => date('Y-m-d H:i:s')]);
         $params['instance_id'] = $instance_id;
+        $params['task_id'] = $task_id;
         $instance = UcsInstance::create()->get(['id' => $instance_id]);
         $ucs_master = UcsMaster::create()->where('id', $instance->ucs_master_id)->get();
         if ($ucs_master) {
@@ -472,14 +473,29 @@ class UcsService
             ]);
             self::ActionUcsTask($task_id, [
                 'api_status' => $response->getStatusCode(),
-                'api_message' => $return
+                'api_message' => json_encode($return)
             ]);
-            info('发送请求给宿主机返回:' . $return);
+            info('发送请求给宿主机返回:');
+            info(json_encode($return));
         }
     }
 
+    //修改操作状态
+    public static function ChangeActStatus($instance_id, $act_status)
+    {
+        var_dump($instance_id);
+        UcsInstance::create()->update([
+            'act_status' => $act_status
+        ], [
+            'id' => $instance_id
+        ]);
+        var_dump($act_status);
+    }
+
+
     public static function SendActionJob($instance_id, $params, $resolved_type, $resolved_name)
     {
+        var_dump(11);
         $ucs_task = self::CreateUcsTask($instance_id, $resolved_type, $resolved_name, $params);
         UcsJob([
             'task_id' => $ucs_task->id,
@@ -551,6 +567,7 @@ class UcsService
     //开机实例
     public static function StartAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
+        self::ChangeActStatus($instance_id, UcsActStatus::Start);
         $params['action'] = 'start';
         self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
@@ -559,6 +576,7 @@ class UcsService
     //重启
     public static function ReStartAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
+        self::ChangeActStatus($instance_id, UcsActStatus::ReStart);
         $params['action'] = 'restart';
         self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
@@ -566,7 +584,7 @@ class UcsService
     //关机
     public static function ShutdownAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
-        $params['action'] = 'shutdown';
+        self::ChangeActStatus($instance_id, UcsActStatus::Poweroff);
         $params['action'] = 'shutdown';
         self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
@@ -574,6 +592,7 @@ class UcsService
     //重设服务器密码
     public static function ResetPasswordAction($instance_id, $password, $resolved_type = 0, $resolved_name = '客户自己')
     {
+        self::ChangeActStatus($instance_id, UcsActStatus::RePwd);
         $params['action'] = 'reset_password';
         $params['password'] = $password;
         self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
@@ -582,6 +601,8 @@ class UcsService
     //重装系统
     public static function ResetSystemAction($ucs_instance, $system, $password, $resolved_type = 0, $resolved_name = '客户自己')
     {
+
+        self::ChangeActStatus($ucs_instance->id, UcsActStatus::ReSystem);
         //修改数据库相关操作
         $params['action'] = 'reset_system';
         $params['password'] = $password;
