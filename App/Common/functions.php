@@ -93,3 +93,37 @@ if (!function_exists('DBUpdate')) {
         });
     }
 }
+if (!function_exists('make_mac')) {
+    function make_mac($id, $mac_prefix = [])
+    {
+        $data = dechex($id);
+        $temp = str_split($data, 2);
+        //前缀数组
+        $mac_array = $mac_prefix;
+        //总长度不够
+        if (count($temp) < 6 - count($mac_array)) {
+            for ($i = 0; $i < 7 - count($mac_array) - count($temp); $i++) {
+                $mac_array[] = "00";
+            }
+        } else if (count($temp) > 6) {
+            $mac_array = [];
+            $length = count($temp);
+            for ($i = 0; $i < $length - 6; $i++) {
+                array_shift($temp);
+            }
+        } else if (count($temp) > 6 - count($mac_array)) {
+            $length = count($mac_array);
+            for ($i = 0; $i < count($temp) - $length; $i++) {
+                array_shift($mac_array);
+            }
+        }
+        foreach ($temp as $item) {
+            if (strlen($item) != 2) {
+                $mac_array[] = "0" . $item;
+            } else {
+                $mac_array[] = $item;
+            }
+        }
+        return implode(':', $mac_array);
+    }
+}

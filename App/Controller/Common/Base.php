@@ -95,6 +95,10 @@ class Base extends AnnotationController
             $this->Validate($throwable);
         } else {
             error('严重异常:' . $throwable->getMessage());
+            error('严重异常:' . $throwable->getLine());
+
+            error('严重异常:' . $throwable->getFile());
+
             $this->Error('服务器异常');
         }
     }

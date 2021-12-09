@@ -337,15 +337,15 @@ class UcsService
 
     public static function GetQueueMaster($ucs_plan)
     {
-
         $masters = UcsMaster::create()->all([
             'ucs_region_id' => $ucs_plan->ucs_region_id,
         ]);
         $temp = [];
         $queue = [];
+        var_dump($masters);
         foreach ($masters as $k => $v) {
-            //如果使用内存小于虚拟化内存就不给安排
-            if ($v->use_memory < $v->virtual_memory + $ucs_plan->memory) {
+            //如果可用内存小于虚拟机内存就不给安排
+            if ($v->virtual_memory - $v->use_memory < $ucs_plan->memory) {
                 continue;
             }
             $temp[] = $v;
@@ -355,11 +355,14 @@ class UcsService
             }
         }
         //
-        if (count($queue) > 1) {
-            return $queue[rand(0, count($queue))];
+        if (count($queue) > 0) {
+            //没在队列的随机拿
+            var_dump('找到空闲母鸡');
+            return $queue[rand(0, count($queue) - 1)];
         }
-        if (count($temp) > 1) {
-            return $temp[rand(0, count($temp))];
+        if (count($temp) > 0) {
+            var_dump('实在是没有空闲的了');
+            return $temp[rand(0, count($temp) - 1)];
         }
         return null;
     }
@@ -411,12 +414,17 @@ class UcsService
             'renew_status' => 1,
             'lock_status' => 0,
             'vnc_port' => '59000',
-            'public_mac' => 'public_mac',
-            'private_mac' => 'private_mac',
+            'public_mac' => make_mac(),
+            'private_mac' => make_mac(),
         ]);
-        $instance->save();
+        $id = $instance->save();
 
-
+        $instance->update([
+            'public_mac' => make_mac($id,),
+            'private_mac' => make_mac($id,),
+        ], [
+            'id' => $id
+        ]);
         //修改IP地址状态为已占用,并且给实例
         $ip_address = self::GetEnableIP($ucs_plan->ucs_region_id, $ip_number);
         foreach ($ip_address as $key => $value) {
@@ -427,24 +435,29 @@ class UcsService
 
         //创建数据盘数据到数据库表
         foreach ($harddisk as $k => $v) {
+            $v = json_decode($v, true);
             //循环创建数据盘数据
             $ucs_storage_plan = UcsStoragePlan::create()
                 ->alias('a')
-                ->field('a.iops,a.path,b.suffix,b.type')
+                ->field('a.iops,a.path,b.suffix,b.type,b.config')
                 ->join('ucs_storage b', 'a.ucs_storage_id=b.id')
-                ->where('id', $v['ucs_storage_plan_id'])
+                ->where('a.id', $v['ucs_storage_plan_id'])
                 ->get();
             $path = match ($ucs_storage_plan->type) {
-                "windows_local" => $ucs_storage_plan->path . "\\" . "_" . $k . $ucs_storage_plan->suffix,
-                "ceph", "linux_local" => $ucs_storage_plan->path . "/" . "_" . $k . $ucs_storage_plan->suffix,
+                "windows_local" => $ucs_storage_plan->path . "\\" . $k . $ucs_storage_plan->suffix,
+                "ceph", "linux_local" => $ucs_storage_plan->path . "/" . $k . $ucs_storage_plan->suffix,
                 default => "",
             };
             UcsStorageRalation::create([
                 'ucs_instance_id' => $instance->id,
                 'ucs_storage_plan_id' => $v['ucs_storage_plan_id'],
                 'type' => $v['type'],
-                'iops' => $ucs_storage_plan->iops,
+                'iops_read' => $ucs_storage_plan->iops_read,
+                'iops_write' => $ucs_storage_plan->iops_write,
                 'path' => $path,
+                'size' => $v['size'],
+                'storage_type' => $ucs_storage_plan->type,
+                'storage_config' => $ucs_storage_plan->config,
             ])->save();
         }
         self::CreateAction($instance->id, 'create', $resolved_type, $resolved_name);
@@ -531,7 +544,12 @@ class UcsService
 
         //获取IP地址参数
         $ucs_ip = self::SelectUcsIPByUcsInstanceId($instance_id);
+
         $params['ip_address'] = $ucs_ip;
+
+        $ucs_region = self::FindUcsRegionById($ucs_instance->ucs_region_id);
+
+        $params['dns'] = $ucs_region->dns;
 
         //获取磁盘相关参数
         $harddisk = self::FindUcsStorageRalationByUcsInstanceId($instance_id);
@@ -651,6 +669,8 @@ class UcsService
     //强制重启
     public static function ForceReStartAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
+
+        self::ChangeActStatus($instance_id, UcsActStatus::Poweroff);
         $params['action'] = 'force_restart';
         self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }
@@ -658,6 +678,7 @@ class UcsService
     //强制关机
     public static function ForceShutdownAction($instance_id, $resolved_type = 0, $resolved_name = '客户自己')
     {
+        self::ChangeActStatus($instance_id, UcsActStatus::Poweroff);
         $params['action'] = 'force_shutdown';
         self::SendActionJob($instance_id, $params, $resolved_type, $resolved_name);
     }

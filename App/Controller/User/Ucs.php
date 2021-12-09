@@ -364,7 +364,7 @@ class Ucs extends UserLoginBase
 
 
         $ip_count = UcsService::GetEnableIPCount($ucs_plan->ucs_region_id, $ip_number * $count);
-        if ($ip_count != $ip_number * $count) {
+        if ($ip_count < $ip_number * $count) {
             WechatService::SendToManagerError('UCS_IP资源不足', 'UCS线路IP资源不足,请尽快添加资源!', '请尽快处理', '/admin/');
             return $this->Error('资源不足!');
         }
@@ -376,7 +376,7 @@ class Ucs extends UserLoginBase
             return $this->Error('消费金额不能低于0元!');
         }
         $user = User::create()->get(['id' => $user_id]);
-        if ($user_id && $user) {
+        if (!$user_id || !$user) {
             return $this->Error('数据异常,请重新登录!');
         }
         if ($user->balance < $amount) {
@@ -385,6 +385,7 @@ class Ucs extends UserLoginBase
 
         for ($i = 0; $i < $count; $i++) {
             $master = UcsService::GetQueueMaster($ucs_plan);
+            var_dump($master);
             if (!$master) {
                 //发送相关警告给管理员
                 WechatService::SendToManagerError('UCS_MASTER资源不足', 'UCS宿主机资源不足,请尽快添加资源!', '请尽快处理', '/admin/');
@@ -397,6 +398,7 @@ class Ucs extends UserLoginBase
                 //更新订单中的实例ID
                 $user_finance->instance_id = $user_instance->id;
                 $user_finance->update();
+                return $this->Success();
             } else {
                 return $this->Error('消费异常');
             }
