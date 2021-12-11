@@ -414,14 +414,14 @@ class UcsService
             'renew_status' => 1,
             'lock_status' => 0,
             'vnc_port' => '59000',
-            'public_mac' => make_mac(),
-            'private_mac' => make_mac(),
+            'public_mac' => '',
+            'private_mac' => '',
         ]);
         $id = $instance->save();
-
+        $ucs_region = self::FindUcsRegionById($instance->ucs_region_id);
         $instance->update([
-            'public_mac' => make_mac($id,),
-            'private_mac' => make_mac($id,),
+            'public_mac' => make_mac($id, json_decode($ucs_region->public_mac_prefix, true)),
+            'private_mac' => make_mac($id, json_decode($ucs_region->private_mac_prefix, true)),
         ], [
             'id' => $id
         ]);
@@ -439,13 +439,13 @@ class UcsService
             //循环创建数据盘数据
             $ucs_storage_plan = UcsStoragePlan::create()
                 ->alias('a')
-                ->field('a.iops,a.path,b.suffix,b.type,b.config')
+                ->field('a.iops_write,a.iops_read,a.path,b.suffix,b.type,b.config')
                 ->join('ucs_storage b', 'a.ucs_storage_id=b.id')
                 ->where('a.id', $v['ucs_storage_plan_id'])
                 ->get();
             $path = match ($ucs_storage_plan->type) {
-                "windows_local" => $ucs_storage_plan->path . "\\" . $k . $ucs_storage_plan->suffix,
-                "ceph", "linux_local" => $ucs_storage_plan->path . "/" . $k . $ucs_storage_plan->suffix,
+                "windows_local" => $ucs_storage_plan->path . "\\" . $id . "_" . $k . $ucs_storage_plan->suffix,
+                "ceph", "linux_local" => $ucs_storage_plan->path . "/" . $id . "_" . $k . $ucs_storage_plan->suffix,
                 default => "",
             };
             UcsStorageRalation::create([
@@ -515,6 +515,7 @@ class UcsService
     {
         var_dump(11);
         $ucs_task = self::CreateUcsTask($instance_id, $resolved_type, $resolved_name, $params);
+        var_dump(json_encode($params));
         UcsJob([
             'task_id' => $ucs_task->id,
             'instance_id' => $instance_id,
@@ -549,7 +550,8 @@ class UcsService
 
         $ucs_region = self::FindUcsRegionById($ucs_instance->ucs_region_id);
 
-        $params['dns'] = $ucs_region->dns;
+        var_dump($ucs_region->dns);
+        $params['dns'] = json_decode($ucs_region->dns, true);
 
         //获取磁盘相关参数
         $harddisk = self::FindUcsStorageRalationByUcsInstanceId($instance_id);

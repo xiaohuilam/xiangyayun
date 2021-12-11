@@ -277,3 +277,34 @@
 [2021-12-09 19:45:01 $25990.0]	INFO	Server is reloading all workers now
 [2021-12-09 19:45:07 $25990.0]	INFO	Server is reloading all workers now
 [2021-12-09 20:47:14 #25989.8]	INFO	Server is shutdown now
+[2021-12-10 09:53:43 #11926.8]	INFO	Server is shutdown now
+[2021-12-10 14:31:54 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 14:32:15 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=10583] abnormal exit, status=255, signal=0
+[2021-12-10 14:32:16 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=11695] abnormal exit, status=255, signal=0
+[2021-12-10 14:46:48 *11492.5]	NOTICE	finish (ERRNO 1005): session#1 does not exists
+[2021-12-10 14:46:48 *11492.5]	NOTICE	end (ERRNO 1005): session[1] is closed
+[2021-12-10 15:00:35 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 15:00:40 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 15:03:41 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 16:39:58 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=11716] abnormal exit, status=255, signal=0
+[2021-12-10 16:39:59 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=15783] abnormal exit, status=255, signal=0
+[2021-12-10 17:02:57 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 17:03:04 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 17:03:33 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=15799] abnormal exit, status=255, signal=0
+[2021-12-10 17:03:33 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=22409] abnormal exit, status=255, signal=0
+[2021-12-10 17:11:31 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=22454] abnormal exit, status=255, signal=0
+[2021-12-10 17:11:32 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=24623] abnormal exit, status=255, signal=0
+[2021-12-10 17:18:55 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 17:19:10 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 17:41:18 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 17:41:21 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 17:41:27 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=24679] abnormal exit, status=255, signal=0
+[2021-12-10 17:41:27 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=639] abnormal exit, status=255, signal=0
+[2021-12-10 17:43:23 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 17:43:54 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 17:44:03 $10556.0]	INFO	Server is reloading all workers now
+[2021-12-10 17:44:13 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=653] abnormal exit, status=255, signal=0
+[2021-12-10 17:44:14 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=2056] abnormal exit, status=255, signal=0
+[2021-12-10 19:21:14 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=2116] abnormal exit, status=255, signal=0
+[2021-12-10 19:21:15 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=28861] abnormal exit, status=255, signal=0
+[2021-12-10 21:17:09 #10555.8]	INFO	Server is shutdown now

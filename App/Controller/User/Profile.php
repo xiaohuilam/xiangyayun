@@ -72,7 +72,6 @@ class Profile extends UserLoginBase
         $data['cert_number'] = HideService::IdCard($auth_info['cert_number']);
         $data['finish_time'] = $auth_info['finish_time'];
         $data['finish_status'] = $auth_info['finish_status'];
-
         return $this->Success('', $data);
     }
 
