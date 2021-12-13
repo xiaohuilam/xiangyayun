@@ -151,7 +151,6 @@ class AuthService
         //1. 设置参数（全局只需设置一次）
         Factory::setOptions(self::GetAlipayOptions());
         $result = Factory::member()->identification()->query($certify_id);
-        var_dump($result);
         if ($result->passed == "T") {
             //认证成功则修改用户认证状态
             UserService::SuccessUserAuth($user_auth->user_id);

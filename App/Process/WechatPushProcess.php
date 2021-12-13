@@ -16,7 +16,6 @@ class WechatPushProcess extends AbstractProcess
             WechatPushQueue::getInstance()->consumer()->listen(function (Job $job) {
                 info('接到发送模板消息队列');
                 $data = $job->getJobData();
-                var_dump($data);
                 if (array_key_exists("user_id", $data)) {
                     WechatService::SendTemplateMessage(null, $data['user_id'], $data['params'], $data['action'], $data['url']);
                 } else if (array_key_exists("admin_id", $data)) {

@@ -104,11 +104,17 @@ class RechargeService
             $user_recharge->finish_time = date('Y-m-d H:i:s');
             $user_recharge->update();
             if ($user_recharge->amount) {
-                $type = match ($user_recharge->type) {
-                    "alipay" => '支付宝',
-                    "wechat" => '微信',
-                    default => "",
-                };
+                switch ($user_recharge->type) {
+                    case "alipay":
+                        $type = '支付宝';
+                        break;
+                    case "wechat":
+                        $type = '微信';
+                        break;
+                    default:
+                        $type = "";
+                        break;
+                }
                 //充值并且记录流水
                 $flag = UserService::Recharge($user_recharge->user_id, $user_recharge->amount, $type . '充值');
                 if (!$flag) {

@@ -9,7 +9,6 @@ class AuthTimer
     public static function run()
     {
         $user_auths = AuthService::SelectAllNotAuth();
-        var_dump($user_auths);
         foreach ($user_auths as $key => $value) {
             if ($value->cert_type == "alipay") {
                 info('扫描支付宝认证订单' . $value->order_no);

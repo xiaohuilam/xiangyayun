@@ -308,3 +308,530 @@
 [2021-12-10 19:21:14 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=2116] abnormal exit, status=255, signal=0
 [2021-12-10 19:21:15 $10556.0]	WARNING	check_worker_exit_status: worker#16[pid=28861] abnormal exit, status=255, signal=0
 [2021-12-10 21:17:09 #10555.8]	INFO	Server is shutdown now
+[2021-12-13 13:18:50 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3602, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:18:51 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3601, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:18:51 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3603, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:18:51 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3604, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:01 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3608, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:01 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3609, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:01 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3610, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:01 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3611, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:02 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:19:11 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3622, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:11 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3623, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:11 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3625, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:11 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3626, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:21 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3634, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:22 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3633, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:22 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3635, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:22 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3636, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:32 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3639, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:32 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3641, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:32 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3640, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:32 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3642, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3645, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3646, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3647, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3648, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:52 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3653, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:52 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3656, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:52 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3660, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:19:53 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3662, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:02 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3666, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:03 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3667, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:03 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3668, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:03 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3669, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:13 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3672, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:13 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3673, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:13 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3674, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:13 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3675, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:23 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3678, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:23 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3679, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:23 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3680, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:23 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3681, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:28 $3586.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:20:33 $3586.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:20:33 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3684, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:33 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3685, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:33 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3686, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:33 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3687, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:44 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3705, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:44 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3706, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:44 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3707, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:44 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3708, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:54 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3711, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:54 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3712, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:54 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3713, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:20:54 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3714, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:00 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:01 @3599.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:21:01 $3586.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:21:04 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3717, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:04 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3718, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:04 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3719, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:04 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3720, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3744, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3743, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3745, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3746, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:25 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3748, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:25 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3747, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:25 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3749, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:25 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3750, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3752, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3751, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3753, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3754, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:45 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3756, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:45 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3755, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:45 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3758, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:45 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3757, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:55 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3759, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:55 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3760, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:56 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3762, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:21:56 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3761, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:06 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3764, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:06 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3763, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:06 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3766, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:06 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3765, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:16 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3768, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:16 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3767, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:16 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3770, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:16 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3769, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:26 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3772, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:26 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3771, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:26 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3773, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:26 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3774, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3775, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3776, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3777, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3778, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:47 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3779, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:47 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3780, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:47 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3782, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:47 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3781, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:57 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3784, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:57 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3783, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:57 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3785, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:22:57 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3786, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:07 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3787, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:07 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3788, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:08 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3790, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:08 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3789, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:18 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3792, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:18 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3791, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:18 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3794, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:18 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3793, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:28 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3796, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:28 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3795, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:28 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3797, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:28 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3798, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3799, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3800, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3801, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3802, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:49 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3803, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:49 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3804, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:49 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3806, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:49 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3805, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:59 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3807, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:59 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3808, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:59 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3810, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:23:59 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3809, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:09 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3812, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:09 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3811, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:09 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3814, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:09 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3813, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:19 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3815, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:20 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3816, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:20 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3817, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:20 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3818, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:30 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3819, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:30 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3820, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:30 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3821, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:30 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3822, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3824, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3823, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3825, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3826, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:50 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3827, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:50 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3828, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:50 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3829, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:24:51 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3830, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:01 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3863, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:01 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3864, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:01 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3865, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:01 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3866, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:11 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3867, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:11 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3868, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:11 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3869, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:11 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3870, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:21 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3872, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:21 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3871, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:21 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3873, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:21 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3874, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:31 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3875, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:31 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3876, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:32 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3877, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:32 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3878, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3911, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3912, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3913, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3914, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:52 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3915, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:52 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3916, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:52 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3917, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:25:52 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3918, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:02 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3919, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:02 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3920, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:02 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3921, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:02 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3922, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:12 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3923, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:12 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3924, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:12 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3925, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:13 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3926, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:23 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3927, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:23 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3928, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:23 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3929, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:23 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3930, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:33 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3931, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:33 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3932, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:33 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3933, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:33 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3934, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:43 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3935, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:43 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3937, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:43 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3936, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:43 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3938, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:53 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3939, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:53 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3941, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:53 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3940, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:26:54 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3942, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:04 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3943, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:04 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3945, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:04 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3944, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:04 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3946, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3947, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3948, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3949, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3950, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:24 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3951, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:24 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3952, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:24 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3953, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:24 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3954, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:34 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3955, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3956, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3957, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3958, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:45 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3959, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:45 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3960, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:45 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3961, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:45 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3962, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:55 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3963, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:55 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3964, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:55 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3965, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:27:55 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3966, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:05 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3967, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:06 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3968, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:06 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3969, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:06 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3970, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:15 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3971, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:16 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3972, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:16 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3974, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:16 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3973, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:26 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3975, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:26 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3976, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:26 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3978, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:26 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3977, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3981, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3982, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3983, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3984, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3980, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3979, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3985, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:35 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3986, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3987, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3988, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3989, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3990, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3991, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3992, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3993, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3994, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3995, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3996, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3997, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3998, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=3999, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4000, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4001, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4002, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4003, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4004, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:36 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4005, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4006, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4007, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4008, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4009, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4010, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4012, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4011, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4014, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4013, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4015, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4016, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4017, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4018, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4019, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4020, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4021, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4022, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4024, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4023, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4025, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:37 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4026, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4027, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4028, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4029, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4030, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4031, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4032, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4033, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4034, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4035, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4036, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4037, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4038, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4039, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4040, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4041, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4042, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4043, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4044, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4045, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:38 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4046, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4048, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4047, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4049, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4050, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4051, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4052, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4053, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4054, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4056, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4055, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4057, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4058, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4060, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4059, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4061, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4062, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4063, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4064, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4065, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:39 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4066, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4067, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4068, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4069, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4070, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4071, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4072, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4073, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4074, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4075, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4076, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4077, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4078, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4079, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4080, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4082, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4081, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4084, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4083, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4085, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4086, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4087, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4088, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4089, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4090, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:40 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4091, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4092, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4093, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4094, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4095, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4096, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4097, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4098, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4099, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4100, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4102, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4101, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4103, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4104, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4106, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4105, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4108, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4107, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4109, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4110, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:41 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4111, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4112, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4113, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4114, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4115, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4116, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4117, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4118, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4119, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4120, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4121, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4122, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4124, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4123, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4125, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4126, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4127, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4128, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4130, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4129, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4132, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4131, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4133, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4134, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:42 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4135, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:43 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4136, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:43 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4137, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:43 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4138, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:43 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4139, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:43 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4140, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:53 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4142, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:53 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4141, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:53 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4143, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:28:53 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4144, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:03 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4145, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:03 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4146, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:03 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4147, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:03 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4148, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:13 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4149, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4150, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4152, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:14 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4151, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:24 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4153, id=14) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:24 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4154, id=17) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:24 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4156, id=16) abnormal exit, status=255, signal=0
+[2021-12-13 13:29:24 $3586.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4155, id=15) abnormal exit, status=255, signal=0
+[2021-12-13 13:30:00 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:00 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:00 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:00 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:00 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:00 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:00 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:00 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:01 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:01 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:01 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:01 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:30:01 @4176.0]	WARNING	swoole_shell_exec(): fork() failed, Error: Resource temporarily unavailable[11]
+[2021-12-13 13:31:48 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:31:51 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:37:35 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:46:43 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:47:13 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:47:33 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:47:45 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:47:48 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:48:07 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:48:13 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:48:22 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:48:28 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:48:35 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:48:47 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:48:53 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:49:01 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:49:04 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:49:13 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:49:26 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:49:32 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:49:38 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:49:46 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:49:52 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:49:57 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:50:04 $4199.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:53:41 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:53:56 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:54:14 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:54:29 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:54:36 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:54:47 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:55:20 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:55:45 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 13:55:48 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:03:10 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:03:15 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:20:52 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:21:33 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:21:37 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:21:40 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:21:44 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:22:21 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:22:31 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:22:43 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:22:48 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:22:52 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:23:55 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:23:58 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:25:24 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:25:27 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:26:04 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:26:16 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:26:38 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:27:00 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:27:44 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:27:49 *4815.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught Error: Call to undefined method App\Model\UcsMaster::upadte() in /cygdrive/c/php/hiy.cn/App/Timer/UcsTimer.php:31
+Stack trace:
+#0 /cygdrive/c/php/hiy.cn/EasySwooleEvent.php(129): App\Timer\UcsTimer::run()
+#1 {main}
+  thrown in /cygdrive/c/php/hiy.cn/App/Timer/UcsTimer.php on line 31
+[2021-12-13 14:27:49 $4526.0]	WARNING	Server::check_worker_exit_status(): worker(pid=4815, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 14:27:52 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:28:42 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:28:49 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:28:52 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:32:28 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:33:32 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:34:43 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:35:50 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:36:15 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:37:14 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:37:47 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:39:33 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:48:43 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 14:49:28 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 15:11:07 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 15:11:19 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 15:11:25 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 15:11:37 $4526.0]	INFO	Server is reloading all workers now

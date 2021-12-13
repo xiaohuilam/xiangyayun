@@ -48,7 +48,6 @@ class Ucs extends UserLoginBase
         }
 
         foreach ($harddisk as $key => $value) {
-            var_dump($value);
             $value = json_decode($value, true);
             if (!array_key_exists('ucs_storage_plan_id', $value)) {
                 return $this->Error('磁盘类型不能为空!');
@@ -314,6 +313,7 @@ class Ucs extends UserLoginBase
      * @Param(name="time_length",integer="")
      * @Param(name="count",integer="")
      * @Param(name="system_id",required="")
+     * @Param(name="password",required="")
      * 创建实例
      */
     public function buy()
@@ -344,7 +344,6 @@ class Ucs extends UserLoginBase
             return $this->Error('磁盘数据不能为空!');
         }
         foreach ($harddisk as $key => $value) {
-            var_dump($value);
             $value = json_decode($value, true);
             if (!array_key_exists('ucs_storage_plan_id', $value)) {
                 return $this->Error('磁盘类型不能为空!');
@@ -361,6 +360,7 @@ class Ucs extends UserLoginBase
         $time_type = $this->GetParam('time_type');
         $time_length = $this->GetParam('time_length');
         $count = $this->GetParam('count');
+        $password = $this->GetParam('password');
 
 
         $ip_count = UcsService::GetEnableIPCount($ucs_plan->ucs_region_id, $ip_number * $count);
@@ -385,7 +385,6 @@ class Ucs extends UserLoginBase
 
         for ($i = 0; $i < $count; $i++) {
             $master = UcsService::GetQueueMaster($ucs_plan);
-            var_dump($master);
             if (!$master) {
                 //发送相关警告给管理员
                 WechatService::SendToManagerError('UCS_MASTER资源不足', 'UCS宿主机资源不足,请尽快添加资源!', '请尽快处理', '/admin/');
@@ -394,7 +393,7 @@ class Ucs extends UserLoginBase
             $user_finance = UserService::Consume($user_id, $price['instance_price'], '购买云服务器', 'ucs', 0);
             if ($user_finance) {
                 //消费成功
-                $user_instance = UcsService::CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, 0, $user->nickname);
+                $user_instance = UcsService::CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, 0, $user->nickname, $password);
                 //更新订单中的实例ID
                 $user_finance->instance_id = $user_instance->id;
                 $user_finance->update();
@@ -404,5 +403,4 @@ class Ucs extends UserLoginBase
             }
         }
     }
-
 }

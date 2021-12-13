@@ -22,14 +22,10 @@ class Auth extends UserLoginBase
         $cert_name = $this->GetParam('cert_name');
         $cert_number = $this->GetParam('cert_number');
         $cert_mobile = $this->GetParam('cert_mobile');
-        var_dump($this->GetParam());
-        var_dump($cert_name);
         $user_id = $this->GetUserId();
         if (AuthService::CheckCertNumber($cert_number)) {
             $ip = $this->GetClientIP();
             $ua = $this->GetUserAgent();
-            var_dump($ip);
-            var_dump($ua);
             $certify_id = AuthService::AlipayInit($cert_name, $cert_number);
             if ($certify_id) {
                 $user_auth = AuthService:: SaveUserAuth($user_id,$cert_mobile, $cert_name, $cert_number, 'alipay', $ip, $ua, $certify_id);

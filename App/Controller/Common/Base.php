@@ -79,7 +79,6 @@ class Base extends AnnotationController
 
     protected function onRequest(?string $action): ?bool
     {
-        //var_dump($data = $this->request());
         //判断是否是浏览器或者是否攻击
         //$flag = $this->Guester();
         // if ($flag) {
