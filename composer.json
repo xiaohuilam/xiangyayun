@@ -16,7 +16,7 @@
     "easyswoole/http-client": "^1.5",
     "alipaysdk/easysdk": "^2.2",
     "easyswoole/file-watcher": "^1.0",
-    "chillerlan/php-qrcode": "^4.0",
+    "chillerlan/php-qrcode": "^3.4.1",
     "easyswoole/session": "3.x",
     "easyswoole/smtp": "2.x"
   },
@@ -27,5 +27,11 @@
     "files": [
       "App/Common/functions.php"
     ]
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://mirrors.aliyun.com/composer/"
+    }
   }
 }

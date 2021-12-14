@@ -281,32 +281,57 @@ class UcsService
     {
         //bandwidth基础带宽
         $price = [];
-        $plan_price = match ($time_type) {
-            "day" => $ucs_plan->price_day * $time_length,
-            "month" => $ucs_plan->price_month * $time_length,
-            "year" => $ucs_plan->price_year * $time_length,
-            default => 0,
-        };
+        $plan_price = 0;
+        switch ($time_type) {
+            case "day":
+                $plan_price = $ucs_plan->price_day * $time_length;
+                break;
+            case "month":
+                $plan_price = $ucs_plan->price_month * $time_length;
+                break;
+            case "year":
+                $plan_price = $ucs_plan->price_year * $time_length;
+                break;
+            default:
+                $plan_price = 0;
+                break;
+        }
         //套餐价格
         $price['plan_price'] = $plan_price;
         //带宽价格
         $ucs_region = UcsRegion::create()->get(['id' => $ucs_plan->ucs_region_id]);
 
 
-        $bandwidth_price = match ($time_type) {
-            "day" => $ucs_region->bandwidth_price_day * $bandwidth * $time_length,
-            "month" => $ucs_region->bandwidth_price_month * $bandwidth * $time_length,
-            "year" => $ucs_region->bandwidth_price_year * $bandwidth * $time_length,
-            default => 0,
-        };
+        switch ($time_type) {
+            case "day":
+                $bandwidth_price = $ucs_region->bandwidth_price_day * $bandwidth * $time_length;
+                break;
+            case "month":
+                $bandwidth_price = $ucs_region->bandwidth_price_month * $bandwidth * $time_length;
+                break;
+            case "year":
+                $bandwidth_price = $ucs_region->bandwidth_price_year * $bandwidth * $time_length;
+                break;
+            default:
+                $bandwidth_price = 0;
+                break;
+        }
         $price['bandwidth_price'] = $bandwidth_price;
 
-        $ip_price = match ($time_type) {
-            "day" => $ucs_region->ip_price_day * $ip_number * $time_length,
-            "month" => $ucs_region->ip_price_month * $ip_number * $time_length,
-            "year" => $ucs_region->ip_price_year * $ip_number * $time_length,
-            default => 0,
-        };
+        switch ($time_type) {
+            case "day":
+                $ip_price = $ucs_region->ip_price_day * $ip_number * $time_length;
+                break;
+            case "month":
+                $ip_price = $ucs_region->ip_price_month * $ip_number * $time_length;
+                break;
+            case "year":
+                $ip_price = $ucs_region->ip_price_year * $ip_number * $time_length;
+                break;
+            default:
+                $ip_price = 0;
+                break;
+        }
         $price['ip_price'] = $ip_price;
 
         //硬盘价格
@@ -319,12 +344,20 @@ class UcsService
             $ucs_storage_plan = UcsStoragePlan::create()->get(['id' => $ucs_storage_plan_id]);
 
             var_dump($time_type);
-            $temp_harddisk_price = match ($time_type) {
-                "day" => $ucs_storage_plan->price_day * $value['size'],
-                "month" => $ucs_storage_plan->price_month * $value['size'],
-                "year" => $ucs_storage_plan->price_year * $value['size'],
-                default => 0,
-            };
+            switch ($time_type) {
+                case "day":
+                    $temp_harddisk_price = $ucs_storage_plan->price_day * $value['size'];
+                    break;
+                case "month":
+                    $temp_harddisk_price = $ucs_storage_plan->price_month * $value['size'];
+                    break;
+                case "year":
+                    $temp_harddisk_price = $ucs_storage_plan->price_year * $value['size'];
+                    break;
+                default:
+                    $temp_harddisk_price = 0;
+                    break;
+            }
 
             $harddisk_prices[] = $temp_harddisk_price * $time_length;
             $harddisk_total_price += $temp_harddisk_price;
@@ -443,11 +476,18 @@ class UcsService
                 ->join('ucs_storage b', 'a.ucs_storage_id=b.id')
                 ->where('a.id', $v['ucs_storage_plan_id'])
                 ->get();
-            $path = match ($ucs_storage_plan->type) {
-                "windows_local" => $ucs_storage_plan->path . "\\" . $id . "_" . $k . $ucs_storage_plan->suffix,
-                "ceph", "linux_local" => $ucs_storage_plan->path . "/" . $id . "_" . $k . $ucs_storage_plan->suffix,
-                default => "",
-            };
+            switch ($ucs_storage_plan->type) {
+                case "windows_local":
+                    $path = $ucs_storage_plan->path . "\\" . $id . "_" . $k . $ucs_storage_plan->suffix;
+                    break;
+                case "ceph":
+                case "linux_local":
+                    $path = $ucs_storage_plan->path . "/" . $id . "_" . $k . $ucs_storage_plan->suffix;
+                    break;
+                default:
+                    $path = "";
+                    break;
+            }
             UcsStorageRalation::create([
                 'ucs_instance_id' => $instance->id,
                 'ucs_storage_plan_id' => $v['ucs_storage_plan_id'],

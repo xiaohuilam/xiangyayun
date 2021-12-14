@@ -20,15 +20,15 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 产品过滤条件
  *
- * @method string getBusinessCode() 获取产品码
- * @method void setBusinessCode(string $BusinessCode) 设置产品码
+ * @method string getBusinessCode() 获取产品名称代码
+ * @method void setBusinessCode(string $BusinessCode) 设置产品名称代码
  * @method string getBusinessCodeName() 获取产品名称
  * @method void setBusinessCodeName(string $BusinessCodeName) 设置产品名称
  */
 class ConditionBusiness extends AbstractModel
 {
     /**
-     * @var string 产品码
+     * @var string 产品名称代码
      */
     public $BusinessCode;
 
@@ -38,7 +38,7 @@ class ConditionBusiness extends AbstractModel
     public $BusinessCodeName;
 
     /**
-     * @param string $BusinessCode 产品码
+     * @param string $BusinessCode 产品名称代码
      * @param string $BusinessCodeName 产品名称
      */
     function __construct()

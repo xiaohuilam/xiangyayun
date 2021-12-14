@@ -23,8 +23,8 @@ $data = 'https://www.youtube.com/watch?v=DLzxrzFCyOs&t=43s';
  */
 class LogoOptions extends QROptions{
 	// size in QR modules, multiply with QROptions::$scale for pixel size
-	protected int $logoSpaceWidth;
-	protected int $logoSpaceHeight;
+	protected $logoSpaceWidth;
+	protected $logoSpaceHeight;
 }
 
 $options = new LogoOptions;

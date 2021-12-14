@@ -191,17 +191,17 @@
         },
         {
             "name": "alipaysdk/easysdk",
-            "version": "2.2.0",
-            "version_normalized": "2.2.0.0",
+            "version": "2.2.1",
+            "version_normalized": "2.2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alipay/alipay-easysdk.git",
-                "reference": "7a1cfa83c7e140bded957498ea072c77611e6480"
+                "reference": "066388d02c6f55fe0919d75b386456d80801fec2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alipay/alipay-easysdk/zipball/7a1cfa83c7e140bded957498ea072c77611e6480",
-                "reference": "7a1cfa83c7e140bded957498ea072c77611e6480",
+                "url": "https://api.github.com/repos/alipay/alipay-easysdk/zipball/066388d02c6f55fe0919d75b386456d80801fec2",
+                "reference": "066388d02c6f55fe0919d75b386456d80801fec2",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -236,7 +236,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^7.5"
             },
-            "time": "2021-01-19T07:30:32+00:00",
+            "time": "2021-09-24T06:54:12+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -256,24 +256,23 @@
             ],
             "description": "支付宝官方 Alipay Easy SDK",
             "support": {
-                "issues": "https://github.com/alipay/alipay-easysdk/issues",
-                "source": "https://github.com/alipay/alipay-easysdk/tree/v2.2.0"
+                "source": "https://github.com/alipay/alipay-easysdk/tree/v2.2.1"
             },
             "install-path": "../alipaysdk/easysdk"
         },
         {
             "name": "chillerlan/php-qrcode",
-            "version": "4.3.2",
-            "version_normalized": "4.3.2.0",
+            "version": "3.4.1",
+            "version_normalized": "3.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillerlan/php-qrcode.git",
-                "reference": "b625396e0752d79747a55205ae7e191eeb459dcd"
+                "reference": "468603b687a5fe75c1ff33857a45f1726c7b95a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillerlan/php-qrcode/zipball/b625396e0752d79747a55205ae7e191eeb459dcd",
-                "reference": "b625396e0752d79747a55205ae7e191eeb459dcd",
+                "url": "https://api.github.com/repos/chillerlan/php-qrcode/zipball/468603b687a5fe75c1ff33857a45f1726c7b95a9",
+                "reference": "468603b687a5fe75c1ff33857a45f1726c7b95a9",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -283,20 +282,20 @@
                 ]
             },
             "require": {
-                "chillerlan/php-settings-container": "^2.1",
+                "chillerlan/php-settings-container": "^1.2.2",
                 "ext-mbstring": "*",
-                "php": "^7.4 || ^8.0"
+                "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "phan/phan": "^5.3",
-                "phpunit/phpunit": "^9.5",
+                "phan/phan": "^3.2.2",
+                "phpunit/phpunit": "^8.5",
                 "setasign/fpdf": "^1.8.2"
             },
             "suggest": {
                 "chillerlan/php-authenticator": "Yet another Google authenticator! Also creates URIs for mobile apps.",
                 "setasign/fpdf": "Required to use the QR FPDF output."
             },
-            "time": "2021-11-18T08:46:03+00:00",
+            "time": "2021-09-03T17:54:45+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -323,7 +322,7 @@
                     "homepage": "https://github.com/chillerlan/php-qrcode/graphs/contributors"
                 }
             ],
-            "description": "A QR code generator. PHP 7.4+",
+            "description": "A QR code generator. PHP 7.2+",
             "homepage": "https://github.com/chillerlan/php-qrcode",
             "keywords": [
                 "phpqrcode",
@@ -334,7 +333,7 @@
             ],
             "support": {
                 "issues": "https://github.com/chillerlan/php-qrcode/issues",
-                "source": "https://github.com/chillerlan/php-qrcode/tree/4.3.2"
+                "source": "https://github.com/chillerlan/php-qrcode/tree/3.4.1"
             },
             "funding": [
                 {
@@ -350,17 +349,17 @@
         },
         {
             "name": "chillerlan/php-settings-container",
-            "version": "2.1.2",
-            "version_normalized": "2.1.2.0",
+            "version": "1.2.2",
+            "version_normalized": "1.2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillerlan/php-settings-container.git",
-                "reference": "ec834493a88682dd69652a1eeaf462789ed0c5f5"
+                "reference": "d1b5284d6eb3a767459738bb0b20073f0cb3eeaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillerlan/php-settings-container/zipball/ec834493a88682dd69652a1eeaf462789ed0c5f5",
-                "reference": "ec834493a88682dd69652a1eeaf462789ed0c5f5",
+                "url": "https://api.github.com/repos/chillerlan/php-settings-container/zipball/d1b5284d6eb3a767459738bb0b20073f0cb3eeaf",
+                "reference": "d1b5284d6eb3a767459738bb0b20073f0cb3eeaf",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -371,13 +370,12 @@
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.4 || ^8.0"
+                "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "phan/phan": "^4.0",
-                "phpunit/phpunit": "^9.5"
+                "phpunit/phpunit": "^8.4"
             },
-            "time": "2021-09-06T15:17:01+00:00",
+            "time": "2021-09-03T17:33:25+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -396,7 +394,7 @@
                     "homepage": "https://github.com/codemasher"
                 }
             ],
-            "description": "A container class for immutable settings objects. Not a DI container. PHP 7.4+",
+            "description": "A container class for immutable settings objects. Not a DI container. PHP 7.2+",
             "homepage": "https://github.com/chillerlan/php-settings-container",
             "keywords": [
                 "PHP7",
@@ -2843,17 +2841,17 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.4.0",
-            "version_normalized": "7.4.0.0",
+            "version": "7.4.1",
+            "version_normalized": "7.4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "868b3571a039f0ebc11ac8f344f4080babe2cb94"
+                "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/868b3571a039f0ebc11ac8f344f4080babe2cb94",
-                "reference": "868b3571a039f0ebc11ac8f344f4080babe2cb94",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
+                "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2868,7 +2866,7 @@
                 "guzzlehttp/psr7": "^1.8.3 || ^2.1",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
-                "symfony/deprecation-contracts": "^2.2"
+                "symfony/deprecation-contracts": "^2.2 || ^3.0"
             },
             "provide": {
                 "psr/http-client-implementation": "1.0"
@@ -2885,7 +2883,7 @@
                 "ext-intl": "Required for Internationalized Domain Name (IDN) support",
                 "psr/log": "Required for using the Log middleware"
             },
-            "time": "2021-10-18T09:52:00+00:00",
+            "time": "2021-12-06T18:43:05+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2956,7 +2954,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.4.0"
+                "source": "https://github.com/guzzle/guzzle/tree/7.4.1"
             },
             "funding": [
                 {
@@ -3844,17 +3842,17 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.14.0",
-            "version_normalized": "1.14.0.0",
+            "version": "v1.15.0",
+            "version_normalized": "1.15.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e"
+                "reference": "bbcd7380b0ebf3961ee21409db7b38bc31d69a13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e",
-                "reference": "d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/bbcd7380b0ebf3961ee21409db7b38bc31d69a13",
+                "reference": "bbcd7380b0ebf3961ee21409db7b38bc31d69a13",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3874,7 +3872,7 @@
                 "phpspec/phpspec": "^6.0 || ^7.0",
                 "phpunit/phpunit": "^8.0 || ^9.0"
             },
-            "time": "2021-09-10T09:02:12+00:00",
+            "time": "2021-12-08T12:19:24+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3914,7 +3912,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpspec/prophecy/issues",
-                "source": "https://github.com/phpspec/prophecy/tree/1.14.0"
+                "source": "https://github.com/phpspec/prophecy/tree/v1.15.0"
             },
             "install-path": "../phpspec/prophecy"
         },
@@ -4457,17 +4455,17 @@
         },
         {
             "name": "psr/container",
-            "version": "1.1.2",
-            "version_normalized": "1.1.2.0",
+            "version": "1.1.1",
+            "version_normalized": "1.1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea"
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/513e0666f7216c7459170d56df27dfcefe1689ea",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4477,9 +4475,9 @@
                 ]
             },
             "require": {
-                "php": ">=7.4.0"
+                "php": ">=7.2.0"
             },
-            "time": "2021-11-05T16:50:12+00:00",
+            "time": "2021-03-05T17:36:06+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4508,7 +4506,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-fig/container/issues",
-                "source": "https://github.com/php-fig/container/tree/1.1.2"
+                "source": "https://github.com/php-fig/container/tree/1.1.1"
             },
             "install-path": "../psr/container"
         },
@@ -6312,17 +6310,17 @@
         },
         {
             "name": "tencentcloud/tencentcloud-sdk-php",
-            "version": "3.0.534",
-            "version_normalized": "3.0.534.0",
+            "version": "3.0.538",
+            "version_normalized": "3.0.538.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TencentCloud/tencentcloud-sdk-php.git",
-                "reference": "ea31ddd80800a69294ab9037d17b896d098a9cad"
+                "reference": "b413ee5bf972e26ccdcdc3e4c0e4e8127fb0df6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TencentCloud/tencentcloud-sdk-php/zipball/ea31ddd80800a69294ab9037d17b896d098a9cad",
-                "reference": "ea31ddd80800a69294ab9037d17b896d098a9cad",
+                "url": "https://api.github.com/repos/TencentCloud/tencentcloud-sdk-php/zipball/b413ee5bf972e26ccdcdc3e4c0e4e8127fb0df6c",
+                "reference": "b413ee5bf972e26ccdcdc3e4c0e4e8127fb0df6c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6335,7 +6333,7 @@
                 "guzzlehttp/guzzle": "^6.3 || ^7.0",
                 "php": ">=5.6.0"
             },
-            "time": "2021-12-06T00:51:24+00:00",
+            "time": "2021-12-10T01:04:22+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -6362,7 +6360,7 @@
             "homepage": "https://github.com/TencentCloud/tencentcloud-sdk-php",
             "support": {
                 "issues": "https://github.com/TencentCloud/tencentcloud-sdk-php/issues",
-                "source": "https://github.com/TencentCloud/tencentcloud-sdk-php/tree/3.0.534"
+                "source": "https://github.com/TencentCloud/tencentcloud-sdk-php/tree/3.0.538"
             },
             "install-path": "../tencentcloud/tencentcloud-sdk-php"
         },
