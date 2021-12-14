@@ -38,9 +38,10 @@ class Ucs extends Base
                 'notify_status' => 1,
                 'notify_time' => date('Y-m-d H:i:s')
             ], [
-                'id' => $task_id
+                'id' => $task_id,
             ]);
         }
+        return $this->Success();
     }
 
     public function flow()

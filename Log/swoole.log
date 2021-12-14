@@ -897,3 +897,6 @@ Stack trace:
 [2021-12-13 18:18:09 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1981, id=2) abnormal exit, status=127, signal=0
 [2021-12-13 18:18:09 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1987, id=1) abnormal exit, status=127, signal=0
 [2021-12-13 18:18:09 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2026, id=8) abnormal exit, status=127, signal=0
+[2021-12-14 14:04:21 $1425.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1442, id=16) abnormal exit, status=255, signal=0
+[2021-12-14 14:04:21 $1425.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1445, id=16) abnormal exit, status=255, signal=0
+[2021-12-14 14:06:24 $1425.0]	INFO	Server is reloading all workers now
