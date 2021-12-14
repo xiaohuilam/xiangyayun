@@ -393,7 +393,7 @@ class Ucs extends UserLoginBase
             $user_finance = UserService::Consume($user_id, $price['instance_price'], '购买云服务器', 'ucs', 0);
             if ($user_finance) {
                 //消费成功
-                $user_instance = UcsService::CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, 0, $user->nickname, $password);
+                $user_instance = UcsService::CreateInstance($master, $user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, 0, $user->nickname, $password);
                 //更新订单中的实例ID
                 $user_finance->instance_id = $user_instance->id;
                 $user_finance->update();

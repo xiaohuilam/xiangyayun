@@ -14,6 +14,7 @@ use App\Model\UcsSystem;
 use App\Model\UcsSystemClass;
 use App\Model\UcsTask;
 use App\Status\UcsActStatus;
+use EasySwoole\Mysqli\QueryBuilder;
 
 class UcsService
 {
@@ -481,10 +482,9 @@ class UcsService
 
     //$harddisk ['ucs_storage_plan_id':'1',"size":'20']
     //创建实例
-    public static function CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $resolved_type = 0, $resolved_name = '客户自己', $password)
+    public static function CreateInstance($master,$user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $resolved_type = 0, $resolved_name = '客户自己', $password)
     {
         //宿主机,队列+1
-        $master = self::GetQueueMaster($ucs_plan);
         $master->queue = 1;
 
         $master->update();

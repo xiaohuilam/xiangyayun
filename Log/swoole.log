@@ -835,3 +835,65 @@ Stack trace:
 [2021-12-13 15:11:19 $4526.0]	INFO	Server is reloading all workers now
 [2021-12-13 15:11:25 $4526.0]	INFO	Server is reloading all workers now
 [2021-12-13 15:11:37 $4526.0]	INFO	Server is reloading all workers now
+[2021-12-13 16:53:06 $1784.0]	INFO	Server is reloading all workers now
+[2021-12-13 16:54:22 $1784.0]	INFO	Server is reloading all workers now
+[2021-12-13 18:16:01 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1815, id=2) abnormal exit, status=1, signal=0
+[2021-12-13 18:16:03 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1803, id=18) abnormal exit, status=1, signal=0
+[2021-12-13 18:16:06 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1796, id=11) abnormal exit, status=1, signal=0
+[2021-12-13 18:16:09 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1794, id=9) abnormal exit, status=1, signal=0
+[2021-12-13 18:16:10 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1797, id=12) abnormal exit, status=1, signal=0
+[2021-12-13 18:16:12 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1798, id=13) abnormal exit, status=1, signal=0
+[2021-12-13 18:16:14 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1813, id=1) abnormal exit, status=1, signal=0
+[2021-12-13 18:16:17 *1812.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:16:17 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1812, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:16:22 *1989.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:16:22 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1989, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:16:27 *1991.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:16:27 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1991, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:16:32 *1992.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:16:32 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1992, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:16:37 *1993.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:16:37 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1993, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:16:42 *1994.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:16:42 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1994, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:16:47 *1998.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:16:47 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1998, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:16:52 *2002.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:16:52 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2002, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:16:57 *2005.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:16:57 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2005, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:00 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1795, id=10) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:02 *2008.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:02 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2008, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:07 *2012.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:07 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2012, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:12 *2015.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:12 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2015, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:16 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1793, id=8) abnormal exit, status=1, signal=0
+[2021-12-13 18:17:18 *2016.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:18 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2016, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:23 *2019.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:23 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2019, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:28 *2020.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:28 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2020, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:33 *2021.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:33 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2021, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:38 *2022.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:38 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2022, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:43 *2023.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:43 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2023, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:48 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2024, id=0) abnormal exit, status=1, signal=0
+[2021-12-13 18:17:50 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2018, id=8) abnormal exit, status=1, signal=0
+[2021-12-13 18:17:53 *2025.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:53 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2025, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:17:58 *2028.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:17:58 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2028, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:18:00 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1986, id=13) abnormal exit, status=255, signal=0
+[2021-12-13 18:18:03 *2029.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:18:03 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2029, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:18:08 *2031.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-13 18:18:08 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2031, id=0) abnormal exit, status=255, signal=0
+[2021-12-13 18:18:09 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2030, id=13) abnormal exit, status=127, signal=0
+[2021-12-13 18:18:09 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1981, id=2) abnormal exit, status=127, signal=0
+[2021-12-13 18:18:09 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1987, id=1) abnormal exit, status=127, signal=0
+[2021-12-13 18:18:09 $1784.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2026, id=8) abnormal exit, status=127, signal=0
