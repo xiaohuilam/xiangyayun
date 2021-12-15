@@ -60,29 +60,21 @@ class UserLogService
     public static function FindLoginByUserName($username)
     {
         $user_log = UserLog::create();
-        $user_counts = $user_log
+        return $user_log
             ->where('status', 0)
             ->where('action', 'login')
             ->where('create_time', date('Y-m-d H:i:s', strtotime('- 10 minutes')), '>')
             ->where('username', $username, '=')
             ->count();
-        if ($user_counts >= 5) {
-            return true;
-        }
-        return false;
     }
 
     public static function FindLoginByIp($ip)
     {
         $count = UserLog::create();
-        $ip_counts = $count->where('status', 0)
+        return $count->where('status', 0)
             ->where('action', 'login')
             ->where('create_time', date('Y-m-d H:i:s', strtotime('- 10 minutes')), '>')
             ->where('ip', $ip, '=')->count();
-        if ($ip_counts >= 5) {
-            return true;
-        }
-        return false;
     }
 
     public static function LoginSuccess($user_id, $username, $ip, $ua, $msg)

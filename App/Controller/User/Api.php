@@ -53,10 +53,10 @@ class Api extends Base
         }
         $ip = $this->GetClientIP();
         $ua = $this->GetUserAgent();
-        if (UserLogService::FindLoginByIp($ip)) {
+        if (UserLogService::FindLoginByIp($ip) > 5) {
             return $this->Error('该IP错误次数过多,请稍后再试试!');
         }
-        if (UserLogService::FindLoginByUserName($username)) {
+        if (UserLogService::FindLoginByUserName($username) > 5) {
             return $this->Error('该用户错误次数过多,请稍后再试试!');
         }
         $user = UserService::FindByUserName($username);
@@ -73,15 +73,30 @@ class Api extends Base
             return $this->Error('用户锁定至' . $user->lock_datetime);
         }
         $this->SetUserId($user->id);
-        UserLogService:: LoginSuccess($user->id, $username, $ip, $ua, '登录成功');
+        UserLogService::LoginSuccess($user->id, $username, $ip, $ua, '登录成功');
         return $this->Success();
     }
 
     //判断是否需要验证码
+
+    /**
+     * @Param(name="username",required="",lengthMin="11",lengthMax="11")
+     * 判断是否需要验证码
+     */
     public function need_verifycode()
     {
-
-
+        $ip = $this->GetClientIP();
+        $username = $this->GetParam('username');
+        $data['status'] = false;
+        if (UserLogService::FindLoginByIp($ip) > 2) {
+            $data['status'] = true;
+            return $this->Success('错误超出2次,需要验证码!', $data);
+        }
+        if (UserLogService::FindLoginByUserName($username) > 2) {
+            $data['status'] = true;
+            return $this->Success('错误超出2次,需要验证码!', $data);
+        }
+        return $this->Success('不需要验证码!', $data);
     }
 
 
@@ -95,11 +110,20 @@ class Api extends Base
         $username = $this->GetParam('username');
         $password = $this->GetParam('password');
         $ip = $this->GetClientIP();
+        if (UserLogService::FindLoginByIp($ip) > 2 || UserLogService::FindLoginByUserName($username) > 2) {
+            //要求验证码
+            $code = $this->GetParam('code');
+            $img_code = RedisService::GetImageCode($username);
+            if ($code != $img_code) {
+                return $this->Error('图片验证码错误！');
+            }
+        }
+        $ip = $this->GetClientIP();
         $ua = $this->GetUserAgent();
-        if (UserLogService::FindLoginByIp($ip)) {
+        if (UserLogService::FindLoginByIp($ip) > 5) {
             return $this->Error('该IP错误次数过多,请稍后再试试!');
         }
-        if (UserLogService::FindLoginByUserName($username)) {
+        if (UserLogService::FindLoginByUserName($username) > 5) {
             return $this->Error('该用户错误次数过多,请稍后再试试!');
         }
         $user = UserService::FindByUserName($username);
@@ -158,8 +182,13 @@ class Api extends Base
     }
 
 
+    /**
+     * @Param(name="username",required="",lengthMin="11",lengthMax="11")
+     *获取验证码需要传入用户名
+     */
     public function verifycode()
     {
+        $username = $this->GetParam('username');
         $config = new Conf();
         $config->setBackColor('#3A5FCD')
             ->setFontColor('#fff')
@@ -171,8 +200,14 @@ class Api extends Base
 
         $VCode = new \EasySwoole\VerifyCode\VerifyCode($config);
         $drawCode = $VCode->DrawCode();
-        $this->Set('img_code', $drawCode->getImageCode());
-        return $this->ImageWrite($drawCode->getImageByte());
+        RedisService::SetImageCode($username, $drawCode->getImageCode());
+        $data['image'] = $drawCode->getImageBase64();
+        return $this->Success('获取验证码成功!', $data);
+    }
+
+    public function logout()
+    {
+        return $this->Success('退出登录成功!');
     }
 
 

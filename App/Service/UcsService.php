@@ -482,7 +482,7 @@ class UcsService
 
     //$harddisk ['ucs_storage_plan_id':'1',"size":'20']
     //创建实例
-    public static function CreateInstance($master,$user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $resolved_type = 0, $resolved_name = '客户自己', $password)
+    public static function CreateInstance($master, $user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $resolved_type = 0, $resolved_name = '客户自己', $password)
     {
         //宿主机,队列+1
         $master->queue = 1;
@@ -491,6 +491,7 @@ class UcsService
 
         //创建UCS实例数据
         $instance = UcsInstance::create([
+            'name' => 'ucs_' . time(),
             'user_id' => $user_id,
             'ucs_region_id' => $ucs_plan->ucs_region_id,
             'ucs_master_id' => $master->id,
@@ -510,6 +511,8 @@ class UcsService
             'vnc_port' => '59000',
             'public_mac' => '',
             'private_mac' => '',
+            'password' => $password,
+            'vnc_password' => $password
         ]);
         $id = $instance->save();
         $ucs_region = self::FindUcsRegionById($instance->ucs_region_id);

@@ -46,6 +46,42 @@ class TreeService
         return $tree;
     }
 
+    public static function GetUcsPlanTree($data)
+    {
+        //ucs_system_class_idforeach ()
+        $ucs_plan_list = [];
+        foreach ($data as $value) {
+            $flag = true;
+            foreach ($ucs_plan_list as $v) {
+                //先判断是否有相同类
+                if ($v['value'] == $value['cpu']) {
+                    //有就不能加进去
+                    $flag = false;
+                    break;
+                }
+            }
+            if ($flag) {
+                $plan = [];
+                foreach ($data as $v) {
+                    if ($v['cpu'] == $value['cpu']) {
+                        $temp['label'] = $v['memory'] . ' MB';
+                        $temp['value'] = $v['id'];
+                        if (array_key_exists('disabled', $v)) {
+                            //disabled
+                            $temp['disabled'] = true;
+                        }
+                        $plan[] = $temp;
+                    }
+                }
+                $item['label'] = $value['cpu'] . " 核";
+                $item['value'] = $value['cpu'];
+                $item['children'] = $plan;
+                $ucs_plan_list[] = $item;
+            }
+        }
+        return $ucs_plan_list;
+    }
+
     public static function GetSystemClassTree($data)
     {
         //ucs_system_class_idforeach ()

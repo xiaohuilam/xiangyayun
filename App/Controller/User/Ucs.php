@@ -114,20 +114,49 @@ class Ucs extends UserLoginBase
         }
     }
 
+    public function get_region()
+    {
+        $regions = UcsService::SelectRegion();
+        $temp = [];
+        foreach ($regions as $region) {
+            $region = $region->toArray();
+            if ($region['show_status'] == 1) {
+                $temp[] = $region;
+            }
+        }
+        return $this->Success('获取地域列表', $temp);
+    }
+
+    public function get_plan()
+    {
+        $ucs_region_id = $this->GetParam('ucs_region_id');
+        $plan = UcsService::SelectPlanByUcsRegionId($ucs_region_id);
+        var_dump($plan);
+        $data = TreeService::GetUcsPlanTree($plan);
+        return $this->Success('获取规格列表成功', $data);
+    }
 
     /**
-     * @Param(name="instance_id",integer="")
      *获取系统列表
      */
     public function get_system()
     {
         $instance_id = $this->GetParam('instance_id');
-        //检查是否过期
-        if ($this->CheckExpire($instance_id)) {
-            $ucs_instance = UcsService::FindUcsInstanceById($instance_id);
+        $ucs_region_id = $this->GetParam('ucs_region_id');
+        if ($ucs_region_id) {
+            //如果是地域的话
             $data = UcsService::SelectSystemTree();
             $data = TreeService::GetSystemClassTree($data);
             return $this->Success('获取系统列表成功', $data);
+        }
+        if ($instance_id) {
+            //检查是否过期
+            if ($this->CheckExpire($instance_id)) {
+                $ucs_instance = UcsService::FindUcsInstanceById($instance_id);
+                $data = UcsService::SelectSystemTree();
+                $data = TreeService::GetSystemClassTree($data);
+                return $this->Success('获取系统列表成功', $data);
+            }
         }
 //        $instance_id = $this->GetParam('instance_id');
 //        $data = UcsService::SelectSystemClass();
@@ -213,6 +242,24 @@ class Ucs extends UserLoginBase
             $user = $this->GetUser();
             UcsService::ResetSystemAction($instance, $system, $password, 0, $user->nickname);
             return $this->Success('发送重装系统指令成功!');
+        }
+    }
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * @Param(name="password",required="",lengthMin="6")
+     * 重设密码
+     */
+    public function reset_password()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        //检查是否过期
+        $instance = $this->CheckExpire($instance_id);
+        if ($instance) {
+            $password = $this->GetParam('password');
+            $user = $this->GetUser();
+            UcsService::ResetPasswordAction($instance, $password, 0, $user->nickname);
+            return $this->Success('发送重设密码指令成功!');
         }
     }
 

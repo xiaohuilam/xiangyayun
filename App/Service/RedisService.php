@@ -5,10 +5,20 @@ namespace App\Service;
 class RedisService
 {
 
+    public static function SetImageCode($username, $code)
+    {
+        self::Set("IMAGE_CODE." . $username, $code);
+    }
+
+    public static function GetImageCode($username)
+    {
+        return self::Get("IMAGE_CODE." . $username);
+    }
+
 
     public static function GetUser($user_id)
     {
-        self::Get("USERINFO." . $user_id);
+        return self::Get("USERINFO." . $user_id);
     }
 
     public static function SetUser($user_id, $user)
