@@ -1114,3 +1114,222 @@ Stack trace:
 [2021-12-15 09:11:59 $979.0]	INFO	Server is reloading all workers now
 [2021-12-15 09:12:26 $979.0]	INFO	Server is reloading all workers now
 [2021-12-15 09:12:28 $979.0]	INFO	Server is reloading all workers now
+[2021-12-15 10:10:28 *1019.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#7 does not exists
+[2021-12-15 10:10:28 *1019.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#7 is closed
+[2021-12-15 10:10:28 *1018.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#6 does not exists
+[2021-12-15 10:10:28 *1018.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#6 is closed
+[2021-12-15 10:34:14 *1018.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#10 does not exists
+[2021-12-15 10:34:14 *1018.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#10 is closed
+[2021-12-15 14:43:11 $1193.0]	INFO	Server is reloading all workers now
+[2021-12-15 14:44:20 $1193.0]	INFO	Server is reloading all workers now
+[2021-12-15 14:44:33 $1193.0]	INFO	Server is reloading all workers now
+[2021-12-15 16:11:22 *1232.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#16 does not exists
+[2021-12-15 16:11:22 *1232.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#16 is closed
+[2021-12-15 16:11:22 *1235.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#15 does not exists
+[2021-12-15 16:11:22 *1235.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#15 is closed
+[2021-12-15 17:13:24 *1229.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2006] MySQL server has gone away due to Connection timed out [SELECT  * FROM `ucs_instance` WHERE  `expire_time` > '2021-12-10 17:13:09' ] in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php:78
+Stack trace:
+#0 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/DbManager.php(137): EasySwoole\ORM\Db\MysqliClient->query(Object(EasySwoole\Mysqli\QueryBuilder), false)
+#1 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(882): EasySwoole\ORM\DbManager->query(Object(EasySwoole\Mysqli\QueryBuilder), false, 'default')
+#2 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(556): EasySwoole\ORM\AbstractModel->query(Object(EasySwoole\Mysqli\QueryBuilder))
+#3 /cygdrive/c/php/hiy.cn/App/Service/UcsService.php(136): EasySwoole\ORM\AbstractModel->all()
+#4 /cygdrive/c/php/hiy.cn/App/Timer/UcsTimer.php(14): App\Service\UcsService::SelectUcsInstanceBySoonExpire()
+#5 /cygdrive/c/php/hiy.cn/EasySwooleEvent.php(129): App in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php on line 78
+[2021-12-15 17:13:24 $1193.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1229, id=0) abnormal exit, status=255, signal=0
+[2021-12-15 17:13:34 *1232.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#20 does not exists
+[2021-12-15 17:13:34 *1232.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#20 is closed
+[2021-12-16 10:39:26 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:40:00 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:40:20 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:40:24 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:40:54 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:44:25 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:53:30 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:54:11 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:54:22 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:57:58 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:58:11 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:59:09 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 10:59:14 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 11:00:18 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 11:25:10 *1785.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#27 does not exists
+[2021-12-16 11:25:10 *1785.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#27 is closed
+[2021-12-16 11:57:44 *1785.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#30 does not exists
+[2021-12-16 11:57:44 *1785.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#30 is closed
+[2021-12-16 12:19:12 *1787.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#31 does not exists
+[2021-12-16 12:19:12 *1787.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#31 is closed
+[2021-12-16 12:39:58 $1603.0]	INFO	Server is reloading all workers now
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#39 does not exists
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#39 is closed
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#44 does not exists
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#44 is closed
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#42 does not exists
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#45 does not exists
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#42 is closed
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#45 is closed
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#38 does not exists
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#38 is closed
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#43 does not exists
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#43 is closed
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#49 does not exists
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#49 is closed
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#47 does not exists
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#46 does not exists
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#47 is closed
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#46 is closed
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#50 does not exists
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#50 is closed
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#52 does not exists
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#51 does not exists
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#52 is closed
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#51 is closed
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#48 does not exists
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#48 is closed
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#53 does not exists
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#53 is closed
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#55 does not exists
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#55 is closed
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#56 does not exists
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#56 is closed
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#61 does not exists
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#61 is closed
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#59 does not exists
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#59 is closed
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#64 does not exists
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#64 is closed
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#68 does not exists
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#68 is closed
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#70 does not exists
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#70 is closed
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#54 does not exists
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#54 is closed
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#57 does not exists
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#57 is closed
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#75 does not exists
+[2021-12-16 12:40:58 *1818.0]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#75 is closed
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#58 does not exists
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#58 is closed
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#76 does not exists
+[2021-12-16 12:40:58 *1822.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#76 is closed
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#63 does not exists
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#63 is closed
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#65 does not exists
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#65 is closed
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#66 does not exists
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#66 is closed
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#71 does not exists
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#71 is closed
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#74 does not exists
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#74 is closed
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#67 does not exists
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#67 is closed
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#69 does not exists
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#69 is closed
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#72 does not exists
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#72 is closed
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#73 does not exists
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#73 is closed
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#78 does not exists
+[2021-12-16 12:40:58 *1823.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#78 is closed
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#79 does not exists
+[2021-12-16 12:40:58 *1824.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#79 is closed
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#77 does not exists
+[2021-12-16 12:40:58 *1819.1]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#77 is closed
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#80 does not exists
+[2021-12-16 12:40:58 *1825.7]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#80 is closed
+[2021-12-16 12:40:59 *1820.2]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#60 does not exists
+[2021-12-16 12:40:59 *1820.2]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#60 is closed
+[2021-12-16 12:40:59 *1821.3]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#62 does not exists
+[2021-12-16 12:40:59 *1821.3]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#62 is closed
+[2021-12-16 12:49:18 $1603.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1824, id=4) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-17 09:44:33 $973.0]	INFO	Server is reloading all workers now
+[2021-12-17 09:44:38 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=990, id=16) abnormal exit, status=255, signal=0
+[2021-12-17 09:44:39 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1001, id=16) abnormal exit, status=255, signal=0
+[2021-12-17 09:45:53 $973.0]	INFO	Server is reloading all workers now
+[2021-12-17 09:46:01 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1002, id=16) abnormal exit, status=255, signal=0
+[2021-12-17 09:46:02 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1011, id=16) abnormal exit, status=255, signal=0
+[2021-12-17 09:47:11 *1008.7]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#4 does not exists
+[2021-12-17 09:47:11 *1008.7]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#4 is closed
+[2021-12-17 09:58:26 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1009, id=5) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-17 10:34:54 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1007, id=4) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-17 10:39:41 $973.0]	INFO	Server is reloading all workers now
+[2021-12-17 10:39:59 $973.0]	INFO	Server is reloading all workers now
+[2021-12-17 10:40:35 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1037, id=6) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-17 11:02:14 $973.0]	INFO	Server is reloading all workers now
+[2021-12-17 11:17:11 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1012, id=16) abnormal exit, status=255, signal=0
+[2021-12-17 11:17:12 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1048, id=16) abnormal exit, status=255, signal=0
+[2021-12-17 12:33:08 *1040.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2006] MySQL server has gone away due to Connection timed out [SELECT  * FROM `ucs_instance` WHERE  `expire_time` > '2021-12-12 12:32:53' ] in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php:78
+Stack trace:
+#0 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/DbManager.php(137): EasySwoole\ORM\Db\MysqliClient->query(Object(EasySwoole\Mysqli\QueryBuilder), false)
+#1 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(882): EasySwoole\ORM\DbManager->query(Object(EasySwoole\Mysqli\QueryBuilder), false, 'default')
+#2 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(556): EasySwoole\ORM\AbstractModel->query(Object(EasySwoole\Mysqli\QueryBuilder))
+#3 /cygdrive/c/php/hiy.cn/App/Service/UcsService.php(137): EasySwoole\ORM\AbstractModel->all()
+#4 /cygdrive/c/php/hiy.cn/App/Timer/UcsTimer.php(14): App\Service\UcsService::SelectUcsInstanceBySoonExpire()
+#5 /cygdrive/c/php/hiy.cn/EasySwooleEvent.php(129): App in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php on line 78
+[2021-12-17 12:33:08 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1040, id=0) abnormal exit, status=255, signal=0
+[2021-12-17 12:35:05 $973.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1044, id=4) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+

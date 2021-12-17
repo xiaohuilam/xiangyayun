@@ -43,12 +43,14 @@ class Ucs extends UserLoginBase
     {
         $plan_id = $this->GetParam('plan_id');
         $harddisk = $this->GetParam('harddisk');
+        var_dump($harddisk);
         if (!is_array($harddisk)) {
             return $this->Error('磁盘数据不能为空!');
         }
 
-        foreach ($harddisk as $key => $value) {
-            $value = json_decode($value, true);
+        foreach ($harddisk as $value) {
+            var_dump($value);
+            var_dump(array_key_exists('ucs_storage_plan_id', $value));
             if (!array_key_exists('ucs_storage_plan_id', $value)) {
                 return $this->Error('磁盘类型不能为空!');
             }
@@ -134,6 +136,13 @@ class Ucs extends UserLoginBase
         var_dump($plan);
         $data = TreeService::GetUcsPlanTree($plan);
         return $this->Success('获取规格列表成功', $data);
+    }
+
+    public function get_storage()
+    {
+        $ucs_region_id = $this->GetParam('ucs_region_id');
+        $storage = UcsService::SelectStorageByUcsRegionId($ucs_region_id);
+        return $this->Success('获取磁盘类型成功', $storage);
     }
 
     /**
@@ -391,7 +400,6 @@ class Ucs extends UserLoginBase
             return $this->Error('磁盘数据不能为空!');
         }
         foreach ($harddisk as $key => $value) {
-            $value = json_decode($value, true);
             if (!array_key_exists('ucs_storage_plan_id', $value)) {
                 return $this->Error('磁盘类型不能为空!');
             }

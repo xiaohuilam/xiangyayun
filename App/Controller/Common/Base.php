@@ -19,6 +19,7 @@ class Base extends AnnotationController
     const  SecretKey = 'upu.cn';
     protected $data = [];
 
+
     protected function GetParam($key = null)
     {
         if ($key == null) {

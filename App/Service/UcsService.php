@@ -123,6 +123,7 @@ class UcsService
     public static function SelectStorageByUcsRegionId($ucs_region_id)
     {
         return UcsStoragePlan::create()
+            ->field('a.*,b.config,b.status,b.suffix,b.type,b.ucs_region_id')
             ->alias('a')
             ->join('ucs_storage b', 'a.ucs_storage_id=b.id')
             ->where('b.ucs_region_id', $ucs_region_id)->all();
@@ -372,7 +373,6 @@ class UcsService
         $harddisk_total_price = 0;
         $harddisk_prices = [];
         foreach ($harddisk as $key => $value) {
-            $value = json_decode($value, true);
             $ucs_storage_plan_id = $value['ucs_storage_plan_id'];
             $ucs_storage_plan = UcsStoragePlan::create()->get(['id' => $ucs_storage_plan_id]);
             switch ($time_type) {
@@ -534,7 +534,6 @@ class UcsService
         $harddisk_size = 0;
         //创建数据盘数据到数据库表
         foreach ($harddisk as $k => $v) {
-            $v = json_decode($v, true);
             //循环创建数据盘数据
             $ucs_storage_plan = UcsStoragePlan::create()
                 ->alias('a')
