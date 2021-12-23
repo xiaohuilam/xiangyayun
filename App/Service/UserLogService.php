@@ -14,6 +14,11 @@ class UserLogService
         return UserLog::create($params)->save();
     }
 
+    public static function SelectUserLog($user_id, $page = 1, $size = 15)
+    {
+        return UserLog::create()->where('user_id', $user_id)->order('id')->page($page, $size)->withTotalCount();
+    }
+
     public static function RegisterLog($username, $user_id, $ip, $ua, $new_params)
     {
         return self::Save([
@@ -28,6 +33,21 @@ class UserLogService
         ]);
     }
 
+    public static function UpdateAuthLog($user_id, $username, $ip, $ua, $old_params, $new_params)
+    {
+        return self::Save([
+            'username' => $username,
+            'user_id' => $user_id,
+            'ip' => $ip,
+            'ua' => $ua,
+            'status' => 1,
+            'message' => '修改实名认证成功',
+            'action' => 'update_auth',
+            'old_params' => json_encode($old_params),
+            'new_params' => json_encode($new_params),
+        ]);
+    }
+
     public static function UpdateInfoLog($user_id, $username, $ip, $ua, $old_params, $new_params)
     {
         return self::Save([
@@ -35,7 +55,7 @@ class UserLogService
             'user_id' => $user_id,
             'ip' => $ip,
             'ua' => $ua,
-            'status' => 0,
+            'status' => 1,
             'message' => '修改资料成功',
             'action' => 'update_info',
             'old_params' => json_encode($old_params),

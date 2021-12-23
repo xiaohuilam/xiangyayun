@@ -3,9 +3,11 @@
 namespace App\Controller\User;
 
 use App\Controller\Common\UserLoginBase;
+use App\Model\UserLog;
 use App\Service\HideService;
 use App\Service\QrcodeService;
 use App\Service\RedisService;
+use App\Service\UserLogService;
 use App\Service\UserService;
 use App\Service\WechatService;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
@@ -117,5 +119,20 @@ class Profile extends UserLoginBase
         //直接注销当前登录
         $this->SetUserId(0);
         return $this->Error('用户被禁用');
+    }
+
+    public function userlog()
+    {
+        $user_id = $this->GetUserId();
+        $page = $this->GetParam('page') ?? 1;
+        $size = $this->GetParam('size') ?? 15;
+        $model = UserLogService::SelectUserLog($user_id, $page, $size);
+
+        // 列表数据
+        $data['list'] = $model->all(null);
+        $result = $model->lastQueryResult();
+        // 总条数
+        $data['total'] = $result->getTotalCount();
+        return $this->Success('获取用户日志成功', $data);
     }
 }

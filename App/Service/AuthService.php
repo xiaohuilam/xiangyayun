@@ -91,6 +91,7 @@ class AuthService
             'create_ua' => $ua,
         ]);
         $user_auth->save();
+
         return $user_auth;
     }
 
@@ -153,7 +154,7 @@ class AuthService
         $result = Factory::member()->identification()->query($certify_id);
         if ($result->passed == "T") {
             //认证成功则修改用户认证状态
-            UserService::SuccessUserAuth($user_auth->user_id);
+            UserService::SuccessUserAuth($user_auth);
             $user_auth->finish_status = 1;
             $user_auth->finish_time = date('Y-m-d H:i:s');
             $user_auth->update();

@@ -128,7 +128,7 @@ class Api extends Base
         }
         $user = UserService::FindByUserName($username);
         if (!$user) {
-            UserLogService:: LoginError(0, $username, $ip, $ua, '用户名或密码错误');
+            UserLogService:: LoginError(0, $username, $ip, $ua, '用户不存在');
             return $this->Error('用户不存在');
         }
         if ($user->password != md5($password)) {
@@ -144,7 +144,7 @@ class Api extends Base
             return $this->Error('用户锁定至' . $user->lock_datetime);
         }
         $this->SetUserId($user->id);
-        UserLogService:: LoginSuccess($user->id, $username, $ip, $ua, '登录成功');
+        UserLogService::LoginSuccess($user->id, $username, $ip, $ua, '登录成功');
         $this->SetData();
         $data['token'] = $this->token;
         return $this->Success('登录成功', $data);
