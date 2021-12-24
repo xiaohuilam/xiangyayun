@@ -317,10 +317,7 @@ class UcsService
     {
         //bandwidth基础带宽
         $price = [];
-<<<<<<< HEAD
         $plan_price = 0;
-=======
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
         switch ($time_type) {
             case "day":
                 $plan_price = $ucs_plan->price_day * $time_length;
@@ -379,11 +376,6 @@ class UcsService
         foreach ($harddisk as $key => $value) {
             $ucs_storage_plan_id = $value['ucs_storage_plan_id'];
             $ucs_storage_plan = UcsStoragePlan::create()->get(['id' => $ucs_storage_plan_id]);
-<<<<<<< HEAD
-
-            var_dump($time_type);
-=======
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
             switch ($time_type) {
                 case "day":
                     $temp_harddisk_price = $ucs_storage_plan->price_day * $value['size'];

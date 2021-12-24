@@ -1928,3 +1928,9 @@ PHP_VERSION : 7.3.7
 
 [2021-12-24 18:09:09 *2875.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#34 does not exists
 [2021-12-24 18:09:09 *2875.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#34 is closed
+[2021-12-24 22:02:52 *1042.4]	NOTICE	ProcessFactory::finish() (ERRNO 1004): send 6159 bytes failed, because session#1 is closed
+[2021-12-24 22:02:52 *1042.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#1 is closed
+[2021-12-24 22:03:08 $1037.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1054, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 22:03:15 $1037.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1071, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 22:04:31 $1037.0]	INFO	Server is reloading all workers now
+[2021-12-24 22:04:43 $1037.0]	INFO	Server is reloading all workers now
