@@ -14,6 +14,11 @@ class UserLogService
         return UserLog::create($params)->save();
     }
 
+    public static function SelectUserLog($user_id, $page = 1, $size = 15)
+    {
+        return UserLog::create()->where('user_id', $user_id)->order('id')->page($page, $size)->withTotalCount();
+    }
+
     public static function RegisterLog($username, $user_id, $ip, $ua, $new_params)
     {
         return self::Save([
@@ -28,6 +33,21 @@ class UserLogService
         ]);
     }
 
+    public static function UpdateAuthLog($user_id, $username, $ip, $ua, $old_params, $new_params)
+    {
+        return self::Save([
+            'username' => $username,
+            'user_id' => $user_id,
+            'ip' => $ip,
+            'ua' => $ua,
+            'status' => 1,
+            'message' => '修改实名认证成功',
+            'action' => 'update_auth',
+            'old_params' => json_encode($old_params),
+            'new_params' => json_encode($new_params),
+        ]);
+    }
+
     public static function UpdateInfoLog($user_id, $username, $ip, $ua, $old_params, $new_params)
     {
         return self::Save([
@@ -35,11 +55,37 @@ class UserLogService
             'user_id' => $user_id,
             'ip' => $ip,
             'ua' => $ua,
-            'status' => 0,
+            'status' => 1,
             'message' => '修改资料成功',
             'action' => 'update_info',
             'old_params' => json_encode($old_params),
             'new_params' => json_encode($new_params),
+        ]);
+    }
+
+    public static function ChangePasswordSuccess($user_id, $username, $ip, $ua, $msg)
+    {
+        return self::Save([
+            'username' => $username,
+            'user_id' => $user_id,
+            'ip' => $ip,
+            'ua' => $ua,
+            'status' => 1,
+            'message' => $msg,
+            'action' => 'change_password',
+        ]);
+    }
+
+    public static function ChangePasswordError($user_id, $username, $ip, $ua, $msg)
+    {
+        return self::Save([
+            'username' => $username,
+            'user_id' => $user_id,
+            'ip' => $ip,
+            'ua' => $ua,
+            'status' => 0,
+            'message' => $msg,
+            'action' => 'change_password',
         ]);
     }
 
@@ -60,29 +106,21 @@ class UserLogService
     public static function FindLoginByUserName($username)
     {
         $user_log = UserLog::create();
-        $user_counts = $user_log
+        return $user_log
             ->where('status', 0)
             ->where('action', 'login')
             ->where('create_time', date('Y-m-d H:i:s', strtotime('- 10 minutes')), '>')
             ->where('username', $username, '=')
             ->count();
-        if ($user_counts >= 5) {
-            return true;
-        }
-        return false;
     }
 
     public static function FindLoginByIp($ip)
     {
         $count = UserLog::create();
-        $ip_counts = $count->where('status', 0)
+        return $count->where('status', 0)
             ->where('action', 'login')
             ->where('create_time', date('Y-m-d H:i:s', strtotime('- 10 minutes')), '>')
             ->where('ip', $ip, '=')->count();
-        if ($ip_counts >= 5) {
-            return true;
-        }
-        return false;
     }
 
     public static function LoginSuccess($user_id, $username, $ip, $ua, $msg)

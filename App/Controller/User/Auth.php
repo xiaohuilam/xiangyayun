@@ -14,7 +14,6 @@ class Auth extends UserLoginBase
     /**
      * @Param(name="cert_name",required="")
      * @Param(name="cert_number",required="",lengthMin="18",lengthMax="18")
-     * @Param(name="cert_mobile",required="",lengthMin="11",lengthMax="11")
      * 支付宝初始化信息
      */
     public function alipay_auth_init()
@@ -28,7 +27,7 @@ class Auth extends UserLoginBase
             $ua = $this->GetUserAgent();
             $certify_id = AuthService::AlipayInit($cert_name, $cert_number);
             if ($certify_id) {
-                $user_auth = AuthService:: SaveUserAuth($user_id,$cert_mobile, $cert_name, $cert_number, 'alipay', $ip, $ua, $certify_id);
+                $user_auth = AuthService::SaveUserAuth($user_id, $cert_mobile, $cert_name, $cert_number, 'alipay', $ip, $ua, $certify_id);
                 $d['order_no'] = $user_auth->order_no;
                 return $this->Success('生成认证订单成功!', $d);
             }
@@ -46,7 +45,8 @@ class Auth extends UserLoginBase
         $order_no = $this->GetParam('order_no');
         $auth = AuthService::AlipayCertify($order_no);
         $byte = QrcodeService::Qrcode($auth);
-        $this->ImageWrite($byte);
+        $data['image'] = $byte;
+        return $this->Success('获取二维码成功', $data);
     }
 
     //认证状态查询

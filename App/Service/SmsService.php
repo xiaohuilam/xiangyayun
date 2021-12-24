@@ -17,9 +17,15 @@ use TencentCloud\Common\Profile\HttpProfile;
 class SmsService
 {
 
-    public static function Send($mobile)
+    public static function SendCode($mobile, $code)
     {
-
+        SmsJob([
+            'mobile' => $mobile,
+            'action' => 'action_code',
+            'params' => [
+                '短信登录', $code
+            ],
+        ]);
     }
 
     public static function JobSend($mobile, $action, $params)

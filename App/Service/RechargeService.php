@@ -2,11 +2,30 @@
 
 namespace App\Service;
 
+use App\Model\UserFinance;
 use App\Model\UserRecharge;
 use TencentCloud\Ump\V20200918\Models\Config;
 
 class RechargeService
 {
+    public static function SelectRechargeLog($user_id, $page = 1, $size = 15)
+    {
+        return UserRecharge::create()
+            ->where('user_id', $user_id)
+            ->order('id')
+            ->limit($size * ($page - 1), $size)
+            ->withTotalCount();
+    }
+
+    public static function SelectFinanceLog($user_id, $page = 1, $size = 15)
+    {
+        return UserFinance::create()
+            ->where('user_id', $user_id)
+            ->order('id')
+            ->limit($size * ($page - 1), $size)
+            ->withTotalCount();
+    }
+
     private static function WechatConfig()
     {
         $config = config('PAY.WECHAT');
