@@ -28,6 +28,10 @@ class SystemCrontab extends AbstractCronTask
             // todo some thing
             info('开始执行定时任务xxx');
             //  WechatService::SendToManager('', '');
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
 
         });
     }

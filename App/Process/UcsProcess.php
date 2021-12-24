@@ -17,7 +17,6 @@ class UcsProcess extends AbstractProcess
             UcsQueue::getInstance()->consumer()->listen(function (Job $job) {
                 info('接到UCS队列');
                 $data = $job->getJobData();
-                var_dump($data);
                 UcsService::SendAction($data['task_id'], $data['instance_id'], $data['params']);
             });
         });

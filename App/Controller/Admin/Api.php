@@ -74,9 +74,7 @@ class Api extends Base
     {
         //状态
         $ticket = $this->Get('admin.ticket');
-        var_dump($ticket);
         $user_id = RedisService::GetWxLoginAdminTicket($ticket);
-        var_dump($user_id);
         if ($user_id) {
             return $this->Success('微信登录成功!');
         }

@@ -79,7 +79,6 @@ class SmsService
             /* 模板参数: 若无模板参数，则设置为空*/
             $req->TemplateParamSet = $params;
 
-            var_dump(111);
             // 通过client对象调用SendSms方法发起请求。注意请求方法名与请求对象是对应的
             // 返回的resp是一个SendSmsResponse类的实例，与请求对象对应
             $resp = $client->SendSms($req);

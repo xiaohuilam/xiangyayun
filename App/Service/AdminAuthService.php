@@ -32,7 +32,6 @@ class AdminAuthService
     public static function FindRouterListByAdminId($admin_id)
     {
         $auth_ids = self::FindAdminAuthGroupByAdminId($admin_id);
-        var_dump($auth_ids);
         $auth_ids = explode(',', $auth_ids);
         $admin_auth = AdminAuth::create()->where('id', $auth_ids, 'in')->all();
         $data = [];

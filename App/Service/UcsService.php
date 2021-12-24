@@ -14,6 +14,7 @@ use App\Model\UcsSystem;
 use App\Model\UcsSystemClass;
 use App\Model\UcsTask;
 use App\Status\UcsActStatus;
+use EasySwoole\Mysqli\QueryBuilder;
 
 class UcsService
 {
@@ -23,6 +24,41 @@ class UcsService
         return UcsInstance::create()->get([
             'id' => $instance_id
         ]);
+    }
+
+    public static function SelectMasterAll()
+    {
+        return UcsMaster::create()->all();
+    }
+
+    public static function SelectUcsInstanceByMasterId($master_id)
+    {
+        return UcsInstance::create()->where('ucs_master_id', $master_id)->all();
+    }
+
+    public static function SumUcsMemoryByMasterId($master_id)
+    {
+        return UcsInstance::create()
+            ->where('ucs_master_id', $master_id)
+            ->where('order_status', 1)
+            ->sum('memory');
+    }
+
+
+    public static function SumUcsHarddiskByMasterId($master_id)
+    {
+        return UcsInstance::create()
+            ->where('ucs_master_id', $master_id)
+            ->where('order_status', 1)
+            ->sum('harddisk');
+    }
+
+    public static function SumUcsCpuByMasterId($master_id)
+    {
+        return UcsInstance::create()
+            ->where('ucs_master_id', $master_id)
+            ->where('order_status', 1)
+            ->sum('cpu');
     }
 
     public static function FindUcsRegionById($id)
@@ -64,7 +100,6 @@ class UcsService
                 'b.system_class'
             ])
             ->all();
-        var_dump($data);
         $d = [];
         foreach ($data as $value) {
             $item = $value->toArray(false);
@@ -281,7 +316,10 @@ class UcsService
     {
         //bandwidth基础带宽
         $price = [];
+<<<<<<< HEAD
         $plan_price = 0;
+=======
+>>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
         switch ($time_type) {
             case "day":
                 $plan_price = $ucs_plan->price_day * $time_length;
@@ -339,11 +377,13 @@ class UcsService
         $harddisk_prices = [];
         foreach ($harddisk as $key => $value) {
             $value = json_decode($value, true);
-            var_dump($value);
             $ucs_storage_plan_id = $value['ucs_storage_plan_id'];
             $ucs_storage_plan = UcsStoragePlan::create()->get(['id' => $ucs_storage_plan_id]);
+<<<<<<< HEAD
 
             var_dump($time_type);
+=======
+>>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
             switch ($time_type) {
                 case "day":
                     $temp_harddisk_price = $ucs_storage_plan->price_day * $value['size'];
@@ -375,12 +415,16 @@ class UcsService
         ]);
         $temp = [];
         $queue = [];
-        var_dump($masters);
         foreach ($masters as $k => $v) {
             //如果可用内存小于虚拟机内存就不给安排
             if ($v->virtual_memory - $v->use_memory < $ucs_plan->memory) {
                 continue;
             }
+            //如果可用CPU小于虚拟化CPU就不给安排
+            if ($v->virtual_cpu - $v->use_cpu < $ucs_plan->cpu) {
+                continue;
+            }
+
             $temp[] = $v;
 
             if ($v->queue == 0) {
@@ -421,13 +465,37 @@ class UcsService
             ->count();
     }
 
+    //使用宿主机资源
+    public static function UseMasterResource($master_id, $cpu, $memory, $harddisk)
+    {
+        UcsMaster::create()->update([
+            'use_cpu' => QueryBuilder::inc($cpu), // 自增3
+            'use_memory' => QueryBuilder::inc($memory), // 自降4
+            'use_harddisk' => QueryBuilder::inc($harddisk), // 自降4
+        ], [
+            'id' => $master_id
+        ]);
+    }
+
+    //释放宿主机资源
+    public static function DestroyMasterResource($master_id, $cpu, $memory, $harddisk)
+    {
+        UcsMaster::create()->update([
+            'use_cpu' => QueryBuilder::dec($cpu), // 自增3
+            'use_memory' => QueryBuilder::dec($memory), // 自降4
+            'use_harddisk' => QueryBuilder::dec($harddisk), // 自降4
+        ], [
+            'id' => $master_id
+        ]);
+    }
+
     //$harddisk ['ucs_storage_plan_id':'1',"size":'20']
     //创建实例
-    public static function CreateInstance($user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $resolved_type = 0, $resolved_name = '客户自己')
+    public static function CreateInstance($master,$user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $resolved_type = 0, $resolved_name = '客户自己', $password)
     {
         //宿主机,队列+1
-        $master = self::GetQueueMaster($ucs_plan);
         $master->queue = 1;
+
         $master->update();
 
         //创建UCS实例数据
@@ -439,7 +507,9 @@ class UcsService
             'cpu' => $ucs_plan->cpu,
             'memory' => $ucs_plan->memory,
             'cpu_ratio' => $ucs_plan->cpu_ratio,
+            'buy_price_type' => $time_type,
             'bandwidth' => $bandwidth,
+            'harddisk' => '0',
             'create_time' => date('Y-m-d H:i:s'),
             'expire_time' => date('Y-m-d H:i:s', strtotime('+' . $time_length . $time_type)),
             'run_status' => 0,
@@ -452,6 +522,7 @@ class UcsService
         ]);
         $id = $instance->save();
         $ucs_region = self::FindUcsRegionById($instance->ucs_region_id);
+        //生成并修改MAC地址
         $instance->update([
             'public_mac' => make_mac($id, json_decode($ucs_region->public_mac_prefix, true)),
             'private_mac' => make_mac($id, json_decode($ucs_region->private_mac_prefix, true)),
@@ -466,6 +537,7 @@ class UcsService
             $value->update();
         }
 
+        $harddisk_size = 0;
         //创建数据盘数据到数据库表
         foreach ($harddisk as $k => $v) {
             $v = json_decode($v, true);
@@ -499,7 +571,14 @@ class UcsService
                 'storage_type' => $ucs_storage_plan->type,
                 'storage_config' => $ucs_storage_plan->config,
             ])->save();
+            $harddisk_size += $v['size'];
         }
+        //修改当前硬盘
+        $instance->harddisk = $harddisk_size;
+        $instance->update();
+        //使用资源
+        self::UseMasterResource($master->id, $instance->cpu, $instance->memory, $harddisk_size);
+
         self::CreateAction($instance->id, 'create', $resolved_type, $resolved_name);
         return $instance;
     }
@@ -507,7 +586,6 @@ class UcsService
     //发送操作至服务器
     public static function SendAction($task_id, $instance_id, $params)
     {
-        var_dump($params);
         self::ActionUcsTask($task_id, ['action_time' => date('Y-m-d H:i:s')]);
         $params['instance_id'] = $instance_id;
         $params['task_id'] = $task_id;
@@ -553,9 +631,7 @@ class UcsService
 
     public static function SendActionJob($instance_id, $params, $resolved_type, $resolved_name)
     {
-        var_dump(11);
         $ucs_task = self::CreateUcsTask($instance_id, $resolved_type, $resolved_name, $params);
-        var_dump(json_encode($params));
         UcsJob([
             'task_id' => $ucs_task->id,
             'instance_id' => $instance_id,
@@ -590,7 +666,6 @@ class UcsService
 
         $ucs_region = self::FindUcsRegionById($ucs_instance->ucs_region_id);
 
-        var_dump($ucs_region->dns);
         $params['dns'] = json_decode($ucs_region->dns, true);
 
         //获取磁盘相关参数
@@ -695,7 +770,6 @@ class UcsService
         //获取磁盘相关参数
         $harddisk = self::FindUcsStorageRalationByUcsInstanceId($ucs_instance->id);
 
-        var_dump($harddisk);
         $params['harddisk'] = $harddisk;
         self::SendActionJob($ucs_instance->id, $params, $resolved_type, $resolved_name);
     }
