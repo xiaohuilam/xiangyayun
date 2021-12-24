@@ -64,17 +64,17 @@
         },
         {
             "name": "alibabacloud/tea",
-            "version": "3.1.22",
-            "version_normalized": "3.1.22.0",
+            "version": "3.1.23",
+            "version_normalized": "3.1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aliyun/tea-php.git",
-                "reference": "f9c9b2c927253a1c23a5381cc655e41311be7f65"
+                "reference": "61fce993274edf6e7131af07256ed7723d97a85f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aliyun/tea-php/zipball/f9c9b2c927253a1c23a5381cc655e41311be7f65",
-                "reference": "f9c9b2c927253a1c23a5381cc655e41311be7f65",
+                "url": "https://api.github.com/repos/aliyun/tea-php/zipball/61fce993274edf6e7131af07256ed7723d97a85f",
+                "reference": "61fce993274edf6e7131af07256ed7723d97a85f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -103,7 +103,7 @@
             "suggest": {
                 "ext-sockets": "To use client-side monitoring"
             },
-            "time": "2021-05-11T06:17:44+00:00",
+            "time": "2021-12-20T02:32:43+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -202,7 +202,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/alipay/alipay-easysdk/zipball/066388d02c6f55fe0919d75b386456d80801fec2",
                 "reference": "066388d02c6f55fe0919d75b386456d80801fec2",
-<<<<<<< HEAD
                 "shasum": "",
                 "mirrors": [
                     {
@@ -210,9 +209,6 @@
                         "preferred": true
                     }
                 ]
-=======
-                "shasum": ""
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
             },
             "require": {
                 "adbario/php-dot-notation": "^2.2",
@@ -277,7 +273,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/chillerlan/php-qrcode/zipball/468603b687a5fe75c1ff33857a45f1726c7b95a9",
                 "reference": "468603b687a5fe75c1ff33857a45f1726c7b95a9",
-<<<<<<< HEAD
                 "shasum": "",
                 "mirrors": [
                     {
@@ -285,9 +280,6 @@
                         "preferred": true
                     }
                 ]
-=======
-                "shasum": ""
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
             },
             "require": {
                 "chillerlan/php-settings-container": "^1.2.2",
@@ -368,7 +360,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/chillerlan/php-settings-container/zipball/d1b5284d6eb3a767459738bb0b20073f0cb3eeaf",
                 "reference": "d1b5284d6eb3a767459738bb0b20073f0cb3eeaf",
-<<<<<<< HEAD
                 "shasum": "",
                 "mirrors": [
                     {
@@ -376,9 +367,6 @@
                         "preferred": true
                     }
                 ]
-=======
-                "shasum": ""
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
             },
             "require": {
                 "ext-json": "*",
@@ -1740,17 +1728,17 @@
         },
         {
             "name": "easyswoole/orm",
-            "version": "1.5.2",
-            "version_normalized": "1.5.2.0",
+            "version": "1.5.3",
+            "version_normalized": "1.5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/orm.git",
-                "reference": "2325b13214d3f1210aa6c698d5bd579368866573"
+                "reference": "98d7d7680372042a4e6c82aa1fd512e70128ff23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/orm/zipball/2325b13214d3f1210aa6c698d5bd579368866573",
-                "reference": "2325b13214d3f1210aa6c698d5bd579368866573",
+                "url": "https://api.github.com/repos/easy-swoole/orm/zipball/98d7d7680372042a4e6c82aa1fd512e70128ff23",
+                "reference": "98d7d7680372042a4e6c82aa1fd512e70128ff23",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1772,7 +1760,7 @@
                 "easyswoole/phpunit": "^1.0",
                 "easyswoole/swoole-ide-helper": "^1.0"
             },
-            "time": "2021-10-20T02:16:04+00:00",
+            "time": "2021-12-15T02:12:18+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -1800,7 +1788,7 @@
             ],
             "support": {
                 "issues": "https://github.com/easy-swoole/orm/issues",
-                "source": "https://github.com/easy-swoole/orm/tree/1.5.2"
+                "source": "https://github.com/easy-swoole/orm/tree/1.5.3"
             },
             "install-path": "../easyswoole/orm"
         },
@@ -2775,17 +2763,17 @@
         },
         {
             "name": "easyswoole/wechat",
-            "version": "2.0.1",
-            "version_normalized": "2.0.1.0",
+            "version": "2.0.2",
+            "version_normalized": "2.0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/wechat.git",
-                "reference": "df909505b111d98fb37462d72ad615e2d452e317"
+                "reference": "bdbaacfdc79d79d27ecc7dbca819f5c141089c6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/wechat/zipball/df909505b111d98fb37462d72ad615e2d452e317",
-                "reference": "df909505b111d98fb37462d72ad615e2d452e317",
+                "url": "https://api.github.com/repos/easy-swoole/wechat/zipball/bdbaacfdc79d79d27ecc7dbca819f5c141089c6f",
+                "reference": "bdbaacfdc79d79d27ecc7dbca819f5c141089c6f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2811,7 +2799,7 @@
                 "easyswoole/phpunit": "^1.0",
                 "swoole/ide-helper": "4.4.x-dev"
             },
-            "time": "2021-09-24T06:29:40+00:00",
+            "time": "2021-12-15T02:11:23+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2847,7 +2835,7 @@
             ],
             "support": {
                 "issues": "https://github.com/easy-swoole/wechat/issues",
-                "source": "https://github.com/easy-swoole/wechat/tree/2.0.1"
+                "source": "https://github.com/easy-swoole/wechat/tree/2.0.2"
             },
             "install-path": "../easyswoole/wechat"
         },
@@ -2864,7 +2852,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
                 "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
-<<<<<<< HEAD
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2872,9 +2859,6 @@
                         "preferred": true
                     }
                 ]
-=======
-                "shasum": ""
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
             },
             "require": {
                 "ext-json": "*",
@@ -3869,7 +3853,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/phpspec/prophecy/zipball/bbcd7380b0ebf3961ee21409db7b38bc31d69a13",
                 "reference": "bbcd7380b0ebf3961ee21409db7b38bc31d69a13",
-<<<<<<< HEAD
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3877,9 +3860,6 @@
                         "preferred": true
                     }
                 ]
-=======
-                "shasum": ""
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
             },
             "require": {
                 "doctrine/instantiator": "^1.2",
@@ -4486,7 +4466,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/php-fig/container/zipball/8622567409010282b7aeebe4bb841fe98b58dcaf",
                 "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf",
-<<<<<<< HEAD
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4494,9 +4473,6 @@
                         "preferred": true
                     }
                 ]
-=======
-                "shasum": ""
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
             },
             "require": {
                 "php": ">=7.2.0"
@@ -6334,7 +6310,6 @@
         },
         {
             "name": "tencentcloud/tencentcloud-sdk-php",
-<<<<<<< HEAD
             "version": "3.0.538",
             "version_normalized": "3.0.538.0",
             "source": {
@@ -6343,7 +6318,7 @@
                 "reference": "b413ee5bf972e26ccdcdc3e4c0e4e8127fb0df6c"
             },
             "dist": {
-                "type": "zip",
+                "type": "library",
                 "url": "https://api.github.com/repos/TencentCloud/tencentcloud-sdk-php/zipball/b413ee5bf972e26ccdcdc3e4c0e4e8127fb0df6c",
                 "reference": "b413ee5bf972e26ccdcdc3e4c0e4e8127fb0df6c",
                 "shasum": "",
@@ -6353,62 +6328,8 @@
                         "preferred": true
                     }
                 ]
-=======
-            "version": "3.0.539",
-            "version_normalized": "3.0.539.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TencentCloud/tencentcloud-sdk-php.git",
-                "reference": "954249ae8ef1538663c4edcb5f14d0c786d8f750"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TencentCloud/tencentcloud-sdk-php/zipball/954249ae8ef1538663c4edcb5f14d0c786d8f750",
-                "reference": "954249ae8ef1538663c4edcb5f14d0c786d8f750",
-                "shasum": ""
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.3 || ^7.0",
-                "php": ">=5.6.0"
-            },
-<<<<<<< HEAD
-            "time": "2021-12-10T01:04:22+00:00",
-=======
-            "time": "2021-12-13T00:37:31+00:00",
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
             "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "classmap": [
-                    "src/QcloudApi/QcloudApi.php"
-                ],
-                "psr-4": {
-                    "TencentCloud\\": "./src/TencentCloud"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "coolli",
-                    "email": "tencentcloudapi@tencent.com",
-                    "homepage": "https://cloud.tencent.com/document/sdk/PHP",
-                    "role": "Developer"
-                }
-            ],
-            "description": "TencentCloudApi php sdk",
-            "homepage": "https://github.com/TencentCloud/tencentcloud-sdk-php",
-            "support": {
-                "issues": "https://github.com/TencentCloud/tencentcloud-sdk-php/issues",
-<<<<<<< HEAD
-                "source": "https://github.com/TencentCloud/tencentcloud-sdk-php/tree/3.0.538"
-=======
-                "source": "https://github.com/TencentCloud/tencentcloud-sdk-php/tree/3.0.539"
->>>>>>> c8b124e82fb74bead221ec712d51293674d97c6f
-            },
             "install-path": "../tencentcloud/tencentcloud-sdk-php"
         },
         {
