@@ -1926,3 +1926,5 @@ GCC_VERSION: 11.2.0
 OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
 PHP_VERSION : 7.3.7
 
+[2021-12-24 18:09:09 *2875.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#34 does not exists
+[2021-12-24 18:09:09 *2875.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#34 is closed
