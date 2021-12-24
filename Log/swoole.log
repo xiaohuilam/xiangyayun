@@ -1555,3 +1555,374 @@ Stack trace:
 #4 /cygdrive/c/php/hiy.cn/App/Timer/UcsTimer.php(14): App\Service\UcsService::SelectUcsInstanceBySoonExpire()
 #5 /cygdrive/c/php/hiy.cn/EasySwooleEvent.php(129): App in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php on line 78
 [2021-12-23 19:22:07 $754.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1331, id=0) abnormal exit, status=255, signal=0
+[2021-12-23 20:32:25 $754.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1323, id=3) abnormal exit, status=127, signal=0
+[2021-12-23 20:32:25 $754.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1407, id=0) abnormal exit, status=127, signal=0
+[2021-12-23 20:32:25 $754.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1325, id=6) abnormal exit, status=127, signal=0
+[2021-12-23 20:32:25 $754.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1326, id=2) abnormal exit, status=127, signal=0
+[2021-12-23 20:32:25 $754.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1327, id=4) abnormal exit, status=127, signal=0
+[2021-12-24 09:53:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:54:01 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:54:04 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:54:27 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:54:48 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:55:21 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:55:24 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:55:25 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:55:31 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:55:36 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:55:45 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:55:46 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:56:26 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:56:30 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:56:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:57:14 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:57:33 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:57:45 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:57:48 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:57:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:58:02 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:58:12 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:58:14 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:58:40 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:58:48 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:58:51 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:58:54 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:59:01 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:59:04 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:59:25 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 09:59:50 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:00:02 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:29:43 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:29:46 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:29:50 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:30:06 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:30:14 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:30:19 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:30:21 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:30:24 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:30:28 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:30:35 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:30:45 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:31:23 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:31:50 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:31:55 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:31:59 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:32:06 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:32:07 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:37:39 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:37:56 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:38:00 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:38:04 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:38:27 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:38:31 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:38:44 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:38:48 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:38:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:38:59 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:39:00 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:39:06 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:39:14 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:39:18 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:39:36 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:39:38 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:39:49 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:39:52 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:39:57 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:40:03 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:40:06 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:40:13 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:40:27 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:40:32 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:40:44 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:40:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:41:03 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:41:16 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:41:24 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:41:40 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:41:41 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:41:44 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:41:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:41:54 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:41:55 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:42:11 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:42:21 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:42:26 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 10:59:55 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=820, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 11:01:01 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1519, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 11:02:17 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:02:18 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:03:07 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:03:16 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:03:31 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:03:35 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:03:42 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:03:44 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:03:50 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:03:57 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:04:13 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:04:36 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:05:09 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:05:11 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:05:46 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:05:49 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:05:54 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:06:01 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:06:04 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:07:33 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:07:34 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:09:27 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1686, id=4) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-24 11:09:41 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:09:48 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:09:52 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:10:05 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:10:08 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:10:38 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:10:42 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:11:14 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:11:33 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:14:05 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:14:18 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:15:09 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:16:10 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:16:18 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:17:32 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:17:34 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:17:38 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:17:46 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:17:52 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:17:56 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:18:01 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:18:19 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:18:34 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:18:38 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:18:42 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:18:46 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:18:48 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:18:58 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:19:02 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:19:17 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:19:24 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:19:31 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:19:41 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:19:51 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:19:56 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:11 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:17 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:20 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:22 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:25 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:26 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:31 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:38 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:40 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:42 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:51 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:54 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:20:59 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:00 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:04 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:05 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:11 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:19 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:23 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:39 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:46 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:47 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:21:55 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:22:05 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:22:07 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:22:14 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:22:20 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:22:30 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:22:35 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:22:39 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:26:00 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:26:59 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:27:13 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:27:23 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:27:31 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:36:03 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1520, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 11:43:47 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2256, id=4) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-24 11:47:48 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:47:50 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:47:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:47:56 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 11:48:02 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 13:58:20 *2296.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2006] MySQL server has gone away due to Connection timed out [SELECT  * FROM `user_auth` WHERE  `create_time` > '2021-12-24 13:43:05'  AND `finish_status` = 0 ] in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php:78
+Stack trace:
+#0 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/DbManager.php(137): EasySwoole\ORM\Db\MysqliClient->query(Object(EasySwoole\Mysqli\QueryBuilder), false)
+#1 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(882): EasySwoole\ORM\DbManager->query(Object(EasySwoole\Mysqli\QueryBuilder), false, 'default')
+#2 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(556): EasySwoole\ORM\AbstractModel->query(Object(EasySwoole\Mysqli\QueryBuilder))
+#3 /cygdrive/c/php/hiy.cn/App/Service/AuthService.php(147): EasySwoole\ORM\AbstractModel->all()
+#4 /cygdrive/c/php/hiy.cn/App/Timer/AuthTimer.php(11): App\Service\AuthService::SelectAllNotAuth()
+#5 /cygdrive/c/php/hiy.cn/EasySwooleEvent.p in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php on line 78
+[2021-12-24 13:58:20 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2296, id=0) abnormal exit, status=255, signal=0
+[2021-12-24 14:59:34 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 14:59:44 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 14:59:58 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:00:08 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:00:14 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:00:20 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:00:24 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:00:38 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:00:52 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:01:35 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:01:44 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:01:59 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:02:03 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:32:25 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 15:58:48 *2427.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#16 does not exists
+[2021-12-24 15:58:48 *2427.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#16 is closed
+[2021-12-24 15:59:07 *2427.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#17 does not exists
+[2021-12-24 15:59:07 *2427.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#17 is closed
+[2021-12-24 16:20:31 *2427.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#21 does not exists
+[2021-12-24 16:20:31 *2427.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#21 is closed
+[2021-12-24 16:25:53 *2427.4]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#24 does not exists
+[2021-12-24 16:25:53 *2427.4]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#24 is closed
+[2021-12-24 16:26:11 *2425.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#23 does not exists
+[2021-12-24 16:26:11 *2425.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#23 is closed
+[2021-12-24 17:23:27 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2427, id=4) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-24 17:26:17 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2258, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 17:28:58 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2429, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 17:28:59 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2430, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 17:29:13 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2431, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 17:29:14 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2432, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 17:30:47 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2428, id=4) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-24 17:31:47 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2433, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 17:33:51 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:34:01 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:34:03 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:34:07 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:34:16 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:34:22 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:34:26 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:34:51 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:35:00 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:35:07 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:35:14 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:35:32 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:35:34 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:35:52 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:36:06 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:36:09 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:36:21 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:36:39 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:36:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:36:55 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:37:19 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:37:40 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:38:06 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:38:13 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:38:24 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:38:40 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:39:04 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:39:13 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:39:26 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:39:30 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:40:07 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:40:12 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:40:39 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:41:01 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:41:15 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:44:30 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:45:14 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:45:28 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:45:42 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:45:53 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:46:10 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:46:26 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:46:31 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:46:32 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:46:34 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:46:41 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:46:52 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:46:56 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:47:18 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:47:25 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:47:36 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:47:40 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:47:46 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:47:47 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:48:05 $803.0]	INFO	Server is reloading all workers now
+[2021-12-24 17:50:55 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2869, id=4) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-24 17:59:15 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2435, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 17:59:44 $803.0]	WARNING	Server::check_worker_exit_status(): worker(pid=2873, id=6) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+

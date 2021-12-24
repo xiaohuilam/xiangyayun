@@ -14,7 +14,7 @@ class EmailService
     public static function GetMailClient($email)
     {
         $config = config('EMAIL');
-        $mail = new \EasySwoole\Smtp\Mailer(true);
+        $mail = new \EasySwoole\Smtp\Mailer(false);
         $mail->setTimeout(5);
         $mail->setMaxPackage(1024 * 1024 * 2);
         $mail->setHost($config['HOST']);
@@ -25,6 +25,17 @@ class EmailService
         $mail->setFrom($config['FROM']);;
         $mail->addAddress($email);
         return $mail;
+    }
+
+    public static function SendCode($email, $code)
+    {
+        EmailJob([
+            'email' => $email,
+            'action' => 'action_code',
+            'params' => [
+                'code' => $code
+            ],
+        ]);
     }
 
     public static function SendEmailJob($email, $action, $params)
@@ -56,6 +67,9 @@ class EmailService
             $email->send($html);
         } catch (\EasySwoole\Smtp\Exception\Exception $exception) {
             error("邮件CODE:" . $exception->getCode());
+            error("邮件CODE:" . $exception->getMessage());
+            error("邮件CODE:" . $exception->getFile());
+            error("邮件CODE:" . $exception->getLine());
         }
     }
 }

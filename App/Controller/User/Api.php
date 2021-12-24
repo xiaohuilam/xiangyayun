@@ -99,7 +99,6 @@ class Api extends Base
         return $this->Success('不需要验证码!', $data);
     }
 
-
     /**
      * @Param(name="username",required="",lengthMin="11")
      * @Param(name="password",required="",lengthMin="6")

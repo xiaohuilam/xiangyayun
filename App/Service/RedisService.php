@@ -5,6 +5,16 @@ namespace App\Service;
 class RedisService
 {
 
+    public static function SetVerifyCode($username, $code)
+    {
+        self::Set("VERIFY_CODE." . $username, $code);
+    }
+
+    public static function GetVerifyCode($username)
+    {
+        return self::Get("VERIFY_CODE." . $username);
+    }
+
     public static function SetImageCode($username, $code)
     {
         self::Set("IMAGE_CODE." . $username, $code);

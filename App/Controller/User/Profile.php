@@ -4,9 +4,11 @@ namespace App\Controller\User;
 
 use App\Controller\Common\UserLoginBase;
 use App\Model\UserLog;
+use App\Service\EmailService;
 use App\Service\HideService;
 use App\Service\QrcodeService;
 use App\Service\RedisService;
+use App\Service\SmsService;
 use App\Service\UserLogService;
 use App\Service\UserService;
 use App\Service\WechatService;
@@ -119,6 +121,155 @@ class Profile extends UserLoginBase
         //直接注销当前登录
         $this->SetUserId(0);
         return $this->Error('用户被禁用');
+    }
+
+    /**
+     * @Param(name="mobile",required="")
+     * @Param(name="type",required="",inArray=["password","sms","email","wechat"])
+     * 发送验证码
+     */
+    public function send_change_mobile_code()
+    {
+        $user_id = $this->GetUserId();
+        $user = UserService::FindById($user_id);
+        $mobile = $this->GetParam('mobile');
+        $type = $this->GetParam('type');
+        $ip = $this->GetClientIP();
+        $ua = $this->GetUserAgent();
+        if ($type == 'password') {
+            $password = $this->GetParam('password');
+            if ($user->password != md5($password)) {
+                //日志BUG
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '发送修改手机验证码失败,原密码错误');
+                return $this->Error('原密码错误');
+            }
+        } else {
+            $code = $this->GetParam('code');
+            $save_code = RedisService::GetVerifyCode($user->username);
+            if (!$save_code || $save_code != $code) {
+                //日志BUG
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '发送修改手机验证码失败,验证码错误');
+                return $this->Error('验证码错误');
+            }
+        }
+        $newuser = UserService::FindByUserName($mobile);
+        if ($newuser) {
+            //如果手机号不为空，而且用户也不存在就可以发送验证码!
+            return $this->Error('该用户已存在,不可绑定!');
+        }
+        //开始发送验证码
+        $verify_code = rand(100000, 999999);
+        RedisService::SetVerifyCode($mobile, $verify_code);
+        SmsService::SendCode($mobile, $verify_code);
+        return $this->Success('发送验证码成功');
+    }
+
+    /**
+     * @Param(name="action",required="")
+     * @Param(name="type",required="",inArray=["sms","email","wechat"])
+     * 发送验证码
+     */
+    public function sendcode()
+    {
+        $user_id = $this->GetUserId();
+        $user = UserService::FindById($user_id);
+        $type = $this->GetParam('type');
+        $action = $this->GetParam('action');
+        $actionString = [
+            'change_password' => '修改密码'
+        ];
+
+        $verify_code = rand(100000, 999999);
+        RedisService::SetVerifyCode($user->username, $verify_code);
+        switch ($type) {
+            case 'wechat':
+                WechatService::SendCode($user->id, $actionString[$action], $verify_code, '5分钟', 'http://upy.cn/');
+                return $this->Success('发送微信验证码成功!');
+            case 'sms':
+                SmsService::SendCode($user->username, $verify_code);
+                return $this->Success('发送短信验证码成功!');
+            case 'email':
+                EmailService::SendCode($user->email, $verify_code);
+                return $this->Success('发送邮件验证码成功!');
+            default:
+                return $this->Error('请选择正确的发送方式');
+        }
+    }
+
+
+    /**
+     * @Param(name="type",required="",inArray=["password","sms","email","wechat"])
+     * @Param(name="mobile",required="",lengthMin="6")
+     * @Param(name="smscode",required="",lengthMin="6")
+     * 修改密码
+     */
+    public function change_mobile()
+    {
+        $user_id = $this->GetUserId();
+        $user = UserService::FindById($user_id);
+        $type = $this->GetParam('type');
+        $mobile = $this->GetParam('mobile');
+        $smscode = $this->GetParam('smscode');
+        $ip = $this->GetClientIP();
+        $ua = $this->GetUserAgent();
+        if ($type == 'password') {
+            $password = $this->GetParam('password');
+            if ($user->password != md5($password)) {
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑手机失败,原密码错误');
+                return $this->Error('原密码错误');
+            }
+        } else {
+            $code = $this->GetParam('code');
+            $save_code = RedisService::GetVerifyCode($user->username);
+            if (!$save_code || $save_code != $code) {
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑手机失败,验证码错误');
+                return $this->Error('验证码错误');
+            }
+        }
+        $save_smscode = RedisService::GetVerifyCode($mobile);
+        if (!$save_smscode || $save_smscode != $smscode) {
+            UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑手机失败,新手机短信验证码错误');
+            return $this->Error('新手机短信验证码错误');
+        }
+        $user->username = $mobile;
+        $user->update();
+        //校验通过后，开始操作
+        UserLogService::ChangePasswordSuccess($user->id, $user->username, $ip, $ua, '改绑手机成功');
+        return $this->Success('改绑手机成功');
+    }
+
+    /**
+     * @Param(name="type",required="",inArray=["password","sms","email","wechat"])
+     * @Param(name="newpassword",required="",lengthMin="6")
+     * 修改密码
+     */
+    public function change_password()
+    {
+        $user_id = $this->GetUserId();
+        $user = UserService::FindById($user_id);
+        $type = $this->GetParam('type');
+        $newpassword = $this->GetParam('newpassword');
+        $ip = $this->GetClientIP();
+        $ua = $this->GetUserAgent();
+        if ($type == 'password') {
+            $password = $this->GetParam('password');
+            if ($user->password != md5($password)) {
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '修改密码失败,原密码错误');
+                return $this->Error('原密码错误');
+            }
+        } else {
+            $code = $this->GetParam('code');
+            $save_code = RedisService::GetVerifyCode($user->username);
+            if (!$save_code || $save_code != $code) {
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '修改密码失败,验证码错误');
+                return $this->Error('验证码错误');
+            }
+        }
+        //校验通过后，开始操作
+        $user->password = md5($newpassword);
+        $user->update();
+        UserLogService::ChangePasswordSuccess($user->id, $user->username, $ip, $ua, '修改密码成功');
+        return $this->Success('修改密码成功');
     }
 
     public function userlog()
