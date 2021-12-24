@@ -1934,3 +1934,127 @@ PHP_VERSION : 7.3.7
 [2021-12-24 22:03:15 $1037.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1071, id=16) abnormal exit, status=255, signal=0
 [2021-12-24 22:04:31 $1037.0]	INFO	Server is reloading all workers now
 [2021-12-24 22:04:43 $1037.0]	INFO	Server is reloading all workers now
+[2021-12-24 22:16:54 $1037.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1104, id=5) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-24 22:17:07 *1099.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2006] MySQL server has gone away due to Connection reset by peer [SELECT  * FROM `ucs_instance` WHERE  `expire_time` > '2021-12-19 22:17:04' ] in /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php:78
+Stack trace:
+#0 /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/DbManager.php(137): EasySwoole\ORM\Db\MysqliClient->query(Object(EasySwoole\Mysqli\QueryBuilder), false)
+#1 /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(882): EasySwoole\ORM\DbManager->query(Object(EasySwoole\Mysqli\QueryBuilder), false, 'default')
+#2 /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(556): EasySwoole\ORM\AbstractModel->query(Object(EasySwoole\Mysqli\QueryBuilder))
+#3 /cygdrive/c/source/hiy.cn/App/Service/UcsService.php(137): EasySwoole\ORM\AbstractModel->all()
+#4 /cygdrive/c/source/hiy.cn/App/Timer/UcsTimer.php(14): App\Service\UcsService::SelectUcsInstanceBySoonExpire()
+#5 /cygdrive/c/source/hiy.cn/Easy in /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php on line 78
+[2021-12-24 22:17:07 $1037.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1099, id=0) abnormal exit, status=255, signal=0
+[2021-12-24 22:17:12 *1318.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2002] Network is unreachable in /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/Db/MysqlPool.php:22
+Stack trace:
+#0 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(304): EasySwoole\ORM\Db\MysqlPool->createObject()
+#1 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(111): EasySwoole\Pool\AbstractPool->initObject()
+#2 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(117): EasySwoole\Pool\AbstractPool->getObj(3, 0)
+#3 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(117): EasySwoole\Pool\AbstractPool->getObj(3, 0)
+#4 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(117): EasySwoole\Pool\AbstractPool->getObj(3, 1)
+#5 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(402): EasySwoole\Pool\AbstractPool->getObj(3)
+#6 /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/Db/Connection.php(26): EasySwoole\Pool\AbstractPool->defer(3 in /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/Db/MysqlPool.php on line 22
+[2021-12-24 22:17:12 $1037.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1318, id=0) abnormal exit, status=255, signal=0
+[2021-12-24 22:17:17 *1319.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2002] Network is unreachable in /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/Db/MysqlPool.php:22
+Stack trace:
+#0 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(304): EasySwoole\ORM\Db\MysqlPool->createObject()
+#1 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(111): EasySwoole\Pool\AbstractPool->initObject()
+#2 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(117): EasySwoole\Pool\AbstractPool->getObj(3, 0)
+#3 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(117): EasySwoole\Pool\AbstractPool->getObj(3, 0)
+#4 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(117): EasySwoole\Pool\AbstractPool->getObj(3, 1)
+#5 /cygdrive/c/source/hiy.cn/vendor/easyswoole/pool/src/AbstractPool.php(402): EasySwoole\Pool\AbstractPool->getObj(3)
+#6 /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/Db/Connection.php(26): EasySwoole\Pool\AbstractPool->defer(3 in /cygdrive/c/source/hiy.cn/vendor/easyswoole/orm/src/Db/MysqlPool.php on line 22
+[2021-12-24 22:17:17 $1037.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1319, id=0) abnormal exit, status=255, signal=0
+[2021-12-24 22:55:32 $357.0]	WARNING	Server::check_worker_exit_status(): worker(pid=374, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 22:56:16 $357.0]	WARNING	Server::check_worker_exit_status(): worker(pid=363, id=5) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-24 22:58:50 $357.0]	WARNING	Server::check_worker_exit_status(): worker(pid=377, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 22:59:15 $357.0]	WARNING	Server::check_worker_exit_status(): worker(pid=379, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 22:59:19 $357.0]	WARNING	Server::check_worker_exit_status(): worker(pid=378, id=5) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-24 22:59:38 $357.0]	WARNING	Server::check_worker_exit_status(): worker(pid=380, id=16) abnormal exit, status=255, signal=0
+[2021-12-24 23:00:07 $357.0]	WARNING	Server::check_worker_exit_status(): worker(pid=381, id=5) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-24 23:00:38 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:00:43 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:00:57 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:01:14 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:01:55 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:02:06 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:02:36 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:02:48 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:02:56 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:03:29 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:03:41 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:03:43 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:03:52 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:03:53 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:04:56 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:06:27 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:06:36 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:06:39 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:20:02 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:22:58 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:23:13 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:23:40 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:23:55 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:24:35 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:24:42 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:25:09 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:25:39 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:26:28 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:27:31 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:27:41 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:27:48 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:27:55 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:38:25 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:38:33 $357.0]	INFO	Server is reloading all workers now
+[2021-12-24 23:39:20 $357.0]	INFO	Server is reloading all workers now

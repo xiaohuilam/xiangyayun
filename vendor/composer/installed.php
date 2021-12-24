@@ -878,12 +878,12 @@
             'dev_requirement' => false,
         ),
         'tencentcloud/tencentcloud-sdk-php' => array(
-            'pretty_version' => '3.0.538',
-            'version' => '3.0.538.0',
+            'pretty_version' => '3.0.547',
+            'version' => '3.0.547.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../tencentcloud/tencentcloud-sdk-php',
             'aliases' => array(),
-            'reference' => 'b413ee5bf972e26ccdcdc3e4c0e4e8127fb0df6c',
+            'reference' => '74e5a6b1c0ab83e75f07cd421500d0111522445a',
             'dev_requirement' => false,
         ),
         'theseer/tokenizer' => array(
