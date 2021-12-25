@@ -253,6 +253,15 @@
             'reference' => '9c4aac7c111c0dc073b53a40006606e44c11079c',
             'dev_requirement' => false,
         ),
+        'easyswoole/o-auth' => array(
+            'pretty_version' => '1.0.2',
+            'version' => '1.0.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../easyswoole/o-auth',
+            'aliases' => array(),
+            'reference' => '51951934b9f0105f76d81b760ff424b0fbaedff9',
+            'dev_requirement' => false,
+        ),
         'easyswoole/orm' => array(
             'pretty_version' => '1.5.3',
             'version' => '1.5.3.0',

@@ -106,6 +106,7 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
             'EasySwoole\\Pay\\' => 15,
             'EasySwoole\\ParserDown\\' => 22,
             'EasySwoole\\ORM\\' => 15,
+            'EasySwoole\\OAuth\\' => 17,
             'EasySwoole\\Mysqli\\Tests\\' => 24,
             'EasySwoole\\Mysqli\\' => 18,
             'EasySwoole\\Log\\' => 15,
@@ -333,6 +334,10 @@ class ComposerStaticInite83a11a847b3cb7992f0146e54a9b1be
         'EasySwoole\\ORM\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/orm/src',
+        ),
+        'EasySwoole\\OAuth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/o-auth/src',
         ),
         'EasySwoole\\Mysqli\\Tests\\' => 
         array (

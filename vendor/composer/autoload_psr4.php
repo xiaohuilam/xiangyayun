@@ -51,6 +51,7 @@ return array(
     'EasySwoole\\Pay\\' => array($vendorDir . '/easyswoole/pay/src'),
     'EasySwoole\\ParserDown\\' => array($vendorDir . '/easyswoole/parsedown/src'),
     'EasySwoole\\ORM\\' => array($vendorDir . '/easyswoole/orm/src'),
+    'EasySwoole\\OAuth\\' => array($vendorDir . '/easyswoole/o-auth/src'),
     'EasySwoole\\Mysqli\\Tests\\' => array($vendorDir . '/easyswoole/mysqli/tests'),
     'EasySwoole\\Mysqli\\' => array($vendorDir . '/easyswoole/mysqli/src'),
     'EasySwoole\\Log\\' => array($vendorDir . '/easyswoole/log/src'),

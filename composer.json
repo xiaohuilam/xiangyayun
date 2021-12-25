@@ -18,7 +18,8 @@
     "easyswoole/file-watcher": "^1.0",
     "chillerlan/php-qrcode": "^3.4.1",
     "easyswoole/session": "3.x",
-    "easyswoole/smtp": "2.x"
+    "easyswoole/smtp": "2.x",
+    "easyswoole/o-auth": "^1.0"
   },
   "autoload": {
     "psr-4": {

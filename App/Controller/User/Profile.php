@@ -29,6 +29,18 @@ class Profile extends UserLoginBase
         return $this->Success('获取绑定二维码成功', $d);
     }
 
+    //绑定微信状态
+    public function wx_qrcode_bind_status()
+    {
+        //状态
+        $ticket = $this->Get('user.ticket');
+        $user_id = RedisService::GetWxBindUserTicket($ticket);
+        if ($user_id) {
+            return $this->Success('微信登录成功!');
+        }
+        return $this->Error('等待扫码中');
+    }
+
     //更新用户信息
 
     /**
