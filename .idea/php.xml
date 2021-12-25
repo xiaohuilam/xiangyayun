@@ -79,7 +79,6 @@
       <path value="$PROJECT_DIR$/vendor/easyswoole/wechat" />
       <path value="$PROJECT_DIR$/vendor/easyswoole/linux-dash" />
       <path value="$PROJECT_DIR$/vendor/easyswoole/queue" />
-      <path value="$PROJECT_DIR$/vendor/tencentcloud/tencentcloud-sdk-php" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
@@ -101,6 +100,7 @@
       <path value="$PROJECT_DIR$/vendor/chillerlan/php-qrcode" />
       <path value="$PROJECT_DIR$/vendor/chillerlan/php-settings-container" />
       <path value="$PROJECT_DIR$/vendor/easyswoole/smtp" />
+      <path value="$PROJECT_DIR$/vendor/tencentcloud/tencentcloud-sdk-php" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

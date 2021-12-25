@@ -82,7 +82,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/easyswoole/wechat" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/easyswoole/linux-dash" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/easyswoole/queue" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/tencentcloud/tencentcloud-sdk-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
@@ -104,6 +103,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/chillerlan/php-qrcode" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/chillerlan/php-settings-container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/easyswoole/smtp" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tencentcloud/tencentcloud-sdk-php" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

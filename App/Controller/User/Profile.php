@@ -20,13 +20,13 @@ class Profile extends UserLoginBase
     public function wx_qrcode_bind()
     {
         $data = WechatService::GetQrcode("QRCODE_USER_BIND");
-        $byte = QrcodeService::Qrcode($data['url']);
+        $d['image'] = QrcodeService::Qrcode($data['url']);
         //服务端获取EventKey
         $ticket = $data['ticket'];
         $this->Set('ticket', $ticket);
         $user_id = $this->GetUserId();
         RedisService::SetWxBindUserTicket($ticket, $user_id);
-        return $this->ImageWrite($byte);
+        return $this->Success('获取绑定二维码成功', $d);
     }
 
     //更新用户信息
@@ -123,6 +123,49 @@ class Profile extends UserLoginBase
         return $this->Error('用户被禁用');
     }
 
+
+    /**
+     * @Param(name="email",required="")
+     * @Param(name="type",required="",inArray=["password","sms","email","wechat"])
+     * 发送验证码
+     */
+    public function send_change_email_code()
+    {
+
+        $user_id = $this->GetUserId();
+        $user = UserService::FindById($user_id);
+        $email = $this->GetParam('email');
+        $type = $this->GetParam('type');
+        $ip = $this->GetClientIP();
+        $ua = $this->GetUserAgent();
+        if ($type == 'password') {
+            $password = $this->GetParam('password');
+            if ($user->password != md5($password)) {
+                //日志BUG
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '发送修改邮箱验证码失败,原密码错误');
+                return $this->Error('原密码错误');
+            }
+        } else {
+            $code = $this->GetParam('code');
+            $save_code = RedisService::GetVerifyCode($user->username);
+            if (!$save_code || $save_code != $code) {
+                //日志BUG
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '发送修改邮箱验证码失败,验证码错误');
+                return $this->Error('验证码错误');
+            }
+        }
+        $newuser = UserService::FindByEmail($email);
+        if ($newuser) {
+            //如果手机号不为空，而且用户也不存在就可以发送验证码!
+            return $this->Error('该邮箱已存在,不可绑定!');
+        }
+        //开始发送验证码
+        $verify_code = rand(100000, 999999);
+        RedisService::SetVerifyCode($user->username, $verify_code);
+        EmailService::SendCode($email, $verify_code);
+        return $this->Success('发送验证码成功');
+    }
+
     /**
      * @Param(name="mobile",required="")
      * @Param(name="type",required="",inArray=["password","sms","email","wechat"])
@@ -196,12 +239,53 @@ class Profile extends UserLoginBase
         }
     }
 
+    /**
+     * @Param(name="type",required="",inArray=["password","sms","email","wechat"])
+     * @Param(name="email",required="",lengthMin="6")
+     * @Param(name="email_code",required="",lengthMin="6")
+     * 修改邮箱地址
+     */
+    public function change_email()
+    {
+
+        $user_id = $this->GetUserId();
+        $user = UserService::FindById($user_id);
+        $type = $this->GetParam('type');
+        $email = $this->GetParam('email');
+        $email_code = $this->GetParam('email_code');
+        $ip = $this->GetClientIP();
+        $ua = $this->GetUserAgent();
+        if ($type == 'password') {
+            $password = $this->GetParam('password');
+            if ($user->password != md5($password)) {
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,校验密码失败');
+                return $this->Error('原密码错误');
+            }
+        } else {
+            $code = $this->GetParam('code');
+            $save_code = RedisService::GetVerifyCode($user->username);
+            if (!$save_code || $save_code != $code) {
+                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,验证码错误');
+                return $this->Error('验证码错误');
+            }
+        }
+        $save_smscode = RedisService::GetVerifyCode($user->username);
+        if (!$save_smscode || $save_smscode != $email_code) {
+            UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,新邮箱短验证码错误');
+            return $this->Error('新邮箱验证码错误');
+        }
+        $user->email = $email;
+        $user->update();
+        //校验通过后，开始操作
+        UserLogService::ChangePasswordSuccess($user->id, $user->username, $ip, $ua, '改绑邮箱成功');
+        return $this->Success('改绑邮箱成功');
+    }
 
     /**
      * @Param(name="type",required="",inArray=["password","sms","email","wechat"])
      * @Param(name="mobile",required="",lengthMin="6")
      * @Param(name="smscode",required="",lengthMin="6")
-     * 修改密码
+     * 修改绑定手机号
      */
     public function change_mobile()
     {

@@ -100,6 +100,14 @@ class UserService
         ]);
     }
 
+    //通过电子邮件查询用户
+    public static function FindByEmail($email)
+    {
+        return User::create()->get([
+            'email' => $email
+        ]);
+    }
+
     public static function FindByWxOpenId($wx_openid)
     {
         return User::create()->get([

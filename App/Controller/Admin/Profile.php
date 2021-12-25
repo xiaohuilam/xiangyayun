@@ -36,12 +36,12 @@ class Profile extends AdminLoginBase
     public function wx_qrcode_bind()
     {
         $data = WechatService::GetQrcode("QRCODE_ADMIN_BIND");
-        $byte = QrcodeService::Qrcode($data['url']);
+        $data['image'] = QrcodeService::Qrcode($data['url']);
         //服务端获取EventKey
         $ticket = $data['ticket'];
         $this->Set('admin.ticket', $ticket);
         $user_id = $this->GetUserId();
         RedisService::SetWxBindAdminTicket($ticket, $user_id);
-        return $this->ImageWrite($byte);
+        return $this->Success('获取二维码成功', $data);
     }
 }

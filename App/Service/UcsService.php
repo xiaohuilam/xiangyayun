@@ -317,6 +317,7 @@ class UcsService
     {
         //bandwidth基础带宽
         $price = [];
+        $plan_price = 0;
         switch ($time_type) {
             case "day":
                 $plan_price = $ucs_plan->price_day * $time_length;

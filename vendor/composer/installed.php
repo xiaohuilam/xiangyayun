@@ -29,12 +29,12 @@
             'dev_requirement' => false,
         ),
         'alibabacloud/tea' => array(
-            'pretty_version' => '3.1.22',
-            'version' => '3.1.22.0',
+            'pretty_version' => '3.1.23',
+            'version' => '3.1.23.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../alibabacloud/tea',
             'aliases' => array(),
-            'reference' => 'f9c9b2c927253a1c23a5381cc655e41311be7f65',
+            'reference' => '61fce993274edf6e7131af07256ed7723d97a85f',
             'dev_requirement' => false,
         ),
         'alibabacloud/tea-fileform' => array(
@@ -254,12 +254,12 @@
             'dev_requirement' => false,
         ),
         'easyswoole/orm' => array(
-            'pretty_version' => '1.5.2',
-            'version' => '1.5.2.0',
+            'pretty_version' => '1.5.3',
+            'version' => '1.5.3.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../easyswoole/orm',
             'aliases' => array(),
-            'reference' => '2325b13214d3f1210aa6c698d5bd579368866573',
+            'reference' => '98d7d7680372042a4e6c82aa1fd512e70128ff23',
             'dev_requirement' => false,
         ),
         'easyswoole/parsedown' => array(
@@ -416,12 +416,12 @@
             'dev_requirement' => false,
         ),
         'easyswoole/wechat' => array(
-            'pretty_version' => '2.0.1',
-            'version' => '2.0.1.0',
+            'pretty_version' => '2.0.2',
+            'version' => '2.0.2.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../easyswoole/wechat',
             'aliases' => array(),
-            'reference' => 'df909505b111d98fb37462d72ad615e2d452e317',
+            'reference' => 'bdbaacfdc79d79d27ecc7dbca819f5c141089c6f',
             'dev_requirement' => false,
         ),
         'guzzlehttp/guzzle' => array(
@@ -878,12 +878,12 @@
             'dev_requirement' => false,
         ),
         'tencentcloud/tencentcloud-sdk-php' => array(
-            'pretty_version' => '3.0.539',
-            'version' => '3.0.539.0',
+            'pretty_version' => '3.0.547',
+            'version' => '3.0.547.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../tencentcloud/tencentcloud-sdk-php',
             'aliases' => array(),
-            'reference' => '954249ae8ef1538663c4edcb5f14d0c786d8f750',
+            'reference' => '74e5a6b1c0ab83e75f07cd421500d0111522445a',
             'dev_requirement' => false,
         ),
         'theseer/tokenizer' => array(
