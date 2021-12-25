@@ -101,6 +101,7 @@
       <path value="$PROJECT_DIR$/vendor/chillerlan/php-settings-container" />
       <path value="$PROJECT_DIR$/vendor/easyswoole/smtp" />
       <path value="$PROJECT_DIR$/vendor/tencentcloud/tencentcloud-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/easyswoole/o-auth" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

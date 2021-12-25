@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6584a33c59e68a38f662058391385612",
+    "content-hash": "10d74c87abff96c63ce0837527ae4337",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -1653,6 +1653,59 @@
                 "source": "https://github.com/easy-swoole/mysqli/tree/2.2.11"
             },
             "time": "2021-09-22T06:40:09+00:00"
+        },
+        {
+            "name": "easyswoole/o-auth",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easy-swoole/o-auth.git",
+                "reference": "51951934b9f0105f76d81b760ff424b0fbaedff9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/easy-swoole/o-auth/zipball/51951934b9f0105f76d81b760ff424b0fbaedff9",
+                "reference": "51951934b9f0105f76d81b760ff424b0fbaedff9",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "easyswoole/http-client": "^1.2",
+                "ext-swoole": "^4.4.0",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "easyswoole/phpunit": ">=1.0.0",
+                "easyswoole/swoole-ide-helper": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasySwoole\\OAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "easyswoole component",
+            "homepage": "https://www.easyswoole.com/",
+            "keywords": [
+                "async",
+                "easyswoole",
+                "framework",
+                "swoole"
+            ],
+            "support": {
+                "issues": "https://github.com/easy-swoole/o-auth/issues",
+                "source": "https://github.com/easy-swoole/o-auth/tree/1.0.2"
+            },
+            "time": "2021-01-08T06:53:12+00:00"
         },
         {
             "name": "easyswoole/orm",
