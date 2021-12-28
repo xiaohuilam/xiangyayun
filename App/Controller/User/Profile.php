@@ -45,23 +45,18 @@ class Profile extends UserLoginBase
 
     /**
      * @Param(name="nickname",required="",lengthMin="1",lengthMax="10")
-     * @Param(name="email",required="",lengthMin="4")
      * @Param(name="qq",integer="",lengthMin="6",lengthMax="11")
      * @Param(name="wechat",required="",lengthMin="3")
      */
     public function update()
     {
         $nickname = $this->GetParam('nickname');
-        $email = $this->GetParam('email');
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return $this->Error('请输入正确的邮件地址');
-        }
         $qq = $this->GetParam('qq');
         $wechat = $this->GetParam('wechat');
         $user_id = $this->GetUserId();
         $ip = $this->GetClientIP();
         $ua = $this->GetUserAgent();
-        UserService::UpdateUserInfo($user_id, $nickname, $email, $qq, $wechat, $ip, $ua);
+        UserService::UpdateUserInfo($user_id, $nickname, $qq, $wechat, $ip, $ua);
         return $this->Success('修改资料成功!');
     }
 

@@ -70,19 +70,17 @@ class UserService
     }
 
     //更新用户资料
-    public static function UpdateUserInfo($user_id, $nickname, $email, $qq, $wechat, $ip, $ua)
+    public static function UpdateUserInfo($user_id, $nickname, $qq, $wechat, $ip, $ua)
     {
         $user = self::FindById($user_id);
 
         $old_params = [
-            'email' => $user->email,
             'qq' => $user->qq,
             'nickname' => $user->nickname,
             'wechat' => $user->wechat,
         ];
         $new_params = [
             'nickname' => $nickname,
-            'email' => $email,
             'qq' => $qq,
             'wechat' => $wechat
         ];
