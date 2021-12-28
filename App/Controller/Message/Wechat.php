@@ -101,7 +101,7 @@ class Wechat extends Base
             'action' => 'user_bind',
             'url' => config('SYSTEM.APP_URL') . '/user/info',
         ]);
-        return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码绑定成功!");
+        return new \EasySwoole\WeChat\Kernel\Messages\Text("用户扫码绑定会员成功!");
     }
 
     //微信二维码登录
@@ -111,7 +111,7 @@ class Wechat extends Base
         $user = UserService::FindByWxOpenId($wx_openid);
         if ($user) {
             RedisService::SetWxLoginUserTicket($data['Ticket'], $user->id);
-            return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码登录成功!");
+            return new \EasySwoole\WeChat\Kernel\Messages\Text("用户扫码登录成功!");
         } else {
             return new \EasySwoole\WeChat\Kernel\Messages\Text("未注册绑定用户!请点击此处绑定!");
         }
@@ -132,7 +132,7 @@ class Wechat extends Base
             'url' => config('SYSTEM.APP_URL') . '/user/info',
         ]);
         AdminService::BindWxOpenId($admin_id, $wx_openid);
-        return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码绑定管理员成功!");
+        return new \EasySwoole\WeChat\Kernel\Messages\Text("管理员扫码绑定成功!");
     }
 
     //微信二维码登录
@@ -151,9 +151,9 @@ class Wechat extends Base
         ]);
         if ($admin) {
             RedisService::SetWxLoginAdminTicket($data['Ticket'], $admin->id);
-            return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码登录成功!");
+            return new \EasySwoole\WeChat\Kernel\Messages\Text("管理员扫码登录成功!");
         } else {
-            return new \EasySwoole\WeChat\Kernel\Messages\Text("未注册绑定用户!请点击此处绑定!");
+            return new \EasySwoole\WeChat\Kernel\Messages\Text("未注册绑定管理员!请点击此处绑定!");
         }
     }
 
