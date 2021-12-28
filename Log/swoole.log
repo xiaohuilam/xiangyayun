@@ -2213,3 +2213,36 @@ Stack trace:
 [2021-12-24 23:51:00 *661.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
 [2021-12-24 23:51:00 $357.0]	WARNING	Server::check_worker_exit_status(): worker(pid=661, id=0) abnormal exit, status=255, signal=0
 >>>>>>> a644cef5a5248e1ee6520f86930923ad87cc1002
+[2021-12-28 11:42:17 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:42:22 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:42:48 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:42:50 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:43:09 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:43:16 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:43:29 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:43:34 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:57:37 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:57:50 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:57:53 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:57:57 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:58:02 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:58:07 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:58:13 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:58:14 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:06:53 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:08:18 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:08:44 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:09:02 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:09:09 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:09:16 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:09:21 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:09:33 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:09:40 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:09:46 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:10:13 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:10:23 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:10:37 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:10:41 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:11:13 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:11:15 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 12:11:26 $992.0]	INFO	Server is reloading all workers now

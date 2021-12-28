@@ -85,12 +85,20 @@ class Wechat extends Base
         //把ticket保存的USERID，找到然后绑定!
         $user_id = RedisService::GetWxBindUserTicket($data['Ticket']);
         UserService::BindWxOpenId($user_id, $wx_openid);
+        $user = UserService::FindById($user_id);
+        //微信绑定成功
+        //绑定用户：EASON
+        //绑定说明：你已成功绑定Easy系统
+        //欢迎使用Easy系统，我们竭诚为您服务。
         WechatPushJob([
             'user_id' => $user_id,
             'params' => [
-                'content' => date('Y-m-d H:i:s'),
+                'first' => '微信绑定成功',
+                'keyword1' =>$user->username,
+                'keyword2' => '你已成功绑定'.config('SYSTEM.APP_NAME').'系统',
+                'remark' => '欢迎使用'.config('SYSTEM.APP_NAME').'系统，我们竭诚为您服务。',
             ],
-            'action' => 'message',
+            'action' => 'user_bind',
             'url' => config('SYSTEM.APP_URL') . '/user/info',
         ]);
         return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码绑定成功!");
@@ -115,6 +123,14 @@ class Wechat extends Base
         $wx_openid = $data['FromUserName'];
         //把ticket保存的USERID，找到然后绑定!
         $admin_id = RedisService::GetWxBindAdminTicket($data['Ticket']);
+        WechatPushJob([
+            'admin_id' => $admin_id,
+            'params' => [
+                'content' => date('Y-m-d H:i:s'),
+            ],
+            'action' => 'message',
+            'url' => config('SYSTEM.APP_URL') . '/user/info',
+        ]);
         AdminService::BindWxOpenId($admin_id, $wx_openid);
         return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码绑定管理员成功!");
     }
@@ -124,6 +140,15 @@ class Wechat extends Base
     {
         $wx_openid = $data['FromUserName'];
         $admin = AdminService::FindByWxOpenId($wx_openid);
+        WechatPushJob([
+            'admin_id' => $admin->id,
+            'params' => [
+                'time' => date('Y-m-d H:i:s'),
+                'ip' => '127.0.0.1',
+            ],
+            'action' => 'user_login',
+            'url' => config('SYSTEM.APP_URL') . '/admin/info',
+        ]);
         if ($admin) {
             RedisService::SetWxLoginAdminTicket($data['Ticket'], $admin->id);
             return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码登录成功!");
