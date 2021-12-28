@@ -484,7 +484,7 @@ class UcsService
 
     //$harddisk ['ucs_storage_plan_id':'1',"size":'20']
     //创建实例
-    public static function CreateInstance($master, $user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $resolved_type = 0, $resolved_name = '客户自己', $password)
+    public static function CreateInstance($master, $user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, $resolved_type , $resolved_name , $password)
     {
         //宿主机,队列+1
         $master->queue = 1;
