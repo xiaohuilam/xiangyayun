@@ -2058,6 +2058,7 @@ PHP_VERSION : 7.3.7
 [2021-12-24 23:38:25 $357.0]	INFO	Server is reloading all workers now
 [2021-12-24 23:38:33 $357.0]	INFO	Server is reloading all workers now
 [2021-12-24 23:39:20 $357.0]	INFO	Server is reloading all workers now
+<<<<<<< HEAD
 [2021-12-25 10:53:55 $337.0]	WARNING	Server::check_worker_exit_status(): worker(pid=344, id=6) abnormal exit, status=0, signal=11
 A bug occurred in Swoole-v4.8.3, please report it.
 The Swoole developers probably don't know about it,
@@ -2208,3 +2209,7 @@ Stack trace:
 [2021-12-28 11:38:15 $992.0]	INFO	Server is reloading all workers now
 [2021-12-28 11:38:16 $992.0]	INFO	Server is reloading all workers now
 [2021-12-28 11:38:23 $992.0]	INFO	Server is reloading all workers now
+=======
+[2021-12-24 23:51:00 *661.0]	NOTICE	php_swoole_server_rshutdown() (ERRNO 9003): worker process is terminated by exit()/die()
+[2021-12-24 23:51:00 $357.0]	WARNING	Server::check_worker_exit_status(): worker(pid=661, id=0) abnormal exit, status=255, signal=0
+>>>>>>> a644cef5a5248e1ee6520f86930923ad87cc1002
