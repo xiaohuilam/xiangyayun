@@ -60,13 +60,27 @@ class Profile extends UserLoginBase
         return $this->Success('修改资料成功!');
     }
 
+    /**
+     * @Param(name="password",required="")
+     * 屏幕解锁
+     */
+    public function unlock()
+    {
+        $password = $this->GetParam('password');
+        $user = $this->GetUser();
+        if ($user['password'] != md5($password)) {
+            return $this->Error('密码错误');
+        }
+        return $this->Success('解锁成功!');
+    }
+
     //获取待办事项
     public function todo_list()
     {
         $data = [
-            'renew' => 1,
-            'order' => 1,
-            'work_order' => 1
+            'renew' => 0,
+            'order' => 0,
+            'work_order' => 0
         ];
         return $this->Success('获取信息成功', $data);
     }

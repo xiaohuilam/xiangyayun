@@ -22,6 +22,7 @@ class UserLoginBase extends Base
             $user = UserService::FindById($user_id);
             RedisService::SetUser($user_id, $user);
         }
+        $user = json_decode($user, true);
         return $user;
     }
 
