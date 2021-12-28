@@ -672,7 +672,7 @@ class UcsService
     }
 
     //
-    public static function CreateUcsTask($instance_id, $resolved_type = 0, $resolved_name = '客户自己', $params)
+    public static function CreateUcsTask($instance_id, $resolved_type, $resolved_name, $params)
     {
         $data['ucs_instance_id'] = $instance_id;
         $instance = UcsInstance::create()->get(['id' => $instance_id]);
