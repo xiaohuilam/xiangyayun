@@ -12,6 +12,14 @@ class HideService
         return substr($mobile, 0, 3) . '****' . substr($mobile, 7);
     }
 
+    public static function Email($email)
+    {
+        if (!$email) {
+            return null;
+        }
+        return Desensitize($email, 2, 2);
+    }
+
     public static function RealName($name)
     {
         if (!$name) {

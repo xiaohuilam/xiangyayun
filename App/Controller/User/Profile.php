@@ -115,22 +115,26 @@ class Profile extends UserLoginBase
         $data['auth_status'] = $user['auth_status'];
         $data['status'] = $user['status'];
         $data['avatar'] = $user['avatar'];
+        $data['username'] = HideService::Mobile($user['username']);
         $data['nickname'] = $user['nickname'];
         $data['balance'] = $user['balance'];
         $data['create_time'] = $user['create_time'];
         $data['lock_datetime'] = $user['lock_datetime'];
         $data['lock_status'] = $user['lock_status'];
-        $data['email'] = $user['email'];
+        $data['email'] = HideService::Mobile($user['email']);
         $data['qq'] = $user['qq'];
         $data['wechat'] = $user['wechat'];
+        $data['wechat_bind_status'] = $user['wx_openid'] ? 1 : 0;
+        $data['alipay_bind_status'] = $user['ali_openid'] ? 1 : 0;
+        $data['qq_bind_status'] = $user['qq_openid'] ? 1 : 0;
         ##过滤掉不需要的字段
         if ($user['auth_status'] && $user['auth_id']) {
             $authTemp = UserService::FindUserAuthByUserId($user['auth_id']);
             $authTemp = $authTemp->toArray();
+            $auth['cert_type'] = $authTemp['cert_type'];
             $auth['finish_time'] = $authTemp['finish_time'];
             $auth['cert_mobile'] = HideService::Mobile($authTemp['cert_mobile']);
             $auth['cert_number'] = HideService::IdCard($authTemp['cert_number']);
-            $auth['cert_name'] = HideService::RealName($authTemp['cert_name']);
             $auth['cert_name'] = HideService::RealName($authTemp['cert_name']);
             //##过滤掉不需要的字段
             $data['auth'] = $auth;

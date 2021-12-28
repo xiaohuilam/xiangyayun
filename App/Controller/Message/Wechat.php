@@ -86,10 +86,7 @@ class Wechat extends Base
         $user_id = RedisService::GetWxBindUserTicket($data['Ticket']);
         UserService::BindWxOpenId($user_id, $wx_openid);
         $user = UserService::FindById($user_id);
-        //微信绑定成功
-        //绑定用户：EASON
-        //绑定说明：你已成功绑定Easy系统
-        //欢迎使用Easy系统，我们竭诚为您服务。
+        //微信模板消息推送
         WechatPushJob([
             'user_id' => $user_id,
             'params' => [
@@ -101,7 +98,7 @@ class Wechat extends Base
             'action' => 'user_bind',
             'url' => config('SYSTEM.APP_URL') . '/user/info',
         ]);
-        return new \EasySwoole\WeChat\Kernel\Messages\Text("用户扫码绑定会员成功!");
+        return new \EasySwoole\WeChat\Kernel\Messages\Text("恭喜您，您已经成功完成会员绑定！");
     }
 
     //微信二维码登录
