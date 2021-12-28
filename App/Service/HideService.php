@@ -12,6 +12,14 @@ class HideService
         return substr($mobile, 0, 3) . '****' . substr($mobile, 7);
     }
 
+    public static function RealName($name)
+    {
+        if (!$name) {
+            return null;
+        }
+        return Desensitize($name, 1, 1);
+    }
+
     public static function IdCard($id_card)
     {
         if (!$id_card) {

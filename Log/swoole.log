@@ -2058,3 +2058,153 @@ PHP_VERSION : 7.3.7
 [2021-12-24 23:38:25 $357.0]	INFO	Server is reloading all workers now
 [2021-12-24 23:38:33 $357.0]	INFO	Server is reloading all workers now
 [2021-12-24 23:39:20 $357.0]	INFO	Server is reloading all workers now
+[2021-12-25 10:53:55 $337.0]	WARNING	Server::check_worker_exit_status(): worker(pid=344, id=6) abnormal exit, status=0, signal=11
+A bug occurred in Swoole-v4.8.3, please report it.
+The Swoole developers probably don't know about it,
+and unless you report it, chances are it won't be fixed.
+You can read How to report a bug doc before submitting any bug reports:
+>> https://github.com/swoole/swoole-src/blob/master/.github/ISSUE.md 
+Please do not send bug reports in the mailing list or personal letters.
+The issue page is also suitable to submit feature requests.
+
+OS: CYGWIN_NT-10.0-22000 3.3.2-341.x86_64 2021-11-08 16:55 UTC x86_64
+GCC_VERSION: 11.2.0
+OPENSSL_VERSION: OpenSSL 1.1.1l  24 Aug 2021
+PHP_VERSION : 7.3.7
+
+[2021-12-25 10:56:49 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 10:56:58 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 10:57:09 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 10:57:12 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 10:57:14 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 10:57:22 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 10:58:12 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 10:58:14 *412.6]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#3 does not exists
+[2021-12-25 10:58:14 *412.6]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#3 is closed
+[2021-12-25 10:58:57 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 10:59:00 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:10:10 $337.0]	WARNING	Server::check_worker_exit_status(): worker(pid=354, id=16) abnormal exit, status=255, signal=0
+[2021-12-25 11:36:23 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:36:45 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:37:37 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:37:43 *452.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#8 does not exists
+[2021-12-25 11:37:43 *452.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#8 is closed
+[2021-12-25 11:38:02 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:38:18 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:38:21 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:38:28 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:38:29 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:39:01 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:39:07 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:39:11 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:39:14 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:39:22 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:39:25 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:39:40 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:39:51 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:40:01 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:40:18 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:40:20 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:40:25 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:40:39 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:40:57 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:40:58 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:41:31 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:41:31 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:42:03 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:42:58 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:43:16 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:43:40 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:43:55 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:44:03 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:44:14 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:44:28 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:44:33 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:44:52 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:46:51 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:46:56 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:47:04 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:47:18 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:47:25 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:47:45 $337.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:47:47 *753.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#9 does not exists
+[2021-12-25 11:47:47 *753.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#9 is closed
+[2021-12-25 11:48:40 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:49:35 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:49:39 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:50:01 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:50:11 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:50:19 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:50:40 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:50:50 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:50:54 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:50:58 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:51:02 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:51:15 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:51:27 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:51:59 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:52:15 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:52:23 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:52:55 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:53:02 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:53:12 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:53:25 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:53:44 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 11:53:57 $1742.0]	INFO	Server is reloading all workers now
+[2021-12-25 15:45:29 *1934.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2006] MySQL server has gone away due to Connection timed out [SELECT  * FROM `ucs_instance` WHERE  `expire_time` > '2021-12-20 15:45:14' ] in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php:78
+Stack trace:
+#0 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/DbManager.php(137): EasySwoole\ORM\Db\MysqliClient->query(Object(EasySwoole\Mysqli\QueryBuilder), false)
+#1 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(893): EasySwoole\ORM\DbManager->query(Object(EasySwoole\Mysqli\QueryBuilder), false, 'default')
+#2 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(556): EasySwoole\ORM\AbstractModel->query(Object(EasySwoole\Mysqli\QueryBuilder))
+#3 /cygdrive/c/php/hiy.cn/App/Service/UcsService.php(137): EasySwoole\ORM\AbstractModel->all()
+#4 /cygdrive/c/php/hiy.cn/App/Timer/UcsTimer.php(14): App\Service\UcsService::SelectUcsInstanceBySoonExpire()
+#5 /cygdrive/c/php/hiy.cn/EasySwooleEvent.php(129): App in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php on line 78
+[2021-12-25 15:45:29 $1742.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1934, id=0) abnormal exit, status=255, signal=0
+[2021-12-25 15:50:07 $1742.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1937, id=1) abnormal exit, status=127, signal=0
+[2021-12-27 10:11:58 $992.0]	INFO	Server is reloading all workers now
+[2021-12-27 10:13:40 $992.0]	INFO	Server is reloading all workers now
+[2021-12-27 10:13:48 $992.0]	INFO	Server is reloading all workers now
+[2021-12-27 10:14:03 $992.0]	INFO	Server is reloading all workers now
+[2021-12-27 10:14:57 $992.0]	INFO	Server is reloading all workers now
+[2021-12-27 10:29:16 *1049.5]	NOTICE	ProcessFactory::finish() (ERRNO 1005): session#6 does not exists
+[2021-12-27 10:29:16 *1049.5]	NOTICE	ProcessFactory::end() (ERRNO 1005): session#6 is closed
+[2021-12-27 14:34:58 *1044.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2006] MySQL server has gone away due to Connection timed out [SELECT  * FROM `user_auth` WHERE  `create_time` > '2021-12-27 11:45:47'  AND `finish_status` = 0 ] in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php:78
+Stack trace:
+#0 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/DbManager.php(137): EasySwoole\ORM\Db\MysqliClient->query(Object(EasySwoole\Mysqli\QueryBuilder), false)
+#1 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(893): EasySwoole\ORM\DbManager->query(Object(EasySwoole\Mysqli\QueryBuilder), false, 'default')
+#2 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(556): EasySwoole\ORM\AbstractModel->query(Object(EasySwoole\Mysqli\QueryBuilder))
+#3 /cygdrive/c/php/hiy.cn/App/Service/AuthService.php(147): EasySwoole\ORM\AbstractModel->all()
+#4 /cygdrive/c/php/hiy.cn/App/Timer/AuthTimer.php(11): App\Service\AuthService::SelectAllNotAuth()
+#5 /cygdrive/c/php/hiy.cn/EasySwooleEvent.p in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php on line 78
+[2021-12-27 14:34:58 $992.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1044, id=0) abnormal exit, status=255, signal=0
+[2021-12-27 15:12:18 *1052.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2006] MySQL server has gone away due to Connection timed out [SELECT  * FROM `ucs_instance` WHERE  `expire_time` > '2021-12-22 15:12:03' ] in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php:78
+Stack trace:
+#0 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/DbManager.php(137): EasySwoole\ORM\Db\MysqliClient->query(Object(EasySwoole\Mysqli\QueryBuilder), false)
+#1 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(893): EasySwoole\ORM\DbManager->query(Object(EasySwoole\Mysqli\QueryBuilder), false, 'default')
+#2 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(556): EasySwoole\ORM\AbstractModel->query(Object(EasySwoole\Mysqli\QueryBuilder))
+#3 /cygdrive/c/php/hiy.cn/App/Service/UcsService.php(137): EasySwoole\ORM\AbstractModel->all()
+#4 /cygdrive/c/php/hiy.cn/App/Timer/UcsTimer.php(14): App\Service\UcsService::SelectUcsInstanceBySoonExpire()
+#5 /cygdrive/c/php/hiy.cn/EasySwooleEvent.php(129): App in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php on line 78
+[2021-12-27 15:12:18 $992.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1052, id=0) abnormal exit, status=255, signal=0
+[2021-12-28 09:05:37 *1053.0]	ERROR	php_swoole_server_rshutdown() (ERRNO 503): Fatal error: Uncaught EasySwoole\ORM\Exception\Exception: SQLSTATE[HY000] [2006] MySQL server has gone away due to Connection timed out [SELECT  * FROM `ucs_instance` WHERE  `expire_time` > '2021-12-23 09:05:21' ] in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php:78
+Stack trace:
+#0 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/DbManager.php(137): EasySwoole\ORM\Db\MysqliClient->query(Object(EasySwoole\Mysqli\QueryBuilder), false)
+#1 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(893): EasySwoole\ORM\DbManager->query(Object(EasySwoole\Mysqli\QueryBuilder), false, 'default')
+#2 /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/AbstractModel.php(556): EasySwoole\ORM\AbstractModel->query(Object(EasySwoole\Mysqli\QueryBuilder))
+#3 /cygdrive/c/php/hiy.cn/App/Service/UcsService.php(137): EasySwoole\ORM\AbstractModel->all()
+#4 /cygdrive/c/php/hiy.cn/App/Timer/UcsTimer.php(14): App\Service\UcsService::SelectUcsInstanceBySoonExpire()
+#5 /cygdrive/c/php/hiy.cn/EasySwooleEvent.php(129): App in /cygdrive/c/php/hiy.cn/vendor/easyswoole/orm/src/Db/MysqliClient.php on line 78
+[2021-12-28 09:05:37 $992.0]	WARNING	Server::check_worker_exit_status(): worker(pid=1053, id=0) abnormal exit, status=255, signal=0
+[2021-12-28 11:36:20 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:37:24 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:37:39 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:37:45 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:37:55 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:37:56 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:37:58 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:38:03 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:38:08 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:38:12 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:38:15 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:38:16 $992.0]	INFO	Server is reloading all workers now
+[2021-12-28 11:38:23 $992.0]	INFO	Server is reloading all workers now

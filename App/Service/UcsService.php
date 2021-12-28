@@ -183,6 +183,7 @@ class UcsService
         foreach ($where as $value) {
             $ucs_instances = $ucs_instances->where($value);
         }
+        $ucs_instances->where('a.expire_time', date('Y-m-d H:i:s'), '>');
         $model = $ucs_instances
             ->limit($size * ($page - 1), $size)->withTotalCount();
 

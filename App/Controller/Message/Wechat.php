@@ -85,6 +85,14 @@ class Wechat extends Base
         //把ticket保存的USERID，找到然后绑定!
         $user_id = RedisService::GetWxBindUserTicket($data['Ticket']);
         UserService::BindWxOpenId($user_id, $wx_openid);
+        WechatPushJob([
+            'user_id' => $user_id,
+            'params' => [
+                'content' => date('Y-m-d H:i:s'),
+            ],
+            'action' => 'message',
+            'url' => config('SYSTEM.APP_URL') . '/user/info',
+        ]);
         return new \EasySwoole\WeChat\Kernel\Messages\Text("扫码绑定成功!");
     }
 

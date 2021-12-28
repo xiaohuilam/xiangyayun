@@ -111,12 +111,33 @@ class Profile extends UserLoginBase
         $user_id = $this->GetUserId();
         $data = [];
         $user = UserService::FindById($user_id);
-        //##过滤掉不需要的字段
-//        $auth = UserService::FindUserAuth($user->auth_id);;
-//        //##过滤掉不需要的字段
-//        $data['auth'] = $auth;
         $user = $user->toArray();
-        return $this->Success('获取用户信息成功', $user);
+        $data['auth_status'] = $user['auth_status'];
+        $data['status'] = $user['status'];
+        $data['avatar'] = $user['avatar'];
+        $data['nickname'] = $user['nickname'];
+        $data['balance'] = $user['balance'];
+        $data['create_time'] = $user['create_time'];
+        $data['lock_datetime'] = $user['lock_datetime'];
+        $data['lock_status'] = $user['lock_status'];
+        $data['email'] = $user['email'];
+        $data['qq'] = $user['qq'];
+        $data['wechat'] = $user['wechat'];
+        ##过滤掉不需要的字段
+        if ($user['auth_status'] && $user['auth_id']) {
+            $authTemp = UserService::FindUserAuthByUserId($user['auth_id']);
+            $authTemp = $authTemp->toArray();
+            $auth['finish_time'] = $authTemp['finish_time'];
+            $auth['cert_mobile'] = HideService::Mobile($authTemp['cert_mobile']);
+            $auth['cert_number'] = HideService::IdCard($authTemp['cert_number']);
+            $auth['cert_name'] = HideService::RealName($authTemp['cert_name']);
+            $auth['cert_name'] = HideService::RealName($authTemp['cert_name']);
+            //##过滤掉不需要的字段
+            $data['auth'] = $auth;
+        } else {
+            $data['auth'] = null;
+        }
+        return $this->Success('获取用户信息成功', $data);
     }
 
     //获取用户状态

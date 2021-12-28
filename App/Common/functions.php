@@ -4,6 +4,23 @@ use App\Model\BaseModel;
 use EasySwoole\ORM\DbManager;
 
 //获取自定义配置项值
+if (!function_exists('Desensitize')) {
+    function Desensitize($string, $start = 0, $length = 0, $re = '*')
+    {
+        if (empty($string) || empty($length) || empty($re)) return $string;
+        $end = $start + $length;
+        $strlen = mb_strlen($string);
+        $str_arr = array();
+        for ($i = 0; $i < $strlen; $i++) {
+            if ($i >= $start && $i < $end)
+                $str_arr[] = $re;
+            else
+                $str_arr[] = mb_substr($string, $i, 1);
+        }
+        return implode('', $str_arr);
+    }
+}
+//获取自定义配置项值
 if (!function_exists('config')) {
     function config($key, $value = null)
     {
