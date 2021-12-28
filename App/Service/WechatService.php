@@ -49,6 +49,10 @@ class WechatService
 
     public static function SendTemplateMessageThread($open_id, $template_id, $url, $params)
     {
+        var_dump($open_id);
+        var_dump($template_id);
+        var_dump($url);
+        var_dump($params);
         $officialAccount = Factory::officialAccount(config('WECHAT'));
         $officialAccount->templateMessage->send([
             'touser' => $open_id,
