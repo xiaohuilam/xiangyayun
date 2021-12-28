@@ -50,7 +50,7 @@ class EasySwooleEvent implements Event
             }
             return true;
         });
-        $redisData = \EasySwoole\EasySwoole\Config::getInstance()->getConf('REDIS');
+        $redisData = config('REDIS');
         $redisConfig = new RedisConfig($redisData);
 
         $redisPoolConfig = \EasySwoole\RedisPool\RedisPool::getInstance()->register($redisConfig);
@@ -80,7 +80,7 @@ class EasySwooleEvent implements Event
 
     public static function mainServerCreate(EventRegister $register)
     {
-        $redisData = \EasySwoole\EasySwoole\Config::getInstance()->getConf('REDIS');
+        $redisData = config('REDIS');
         $redisConfig = new RedisConfig($redisData);
         $driver = new \EasySwoole\Queue\Driver\RedisQueue($redisConfig, 'ucs_queue');
         UcsQueue::getInstance($driver);

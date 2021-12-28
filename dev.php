@@ -131,13 +131,13 @@ rodnjf927gnA85Fp2eigUn8=
             'aesKey' => 'PT2Jougys5BTH9rzSRbPuk6BC1cBO6nxeL8FzRuyG1C',
             // 微信公众平台后台配置的 AppSecret
             'appSecret' => 'ccf45ae6fd2738b0f6c26fff7f21516b',
-        ]
-    ],
-    "REDIS" => [
-        'host' => '127.0.0.1', // 服务端地址 默认为 '127.0.0.1'
-        'port' => 6379, // 端口 默认为 6379
-        'auth' => 'Chanmir1314', // 密码 默认为 不设置
-        'db' => 0, // 默认为 0 号库
+        ],
+        "REDIS" => [
+            'host' => '127.0.0.1', // 服务端地址 默认为 '127.0.0.1'
+            'port' => 6379, // 端口 默认为 6379
+            'auth' => 'Chanmir1314', // 密码 默认为 不设置
+            'db' => 0, // 默认为 0 号库
+        ],
     ],
     'TEMP_DIR' => null
 ];
