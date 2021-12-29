@@ -21,6 +21,9 @@ class Finance extends UserLoginBase
         //充值金额 充值方式
         $type = $this->GetParam('type');
         $amount = $this->GetParam('amount');
+        if ($amount < 1) {
+            return $this->Error('充值金额不能小于1元');
+        }
         $qrcode = $this->GetParam('qrcode');
         $user_id = $this->GetUserId();
         $ip = $this->GetClientIP();

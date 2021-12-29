@@ -63,6 +63,33 @@ class UserLogService
         ]);
     }
 
+    public static function ChangeEmailSuccess($user_id, $username, $ip, $ua, $msg)
+    {
+        return self::Save([
+            'username' => $username,
+            'user_id' => $user_id,
+            'ip' => $ip,
+            'ua' => $ua,
+            'status' => 1,
+            'message' => $msg,
+            'action' => 'change_email',
+        ]);
+    }
+
+    public static function ChangeMobileSuccess($user_id, $username, $ip, $ua, $msg)
+    {
+        return self::Save([
+            'username' => $username,
+            'user_id' => $user_id,
+            'ip' => $ip,
+            'ua' => $ua,
+            'status' => 1,
+            'message' => $msg,
+            'action' => 'change_mobile',
+        ]);
+    }
+
+
     public static function ChangePasswordSuccess($user_id, $username, $ip, $ua, $msg)
     {
         return self::Save([
@@ -73,6 +100,32 @@ class UserLogService
             'status' => 1,
             'message' => $msg,
             'action' => 'change_password',
+        ]);
+    }
+
+    public static function ChangeEmailError($user_id, $username, $ip, $ua, $msg)
+    {
+        return self::Save([
+            'username' => $username,
+            'user_id' => $user_id,
+            'ip' => $ip,
+            'ua' => $ua,
+            'status' => 0,
+            'message' => $msg,
+            'action' => 'change_email',
+        ]);
+    }
+
+    public static function ChangeMobileError($user_id, $username, $ip, $ua, $msg)
+    {
+        return self::Save([
+            'username' => $username,
+            'user_id' => $user_id,
+            'ip' => $ip,
+            'ua' => $ua,
+            'status' => 0,
+            'message' => $msg,
+            'action' => 'change_mobile',
         ]);
     }
 

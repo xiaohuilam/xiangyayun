@@ -198,7 +198,7 @@ class Profile extends UserLoginBase
             $password = $this->GetParam('password');
             if ($user->password != md5($password)) {
                 //日志BUG
-                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '发送修改邮箱验证码失败,原密码错误');
+                UserLogService::ChangeEmailError($user->id, $user->username, $ip, $ua, '发送修改邮箱验证码失败,原密码错误');
                 return $this->Error('原密码错误');
             }
         } else {
@@ -206,7 +206,7 @@ class Profile extends UserLoginBase
             $save_code = RedisService::GetVerifyCode($user->username);
             if (!$save_code || $save_code != $code) {
                 //日志BUG
-                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '发送修改邮箱验证码失败,验证码错误');
+                UserLogService::ChangeEmailError($user->id, $user->username, $ip, $ua, '发送修改邮箱验证码失败,验证码错误');
                 return $this->Error('验证码错误');
             }
         }
@@ -239,7 +239,7 @@ class Profile extends UserLoginBase
             $password = $this->GetParam('password');
             if ($user->password != md5($password)) {
                 //日志BUG
-                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '发送修改手机验证码失败,原密码错误');
+                UserLogService::ChangeMobileError($user->id, $user->username, $ip, $ua, '发送修改手机验证码失败,原密码错误');
                 return $this->Error('原密码错误');
             }
         } else {
@@ -247,7 +247,7 @@ class Profile extends UserLoginBase
             $save_code = RedisService::GetVerifyCode($user->username);
             if (!$save_code || $save_code != $code) {
                 //日志BUG
-                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '发送修改手机验证码失败,验证码错误');
+                UserLogService::ChangeMobileError($user->id, $user->username, $ip, $ua, '发送修改手机验证码失败,验证码错误');
                 return $this->Error('验证码错误');
             }
         }
@@ -314,26 +314,26 @@ class Profile extends UserLoginBase
         if ($type == 'password') {
             $password = $this->GetParam('password');
             if ($user->password != md5($password)) {
-                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,校验密码失败');
+                UserLogService::ChangeEmailError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,校验密码失败');
                 return $this->Error('原密码错误');
             }
         } else {
             $code = $this->GetParam('code');
             $save_code = RedisService::GetVerifyCode($user->username);
             if (!$save_code || $save_code != $code) {
-                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,验证码错误');
+                UserLogService::ChangeEmailError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,验证码错误');
                 return $this->Error('验证码错误');
             }
         }
         $save_smscode = RedisService::GetVerifyCode($user->username);
         if (!$save_smscode || $save_smscode != $email_code) {
-            UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,新邮箱短验证码错误');
+            UserLogService::ChangeEmailError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,新邮箱短验证码错误');
             return $this->Error('新邮箱验证码错误');
         }
         $user->email = $email;
         $user->update();
         //校验通过后，开始操作
-        UserLogService::ChangePasswordSuccess($user->id, $user->username, $ip, $ua, '改绑邮箱成功');
+        UserLogService::ChangeEmailSuccess($user->id, $user->username, $ip, $ua, '改绑邮箱成功');
         return $this->Success('改绑邮箱成功');
     }
 
@@ -355,26 +355,26 @@ class Profile extends UserLoginBase
         if ($type == 'password') {
             $password = $this->GetParam('password');
             if ($user->password != md5($password)) {
-                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑手机失败,原密码错误');
+                UserLogService::ChangeMobileError($user->id, $user->username, $ip, $ua, '改绑手机失败,原密码错误');
                 return $this->Error('原密码错误');
             }
         } else {
             $code = $this->GetParam('code');
             $save_code = RedisService::GetVerifyCode($user->username);
             if (!$save_code || $save_code != $code) {
-                UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑手机失败,验证码错误');
+                UserLogService::ChangeMobileError($user->id, $user->username, $ip, $ua, '改绑手机失败,验证码错误');
                 return $this->Error('验证码错误');
             }
         }
         $save_smscode = RedisService::GetVerifyCode($mobile);
         if (!$save_smscode || $save_smscode != $smscode) {
-            UserLogService::ChangePasswordError($user->id, $user->username, $ip, $ua, '改绑手机失败,新手机短信验证码错误');
+            UserLogService::ChangeMobileError($user->id, $user->username, $ip, $ua, '改绑手机失败,新手机短信验证码错误');
             return $this->Error('新手机短信验证码错误');
         }
         $user->username = $mobile;
         $user->update();
         //校验通过后，开始操作
-        UserLogService::ChangePasswordSuccess($user->id, $user->username, $ip, $ua, '改绑手机成功');
+        UserLogService::ChangeMobileSuccess($user->id, $user->username, $ip, $ua, '改绑手机成功');
         return $this->Success('改绑手机成功');
     }
 
