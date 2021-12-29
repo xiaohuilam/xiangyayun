@@ -85,6 +85,16 @@ class Profile extends UserLoginBase
         return $this->Success('获取信息成功', $data);
     }
 
+    //消费趋势
+    public function trend()
+    {
+        //
+        //UserServic
+        $user_id = $this->GetUserId();
+        $data = UserService::ConsumeTrend($user_id);
+        return $this->Success('', $data);
+    }
+
     //获取实名认证信息
     public function auth_info()
     {

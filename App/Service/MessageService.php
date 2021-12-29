@@ -8,7 +8,7 @@ class MessageService
 {
     public static function SelectByUserId($user_id)
     {
-        return Message::create()->where('user_id', $user_id)->where('status', 0)->all();
+        return Message::create()->where('user_id', $user_id)->all();
     }
 
     public static function FindNewMessageByUserId($user_id)

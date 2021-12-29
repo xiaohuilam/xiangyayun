@@ -6,11 +6,30 @@ use App\Model\User;
 use App\Model\UserAuth;
 use App\Model\UserFinance;
 use App\Model\UserLog;
+use App\Model\UserRecharge;
 use EasySwoole\Mysqli\QueryBuilder;
 use mysql_xdevapi\SqlStatement;
 
 class UserService
 {
+    public static function ConsumeTrend($user_id)
+    {
+        //
+        $recharges = UserRecharge::create()
+            ->field('sum(amount) amount,DATE_FORMAT(`create_time`,\'%Y-%m-%d\') date')
+            ->where('user_id', $user_id)
+            ->group('DATE_FORMAT(create_time,\'%Y-%m-%d\')')
+            ->all();
+        $data['recharge'] = $recharges;
+        $finances = UserFinance::create()
+            ->field('sum(amount) amount,DATE_FORMAT(`create_time`,\'%Y-%m-%d\') date')
+            ->where('user_id', $user_id)
+            ->group('DATE_FORMAT(create_time,\'%Y-%m-%d\')')
+            ->all();
+        $data['finances'] = $finances;
+        return $data;
+    }
+
     public static function SuccessUserAuth($user_auth)
     {
         $user = User::create()->get(['id' => $user_auth->user_id]);

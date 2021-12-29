@@ -15,10 +15,10 @@ class Message extends UserLoginBase
         return $this->Success('', $d);
     }
 
-    public function new_message()
+    public function list()
     {
         $user_id = $this->GetUserId();
-        $data = MessageService::FindNewMessageByUserId($user_id);
+        $data = MessageService::SelectByUserId($user_id);
         return $this->Success('', $data);
     }
 
