@@ -44,7 +44,7 @@ class Test extends Base
 
     public function test_create()
     {
-        WechatService::SendCreateSuccessNotify('ucs_asdfads5', 'UCS实例', '1', '20', '2022-12-12', '如果在使用过程中遇到问题，请尽快联系客服处理哦!');
+        WechatService::SendCreateSuccessNotify('UCS实例', '产品', '1', '1', '2022-12-12', '如果在使用过程中遇到问题，请尽快联系客服处理哦!');
     }
 
     public function test_loadtemplate()

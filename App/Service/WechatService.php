@@ -38,7 +38,7 @@ class WechatService
             'params' => [
                 'productType' => $type,
                 'name' => $name,
-                'number' => [$number, '#F00'],
+                'number' => [$number . "台", '#F00'],
                 'expDate' => [$expDate, '#F00'],
                 'remark' => $remark,
             ],
