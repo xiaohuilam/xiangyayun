@@ -13,8 +13,9 @@ class WechatService
 {
 
     //发送待支付提醒给微信
-    public static function SendPayNotify($app_name, $type, $user_id, $amount, $order_no)
+    public static function SendPayNotify($type, $user_id, $amount, $order_no)
     {
+        $app_name = config('SYSTEM.APP_NAME');
         WechatPushJob([
             'user_id' => $user_id,
             'params' => [
@@ -27,6 +28,25 @@ class WechatService
             ],
             'action' => 'pay_notify',
             'url' => config('SYSTEM.APP_URL') . "/pay/" . $order_no,
+        ]);
+    }
+
+    //发送充值成功提醒给微信
+    public static function SendRechargeSuccessNotify($type, $user_id, $amount, $order_no)
+    {
+        $app_name = config('SYSTEM.APP_NAME');
+        WechatPushJob([
+            'user_id' => $user_id,
+            'params' => [
+                'first' => '您有一笔充值成功订单',
+                'keyword1' => $app_name,
+                'keyword2' => $type,
+                'keyword3' => [$user_id, '#F00'],
+                'keyword4' => [$amount . '元', '#F00'],
+                'remark' => '您可以点击查看详情',
+            ],
+            'action' => 'pay_notify',
+            'url' => config('SYSTEM.APP_URL') . "/user/" . $order_no,
         ]);
     }
 

@@ -136,6 +136,8 @@ class RechargeService
                 }
                 //充值并且记录流水
                 $flag = UserService::Recharge($user_recharge->user_id, $user_recharge->amount, $type . '充值');
+                //充值通知
+                WechatService::SendRechargeSuccessNotify($type, $user_recharge->user_id, $user_recharge->amount, $order_no);
                 if (!$flag) {
                     error("充值失败!订单号:" . $user_recharge->order_no . "\t金额:" . $user_recharge->amount);
                 }
@@ -158,7 +160,7 @@ class RechargeService
         $bean->setNotifyUrl($config['NOTIFY_URL']);
         $pay = new \EasySwoole\Pay\Pay();
         $data = $pay->weChat($wechatConfig)->scan($bean);
-        WechatService::SendPayNotify($app_name, '微信支付', $user_id, $amount, $order_no);
+        WechatService::SendPayNotify('微信支付', $user_id, $amount, $order_no);
         return $data->getCodeUrl();
     }
 
@@ -193,7 +195,7 @@ class RechargeService
 
         $res = $pay->aliPay(self::AlipayConfig())->wap($order);
         // 将所有请求参数转为数组
-        WechatService::SendPayNotify($app_name, '支付宝H5支付', $user_id, $amount, $order_no);
+        WechatService::SendPayNotify('支付宝H5支付', $user_id, $amount, $order_no);
         return \EasySwoole\Pay\AliPay\GateWay::NORMAL . "?" . http_build_query($res->toArray());
     }
 
@@ -213,7 +215,7 @@ class RechargeService
 
         $res = $pay->aliPay(self::AlipayConfig())->web($order);
         // 将所有请求参数转为数组
-        WechatService::SendPayNotify($app_name, '支付宝PC端支付', $user_id, $amount, $order_no);
+        WechatService::SendPayNotify('支付宝PC端支付', $user_id, $amount, $order_no);
         return \EasySwoole\Pay\AliPay\GateWay::NORMAL . "?" . http_build_query($res->toArray());
     }
 

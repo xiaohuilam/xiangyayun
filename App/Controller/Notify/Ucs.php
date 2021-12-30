@@ -6,6 +6,7 @@ use App\Controller\Common\Base;
 use App\Model\UcsTask;
 use App\Service\RedisService;
 use App\Service\UcsService;
+use App\Service\WechatService;
 use App\Status\UcsActStatus;
 use App\Status\UcsRunStatus;
 
@@ -27,6 +28,10 @@ class Ucs extends Base
                     UcsService::ChangeRunStatus($task->ucs_instance_id, UcsRunStatus::RUN);
                 } else if ($task->action == "shutdown") {
                     UcsService::ChangeRunStatus($task->ucs_instance_id, UcsRunStatus::POWEROFF);
+                }
+                if ($task->action == "create") {
+                    $ucs_instance = UcsService::FindUcsInstanceById($task->ucs_instance_id);
+                    WechatService::SendCreateSuccessNotify('UCS实例', '购买产品', $task->user_id, '1', $ucs_instance->expire_time, '如果您在使用过程中遇到问题，请尽快联系客服处理哦!');
                 }
                 //修改操作状态
                 UcsService::ChangeActStatus($task->ucs_instance_id, UcsActStatus::NORMAL);
