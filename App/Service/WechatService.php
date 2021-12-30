@@ -30,6 +30,23 @@ class WechatService
         ]);
     }
 
+    //发送创建实例成功提醒给微信
+    public static function SendCreateSuccessNotify($name, $type, $user_id, $number, $expDate, $remark)
+    {
+        WechatPushJob([
+            'user_id' => $user_id,
+            'params' => [
+                'productType' => $type,
+                'name' => $name,
+                'number' => [$number, '#F00'],
+                'expDate' => [$expDate, '#F00'],
+                'remark' => $remark,
+            ],
+            'action' => 'create_success',
+            'url' => config('SYSTEM.APP_URL') . "/user/",
+        ]);
+    }
+
     //发送验证码至微信
     public static function SendCode($user_id, $action, $code, $expire, $url)
     {

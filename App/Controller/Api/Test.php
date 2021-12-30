@@ -3,6 +3,7 @@
 namespace App\Controller\Api;
 
 use App\Controller\Common\Base;
+use App\Controller\Message\Wechat;
 use App\Service\EmailService;
 use App\Service\UcsService;
 use App\Service\WechatService;
@@ -11,7 +12,7 @@ class Test extends Base
 {
     public function test()
     {
-        WechatService:: SendToManagerError('服务器异常', "您的127.0.0.1服务器有问题!", "请及时处理!", "http://www.baidu.com");
+        WechatService:: SendToManagerError('服务器异常', "您的127.0.0.1服务器有问题!", "请及时处理!", "/admin");
 //        $url = RechargeService::Alipay();
 //        return $this->Success('1', $url);
 //        if (UcsJob(['status' => true])) {
@@ -34,12 +35,16 @@ class Test extends Base
         $data = WechatService::LoadUserTagList();
         return $this->Success('', $data);
     }
-    public function test_set
 
     public function test_tag_del()
     {
         $data = WechatService::DeleteUserTag(2);
         return $this->Success('', $data);
+    }
+
+    public function test_create()
+    {
+        WechatService::SendCreateSuccessNotify('ucs_asdfads5', 'UCS实例', '1', '20', '2022-12-12', '如果在使用过程中遇到问题，请尽快联系客服处理哦!');
     }
 
     public function test_loadtemplate()
