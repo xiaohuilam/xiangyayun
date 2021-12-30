@@ -132,6 +132,17 @@ rodnjf927gnA85Fp2eigUn8=
             // 微信公众平台后台配置的 AppSecret
             'appSecret' => 'ccf45ae6fd2738b0f6c26fff7f21516b',
         ],
+        "WORK_WECHAT" => [
+            // 企业微信后台的 企业 ID
+            'corpId' => 'ww5850165be15617b4',
+            // 企业微信后台的 secret
+            'corpSecret' => 'CbnVEqHPeJvL0284RNyYNM3TYbCTwAHcXPvumDNKWaM',
+            // 企业微信后台的 agentid
+            'agentId' => 1000002,
+            // server config
+            'token' => '0wCyJVwU',
+            'aesKey' => 'L9zK61RVjlS0uAV8FDG6Sd5qankRUXpmMXfbyuawipi',
+        ],
         "REDIS" => [
             'host' => '127.0.0.1', // 服务端地址 默认为 '127.0.0.1'
             'port' => 6379, // 端口 默认为 6379

@@ -110,6 +110,12 @@ class WechatService
         return $server;
     }
 
+    public static function WorkMessageServer()
+    {
+        $work = Factory::work(config('WORK_WECHAT'));
+        return $work->server;
+    }
+
     public static function GetQrcode($token)
     {
         $officialAccount = Factory::officialAccount(config('WECHAT'));
