@@ -86,6 +86,13 @@ class WechatService
         }
     }
 
+    // 加载用户标签列表
+    public static function LoadUserTagList()
+    {
+        $officialAccount = Factory::officialAccount(config('WECHAT'));
+        return $officialAccount->userTag->list();
+    }
+
     // 加载消息模板至数据库
     public static function LoadMessageTemplate()
     {

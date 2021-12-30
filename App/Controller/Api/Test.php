@@ -29,6 +29,12 @@ class Test extends Base
         WechatService::SendPayNotify(1, 'otbIy0R2VgjMxNwBntbVMYgCfwus', 1000, 111);
     }
 
+    public function test_tag_list()
+    {
+        $data = WechatService::LoadUserTagList();
+        return $this->Success('', $data);
+    }
+
     public function test_loadtemplate()
     {
         WechatService::LoadMessageTemplate();
