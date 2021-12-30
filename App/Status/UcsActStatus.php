@@ -46,6 +46,5 @@ class UcsActStatus
             default:
                 return '未知状态';
         }
-
     }
 }
