@@ -76,7 +76,7 @@ class Ucs extends AdminAuthBase
     public function start()
     {
         $instance_id = $this->GetParam('instance_id');
-        UcsService::StartAction($instance_id);
+        UcsService::StartAction($instance_id, '1', '管理员');
         return $this->Success();
     }
 
