@@ -34,6 +34,7 @@ class Test extends Base
         $data = WechatService::LoadUserTagList();
         return $this->Success('', $data);
     }
+    public function test_set
 
     public function test_tag_del()
     {
