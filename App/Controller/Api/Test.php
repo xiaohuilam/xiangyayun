@@ -35,6 +35,12 @@ class Test extends Base
         return $this->Success('', $data);
     }
 
+    public function test_tag_del()
+    {
+        $data = WechatService::DeleteUserTag(2);
+        return $this->Success('', $data);
+    }
+
     public function test_loadtemplate()
     {
         WechatService::LoadMessageTemplate();

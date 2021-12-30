@@ -93,6 +93,12 @@ class WechatService
         return $officialAccount->userTag->list();
     }
 
+    public static function DeleteUserTag($tagId)
+    {
+        $officialAccount = Factory::officialAccount(config('WECHAT'));
+        $officialAccount->userTag->delete($tagId);
+    }
+
     // 加载消息模板至数据库
     public static function LoadMessageTemplate()
     {
