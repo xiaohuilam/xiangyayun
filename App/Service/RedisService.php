@@ -7,7 +7,7 @@ class RedisService
 
     public static function SetVerifyCode($username, $code)
     {
-        self::Set("VERIFY_CODE." . $username, $code);
+        self::Set("VERIFY_CODE." . $username, $code, 300);
     }
 
     public static function GetVerifyCode($username)
@@ -17,7 +17,7 @@ class RedisService
 
     public static function SetImageCode($username, $code)
     {
-        self::Set("IMAGE_CODE." . $username, $code);
+        self::Set("IMAGE_CODE." . $username, $code, 300);
     }
 
     public static function GetImageCode($username)
@@ -33,13 +33,13 @@ class RedisService
 
     public static function SetUser($user_id, $user)
     {
-        self::Set("USERINFO." . $user_id, $user);
+        self::Set("USERINFO." . $user_id, $user, 60);
     }
 
     //登录用户的ticket
     public static function SetWxLoginUserTicket($Ticket, $user_id)
     {
-        self::Set("WX_LOGIN_USER." . $Ticket, $user_id);
+        self::Set("WX_LOGIN_USER." . $Ticket, $user_id, 300);
     }
 
     public static function GetUcsResourceStatus($ucs_instance_id)
@@ -61,7 +61,7 @@ class RedisService
     //绑定用户的ticket
     public static function SetWxBindUserTicket($Ticket, $user_id)
     {
-        self::Set("WX_BIND_USER." . $Ticket, $user_id);
+        self::Set("WX_BIND_USER." . $Ticket, $user_id, 300);
     }
 
     //绑定用户的ticket
@@ -74,7 +74,7 @@ class RedisService
     //管理员登录的ticket
     public static function SetWxLoginAdminTicket($Ticket, $user_id)
     {
-        self::Set("WX_LOGIN_ADMIN." . $Ticket, $user_id);
+        self::Set("WX_LOGIN_ADMIN." . $Ticket, $user_id, 300);
     }
 
     //管理员登录的ticket
@@ -86,7 +86,7 @@ class RedisService
     //管理员绑定的ticket
     public static function SetWxBindAdminTicket($Ticket, $user_id)
     {
-        self::Set("WX_BIND_ADMIN." . $Ticket, $user_id);
+        self::Set("WX_BIND_ADMIN." . $Ticket, $user_id, 300);
     }
 
     //管理员绑定的ticket
@@ -98,7 +98,7 @@ class RedisService
     //管理员的权限列表
     public static function SetAdminAuthGroup($admin_id, $auth_ids)
     {
-        return self::Set('AdminAuthGroup.' . $admin_id, $auth_ids);
+        return self::Set('AdminAuthGroup.' . $admin_id, $auth_ids, 300);
     }
 
     //管理员的权限列表
@@ -116,7 +116,7 @@ class RedisService
     //系统路由列表
     public static function SetAdminAuth($admin_auth)
     {
-        return self::Set('AdminAuth', $admin_auth);
+        return self::Set('AdminAuth', $admin_auth, 300);
     }
 
     public static function Get($key)
@@ -125,12 +125,19 @@ class RedisService
         return $redis->get($key);
     }
 
-    public static function Set($key, $value)
+    public static function Set($key, $value, $timeout = 0)
     {
-        \EasySwoole\RedisPool\RedisPool::invoke(function (\EasySwoole\Redis\Redis $redis) use ($key, $value) {
-            $data = $redis->set($key, $value);
+        \EasySwoole\RedisPool\RedisPool::invoke(function (\EasySwoole\Redis\Redis $redis) use ($timeout, $key, $value) {
+            $data = $redis->set($key, $value, $timeout);
             info("缓存数据." . json_encode($data));
         });
     }
 
+    public static function Del($key)
+    {
+        \EasySwoole\RedisPool\RedisPool::invoke(function (\EasySwoole\Redis\Redis $redis) use ($key) {
+            $redis->del($key);
+            info("删除数据." . $key);
+        });
+    }
 }
