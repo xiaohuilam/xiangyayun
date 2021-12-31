@@ -71,6 +71,7 @@ class UcsService
         return UcsRegion::create()->all();
     }
 
+
     public static function SelectSystem($ucs_system_class_id = 0)
     {
         if ($ucs_system_class_id) {
@@ -161,6 +162,19 @@ class UcsService
             ->all();
     }
 
+    //获取任务列表分页
+    public static function SelectTaskListPage($where, $page, $size)
+    {
+        $ucs_task = UcsTask::create()->limit($size * ($page - 1), $size)->where($where);
+        $ucs_task = $ucs_task->withTotalCount();
+
+        $data['list'] = $ucs_task->all();
+        $result = $ucs_task->lastQueryResult();
+        // 总条数
+        $data['total'] = $result->getTotalCount();
+        return $data;
+    }
+
     //获取UCS列表
     public static function SelectListPage($where, $page, $size)
     {
@@ -179,7 +193,10 @@ class UcsService
             'a.name as instance_name',
             'b.name as region_name'
         ]);
-        $ucs_instances = $ucs_instances->join('ucs_region b', 'a.ucs_region_id=b.id');
+        $ucs_instances = $ucs_instances
+            ->join('ucs_region b', 'a.ucs_region_id=b.id')
+            ->join('ucs_system_class c', 'c.id=d.')
+            ->join('ucs_system d', 'd.id=a.');
         foreach ($where as $value) {
             $ucs_instances = $ucs_instances->where($value);
         }
@@ -226,6 +243,7 @@ class UcsService
                 ];
                 $item['resource_status'] = $data;
             }
+            $item['ip_address'] = UcsService::SelectUcsIPByUcsInstanceId($value->id);
             $item['act_tips'] = UcsActStatus::ConvertToString($item['act_status']);
             $temp[] = $item;
         }
@@ -242,6 +260,19 @@ class UcsService
     public static function FindUcsSystemById($system_id)
     {
         return UcsSystem::create()->get(['id' => $system_id]);
+    }
+
+    //根据系统ID查找系统详情
+    public static function FindUcsSystemDetailById($system_id)
+    {
+        return UcsSystem::create()->alias('a')
+            ->field([
+                'a.system_version',
+                'b.system_class',
+            ])
+            ->join('ucs_system_class b', 'b.id=a.ucs_system_class_id')
+            ->where('a.id', $system_id)
+            ->get();
     }
 
     //根据套餐ID查找套餐
@@ -285,6 +316,7 @@ class UcsService
             'ucs_region_id' => $ucs_instance->ucs_region_id,
         ]);
     }
+
 
     //获取续费价格
     public static function GetReNewPrice($instance_id, $time_type, $time_length)
