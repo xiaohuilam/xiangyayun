@@ -100,7 +100,7 @@ class WechatService
         return true;
     }
 
-    public static function SendTemplateMessage($admin_id, $user_id, $params, $action, $url)
+    public static function SendTemplateMessage($admin_id, $user_id, $open_id, $params, $action, $url)
     {
         $temp = WechatPushTemp::create()->get(['action' => $action]);
         if (!$temp) {
@@ -111,12 +111,19 @@ class WechatService
                 'wechat_notify_status' => 1,
                 'id' => $admin_id
             ]);
-            self::SendTemplateMessageThread($admin['wechat_open_id'], $temp->template_id, $url, $params);
+
+            if ($open_id == null && $admin['wechat_open_id']) {
+                $open_id = $admin['wechat_open_id'];
+            }
+            self::SendTemplateMessageThread($open_id, $temp->template_id, $url, $params);
         } else if ($user_id) {
             $user = User::create()->get(['id' => $user_id]);
-            if ($user && $user->wx_openid) {
-                self::SendTemplateMessageThread($user->wx_openid, $temp->template_id, $url, $params);
-                UserLogService::WechatPushLogSuccess($user_id, $user->wx_openid, $params);
+            if ($user) {
+                if ($open_id == null && $user->wx_openid) {
+                    $open_id = $user->wx_openid;
+                }
+                self::SendTemplateMessageThread($open_id, $temp->template_id, $url, $params);
+                UserLogService::WechatPushLogSuccess($user_id, $open_id, $params);
                 return true;
             }
             return false;
