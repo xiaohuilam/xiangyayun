@@ -82,6 +82,7 @@ class Api extends Base
     {
         $username = $this->GetParam('username');
         $verifycode = $this->GetParam('verifycode');
+        //
         $sms_code = $this->Get('sms_code');
         if ($verifycode != $sms_code) {
             return $this->Error('验证码错误!');
