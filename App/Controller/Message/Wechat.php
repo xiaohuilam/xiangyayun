@@ -99,21 +99,25 @@ class Wechat extends Base
             ]);
         } else {
             //微信模板消息推送老用户
-            WechatPushJob([
-                'user_id' => $user_id,
-                'params' => [
-                    'first' => '您的账号已经被解除微信绑定',
-                    'keyword1' => $user->username,
-                    'keyword2' => '您的账号已被解除微信绑定' . config('SYSTEM.APP_NAME') . '系统',
-                    'remark' => '期待能跟您继续合作，' . config('SYSTEM.APP_NAME') . '系统，我们竭诚为您服务。',
-                ],
-                'action' => 'user_bind',
-                'url' => config('SYSTEM.APP_URL') . '/user/info',
-            ]);
+            if ($user->wx_openid) {
+                WechatPushJob([
+                    'user_id' => $user_id,
+                    'open_id' => $user->wx_openid,
+                    'params' => [
+                        'first' => '您的账号已经被解除微信绑定',
+                        'keyword1' => $user->username,
+                        'keyword2' => '您的账号已被解除微信绑定' . config('SYSTEM.APP_NAME') . '系统',
+                        'remark' => '期待能跟您继续合作，' . config('SYSTEM.APP_NAME') . '系统，我们竭诚为您服务。',
+                    ],
+                    'action' => 'user_bind',
+                    'url' => config('SYSTEM.APP_URL') . '/user/info',
+                ]);
+            }
             UserService::BindWxOpenId($user_id, $wx_openid);
             //微信模板消息推送
             WechatPushJob([
                 'user_id' => $user_id,
+                'open_id' => $wx_openid,
                 'params' => [
                     'first' => '微信绑定成功',
                     'keyword1' => $user->username,
