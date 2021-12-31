@@ -135,30 +135,12 @@ class UserService
     //微信绑定用户
     public static function BindWxOpenId($user_id, $wx_openid)
     {
-
         $user = self::FindById($user_id);
-
         $old_params = ['wx_open_id' => $user->wx_openid];
         $new_params = ['wx_open_id' => $wx_openid];
-        //记录日志
-        if ($user->wx_openid == $wx_openid) {
-            //发送微信,您已绑定本微信,无需重新绑定
-            WechatPushJob([
-                'user_id' => $user_id,
-                'params' => [
-                    'first' => '您已绑定本微信,无需重新绑定',
-                    'keyword1' => $user->username,
-                    'keyword2' => '绑定' . config('SYSTEM.APP_NAME') . '系统后享受更多福利!',
-                    'remark' => '欢迎使用' . config('SYSTEM.APP_NAME') . '系统，我们竭诚为您服务。',
-                ],
-                'action' => 'user_bind',
-                'url' => config('SYSTEM.APP_URL') . '/user/info',
-            ]);
-        } else {
-            UserLogService::BindWechatLog($user->username, $user_id, null, null, $old_params, $new_params);
-            $user->wx_openid = $wx_openid;
-            $user->update();
-        }
+        UserLogService::BindWechatLog($user->username, $user_id, null, null, $old_params, $new_params);
+        $user->wx_openid = $wx_openid;
+        $user->update();
         return $user;
     }
 

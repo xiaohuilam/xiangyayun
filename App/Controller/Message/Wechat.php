@@ -84,20 +84,46 @@ class Wechat extends Base
         $wx_openid = $data['FromUserName'];
         //把ticket保存的USERID，找到然后绑定!
         $user_id = RedisService::GetWxBindUserTicket($data['Ticket']);
-        UserService::BindWxOpenId($user_id, $wx_openid);
         $user = UserService::FindById($user_id);
-        //微信模板消息推送
-        WechatPushJob([
-            'user_id' => $user_id,
-            'params' => [
-                'first' => '微信绑定成功',
-                'keyword1' =>$user->username,
-                'keyword2' => '你已成功绑定'.config('SYSTEM.APP_NAME').'系统',
-                'remark' => '欢迎使用'.config('SYSTEM.APP_NAME').'系统，我们竭诚为您服务。',
-            ],
-            'action' => 'user_bind',
-            'url' => config('SYSTEM.APP_URL') . '/user/info',
-        ]);
+        if ($user->wx_openid == $wx_openid) {
+            WechatPushJob([
+                'user_id' => $user_id,
+                'params' => [
+                    'first' => '您已绑定本微信,无需重新绑定',
+                    'keyword1' => $user->username,
+                    'keyword2' => '绑定' . config('SYSTEM.APP_NAME') . '系统后享受更多福利!',
+                    'remark' => '欢迎使用' . config('SYSTEM.APP_NAME') . '系统，我们竭诚为您服务。',
+                ],
+                'action' => 'user_bind',
+                'url' => config('SYSTEM.APP_URL') . '/user/info',
+            ]);
+        } else {
+            //微信模板消息推送老用户
+            WechatPushJob([
+                'user_id' => $user_id,
+                'params' => [
+                    'first' => '您的账号已经被解除微信绑定',
+                    'keyword1' => $user->username,
+                    'keyword2' => '您的账号已被解除微信绑定' . config('SYSTEM.APP_NAME') . '系统',
+                    'remark' => '期待能跟您继续合作，' . config('SYSTEM.APP_NAME') . '系统，我们竭诚为您服务。',
+                ],
+                'action' => 'user_bind',
+                'url' => config('SYSTEM.APP_URL') . '/user/info',
+            ]);
+            UserService::BindWxOpenId($user_id, $wx_openid);
+            //微信模板消息推送
+            WechatPushJob([
+                'user_id' => $user_id,
+                'params' => [
+                    'first' => '微信绑定成功',
+                    'keyword1' => $user->username,
+                    'keyword2' => '你已成功绑定' . config('SYSTEM.APP_NAME') . '系统',
+                    'remark' => '欢迎使用' . config('SYSTEM.APP_NAME') . '系统，我们竭诚为您服务。',
+                ],
+                'action' => 'user_bind',
+                'url' => config('SYSTEM.APP_URL') . '/user/info',
+            ]);
+        }
         return new \EasySwoole\WeChat\Kernel\Messages\Text("恭喜您，您已经成功完成会员绑定！");
     }
 
