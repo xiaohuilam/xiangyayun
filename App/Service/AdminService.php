@@ -26,7 +26,6 @@ class AdminService
         return Admin::create()->update([
             'wechat_open_id' => $wx_openid
         ], ['id' => $admin_id]);
-
     }
 
 }

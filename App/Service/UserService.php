@@ -135,7 +135,10 @@ class UserService
     //微信绑定用户
     public static function BindWxOpenId($user_id, $wx_openid)
     {
+
         $user = self::FindById($user_id);
+
+        //发送模板消息提醒
         $user->wx_openid = $wx_openid;
         $user->update();
         return $user;
