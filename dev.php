@@ -58,7 +58,7 @@ return [
                 "MINI_APP_ID" => "",
                 "MCH_ID" => "1565047471",
                 "KEY" => "JKHJKAHKJfhkhjskafhjahdsjkufhadj",
-                "NOTIFY_URL" => "https://notify.hiy.cn/notify/pay/wechat",
+                "NOTIFY_URL" => "http://api.hiy.cn/notify/pay/wechat",
                 "API_CLIENT_CERT" => "-----BEGIN CERTIFICATE-----
 MIID7DCCAtSgAwIBAgIUbyRvBLMQiNJsk1OV0b34ptTMyAowDQYJKoZIhvcNAQEL
 BQAwXjELMAkGA1UEBhMCQ04xEzARBgNVBAoTClRlbnBheS5jb20xHTAbBgNVBAsT
@@ -119,8 +119,8 @@ rodnjf927gnA85Fp2eigUn8=
                 "ALIPAY_CERT_PUBLIC_KEY_PATH" => "/cert/alipayCertPublicKey_RSA2.crt",//支付宝公钥证书路径
                 "ALIPAY_ROOT_CERT_PATH" => "/cert/alipayRootCert.crt",//支付宝根证书路径
                 "MERCHANT_CERT_PATH" => "/cert/appCertPublicKey_2021001165608852.crt",//商户应用公钥证书
-                "RETURN_URL" => "https://www.hiy.cn/user/recharge",
-                "NOTIFY_URL" => "https://notify.hiy.cn/notify/pay/alipay",
+                "RETURN_URL" => "http://www.hiy.cn/#/finance/recharge/log",
+                "NOTIFY_URL" => "http://api.hiy.cn/notify/pay/alipay",
             ],
         ],
         "WECHAT" => [
