@@ -33,7 +33,7 @@ class UserLogService
         ]);
     }
 
-    public static function BindWechatLog($username, $user_id, $ip, $ua, $new_params)
+    public static function BindWechatLog($username, $user_id, $ip, $ua, $old_params, $new_params)
     {
         return self::Save([
             'username' => $username,
@@ -43,6 +43,7 @@ class UserLogService
             'status' => 0,
             'message' => '绑定微信成功',
             'action' => 'bind_wechat',
+            'old_params' => json_encode($old_params),
             'new_params' => json_encode($new_params),
         ]);
     }
