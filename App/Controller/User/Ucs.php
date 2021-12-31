@@ -132,9 +132,12 @@ class Ucs extends UserLoginBase
     public function get_plan()
     {
         $ucs_region_id = $this->GetParam('ucs_region_id');
-        $plan = UcsService::SelectPlanByUcsRegionId($ucs_region_id);
-        var_dump($plan);
-        $data = TreeService::GetUcsPlanTree($plan);
+        $plans = UcsService::SelectPlanByUcsRegionId($ucs_region_id);
+        $temp = [];
+        foreach ($plans as $plan) {
+            $temp = $plan->toArray();
+        }
+        $data = TreeService::GetUcsPlanTree($temp);
         return $this->Success('获取规格列表成功', $data);
     }
 

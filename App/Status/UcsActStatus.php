@@ -36,11 +36,11 @@ class UcsActStatus
             case 3:
                 return '开机中';
             case 4:
-                return '重启中';
+                return '软重启中';
             case 5:
-                return '强制重启中';
+                return '硬重启中';
             case 6:
-                return '重装系统中';
+                return '重装中';
             case 7:
                 return '重设密码中';
             default:

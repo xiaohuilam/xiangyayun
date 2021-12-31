@@ -148,13 +148,14 @@ class UserService
         if ((!$user) || $amount < 0) {
             return false;
         }
-
         $user_consume = UserFinance::create([
             'user_id' => $user_id,
             'create_time' => date('Y-m-d H:i:s'),
             'action' => $action,
             'amount' => $amount,
             'balance' => $user->balance,
+            'direction' => 1,
+            'type' => 'recharge'
         ]);
         $user_consume->save();
         if ($user_consume->id) {
