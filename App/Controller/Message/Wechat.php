@@ -84,7 +84,8 @@ class Wechat extends Base
         $wx_openid = $data['FromUserName'];
         //把ticket保存的USERID，找到然后绑定!
         $user_id = RedisService::GetWxBindUserTicket($data['Ticket']);
-        RedisService::Del();
+        //删除相关缓存
+        RedisService::Del($data['Ticket']);
         $user = UserService::FindById($user_id);
         if ($user->wx_openid == $wx_openid) {
             WechatPushJob([
@@ -151,6 +152,8 @@ class Wechat extends Base
         $wx_openid = $data['FromUserName'];
         //把ticket保存的USERID，找到然后绑定!
         $admin_id = RedisService::GetWxBindAdminTicket($data['Ticket']);
+        //删除相关缓存
+        RedisService::Del($data['Ticket']);
         WechatPushJob([
             'admin_id' => $admin_id,
             'params' => [
