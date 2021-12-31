@@ -137,6 +137,7 @@ class Ucs extends UserLoginBase
         foreach ($plans as $plan) {
             $temp = $plan->toArray();
         }
+        var_dump($temp);
         $data = TreeService::GetUcsPlanTree($temp);
         return $this->Success('获取规格列表成功', $data);
     }
