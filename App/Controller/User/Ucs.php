@@ -135,14 +135,8 @@ class Ucs extends UserLoginBase
         $plans = UcsService::SelectPlanByUcsRegionId($ucs_region_id);
         $temp = [];
         foreach ($plans as $plan) {
-<<<<<<< HEAD
-            $temp = $plan->toArray();
-        }
-        var_dump($temp);
-=======
             $temp[] = $plan->toArray();
         }
->>>>>>> a567dfffd885888c6422944be87b274b05e3c1ba
         $data = TreeService::GetUcsPlanTree($temp);
         return $this->Success('获取规格列表成功', $data);
     }
