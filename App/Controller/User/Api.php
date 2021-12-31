@@ -8,6 +8,7 @@ use App\Service\RedisService;
 use App\Service\UserLogService;
 use App\Service\UserService;
 use App\Service\WechatService;
+use EasySwoole\Redis\Redis;
 use EasySwoole\VerifyCode\Conf;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
@@ -53,7 +54,6 @@ class Api extends Base
     public function wx_qrcode_login()
     {
         $data = WechatService::GetQrcode("QRCODE_USER_LOGIN");
-
         $byte = QrcodeService::Qrcode($data['url']);
         //服务端获取EventKey
         $ticket = $data['ticket'];
@@ -67,10 +67,18 @@ class Api extends Base
         //状态
         $ticket = $this->Get('user.ticket');
         $user_id = RedisService::GetWxLoginUserTicket($ticket);
-        if ($user_id) {
+        if ($user_id == 0) {
+            return $this->Error('等待扫码中');
+        } else if ($user_id > 0) {
+            //登录成功后需要销毁掉
+            RedisService::DelWxLoginUserTicket($ticket);
+            $this->SetUserId($user_id);
             return $this->Success('微信登录成功!');
+        } else if ($user_id == -1) {
+            //登录失败后需要销毁掉
+            RedisService::DelWxLoginUserTicket($ticket);
+            return $this->Error('您的微信未绑定账号!请选择其他方式登录!');
         }
-        return $this->Error('等待扫码中');
     }
 
     /**
@@ -82,8 +90,8 @@ class Api extends Base
     {
         $username = $this->GetParam('username');
         $verifycode = $this->GetParam('verifycode');
-        //
-        $sms_code = $this->Get('sms_code');
+        //从Redis里面拿出来相关的短信验证码
+        $sms_code = RedisService::GetVerifyCode($username);
         if ($verifycode != $sms_code) {
             return $this->Error('验证码错误!');
         }
@@ -204,12 +212,15 @@ class Api extends Base
         $qq = $this->GetParam('qq');
         $email = $this->GetParam('email');
 
-        $code = $this->Get('sms_code');
+        $code = RedisService::GetVerifyCode($username);
         if (!$code) {
             //没有获取图形验证码就开始发短信,多半是有人搞事情
             return $this->Error('验证码错误!');
         }
+
         if ($code && $sms_code && $sms_code == $code) {//Verify
+            //销毁验证码
+            RedisService::DelVerifyCode($username);
             //不为空且验证成功
             $ip = $this->GetClientIP();
             $ua = $this->GetUserAgent();
@@ -256,50 +267,51 @@ class Api extends Base
      */
     public function send_code()
     {
-        $code = $this->Get('img_code');
-        if (!$code) {
-            //没有获取图形验证码就开始发短信,多半是有人搞事情
-            return $this->Error('验证码错误!');
-        }
         $username = $this->GetParam('username');
+        //获取这个手机号的图片验证码
+        $code = RedisService::GetImageCode($username);
         $verifycode = $this->GetParam('verifycode');
         $action = $this->GetParam('action');
-        if ($verifycode != $code) {
+        if (!$code || $verifycode != $code) {
             return $this->Error('验证码错误!');
         }
 
+        $sms_code = rand(100000, 999999);
         if ($action == 'register') {
             $user = UserService::FindByUserName($username);
             if ($user) {
+                RedisService::DelImageCode($username);
                 return $this->Error('用户已注册!请直接登录', null, '/login');
             }
 
-            $sms_code = 100000;
-            $this->Set('sms_code', $sms_code);
+            RedisService::SetVerifyCode($username, $sms_code);
             //判断该IP或该用户今天收到了多少短信
+
 
             SmsJob([
                 'mobile' => $username,
                 'action' => 'action_code',
                 'params' => [
-                    '注册用户', $code
+                    '注册用户', $sms_code
                 ],
             ]);
             return $this->Success('发送成功');
         } else if ($action == 'login') {
             $user = UserService::FindByUserName($username);
-            $sms_code = 100000;
-            $this->Set('sms_code', $sms_code);
+
+            RedisService::SetVerifyCode($username, $sms_code);
+
+            //发送微信
             if ($user && $user->wx_openid) {
                 WechatService::SendCode($user->id, '登录会员中心', $sms_code, '5分钟', 'http://upy.cn/');
                 return $this->Success('发送微信消息成功!');
             }
-
+            //发送短信
             SmsJob([
                 'mobile' => $username,
                 'action' => 'action_code',
                 'params' => [
-                    '短信登录', $code
+                    '短信登录', $sms_code
                 ],
             ]);
             return $this->Success('发送手机短信成功');

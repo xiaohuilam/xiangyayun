@@ -15,6 +15,12 @@ class RedisService
         return self::Get("VERIFY_CODE." . $username);
     }
 
+    public static function DelVerifyCode($username)
+    {
+        return self::Del("VERIFY_CODE." . $username);
+    }
+
+
     public static function SetImageCode($username, $code)
     {
         self::Set("IMAGE_CODE." . $username, $code, 300);
@@ -61,6 +67,11 @@ class RedisService
     public static function GetWxLoginUserTicket($Ticket)
     {
         return self::Get("WX_LOGIN_USER." . $Ticket);
+    }
+
+    public static function DelWxLoginUserTicket($Ticket)
+    {
+        return self::Del("WX_LOGIN_USER." . $Ticket);
     }
 
     //绑定用户的ticket
