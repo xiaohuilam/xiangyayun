@@ -152,6 +152,9 @@ class Api extends Base
                 return $this->Error('图片验证码错误！');
             }
         }
+        //已经使用过的验证码就得删除掉
+        RedisService::DelImageCode($username);
+
         $ip = $this->GetClientIP();
         $ua = $this->GetUserAgent();
         if (UserLogService::FindLoginByIp($ip) > 5) {

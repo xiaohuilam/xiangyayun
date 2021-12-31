@@ -12,8 +12,7 @@ class RedisService
 
     public static function GetVerifyCode($username)
     {
-        return self::Get("VERIFY_CODE." . $username, true);
-
+        return self::Get("VERIFY_CODE." . $username);
     }
 
     public static function SetImageCode($username, $code)
@@ -23,7 +22,12 @@ class RedisService
 
     public static function GetImageCode($username)
     {
-        return self::Get("IMAGE_CODE." . $username, true);
+        return self::Get("IMAGE_CODE." . $username);
+    }
+
+    public static function DelImageCode($username)
+    {
+        return self::Del("IMAGE_CODE." . $username);
     }
 
 
@@ -120,14 +124,10 @@ class RedisService
         return self::Set('AdminAuth', $admin_auth, 300);
     }
 
-    public static function Get($key, $is_del = false)
+    public static function Get($key)
     {
         $redis = \EasySwoole\RedisPool\RedisPool::defer();
-        $value = $redis->get($key);
-        if ($is_del) {
-            self::Del($key);
-        }
-        return $value;
+        return $redis->get($key);
     }
 
     public static function Set($key, $value, $timeout = 0)
