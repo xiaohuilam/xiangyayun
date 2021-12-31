@@ -38,19 +38,26 @@ class Ucs extends UserLoginBase
         $instance = $this->CheckIsMine($instance_id);
         if ($instance) {
             //获取实例详情
-            $data['instance_info'] = $instance;
-            //IP地址详情
-            $data['ip_address'] = UcsService::SelectUcsIPByUcsInstanceId($instance_id);
-            //系统详情
-            $data['system'] = UcsService::FindUcsSystemDetailById($instance->ucs_system_id);
-            //获取实例防火墙
-            $data['firewall'] = UcsService::FindUcsFirewallByUcsInstanceId($instance_id);
-            //获取实例防火墙
-            $data['action_log'] = UcsService::SelectTaskListPage(['ucs_instance_id', $instance_id], 1, 15);
-            //地域相关详情
-            $data['region'] = UcsService::FindUcsRegionById($instance->ucs_region_id);
-
+            $data = UcsService::FindInstanceInfoByInstanceId($instance_id);
+            //获取实例操作日志
             return $this->Success('获取实例详情成功', $data);
+        }
+    }
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * @Param(name="page",integer="")
+     * @Param(name="size",integer="")
+     */
+    public function instance_action_log()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        $page = $this->GetParam('page') ?? 1;
+        $size = $this->GetParam('size') ?? 10;
+        $instance = $this->CheckIsMine($instance_id);
+        if ($instance) {
+            $data = UcsService::SelectTaskListPage(['ucs_instance_id', $instance_id], $page, $size);
+            return $this->Success('获取操作日志成功!', $data);
         }
     }
 

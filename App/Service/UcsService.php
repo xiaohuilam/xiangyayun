@@ -175,6 +175,12 @@ class UcsService
         return $data;
     }
 
+    public static function FindInstanceInfoByInstanceId($instance_id)
+    {
+        $data = self::SelectListPage(['a.id', $instance_id], 1, 1);
+        return $data['list'][0];
+    }
+
     //获取UCS列表
     public static function SelectListPage($where, $page, $size)
     {
@@ -191,12 +197,15 @@ class UcsService
             'a.renew_status',
             'a.act_status',
             'a.name as instance_name',
-            'b.name as region_name'
+            'b.name as region_name',
+            'd.system_class',
+            'c.system_version',
+            'c.login_name'
         ]);
         $ucs_instances = $ucs_instances
             ->join('ucs_region b', 'a.ucs_region_id=b.id')
-            ->join('ucs_system_class c', 'c.id=d.')
-            ->join('ucs_system d', 'd.id=a.');
+            ->join('ucs_system c', 'c.id=a.ucs_system_id')
+            ->join('ucs_system_class d', 'd.id=c.ucs_system_class_id');
         foreach ($where as $value) {
             $ucs_instances = $ucs_instances->where($value);
         }
@@ -216,6 +225,10 @@ class UcsService
             if ($value->region_name) {
                 $item['region_name'] = $value->region_name;
             }
+            if ($value->login_name) {
+                $item['login_name'] = $value->login_name;
+            }
+            $item['system_name'] = $value->system_class . " " . $value->system_version;
             //获取资源状态
             $resource_status = RedisService::GetUcsResourceStatus($value->id);
             if ($resource_status) {
