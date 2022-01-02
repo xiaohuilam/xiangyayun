@@ -208,7 +208,7 @@ class Api extends Base
         // sms
         $username = $this->GetParam('username');
         $password = $this->GetParam('password');
-        $sms_code = $this->GetParam('sms_code');
+        $verifycode = $this->GetParam('verifycode');
         $qq = $this->GetParam('qq');
         $email = $this->GetParam('email');
 
@@ -218,7 +218,7 @@ class Api extends Base
             return $this->Error('验证码错误!');
         }
 
-        if ($code && $sms_code && $sms_code == $code) {//Verify
+        if ($code && $verifycode && $verifycode == $code) {//Verify
             //销毁验证码
             RedisService::DelVerifyCode($username);
             //不为空且验证成功

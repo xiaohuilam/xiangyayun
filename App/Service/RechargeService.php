@@ -125,13 +125,16 @@ class RechargeService
             if ($user_recharge->amount) {
                 switch ($user_recharge->type) {
                     case "alipay_pc":
-                        $type = '支付宝';
+                        $type = '支付宝PC端';
                         break;
-                    case "alipay_pc":
-                        $type = '支付宝';
+                    case "alipay_h5":
+                        $type = '支付宝H5';
                         break;
-                    case "wechat":
-                        $type = '微信';
+                    case "wechat_qr":
+                        $type = '微信PC端';
+                        break;
+                    case "wechat_h5":
+                        $type = '微信手机端';
                         break;
                     default:
                         $type = "";
