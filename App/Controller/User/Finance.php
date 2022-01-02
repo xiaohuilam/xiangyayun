@@ -12,7 +12,7 @@ class Finance extends UserLoginBase
 {
 
     /**
-     * @Param(name="type",required="",inArray=["wechat","alipay_pc","alipay_h5"])
+     * @Param(name="type",required="",inArray=["wechat_qr","wechat_h5","alipay_pc","alipay_h5"])
      * @Param(name="amount",integer="")
      * @Param(name="qrcode",inArray=[1,0])
      */
