@@ -147,6 +147,7 @@ class Profile extends UserLoginBase
         $data['wechat_bind_status'] = $user['wx_openid'] ? 1 : 0;
         $data['alipay_bind_status'] = $user['ali_openid'] ? 1 : 0;
         $data['qq_bind_status'] = $user['qq_openid'] ? 1 : 0;
+        $data['email_bind_status'] = $user['email'] ? 1 : 0;
         ##过滤掉不需要的字段
         if ($user['auth_status'] && $user['auth_id']) {
             $authTemp = UserService::FindUserAuthByAuthId($user['auth_id']);
