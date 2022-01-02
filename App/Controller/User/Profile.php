@@ -148,7 +148,7 @@ class Profile extends UserLoginBase
         $data['qq_bind_status'] = $user['qq_openid'] ? 1 : 0;
         ##过滤掉不需要的字段
         if ($user['auth_status'] && $user['auth_id']) {
-            $authTemp = UserService::FindUserAuthByUserId($user['auth_id']);
+            $authTemp = UserService::FindUserAuthByAuthId($user['auth_id']);
             $authTemp = $authTemp->toArray();
             $auth['cert_type'] = $authTemp['cert_type'];
             $auth['finish_time'] = $authTemp['finish_time'];
