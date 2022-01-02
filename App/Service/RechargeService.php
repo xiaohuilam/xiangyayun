@@ -102,7 +102,7 @@ class RechargeService
             case "alipay_h5":
                 return self:: AlipayH5($order_no, $amount, $user_id);
                 break;
-            case "wechat":
+            case "wechat_qr":
                 return self::Wechat($order_no, $amount, $user_id, $ip);
                 break;
         }
