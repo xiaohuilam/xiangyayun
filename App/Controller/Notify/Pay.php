@@ -16,8 +16,9 @@ class Pay extends Base
             $order_no = $params['out_trade_no'];
             $order_out_no = $params['trade_no'];
             $buyer_id = $params['buyer_id'];
-            var_dump($buyer_id);
-            RechargeService::EntryAmount($order_no, $order_out_no);
+            RechargeService::EntryAmount($order_no, $order_out_no, $buyer_id);
+        } else {
+            error('支付宝支付验签失败!');
         }
         $this->TextWrite(\EasySwoole\Pay\AliPay\AliPay::success());
     }
@@ -26,13 +27,11 @@ class Pay extends Base
     {
         $params = $this->request()->getBody()->__toString();
         try {
-            var_dump($params);
             $data = RechargeService::WechatNotify($params);
-            var_dump($data);
             $order_out_no = $data->get('transaction_id');
             $order_no = $data->get('out_trade_no');
-            $payer = $data->get('payer');
-            RechargeService::EntryAmount($order_no, $order_out_no);
+            $open_id = $data->get('openid');
+            RechargeService::EntryAmount($order_no, $order_out_no, $open_id);
         } catch (\EasySwoole\Pay\Exceptions\InvalidArgumentException $e) {
             error('微信支付验签失败!');
         }

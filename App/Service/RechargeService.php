@@ -109,7 +109,7 @@ class RechargeService
     }
 
     //充值成功入账
-    public static function EntryAmount($order_no, $order_out_no)
+    public static function EntryAmount($order_no, $order_out_no, $buyer_id)
     {
         $user_recharge = UserRecharge::create()
             ->where('order_no', $order_no)
@@ -120,6 +120,7 @@ class RechargeService
             //存在订单，并且没有处理订单
             $user_recharge->order_out_no = $order_out_no;
             $user_recharge->status = 1;
+            $user_recharge->buyer_id = $buyer_id;
             $user_recharge->finish_time = date('Y-m-d H:i:s');
             $user_recharge->update();
             if ($user_recharge->amount) {

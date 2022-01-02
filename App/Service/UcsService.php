@@ -228,34 +228,9 @@ class UcsService
             if ($value->login_name) {
                 $item['login_name'] = $value->login_name;
             }
-            $item['system_name'] = $value->system_class . " " . $value->system_version;
             //获取资源状态
-            $resource_status = RedisService::GetUcsResourceStatus($value->id);
-            if ($resource_status) {
-                $item['resource_status'] = $resource_status;
-            } else {
-                $data = [];
-                $data['load'] = [
-                    'tips' => '运行流畅',
-                    'ratio' => 0
-                ];
-                $data['cpu'] = [
-                    'num' => $value->cpu,
-                    'ratio' => 0
-                ];
-                $data['memory'] = [
-                    'use' => 0,
-                    'total' => $value->memory,
-                    'ratio' => 0
-                ];
-
-                $data['harddisk'] = [
-                    'use' => 0,
-                    'total' => $value->memory,
-                    'ratio' => 0
-                ];
-                $item['resource_status'] = $data;
-            }
+            $item['resource_status'] = self::GetResourceStatus($value);
+            $item['system_name'] = $value->system_class . " " . $value->system_version;
             $item['ip_address'] = UcsService::SelectUcsIPByUcsInstanceId($value->id);
             $item['act_tips'] = UcsActStatus::ConvertToString($item['act_status']);
             $temp[] = $item;
@@ -267,6 +242,35 @@ class UcsService
         // 总条数
         $d['total'] = $result->getTotalCount();
         return $d;
+    }
+
+    private static function GetResourceStatus($value)
+    {
+        $resource_status = RedisService::GetUcsResourceStatus($value->id);
+        if (!$resource_status) {
+            $data = [];
+            $data['load'] = [
+                'tips' => '运行流畅',
+                'ratio' => 0
+            ];
+            $data['cpu'] = [
+                'num' => $value->cpu,
+                'ratio' => 0
+            ];
+            $data['memory'] = [
+                'use' => 0,
+                'total' => $value->memory,
+                'ratio' => 0
+            ];
+
+            $data['harddisk'] = [
+                'use' => 0,
+                'total' => $value->memory,
+                'ratio' => 0
+            ];
+            $resource_status = $data;
+        }
+        return $resource_status;
     }
 
     //根据系统ID查找系统
