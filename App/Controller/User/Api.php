@@ -239,7 +239,7 @@ class Api extends Base
     {
         $username = $this->GetParam('username');
         $config = new Conf();
-        $config->setBackColor('#3A5FCD')
+        $config
             ->setFontColor('#fff')
             ->setImageWidth(100)
             ->setImageHeight(40)
