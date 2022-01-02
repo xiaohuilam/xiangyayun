@@ -142,6 +142,7 @@ class Profile extends UserLoginBase
         $data['lock_status'] = $user['lock_status'];
         $data['email'] = HideService::Mobile($user['email']);
         $data['qq'] = $user['qq'];
+        $data['user_id'] = $user['id'];
         $data['wechat'] = $user['wechat'];
         $data['wechat_bind_status'] = $user['wx_openid'] ? 1 : 0;
         $data['alipay_bind_status'] = $user['ali_openid'] ? 1 : 0;
