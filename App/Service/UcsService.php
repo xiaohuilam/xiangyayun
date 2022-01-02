@@ -200,7 +200,8 @@ class UcsService
             'b.name as region_name',
             'd.system_class',
             'c.system_version',
-            'c.login_name'
+            'c.login_name',
+            'b.defense'
         ]);
         $ucs_instances = $ucs_instances
             ->join('ucs_region b', 'a.ucs_region_id=b.id')
@@ -216,6 +217,7 @@ class UcsService
         // 列表数据
 
         $list = $model->all();
+        var_dump($list);
         $temp = [];
         foreach ($list as $key => $value) {
             $item = $value->toRawArray();
@@ -227,6 +229,9 @@ class UcsService
             }
             if ($value->login_name) {
                 $item['login_name'] = $value->login_name;
+            }
+            if ($value->defense) {
+                $item['defense'] = $value->defense;
             }
             //获取资源状态
             $item['resource_status'] = self::GetResourceStatus($value);
