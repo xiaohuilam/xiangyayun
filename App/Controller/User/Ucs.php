@@ -150,6 +150,10 @@ class Ucs extends UserLoginBase
 
     public function get_region()
     {
+        $ucs_region_id = $this->GetParam('ucs_region_id');
+        if ($ucs_region_id) {
+            return UcsService::FindUcsRegionById($ucs_region_id);
+        }
         $regions = UcsService::SelectRegion();
         $temp = [];
         foreach ($regions as $region) {
