@@ -15,7 +15,7 @@ class Pay extends Base
             //验证成功
             $order_no = $params['out_trade_no'];
             $order_out_no = $params['trade_no'];
-            $buyer_id = $params->get('buyer_id');
+            $buyer_id = $params['buyer_id'];
             var_dump($buyer_id);
             RechargeService::EntryAmount($order_no, $order_out_no);
         }
