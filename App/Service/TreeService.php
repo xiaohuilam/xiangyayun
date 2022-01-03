@@ -66,7 +66,7 @@ class TreeService
                     if ($v['cpu'] == $value['cpu']) {
                         $temp['label'] = $v['memory'] . ' MB';
                         $temp['value'] = $v['id'];
-                        if (array_key_exists('disabled', $v)) {
+                        if (array_key_exists('disabled', $v['disabled'])) {
                             //disabled
                             $temp['disabled'] = true;
                         }
