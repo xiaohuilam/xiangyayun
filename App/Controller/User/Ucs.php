@@ -46,6 +46,23 @@ class Ucs extends UserLoginBase
         return $this->Success('获取安全组成功', $ucs_firewall_list);
     }
 
+    public function firewall_rule_list()
+    {
+        $user_id = $this->GetUserId();
+        $ucs_firewall_group_id = $this->GetParam('ucs_firewall_group_id');
+        $ucs_firewall_group = UcsService::FindUcsFirewallGroupById($ucs_firewall_group_id);
+        if (!$ucs_firewall_group) {
+            return $this->Error('这个安全组不存在！');
+        }
+        if ($ucs_firewall_group->user_id != $user_id) {
+            return $this->Error('这个安全组不是您的！');
+        }
+        $page = $this->GetParam('page');
+        $size = $this->GetParam('size');
+        $ucs_firewall_list = UcsService::SelectUcsFirewallRuleByGroupIdPage($ucs_firewall_group_id, $page, $size);
+        return $this->Success('获取安全组规则成功', $ucs_firewall_list);
+    }
+
     //修改或编辑安全组
     public function firewall_group_edit()
     {

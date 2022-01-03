@@ -333,6 +333,21 @@ class UcsService
         return $data;
     }
 
+    //获取安全组规则 By 安全组ID
+    public static function SelectUcsFirewallRuleByGroupIdPage($ucs_firewall_group_id, $page, $size)
+    {
+        UcsFirewall::create()->where();
+        $ucs_firewall_rule = UcsFirewall::create()->limit($size * ($page - 1), $size)
+            ->where('ucs_firewall_group_id', $ucs_firewall_group_id);
+        $ucs_firewall_rule = $ucs_firewall_rule->withTotalCount();
+
+        $data['list'] = $ucs_firewall_rule->all();
+        $result = $ucs_firewall_rule->lastQueryResult();
+        // 总条数
+        $data['total'] = $result->getTotalCount();
+        return $data;
+    }
+
     //查询安全组 By 安全组ID
     public static function FindUcsFirewallGroupById($ucs_firewall_group_id)
     {
