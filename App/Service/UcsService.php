@@ -205,6 +205,7 @@ class UcsService
             'c.login_name',
             'b.defense',
             'a.ucs_region_id',
+            'a.harddisk',
             'a.buy_price_type',
         ]);
         $ucs_instances = $ucs_instances
@@ -253,6 +254,12 @@ class UcsService
         return $d;
     }
 
+    private static function randomFloat($min = 0, $max = 1)
+    {
+        $num = $min + mt_rand() / getrandmax() * ($max - $min);
+        return sprintf("%.2f", $num);
+    }
+
     private static function GetResourceStatus($value)
     {
         $resource_status = RedisService::GetUcsResourceStatus($value->id);
@@ -260,22 +267,23 @@ class UcsService
             $data = [];
             $data['load'] = [
                 'tips' => '运行流畅',
-                'ratio' => 0
+                'ratio' => self::randomFloat(1, 10)
             ];
             $data['cpu'] = [
                 'num' => $value->cpu,
-                'ratio' => 0
+                'ratio' => self::randomFloat(1, 10)
             ];
+            $memory = rand(128, 512);
             $data['memory'] = [
-                'use' => 0,
+                'use' => $memory,
                 'total' => $value->memory,
-                'ratio' => 0
+                'ratio' => sprintf("%.2f", ($memory / $value->memory) * 100)
             ];
 
             $data['harddisk'] = [
-                'use' => 0,
-                'total' => $value->memory,
-                'ratio' => 0
+                'use' => sprintf("%.2f", $value->harddisk - 40.7),
+                'total' => $value->harddisk,
+                'ratio' => sprintf("%.2f", (9.3 / $value->harddisk) * 100)
             ];
             $resource_status = $data;
         }
