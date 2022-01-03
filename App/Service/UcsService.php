@@ -201,7 +201,8 @@ class UcsService
             'd.system_class',
             'c.system_version',
             'c.login_name',
-            'b.defense'
+            'b.defense',
+            'a.ucs_region_id'
         ]);
         $ucs_instances = $ucs_instances
             ->join('ucs_region b', 'a.ucs_region_id=b.id')

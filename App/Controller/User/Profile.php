@@ -68,7 +68,7 @@ class Profile extends UserLoginBase
     {
         $password = $this->GetParam('password');
         $user = $this->GetUser();
-        if ($user['password'] != md5($password)) {
+        if ($user->password != md5($password)) {
             return $this->Error('密码错误');
         }
         return $this->Success('解锁成功!');

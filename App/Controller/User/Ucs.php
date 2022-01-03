@@ -152,7 +152,8 @@ class Ucs extends UserLoginBase
     {
         $ucs_region_id = $this->GetParam('ucs_region_id');
         if ($ucs_region_id) {
-            return UcsService::FindUcsRegionById($ucs_region_id);
+            $data = UcsService::FindUcsRegionById($ucs_region_id);
+            return $this->Success('成功!', $data);
         }
         $regions = UcsService::SelectRegion();
         $temp = [];
@@ -327,6 +328,21 @@ class Ucs extends UserLoginBase
         }
     }
 
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * @Param(name="time_type",inArray=["day","month","year"])
+     * @Param(name="time_length",integer="")
+     * 续费实例价格
+     */
+    public function renew_price()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        $time_type = $this->GetParam('time_type');
+        $time_length = $this->GetParam('time_length');
+        $data['total'] = UcsService::GetReNewPrice($instance_id, $time_type, $time_length);
+        return $this->Success('获取价格成功', $data);
+    }
 
     /**
      * @Param(name="instance_id",integer="")
