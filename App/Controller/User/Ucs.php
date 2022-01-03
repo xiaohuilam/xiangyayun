@@ -16,6 +16,71 @@ use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 class Ucs extends UserLoginBase
 {
 
+    //安全组列表
+    public function list()
+    {
+
+    }
+
+
+    /**
+     * @Param(name="instance_id",integer="")
+     * 获取实例防火墙参数
+     */
+    public function detail()
+    {
+        $instance_id = $this->GetParam('instance_id');
+        if ($this->CheckIsMine($instance_id)) {
+            $firewall_rules = UcsService::FindUcsFirewallByUcsInstanceId($instance_id);
+            return $this->Success('获取防火墙规则成功', $firewall_rules);
+        }
+    }
+
+    /**
+     * @Param(name="id",integer="")
+     * @Param(name="ucs_firewall_group_id",integer="")
+     * @Param(name="priority",integer="")
+     * @Param(name="action",inArray=["accept","drop","reject","continue","return"])
+     * @Param(name="direction",inArray=["in","out","full"])
+     * @Param(name="protocol",inArray=["tcp","udp","full"])
+     * @Param(name="src_port_range",required="")
+     * @Param(name="dst_port_range",required="")
+     * @Param(name="src_ip",required="")
+     * @Param(name="dst_ip",required="")
+     * 编辑实例防火墙规则
+     */
+    public function edit_firewall_rule()
+    {
+        $params = [];
+        $params['id'] = $this->GetParam('id');
+        $params['ucs_firewall_group_id'] = $this->GetParam('ucs_firewall_group_id');
+        $user_id = $this->GetUserId();
+        $ucs_firewall_group = UcsService::FindUcsFirewallGroupById($params['ucs_firewall_group_id']);
+        if (!$ucs_firewall_group) {
+            return $this->Error('这个安全组不存在！');
+        }
+        if ($ucs_firewall_group->user_id != $user_id) {
+            return $this->Error('这个安全组不是您的！');
+        }
+        $params['priority'] = $this->GetParam('priority');
+        $params['action'] = $this->GetParam('action');
+        $params['protocol'] = $this->GetParam('protocol');
+        $params['src_port_range'] = $this->GetParam('src_port_range');
+        $params['dst_port_range'] = $this->GetParam('dst_port_range');
+        $params['src_ip'] = $this->GetParam('src_ip');
+        $params['dst_ip'] = $this->GetParam('dst_ip');
+        $flag = UcsService::EditUcsFirewall($params);
+        if ($params['id']) {
+            if ($flag) {
+                return $this->Success('修改防火墙规则成功');
+            }
+            return $this->Error('修改防火墙规则失败');
+        }
+        if ($flag) {
+            return $this->Success('添加防火墙规则成功');
+        }
+        return $this->Error('添加防火墙规则失败');
+    }
 
     /**
      * @Param(name="page",integer="")

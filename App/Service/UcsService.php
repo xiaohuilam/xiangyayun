@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Model\UcsFirewall;
+use App\Model\UcsFirewallGroup;
 use App\Model\UcsInstance;
 use App\Model\UcsIp;
 use App\Model\UcsMaster;
@@ -313,6 +314,13 @@ class UcsService
         return UcsPlan::create()->get([
             "id" => $plan_id
         ]);
+    }
+
+    public static function FindUcsFirewallGroupById($ucs_firewall_group_id)
+    {
+        return UcsFirewallGroup::create()
+            ->where('ucs_firewall_group_id', $ucs_firewall_group_id)
+            ->get();
     }
 
     //编辑实例安全组规则
