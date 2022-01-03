@@ -177,7 +177,9 @@ class UcsService
 
     public static function FindInstanceInfoByInstanceId($instance_id)
     {
-        $data = self::SelectListPage(['a.id', $instance_id], 1, 1);
+        $where[] = ['a.id' => $instance_id];
+        $data = self::SelectListPage($where, 1, 1);
+        var_dump($data);
         return $data['list'][0];
     }
 
