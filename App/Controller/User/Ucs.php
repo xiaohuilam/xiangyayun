@@ -36,6 +36,15 @@ class Ucs extends UserLoginBase
         }
     }
 
+    public function firewall_group_list()
+    {
+        $user_id = $this->GetUserId();
+        $page = $this->GetParam('page');
+        $size = $this->GetParam('size');
+        $ucs_firewall_list = UcsService::SelectUcsFirewallGroupByUserIdPage($user_id, $page, $size);
+        return $this->Success('获取安全组成功', $ucs_firewall_list);
+    }
+
     /**
      * @Param(name="id",integer="")
      * @Param(name="ucs_firewall_group_id",integer="")

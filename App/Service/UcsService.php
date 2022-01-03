@@ -316,10 +316,28 @@ class UcsService
         ]);
     }
 
+    //获取用户安全组 By 用户ID
+    public static function SelectUcsFirewallGroupByUserIdPage($user_id, $page, $size)
+    {
+        $ucs_firewall_group = UcsFirewallGroup::create()->limit($size * ($page - 1), $size)
+            ->where('user_id', $user_id);
+        $ucs_firewall_group = $ucs_firewall_group->withTotalCount();
+
+        $data['list'] = $ucs_firewall_group->all();
+        foreach ($data['list'] as $item) {
+            $item->count = UcsInstance::create()->where('ucs_firewall_group_id', $item->id)->count();
+        }
+        $result = $ucs_firewall_group->lastQueryResult();
+        // 总条数
+        $data['total'] = $result->getTotalCount();
+        return $data;
+    }
+
+    //查询安全组 By 安全组ID
     public static function FindUcsFirewallGroupById($ucs_firewall_group_id)
     {
         return UcsFirewallGroup::create()
-            ->where('ucs_firewall_group_id', $ucs_firewall_group_id)
+            ->where('id', $ucs_firewall_group_id)
             ->get();
     }
 
