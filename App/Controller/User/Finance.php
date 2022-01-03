@@ -24,6 +24,7 @@ class Finance extends UserLoginBase
         if ($amount < 1) {
             return $this->Error('充值金额不能小于1元');
         }
+        //判断最近5分钟是否有5笔以上未支付订单
         $qrcode = $this->GetParam('qrcode');
         $user_id = $this->GetUserId();
         $ip = $this->GetClientIP();
