@@ -36,6 +36,7 @@ class Ucs extends UserLoginBase
         }
     }
 
+    //获取安全组列表
     public function firewall_group_list()
     {
         $user_id = $this->GetUserId();
@@ -43,6 +44,27 @@ class Ucs extends UserLoginBase
         $size = $this->GetParam('size');
         $ucs_firewall_list = UcsService::SelectUcsFirewallGroupByUserIdPage($user_id, $page, $size);
         return $this->Success('获取安全组成功', $ucs_firewall_list);
+    }
+
+    //修改或编辑安全组
+    public function firewall_group_edit()
+    {
+        $id = $this->GetParam('id');
+        $name = $this->GetParam('name');
+        $remark = $this->GetParam('remark');
+        $user_id = $this->GetUserId();
+        if ($id) {
+            //有ID则是编辑
+            $ucs_firewall_group = UcsService::FindUcsFirewallGroupById($id);
+            if (!$ucs_firewall_group) {
+                return $this->Error('这个安全组不存在！');
+            }
+            if ($ucs_firewall_group->user_id != $user_id) {
+                return $this->Error('这个安全组不是您的！');
+            }
+        }
+        UcsService::EditUcsFirewallGroup($id, $name, $remark, $user_id);
+        return $this->Success('修改安全组成功');
     }
 
     /**

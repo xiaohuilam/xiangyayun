@@ -341,6 +341,20 @@ class UcsService
             ->get();
     }
 
+    public static function EditUcsFirewallGroup($id, $name, $remark, $user_id)
+    {
+        $params['update_time'] = date('Y-m-d H:i:s');
+        $params['name'] = $name;
+        $params['remark'] = $remark;
+        if ($id) {
+            UcsFirewallGroup::create()->update($params, ['id' => $id]);
+        } else {
+            $params['create_time'] = date('Y-m-d H:i:s');
+            $params['user_id'] = $user_id;
+            UcsFirewallGroup::create($params)->save();
+        }
+    }
+
     //编辑实例安全组规则
     public static function EditUcsFirewall($params)
     {
