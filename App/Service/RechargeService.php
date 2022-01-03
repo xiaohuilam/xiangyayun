@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Model\UserFinance;
+use App\Model\UserLog;
 use App\Model\UserRecharge;
 use TencentCloud\Ump\V20200918\Models\Config;
 
@@ -15,6 +16,13 @@ class RechargeService
             ->order('id')
             ->limit($size * ($page - 1), $size)
             ->withTotalCount();
+    }
+
+    public static function FindByUserId($user_id)
+    {
+        $count = UserRecharge::create();
+        return $count->where('status', 0)
+            ->where('create_time', date('Y-m-d H:i:s', strtotime('- 5 minutes')), '>')->count();
     }
 
     public static function SelectFinanceLog($user_id, $page = 1, $size = 15)
