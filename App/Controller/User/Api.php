@@ -41,13 +41,10 @@ class Api extends Base
         $refreshToken = $oauth->getAccessTokenResult()['alipay_system_oauth_token_response']['refresh_token'];
 
         $userInfo = $oauth->getUserInfo($accessToken);
-        var_dump($userInfo);
 
         if (!$oauth->validateAccessToken($accessToken)) echo 'access_token 验证失败！' . PHP_EOL;
-        var_dump($oauth->getAccessTokenResult());
 
         if (!$oauth->refreshToken($refreshToken)) echo 'access_token 续期失败！' . PHP_EOL;
-        var_dump($oauth->getRefreshTokenResult());
     }
 
     //二维码登录

@@ -179,7 +179,6 @@ class UcsService
     {
         $where[] = ['a.id' => $instance_id];
         $data = self::SelectListPage($where, 1, 1);
-        var_dump($data);
         return $data['list'][0];
     }
 
@@ -222,7 +221,6 @@ class UcsService
         // 列表数据
 
         $list = $model->all();
-        var_dump($list);
         $temp = [];
         foreach ($list as $key => $value) {
             $item = $value->toRawArray();
@@ -497,11 +495,11 @@ class UcsService
         //
         if (count($queue) > 0) {
             //没在队列的随机拿
-            var_dump('找到空闲母鸡');
+            info('找到空闲的UCS宿主机');
             return $queue[rand(0, count($queue) - 1)];
         }
         if (count($temp) > 0) {
-            var_dump('实在是没有空闲的了');
+            info('实在是没有空闲的UCS宿主机了');
             return $temp[rand(0, count($temp) - 1)];
         }
         return null;
@@ -831,7 +829,6 @@ class UcsService
         $ucs_ip = self::SelectUcsIPByUcsInstanceId($ucs_instance->id);
         $params['ip_address'] = $ucs_ip;
 
-        var_dump(1111111);
         //获取磁盘相关参数
         $harddisk = self::FindUcsStorageRalationByUcsInstanceId($ucs_instance->id);
 

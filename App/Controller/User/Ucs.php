@@ -15,6 +15,8 @@ use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
 class Ucs extends UserLoginBase
 {
+
+
     /**
      * @Param(name="page",integer="")
      * @Param(name="size",integer="")
@@ -75,14 +77,11 @@ class Ucs extends UserLoginBase
     {
         $plan_id = $this->GetParam('plan_id');
         $harddisk = $this->GetParam('harddisk');
-        var_dump($harddisk);
         if (!is_array($harddisk)) {
             return $this->Error('磁盘数据不能为空!');
         }
 
         foreach ($harddisk as $value) {
-            var_dump($value);
-            var_dump(array_key_exists('ucs_storage_plan_id', $value));
             if (!array_key_exists('ucs_storage_plan_id', $value)) {
                 return $this->Error('磁盘类型不能为空!');
             }
@@ -371,58 +370,6 @@ class Ucs extends UserLoginBase
             }
         }
         return $this->Success('成功');
-    }
-
-    /**
-     * @Param(name="instance_id",integer="")
-     * 获取实例防火墙参数
-     */
-    public function get_firewall()
-    {
-        $instance_id = $this->GetParam('instance_id');
-        if ($this->CheckIsMine($instance_id)) {
-            $firewall_rules = UcsService::FindUcsFirewallByUcsInstanceId($instance_id);
-            return $this->Success('获取防火墙规则成功', $firewall_rules);
-        }
-    }
-
-    /**
-     * @Param(name="instance_id",integer="")
-     * @Param(name="priority",integer="")
-     * @Param(name="action",inArray=["accept","drop","reject","continue","return"])
-     * @Param(name="direction",inArray=["in","out","full"])
-     * @Param(name="protocol",inArray=["tcp","udp","full"])
-     * @Param(name="src_port_range",required="")
-     * @Param(name="dst_port_range",required="")
-     * @Param(name="src_ip",required="")
-     * @Param(name="dst_ip",required="")
-     * 编辑实例防火墙参数
-     */
-    public function edit_firewall()
-    {
-        $instance_id = $this->GetParam('instance_id');
-        if ($this->CheckExpire($instance_id)) {
-            $params = [];
-            $params['id'] = $this->GetParam('id');
-            $params['priority'] = $this->GetParam('priority');
-            $params['action'] = $this->GetParam('action');
-            $params['protocol'] = $this->GetParam('protocol');
-            $params['src_port_range'] = $this->GetParam('src_port_range');
-            $params['dst_port_range'] = $this->GetParam('dst_port_range');
-            $params['src_ip'] = $this->GetParam('src_ip');
-            $params['dst_ip'] = $this->GetParam('dst_ip');
-            $flag = UcsService::EditUcsFirewall($params);
-            if ($params['id']) {
-                if ($flag) {
-                    return $this->Success('修改防火墙规则成功');
-                }
-                return $this->Error('修改防火墙规则失败');
-            }
-            if ($flag) {
-                return $this->Success('添加防火墙规则成功');
-            }
-            return $this->Error('添加防火墙规则失败');
-        }
     }
 
     /**
