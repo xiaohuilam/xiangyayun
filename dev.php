@@ -49,7 +49,7 @@ return [
                 'APP_ID' => '1400595436',
                 'SECRET_ID' => 'AKIDEH5csNgiTzEF1Xprd9RTFm46sOfhU0FE',
                 'SECRET_KEY' => 'kESQ8ZjgPr3yd190cx3uWt0tWu2uWt1u',
-                'SIGN_NAME' => '象牙云'
+                'SIGN_NAME' => '象牙云',
             ],
         ],
         "PAY" => [
