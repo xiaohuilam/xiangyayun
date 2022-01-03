@@ -337,30 +337,40 @@ class Ucs extends UserLoginBase
      */
     public function renew_price()
     {
+
         $instance_id = $this->GetParam('instance_id');
         $time_type = $this->GetParam('time_type');
         $time_length = $this->GetParam('time_length');
-        $data['total'] = UcsService::GetReNewPrice($instance_id, $time_type, $time_length);
-        return $this->Success('获取价格成功', $data);
+        $instance = $this->CheckIsMine($instance_id);
+        if ($instance) {
+            $data['total'] = UcsService::GetReNewPrice($instance_id, $time_type, $time_length);
+            $data['after_expire_time'] = UcsService::GetReNewExpireTime($instance->expire_time, $time_type, $time_length);
+            return $this->Success('获取价格成功', $data);
+        }
     }
 
     /**
      * @Param(name="instance_id",integer="")
+     * @Param(name="time_type",inArray=["day","month","year"])
+     * @Param(name="time_length",integer="")
      * 续费实例
      */
     public function renew()
     {
         //续费
         $instance_id = $this->GetParam('instance_id');
+        $time_type = $this->GetParam('time_type');
+        $time_length = $this->GetParam('time_length');
         //续费只需要检查是不是自己的,有没有被锁定
         if ($this->CheckIsMine($instance_id)) {
-            $price = UcsService::GetReNewPrice($instance_id);
+            $price = UcsService::GetReNewPrice($instance_id, $time_type, $time_length);
             if ($price > 0) {
                 //
                 $user_id = $this->GetUserId();
-                UserService::Consume($user_id, $price, '服务器续费');
+//                UserService::Consume($user_id, $price, '服务器续费');
             }
         }
+        return $this->Success('成功');
     }
 
     /**
