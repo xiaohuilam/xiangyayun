@@ -80,7 +80,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/easyswoole/wechat" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/easyswoole/linux-dash" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/easyswoole/queue" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />

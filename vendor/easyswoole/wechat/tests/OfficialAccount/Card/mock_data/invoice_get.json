@@ -1,9 +1,0 @@
-{
-  "errcode": 0,
-  "errmsg": "ok",
-  "paymch_info": {
-    "mchid": "1234",
-    "s_pappid": "wxabcd"
-  }
-}
-

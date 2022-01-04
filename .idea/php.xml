@@ -77,7 +77,6 @@
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/easyswoole/wechat" />
-      <path value="$PROJECT_DIR$/vendor/easyswoole/linux-dash" />
       <path value="$PROJECT_DIR$/vendor/easyswoole/queue" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />

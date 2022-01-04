@@ -219,7 +219,7 @@ class Profile extends UserLoginBase
         }
         //开始发送验证码
         $verify_code = rand(100000, 999999);
-        RedisService::SetVerifyCode($user->username, $verify_code);
+        RedisService::SetVerifyCode($email, $verify_code);
         EmailService::SendCode($email, $verify_code);
         return $this->Success('发送验证码成功');
     }
@@ -301,11 +301,10 @@ class Profile extends UserLoginBase
      * @Param(name="type",required="",inArray=["password","sms","email","wechat"])
      * @Param(name="email",required="",lengthMin="6")
      * @Param(name="email_code",required="",lengthMin="6")
-     * 修改邮箱地址
+     * 修改邮箱地址#BUG,邮箱换了的话 还可以验证
      */
     public function change_email()
     {
-
         $user_id = $this->GetUserId();
         $user = UserService::FindById($user_id);
         $type = $this->GetParam('type');
@@ -319,15 +318,8 @@ class Profile extends UserLoginBase
                 UserLogService::ChangeEmailError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,校验密码失败');
                 return $this->Error('原密码错误');
             }
-        } else {
-            $code = $this->GetParam('code');
-            $save_code = RedisService::GetVerifyCode($user->username);
-            if (!$save_code || $save_code != $code) {
-                UserLogService::ChangeEmailError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,验证码错误');
-                return $this->Error('验证码错误');
-            }
         }
-        $save_smscode = RedisService::GetVerifyCode($user->username);
+        $save_smscode = RedisService::GetVerifyCode($email);
         if (!$save_smscode || $save_smscode != $email_code) {
             UserLogService::ChangeEmailError($user->id, $user->username, $ip, $ua, '改绑邮箱失败,新邮箱短验证码错误');
             return $this->Error('新邮箱验证码错误');
