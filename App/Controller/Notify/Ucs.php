@@ -36,6 +36,7 @@ class Ucs extends Base
                 //修改操作状态
                 UcsService::ChangeActStatus($task->ucs_instance_id, UcsActStatus::NORMAL);
             }
+            var_dump($notify_message);
             UcsTask::create()->update([
                 'progress' => $progress,
                 'notify_message' => $notify_message,

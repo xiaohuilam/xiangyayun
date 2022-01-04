@@ -78,7 +78,7 @@ class UserLogService
         ]);
     }
 
-    public static function ChangeEmailSuccess($user_id, $username, $ip, $ua, $msg)
+    public static function ChangeEmailSuccess($user_id, $username, $ip, $ua, $msg, $email = null, $new_email = null)
     {
         return self::Save([
             'username' => $username,
@@ -88,6 +88,12 @@ class UserLogService
             'status' => 1,
             'message' => $msg,
             'action' => 'change_email',
+            'old_params' => json_encode([
+                'email' => $email
+            ]),
+            'new_params' => json_encode([
+                'email' => $new_email
+            ]),
         ]);
     }
 
@@ -118,7 +124,7 @@ class UserLogService
         ]);
     }
 
-    public static function ChangeEmailError($user_id, $username, $ip, $ua, $msg)
+    public static function ChangeEmailError($user_id, $username, $ip, $ua, $msg, $email = null, $new_email = null)
     {
         return self::Save([
             'username' => $username,
@@ -128,6 +134,12 @@ class UserLogService
             'status' => 0,
             'message' => $msg,
             'action' => 'change_email',
+            'old_params' => json_encode([
+                'email' => $email
+            ]),
+            'new_params' => json_encode([
+                'email' => $new_email
+            ]),
         ]);
     }
 
