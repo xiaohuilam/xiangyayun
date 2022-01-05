@@ -4,7 +4,7 @@ namespace App\Controller\Common;
 
 use App\Service\AdminAuthService;
 
-class AdminAuthBase extends Base
+class AdminAuthBase extends AdminLoginBase
 {
     //获取所有的权限
     protected function onRequest(?string $action): ?bool
