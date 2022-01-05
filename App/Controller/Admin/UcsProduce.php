@@ -18,12 +18,14 @@ class UcsProduce extends AdminAuthBase
     {
         $ip_range = $this->GetParam('ip_range');
 
-        $ips = explode('', $ip_range);
+        $ips = explode('-', $ip_range);
         if (count($ips) != 2) {
             return $this->Error('IP范围参数错误');
         }
         $ip_start = $ips[0];
         $ip_stop = $ips[1];
+        var_dump($ip_start);
+        var_dump($ip_stop);
     }
 
 }
