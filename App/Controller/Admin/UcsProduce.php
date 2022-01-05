@@ -23,7 +23,6 @@ class UcsProduce extends AdminAuthBase
             return $this->Error('IP范围参数错误');
         }
         $ip_start = $ips[0];
-
         $ip_stop = $ips[1];
     }
 
