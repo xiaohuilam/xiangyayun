@@ -10,6 +10,7 @@ use App\Service\TreeService;
 use App\Service\UcsService;
 use App\Service\UserService;
 use App\Service\WechatService;
+use App\Status\UcsActStatus;
 use App\Status\UcsRunStatus;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
@@ -394,6 +395,9 @@ class Ucs extends UserLoginBase
         //检查是否过期
         $instance = $this->CheckExpire($instance_id);
         if ($instance) {
+            if ($instance->act_status != UcsActStatus::NORMAL) {
+                return $this->Error('该服务器正在操作中');
+            }
             $system_id = $this->GetParam('system_id');
             $system = UcsService::FindUcsSystemById($system_id);
             if (!$system) {
