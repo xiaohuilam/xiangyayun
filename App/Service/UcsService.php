@@ -204,36 +204,26 @@ class UcsService
             ->join('ucs_region b', 'a.ucs_region_id=b.id')
             ->join('ucs_system c', 'c.id=a.ucs_system_id')
             ->join('ucs_system_class d', 'd.id=c.ucs_system_class_id');
-        foreach ($where as $value) {
-            $ucs_instances = $ucs_instances->where($value);
+        $ucs_instances->where('a.id', $instance_id);
+        $value = $ucs_instances->get();
+        $item = $value->toRawArray();
+        if ($value->instance_name) {
+            $item['instance_name'] = $value->instance_name;
         }
-        $ucs_instances->where('a.expire_time', date('Y-m-d H:i:s'), '>');
-        $model = $ucs_instances->get();
-
-        // 列表数据
-
-        $list = $model->get();
-        $temp = [];
-        foreach ($list as $key => $value) {
-            $item = $value->toRawArray();
-            if ($value->instance_name) {
-                $item['instance_name'] = $value->instance_name;
-            }
-            if ($value->region_name) {
-                $item['region_name'] = $value->region_name;
-            }
-            if ($value->login_name) {
-                $item['login_name'] = $value->login_name;
-            }
-            if ($value->defense) {
-                $item['defense'] = $value->defense;
-            }
-            //获取资源状态
-            $item['resource_status'] = self::GetResourceStatus($value);
-            $item['system_name'] = $value->system_class . " " . $value->system_version;
-            $item['ip_address'] = UcsService::SelectUcsIPByUcsInstanceId($value->id);
-            $item['act_tips'] = UcsActStatus::ConvertToString($item['act_status']);
+        if ($value->region_name) {
+            $item['region_name'] = $value->region_name;
         }
+        if ($value->login_name) {
+            $item['login_name'] = $value->login_name;
+        }
+        if ($value->defense) {
+            $item['defense'] = $value->defense;
+        }
+        //获取资源状态
+        $item['resource_status'] = self::GetResourceStatus($value);
+        $item['system_name'] = $value->system_class . " " . $value->system_version;
+        $item['ip_address'] = UcsService::SelectUcsIPByUcsInstanceId($value->id);
+        $item['act_tips'] = UcsActStatus::ConvertToString($item['act_status']);
         return $item;
     }
 
