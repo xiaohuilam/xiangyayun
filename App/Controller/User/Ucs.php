@@ -86,7 +86,6 @@ class Ucs extends UserLoginBase
     }
 
     /**
-     * @Param(name="id",integer="")
      * @Param(name="ucs_firewall_group_id",integer="")
      * @Param(name="priority",integer="")
      * @Param(name="action",inArray=["accept","drop","reject","continue","return"])
@@ -98,7 +97,7 @@ class Ucs extends UserLoginBase
      * @Param(name="dst_ip",required="")
      * 编辑实例防火墙规则
      */
-    public function edit_firewall_rule()
+    public function firewall_rule_edit()
     {
         $params = [];
         $params['id'] = $this->GetParam('id');
@@ -111,12 +110,15 @@ class Ucs extends UserLoginBase
         if ($ucs_firewall_group->user_id != $user_id) {
             return $this->Error('这个安全组不是您的！');
         }
+
+        $params['direction'] = $this->GetParam('direction');
         $params['priority'] = $this->GetParam('priority');
         $params['action'] = $this->GetParam('action');
         $params['protocol'] = $this->GetParam('protocol');
         $params['src_port_range'] = $this->GetParam('src_port_range');
         $params['dst_port_range'] = $this->GetParam('dst_port_range');
         $params['src_ip'] = $this->GetParam('src_ip');
+        $params['status'] = $this->GetParam('status');
         $params['dst_ip'] = $this->GetParam('dst_ip');
         $flag = UcsService::EditUcsFirewall($params);
         if ($params['id']) {

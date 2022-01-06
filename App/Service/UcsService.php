@@ -417,8 +417,9 @@ class UcsService
     //编辑实例安全组规则
     public static function EditUcsFirewall($params)
     {
+        var_dump($params);
         $ucs_firewall = null;
-        if (array_key_exists('id', $params)) {
+        if ($params['id']) {
             $ucs_firewall = UcsFirewall::create()->get(['id' => $params['id']]);
             //存在即修改
             if ($ucs_firewall) {
@@ -426,6 +427,7 @@ class UcsService
             }
             return false;
         }
+        var_dump($params);
         return UcsFirewall::create($params)->save();
     }
 
