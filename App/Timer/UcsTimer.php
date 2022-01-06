@@ -20,6 +20,8 @@ class UcsTimer
                 //已经过期,强制关机
                 if ($value->run_status == UcsRunStatus::RUN) {
                     //正常的给他关机
+                    $value->run_status = UcsRunStatus::POWEROFF;
+                    $value->update();
                     UcsService::ForceShutdownAction($value->id);
                     info('实例过期关机:' . $value->id);
                 }
