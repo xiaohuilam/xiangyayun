@@ -166,6 +166,7 @@ class UcsService
     //获取任务列表分页
     public static function SelectTaskListPage($where, $page, $size)
     {
+        var_dump($where);
         $ucs_task = UcsTask::create()->limit($size * ($page - 1), $size)->where($where);
         $ucs_task = $ucs_task->withTotalCount();
 

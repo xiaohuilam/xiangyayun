@@ -174,7 +174,8 @@ class Ucs extends UserLoginBase
         $size = $this->GetParam('size') ?? 10;
         $instance = $this->CheckIsMine($instance_id);
         if ($instance) {
-            $data = UcsService::SelectTaskListPage(['ucs_instance_id', $instance_id], $page, $size);
+            $where['ucs_instance_id'] = $instance_id;
+            $data = UcsService::SelectTaskListPage($where, $page, $size);
             return $this->Success('获取操作日志成功!', $data);
         }
     }
