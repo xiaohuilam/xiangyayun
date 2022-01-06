@@ -28,7 +28,7 @@ class Ucs extends UserLoginBase
      * @Param(name="instance_id",integer="")
      * 获取实例防火墙参数
      */
-    public function detail()
+    public function ucs_firewall_detail()
     {
         $instance_id = $this->GetParam('instance_id');
         if ($this->CheckIsMine($instance_id)) {
