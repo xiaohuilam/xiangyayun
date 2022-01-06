@@ -148,10 +148,11 @@ class UcsService
     }
 
     //续费
-    public static function ReNew($instance_id)
+    public static function ReNew($instance_id, $time_type, $time_length)
     {
-
-
+        $ucs_instance = self::FindUcsInstanceById($instance_id);
+        $ucs_instance->expire_time = self::GetReNewExpireTime($ucs_instance->expire_time,$time_type, $time_length);
+        $ucs_instance->update();
     }
 
     //根据实例ID查找实例磁盘

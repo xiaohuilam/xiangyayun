@@ -484,9 +484,9 @@ class Ucs extends UserLoginBase
         if ($this->CheckIsMine($instance_id)) {
             $price = UcsService::GetReNewPrice($instance_id, $time_type, $time_length);
             if ($price > 0) {
-                //
                 $user_id = $this->GetUserId();
-//                UserService::Consume($user_id, $price, '服务器续费');
+                UserService::Consume($user_id, $price, '服务器续费', 'ucs', $instance_id);
+                UcsService::ReNew($instance_id, $time_type, $time_length);
             }
         }
         return $this->Success('成功');
@@ -577,7 +577,7 @@ class Ucs extends UserLoginBase
                 WechatService::SendToManagerError('UCS_MASTER资源不足', 'UCS宿主机资源不足,请尽快添加资源!', '请尽快处理', '/admin/');
                 return $this->Error('资源不足!');
             }
-            $user_finance = UserService::Consume($user_id, $price['instance_price'], '购买云服务器', 'ucs', 0);
+            $user_finance = UserService::Consume($user_id, $price['total'], '购买云服务器', 'ucs', 0);
             if ($user_finance) {
                 //消费成功
                 $user_instance = UcsService::CreateInstance($master, $user_id, $system_id, $ucs_plan, $harddisk, $bandwidth, $ip_number, $time_type, $time_length, 0, $user->nickname, $password);
