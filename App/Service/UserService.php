@@ -44,22 +44,18 @@ class UserService
     }
 
     //创建用户并保存日志
-    public static function CreateUser($username, $password, $qq, $email, $ip, $ua)
+    public static function CreateUser($username, $password, $ip, $ua)
     {
         $user = User::create([
             'username' => $username,
             'password' => md5($password),
             'create_time' => date('Y-m-d H:i:s'),
-            'qq' => $qq,
-            'email' => $email ?? $qq . "@qq.com",
             'status' => 1,
             'nickname' => '手机用户' . substr($username, -4)
         ]);
         $user->save();
         $new_params = [
             'nickname' => $user->nickname,
-            'email' => $email,
-            'qq' => $qq,
         ];
         UserLogService::RegisterLog($username, $user->id, $ip, $ua, $new_params);
         return $user;

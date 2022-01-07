@@ -196,8 +196,7 @@ class Api extends Base
     /**
      * @Param(name="username",required="",lengthMin="11")
      * @Param(name="password",required="",lengthMin="6")
-     * @Param(name="sms_code",integer="",lengthMin="6")
-     * @Param(name="qq",required="",lengthMin="5")
+     * @Param(name="verifycode",integer="",lengthMin="6")
      * 注册
      */
     public function register()
@@ -207,7 +206,6 @@ class Api extends Base
         $password = $this->GetParam('password');
         $verifycode = $this->GetParam('verifycode');
         $qq = $this->GetParam('qq');
-        $email = $this->GetParam('email');
 
         $code = RedisService::GetVerifyCode($username);
         if (!$code) {
@@ -221,7 +219,7 @@ class Api extends Base
             //不为空且验证成功
             $ip = $this->GetClientIP();
             $ua = $this->GetUserAgent();
-            $user = UserService::CreateUser($username, $password, $qq, $email, $ip, $ua);
+            $user = UserService::CreateUser($username, $password, $ip, $ua);
             return $this->Success('注册成功!', $user, '/user/auth');
         }
         return $this->Error('验证码错误!');
