@@ -46,7 +46,7 @@ class Profile extends UserLoginBase
     //更新用户信息
 
     /**
-     * @Param(name="nickname",required="",lengthMin="1",lengthMax="10")
+     * @Param(name="nickname",required="",lengthMin="1",lengthMax="50")
      * @Param(name="qq",integer="",lengthMin="6",lengthMax="11")
      * @Param(name="wechat",required="",lengthMin="3")
      */
