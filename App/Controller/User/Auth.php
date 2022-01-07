@@ -58,10 +58,11 @@ class Auth extends UserLoginBase
     public function auth_query()
     {
         $order_no = $this->GetParam('order_no');
-        $flag = AuthService::GetStatus($order_no);
-        $data['status'] = $flag;
-        if ($flag) {
-            return $this->Success('认证成功!', $data, '/user/auth');
+        $auth = AuthService::GetStatus($order_no);
+        $data['status'] = $auth ? true : false;
+        $data['auth'] = $auth;
+        if ($auth) {
+            return $this->Success('认证成功!', $data);
         }
         return $this->Success('等待认证', $data);
     }

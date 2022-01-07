@@ -151,7 +151,7 @@ class UcsService
     public static function ReNew($instance_id, $time_type, $time_length)
     {
         $ucs_instance = self::FindUcsInstanceById($instance_id);
-        $ucs_instance->expire_time = self::GetReNewExpireTime($ucs_instance->expire_time,$time_type, $time_length);
+        $ucs_instance->expire_time = self::GetReNewExpireTime($ucs_instance->expire_time, $time_type, $time_length);
         $ucs_instance->update();
     }
 
@@ -548,6 +548,9 @@ class UcsService
         foreach ($harddisk as $key => $value) {
             $ucs_storage_plan_id = $value['ucs_storage_plan_id'];
             $ucs_storage_plan = UcsStoragePlan::create()->get(['id' => $ucs_storage_plan_id]);
+            if ($key == 0) {
+                $value['size'] = $value['size'] - 40;
+            }
             switch ($time_type) {
                 case "day":
                     $temp_harddisk_price = $ucs_storage_plan->price_day * $value['size'];

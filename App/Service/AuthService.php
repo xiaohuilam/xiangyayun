@@ -54,7 +54,7 @@ class AuthService
     {
         $user_auth = UserAuth::create()->get(['order_no' => $order_no]);
         if ($user_auth && $user_auth->finish_status == 1) {
-            return true;
+            return $user_auth;
         }
         return false;
     }
