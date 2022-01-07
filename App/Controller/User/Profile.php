@@ -36,9 +36,11 @@ class Profile extends UserLoginBase
         $ticket = $this->GetParam('ticket');
         $user_id = RedisService::GetWxBindUserTicket($ticket);
         if (!$user_id) {
-            return $this->Success('微信绑定成功!');
+            $data['status'] = true;
+            return $this->Success('微信绑定成功!', $data);
         }
-        return $this->Error('等待扫码中');
+        $data['status'] = false;
+        return $this->Success('等待扫码中', $data);
     }
 
     //更新用户信息
