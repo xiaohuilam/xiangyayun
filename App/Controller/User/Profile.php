@@ -23,8 +23,8 @@ class Profile extends UserLoginBase
         $d['image'] = QrcodeService::Qrcode($data['url']);
         //服务端获取EventKey
         $ticket = $data['ticket'];
-        $this->Set('ticket', $ticket);
         $user_id = $this->GetUserId();
+        $d['ticket'] = $ticket;
         RedisService::SetWxBindUserTicket($ticket, $user_id);
         return $this->Success('获取绑定二维码成功', $d);
     }
@@ -33,10 +33,10 @@ class Profile extends UserLoginBase
     public function wx_qrcode_bind_status()
     {
         //状态
-        $ticket = $this->Get('user.ticket');
+        $ticket = $this->GetParam('ticket');
         $user_id = RedisService::GetWxBindUserTicket($ticket);
-        if ($user_id) {
-            return $this->Success('微信登录成功!');
+        if (!$user_id) {
+            return $this->Success('微信绑定成功!');
         }
         return $this->Error('等待扫码中');
     }

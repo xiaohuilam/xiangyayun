@@ -86,6 +86,12 @@ class RedisService
         return self::Get("WX_BIND_USER." . $Ticket);
     }
 
+    //绑定用户的ticket
+    public static function DelWxBindUserTicket($Ticket)
+    {
+        return self::Del("WX_BIND_USER." . $Ticket);
+    }
+
 
     //管理员登录的ticket
     public static function SetWxLoginAdminTicket($Ticket, $user_id)
