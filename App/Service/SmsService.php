@@ -41,7 +41,9 @@ class SmsService
             'action' => $action
         ]);
         try {
-            $cred = new Credential(config('TENCENTCLOUD.SECRET_ID'), config('TENCENTCLOUD.SECRET_KEY'));
+            var_dump(config('SMS.TENCENTCLOUD.SECRET_ID'));
+            var_dump(config('SMS.TENCENTCLOUD.SECRET_KEY'));
+            $cred = new Credential(config('SMS.TENCENTCLOUD.SECRET_ID'), config('SMS.TENCENTCLOUD.SECRET_KEY'));
             $httpProfile = new HttpProfile();
             // 配置代理
             $httpProfile->setReqMethod("GET");  // post请求(默认为post请求)
@@ -75,7 +77,7 @@ class SmsService
             $req->ExtendCode = "";
             /* 下发手机号码，采用 E.164 标准，+[国家或地区码][手机号]
              * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
-            $req->PhoneNumberSet = [$mobile];
+            $req->PhoneNumberSet = ["+86" . $mobile];
             /* 国际/港澳台短信 SenderId: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
             $req->SenderId = "";
             /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
@@ -88,8 +90,9 @@ class SmsService
             // 通过client对象调用SendSms方法发起请求。注意请求方法名与请求对象是对应的
             // 返回的resp是一个SendSmsResponse类的实例，与请求对象对应
             $resp = $client->SendSms($req);
+            var_dump($resp);
         } catch (TencentCloudSDKException $e) {
-            //$e->getMessage()
+            var_dump($e);
         }
     }
 
