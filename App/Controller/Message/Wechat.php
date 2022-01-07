@@ -29,15 +29,18 @@ class Wechat extends Base
     //处理事件消息
     private function Event($data)
     {
-        switch ($data['EventKey']) {
-            case "QRCODE_USER_LOGIN":
-                return $this->QRCODE_USER_LOGIN($data);
-            case "QRCODE_USER_BIND":
-                return $this->QRCODE_USER_BIND($data);
-            case "QRCODE_ADMIN_LOGIN":
-                return $this->QRCODE_ADMIN_LOGIN($data);
-            case "QRCODE_ADMIN_BIND":
-                return $this->QRCODE_ADMIN_BIND($data);
+        var_dump($data);
+        if (array_key_exists('EventKey', $data)) {
+            switch ($data['EventKey']) {
+                case "QRCODE_USER_LOGIN":
+                    return $this->QRCODE_USER_LOGIN($data);
+                case "QRCODE_USER_BIND":
+                    return $this->QRCODE_USER_BIND($data);
+                case "QRCODE_ADMIN_LOGIN":
+                    return $this->QRCODE_ADMIN_LOGIN($data);
+                case "QRCODE_ADMIN_BIND":
+                    return $this->QRCODE_ADMIN_BIND($data);
+            }
         }
     }
 
