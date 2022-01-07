@@ -58,23 +58,8 @@ class EasySwooleEvent implements Event
         $redisPoolConfig->setMinObjectNum(5);
         $redisPoolConfig->setMaxObjectNum(50);
 
-
-        $config = new Config();
-        $config->setDatabase('hiy');
-        $config->setUser('hiy');
-        $config->setPassword('4iDzkRhTX44GZz3z');
-        $config->setHost('119.23.58.76');
-        $config->setTimeout(15); // 超时时间
-        //连接池配置
-        $config->setGetObjectTimeout(3.0); //设置获取连接池对象超时时间
-        $config->setIntervalCheckTime(30 * 1000); //设置检测连接存活执行回收和创建的周期
-        $config->setMaxIdleTime(15); //连接池对象最大闲置时间(秒)
-        $config->setMinObjectNum(15); //设置最小连接池存在连接对象数量
-        $config->setMaxObjectNum(50); //设置最大连接池存在连接对象数量
-        $config->setAutoPing(3); //设置自动ping客户端链接的间隔
-
         $mysqlConfig = config('MYSQL');
-        DbManager::getInstance()->addConnection(new Connection($config));
+        DbManager::getInstance()->->addConnection(new Connection($mysqlConfig));
 
 
     }
