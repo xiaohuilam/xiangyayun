@@ -81,6 +81,7 @@ class Wechat extends Base
     //微信二维码绑定
     private function QRCODE_USER_BIND($data)
     {
+        var_dump($data);
         $wx_openid = $data['FromUserName'];
         //把ticket保存的USERID，找到然后绑定!
         $user_id = RedisService::GetWxBindUserTicket($data['Ticket']);
