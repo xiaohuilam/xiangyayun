@@ -40,7 +40,7 @@ class UserLogService
             'user_id' => $user_id,
             'ip' => $ip,
             'ua' => $ua,
-            'status' => 0,
+            'status' => 1,
             'message' => '绑定微信成功',
             'action' => 'bind_wechat',
             'old_params' => json_encode($old_params),
