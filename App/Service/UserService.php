@@ -37,7 +37,7 @@ class UserService
             return false;
         }
         $old_params = UserAuth::create()->get(['id' => $user->auth_id]);
-        $user->auth_id = $user_auth->auth_id;
+        $user->auth_id = $user_auth->id;
         $user->auth_status = 1;
         UserLogService::UpdateAuthLog($user_auth->user_id, $user->username, $user_auth->create_ip, $user_auth->create_ua, $old_params, $user_auth);
         return $user->update();
