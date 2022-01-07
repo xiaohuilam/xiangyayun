@@ -150,11 +150,17 @@ rodnjf927gnA85Fp2eigUn8=
             'db' => 0, // 默认为 0 号库
         ],
         "MYSQL" => [
-            'database' => 'hiy',
-            'user' => 'hiy',
-            'host' => 'hiy',
-            'password' => '4iDzkRhTX44GZz3z',
-            'timeout' => '15'
+            'database' => 'cloud',
+            'user' => 'cloud',
+            'host' => '175.178.10.43',
+            'password' => 'BXCReHPrzHwJAMDG',
+            'timeout' => 15,
+            'get_object_timeout' => 3.0,
+            'interval_check_time' => 30 * 1000,
+            'max_idle_time' => 15,
+            'min_object_num' => 5,
+            'max_object_num' => 20,
+            'auto_ping' => 5
         ]
     ],
     'TEMP_DIR' => null

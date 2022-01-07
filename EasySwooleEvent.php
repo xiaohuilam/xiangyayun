@@ -57,11 +57,23 @@ class EasySwooleEvent implements Event
         // 配置连接池连接数
         $redisPoolConfig->setMinObjectNum(5);
         $redisPoolConfig->setMaxObjectNum(50);
-
         $mysqlConfig = config('MYSQL');
-        DbManager::getInstance()->->addConnection(new Connection($mysqlConfig));
 
+        $config = new Config();
+        $config->setDatabase($mysqlConfig['database']);
+        $config->setUser($mysqlConfig['user']);
+        $config->setPassword($mysqlConfig['password']);
+        $config->setHost($mysqlConfig['host']);
+        $config->setTimeout($mysqlConfig['timeout']); // 超时时间
+        //连接池配置
+        $config->setGetObjectTimeout($mysqlConfig['get_object_timeout']); //设置获取连接池对象超时时间
+        $config->setIntervalCheckTime($mysqlConfig['interval_check_time']); //设置检测连接存活执行回收和创建的周期
+        $config->setMaxIdleTime($mysqlConfig['max_idle_time']); //连接池对象最大闲置时间(秒)
+        $config->setMinObjectNum($mysqlConfig['min_object_num']); //设置最小连接池存在连接对象数量
+        $config->setMaxObjectNum($mysqlConfig['max_object_num']); //设置最大连接池存在连接对象数量
+        $config->setAutoPing($mysqlConfig['auto_ping']); //设置自动ping客户端链接的间隔
 
+        DbManager::getInstance()->addConnection(new Connection($config));
     }
 
     public static function mainServerCreate(EventRegister $register)
