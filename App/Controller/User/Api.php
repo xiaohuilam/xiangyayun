@@ -5,6 +5,7 @@ namespace App\Controller\User;
 use App\Controller\Common\Base;
 use App\Service\QrcodeService;
 use App\Service\RedisService;
+use App\Service\SmsService;
 use App\Service\UserLogService;
 use App\Service\UserService;
 use App\Service\WechatService;
@@ -241,7 +242,6 @@ class Api extends Base
             ->setFontSize(14)
             ->setCharset('1234567890')
             ->setLength(4);
-
         $VCode = new \EasySwoole\VerifyCode\VerifyCode($config);
         $drawCode = $VCode->DrawCode();
         RedisService::SetImageCode($username, $drawCode->getImageCode());
@@ -270,26 +270,19 @@ class Api extends Base
         if (!$code || $verifycode != $code) {
             return $this->Error('验证码错误!');
         }
-
+        //销毁验证码
+        RedisService::DelImageCode($username);
         $sms_code = rand(100000, 999999);
         if ($action == 'register') {
             $user = UserService::FindByUserName($username);
             if ($user) {
-                RedisService::DelImageCode($username);
                 return $this->Error('用户已注册!请直接登录', null, '/login');
             }
 
             RedisService::SetVerifyCode($username, $sms_code);
             //判断该IP或该用户今天收到了多少短信
 
-
-            SmsJob([
-                'mobile' => $username,
-                'action' => 'action_code',
-                'params' => [
-                    '注册用户', $sms_code
-                ],
-            ]);
+            SmsService::SendCode($username, $sms_code);
             return $this->Success('发送成功');
         } else if ($action == 'login') {
             $user = UserService::FindByUserName($username);

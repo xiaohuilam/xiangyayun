@@ -23,7 +23,7 @@ class SmsService
             'mobile' => $mobile,
             'action' => 'action_code',
             'params' => [
-                '短信登录', $code
+                $code
             ],
         ]);
     }
@@ -41,12 +41,18 @@ class SmsService
             'action' => $action
         ]);
         try {
+            $temp = [];
+            foreach ($params as $param) {
+                $temp[] = $param . "";
+            }
+            $params = $temp;
+            var_dump($params);
             var_dump(config('SMS.TENCENTCLOUD.SECRET_ID'));
             var_dump(config('SMS.TENCENTCLOUD.SECRET_KEY'));
             $cred = new Credential(config('SMS.TENCENTCLOUD.SECRET_ID'), config('SMS.TENCENTCLOUD.SECRET_KEY'));
             $httpProfile = new HttpProfile();
             // 配置代理
-            $httpProfile->setReqMethod("GET");  // post请求(默认为post请求)
+            $httpProfile->setReqMethod("POST");  // post请求(默认为post请求)
             $httpProfile->setReqTimeout(30);    // 请求超时时间，单位为秒(默认60秒)
             $httpProfile->setEndpoint("sms.tencentcloudapi.com");  // 指定接入地域域名(默认就近接入)
 
@@ -86,7 +92,6 @@ class SmsService
             $req->TemplateId = $template['template_id'];
             /* 模板参数: 若无模板参数，则设置为空*/
             $req->TemplateParamSet = $params;
-
             // 通过client对象调用SendSms方法发起请求。注意请求方法名与请求对象是对应的
             // 返回的resp是一个SendSmsResponse类的实例，与请求对象对应
             $resp = $client->SendSms($req);
