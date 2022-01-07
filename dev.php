@@ -149,6 +149,9 @@ rodnjf927gnA85Fp2eigUn8=
             'auth' => 'Chanmir1314', // 密码 默认为 不设置
             'db' => 0, // 默认为 0 号库
         ],
+        "MYSQL"=>[
+            'database'
+        ]
     ],
     'TEMP_DIR' => null
 ];

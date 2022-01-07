@@ -73,6 +73,7 @@ class EasySwooleEvent implements Event
         $config->setMaxObjectNum(50); //设置最大连接池存在连接对象数量
         $config->setAutoPing(3); //设置自动ping客户端链接的间隔
 
+        $mysqlConfig = config('MYSQL');
         DbManager::getInstance()->addConnection(new Connection($config));
 
 
