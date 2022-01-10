@@ -43,15 +43,32 @@ class UcsProduce extends Base
         if (!$long_gateway) {
             return $this->Error('网关错误');
         }
-        var_dump(ip2long($ip_stop));
-        var_dump(ip2long($ip_stop) - ip2long($ip_start));
-        var_dump($ip_stop);
+        if ((ip2long($ip_stop) - ip2long($ip_start)) > 255) {
+            return $this->Error('范围不能高于255');
+        }
     }
 
     public function ip_range_to_array($ip_start, $ip_stop)
     {
-        $ip_start=explode('.',$ip_start);
-
+        $array = [];
+        $ip_start_array = explode('.', $ip_start);
+        $ip_stop_array = explode('.', $ip_stop);
+        $range = ip2long($ip_stop) - ip2long($ip_start);
+        for ($i = 0; $i < $range; $i++) {
+            if ($ip_start_array[3] > 255) {
+                $ip_start_array[3] = 0;
+                $ip_start_array[2]++;
+            }
+            if ($ip_start_array[2] > 255) {
+                $ip_start_array[2] = 0;
+                $ip_start_array[1]++;
+            }
+            if ($ip_start_array[1] > 255) {
+                $ip_start_array[1] = 0;
+                $ip_start_array[0]++;
+            }
+            var_dump(implode($ip_start_array, '.'));
+        }
     }
 
 }
