@@ -3,9 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Controller\Common\AdminAuthBase;
+use App\Controller\Common\Base;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
-class UcsProduce extends AdminAuthBase
+class UcsProduce extends Base
 {
     /**
      * @Param(name="ucs_region_id",integer="")
@@ -17,6 +18,8 @@ class UcsProduce extends AdminAuthBase
     public function add_ip()
     {
         $ip_range = $this->GetParam('ip_range');
+        $netmask = $this->GetParam('netmask');
+        $gateway = $this->GetParam('gateway');
 
         $ips = explode('-', $ip_range);
         if (count($ips) != 2) {
@@ -24,8 +27,31 @@ class UcsProduce extends AdminAuthBase
         }
         $ip_start = $ips[0];
         $ip_stop = $ips[1];
-        var_dump($ip_start);
+        $long_ip_start = ip2long($ip_start);
+        $long_ip_stop = ip2long($ip_stop);
+        $long_netmask = ip2long($netmask);
+        $long_gateway = ip2long($gateway);
+        if (!$long_ip_start) {
+            return $this->Error('起始IP错误');
+        }
+        if (!$long_ip_stop) {
+            return $this->Error('结束IP错误');
+        }
+        if (!$long_netmask) {
+            return $this->Error('子网掩码错误');
+        }
+        if (!$long_gateway) {
+            return $this->Error('网关错误');
+        }
+        var_dump(ip2long($ip_stop));
+        var_dump(ip2long($ip_stop) - ip2long($ip_start));
         var_dump($ip_stop);
+    }
+
+    public function ip_range_to_array($ip_start, $ip_stop)
+    {
+        $ip_start=explode('.',$ip_start);
+
     }
 
 }
