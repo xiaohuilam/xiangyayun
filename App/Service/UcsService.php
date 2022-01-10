@@ -513,7 +513,7 @@ class UcsService
             //如果购买的小于等于送的，以送的为准,免费
             $bandwidth_price = 0;
         } else {
-            $bandwidth = $ucs_plan->free_bandwidth - $bandwidth;
+            $bandwidth = $bandwidth - $ucs_plan->free_bandwidth;
             switch ($time_type) {
                 case "day":
                     $bandwidth_price = $ucs_region->bandwidth_price_day * $bandwidth * $time_length;
