@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\Common\AdminAuthBase;
 use App\Controller\Common\Base;
+use App\Service\UcsProduceService;
 use EasySwoole\HttpAnnotation\AnnotationTag\Param;
 
 class UcsProduce extends Base
@@ -20,6 +21,7 @@ class UcsProduce extends Base
         $ip_range = $this->GetParam('ip_range');
         $netmask = $this->GetParam('netmask');
         $gateway = $this->GetParam('gateway');
+        $ucs_region_id = $this->GetParam('ucs_region_id');
 
         $ips = explode('-', $ip_range);
         if (count($ips) != 2) {
@@ -43,32 +45,12 @@ class UcsProduce extends Base
         if (!$long_gateway) {
             return $this->Error('网关错误');
         }
-        if ((ip2long($ip_stop) - ip2long($ip_start)) > 255) {
-            return $this->Error('范围不能高于255');
+        $flag = UcsProduceService::AddIPAddress($ip_start, $ip_stop, $netmask, $gateway, $ucs_region_id, '');
+        if ($flag) {
+            return $this->Success('添加成功');
         }
+        return $this->Error('添加失败');
     }
 
-    public function ip_range_to_array($ip_start, $ip_stop)
-    {
-        $array = [];
-        $ip_start_array = explode('.', $ip_start);
-        $ip_stop_array = explode('.', $ip_stop);
-        $range = ip2long($ip_stop) - ip2long($ip_start);
-        for ($i = 0; $i < $range; $i++) {
-            if ($ip_start_array[3] > 255) {
-                $ip_start_array[3] = 0;
-                $ip_start_array[2]++;
-            }
-            if ($ip_start_array[2] > 255) {
-                $ip_start_array[2] = 0;
-                $ip_start_array[1]++;
-            }
-            if ($ip_start_array[1] > 255) {
-                $ip_start_array[1] = 0;
-                $ip_start_array[0]++;
-            }
-            var_dump(implode($ip_start_array, '.'));
-        }
-    }
 
 }
