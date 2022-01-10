@@ -509,21 +509,27 @@ class UcsService
         //带宽价格
         $ucs_region = UcsRegion::create()->get(['id' => $ucs_plan->ucs_region_id]);
 
-
-        switch ($time_type) {
-            case "day":
-                $bandwidth_price = $ucs_region->bandwidth_price_day * $bandwidth * $time_length;
-                break;
-            case "month":
-                $bandwidth_price = $ucs_region->bandwidth_price_month * $bandwidth * $time_length;
-                break;
-            case "year":
-                $bandwidth_price = $ucs_region->bandwidth_price_year * $bandwidth * $time_length;
-                break;
-            default:
-                $bandwidth_price = 0;
-                break;
+        if ($bandwidth <= $ucs_plan->free_bandwidth) {
+            //如果购买的小于等于送的，以送的为准,免费
+            $bandwidth_price = 0;
+        } else {
+            $bandwidth = $ucs_plan->free_bandwidth - $bandwidth;
+            switch ($time_type) {
+                case "day":
+                    $bandwidth_price = $ucs_region->bandwidth_price_day * $bandwidth * $time_length;
+                    break;
+                case "month":
+                    $bandwidth_price = $ucs_region->bandwidth_price_month * $bandwidth * $time_length;
+                    break;
+                case "year":
+                    $bandwidth_price = $ucs_region->bandwidth_price_year * $bandwidth * $time_length;
+                    break;
+                default:
+                    $bandwidth_price = 0;
+                    break;
+            }
         }
+
         $price['bandwidth_price'] = $bandwidth_price;
 
         switch ($time_type) {
