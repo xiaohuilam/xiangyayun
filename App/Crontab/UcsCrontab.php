@@ -2,12 +2,11 @@
 
 namespace App\Crontab;
 
-use App\Service\WechatService;
+use App\Service\UcsService;
 use EasySwoole\EasySwoole\Crontab\AbstractCronTask;
 use EasySwoole\EasySwoole\Task\TaskManager;
-use EasySwoole\LinuxDash\LinuxDash;
 
-class SystemCrontab extends AbstractCronTask
+class UcsCrontab extends AbstractCronTask
 {
     public static function getRule(): string
     {
@@ -19,7 +18,7 @@ class SystemCrontab extends AbstractCronTask
     public static function getTaskName(): string
     {
         // 定时任务的名称
-        return 'SystemCrontab';
+        return 'UcsCrontab';
     }
 
     public function run(int $taskId, int $workerIndex)
@@ -29,7 +28,8 @@ class SystemCrontab extends AbstractCronTask
             // todo some thing
             info('开始执行定时任务xxx');
             //  WechatService::SendToManager('', '');
-
+            UcsService::GetReNewExpireTime()
+            WechatService::SendExpireNotify('UCS云服务器', $expire_time, $user_id);
         });
     }
 
@@ -38,4 +38,5 @@ class SystemCrontab extends AbstractCronTask
         error($throwable->getMessage());
         // 捕获run方法内所抛出的异常
     }
+
 }

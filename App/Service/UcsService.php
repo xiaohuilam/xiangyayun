@@ -27,16 +27,19 @@ class UcsService
         ]);
     }
 
+    //查询所有宿主机
     public static function SelectMasterAll()
     {
         return UcsMaster::create()->all();
     }
 
+    //根据宿主机查询实例
     public static function SelectUcsInstanceByMasterId($master_id)
     {
         return UcsInstance::create()->where('ucs_master_id', $master_id)->all();
     }
 
+    //计算宿主机使用的内存
     public static function SumUcsMemoryByMasterId($master_id)
     {
         return UcsInstance::create()
@@ -46,6 +49,7 @@ class UcsService
     }
 
 
+    //计算宿主机使用的硬盘
     public static function SumUcsHarddiskByMasterId($master_id)
     {
         return UcsInstance::create()
@@ -54,6 +58,7 @@ class UcsService
             ->sum('harddisk');
     }
 
+    //计算宿主机使用的CPU
     public static function SumUcsCpuByMasterId($master_id)
     {
         return UcsInstance::create()
@@ -62,17 +67,20 @@ class UcsService
             ->sum('cpu');
     }
 
+    //查询地域详情
     public static function FindUcsRegionById($id)
     {
         return UcsRegion::create()->get(['id' => $id]);
     }
 
+    //获取地域列表
     public static function SelectRegion()
     {
         return UcsRegion::create()->all();
     }
 
 
+    //获取系统详情
     public static function SelectSystem($ucs_system_class_id = 0)
     {
         if ($ucs_system_class_id) {
@@ -83,11 +91,13 @@ class UcsService
         return UcsSystem::create()->all();
     }
 
+    //获取系统类别
     public static function SelectSystemClass()
     {
         return UcsSystemClass::create()->all();
     }
 
+    //获取系统树
     public static function SelectSystemTree($ucs_instance = null)
     {
         $data = UcsSystem::create()->alias('a')
@@ -117,6 +127,7 @@ class UcsService
         return $d;
     }
 
+    //获取
     public static function SelectPlanByUcsRegionId($ucs_region_id)
     {
         return UcsPlan::create()->where('ucs_region_id', $ucs_region_id)->all();

@@ -31,6 +31,27 @@ class WechatService
         ]);
     }
 
+    //发送即将到期提醒给微信
+    public static function SendExpireNotify($product, $expire_time, $user_id)
+    {
+        //{{first.DATA}}
+        //产品名称：{{keyword1.DATA}}
+        //到期时间：{{keyword2.DATA}}
+        //{{remark.DATA}}
+        $app_name = config('SYSTEM.APP_NAME');
+        WechatPushJob([
+            'user_id' => $user_id,
+            'params' => [
+                'first' => '您的' . $app_name . '产品即将到期',
+                'keyword1' => $product,
+                'keyword2' => $expire_time,
+                'remark' => '您可以点击查看详情',
+            ],
+            'action' => 'expire_notify',
+            'url' => config('SYSTEM.APP_URL') . "/user/",
+        ]);
+    }
+
     //发送充值成功提醒给微信
     public static function SendRechargeSuccessNotify($type, $user_id, $amount, $order_no)
     {
