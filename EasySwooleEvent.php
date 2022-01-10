@@ -102,6 +102,8 @@ class EasySwooleEvent implements Event
         //系统定时任务
         Crontab::getInstance()->addTask(\App\Crontab\SystemCrontab::class);
 
+        Crontab::getInstance()->addTask(\App\Crontab\UcsCrontab::class);
+
 
         $watcher = new FileWatcher();
         $rule = new WatchRule(EASYSWOOLE_ROOT . "/App"); // 设置监控规则和监控目录

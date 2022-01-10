@@ -13,7 +13,7 @@ class SystemCrontab extends AbstractCronTask
     {
         // 定义执行规则 根据Crontab来定义
         //每天早上9点15分开始提醒
-        return '0 15 9 ? * * ';
+        return '0 15 9 * *';
     }
 
     public static function getTaskName(): string

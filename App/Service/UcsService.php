@@ -127,12 +127,13 @@ class UcsService
         return $d;
     }
 
-    //获取
+    //获取地域下套餐
     public static function SelectPlanByUcsRegionId($ucs_region_id)
     {
         return UcsPlan::create()->where('ucs_region_id', $ucs_region_id)->all();
     }
 
+    //获取地域下存储
     public static function SelectStorageByUcsRegionId($ucs_region_id)
     {
         return UcsStoragePlan::create()
