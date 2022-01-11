@@ -50,6 +50,34 @@ class Ucs extends Base
         return $this->Success();
     }
 
+    public function kvm_xml()
+    {
+        //获取KVM的XML
+        $domain = "<domain type='kvm'>";
+        $domain .= "  <name>$name</name>";
+        $domain .= "  <uuid>6d494961-24f6-4cbd-8cba-106bbc5e4e35</uuid>";
+        $domain .= "  <memory unit='KiB'>4194304</memory>";
+        $domain .= "  <currentMemory unit='KiB'>4194304</currentMemory>";
+        $domain .= "  <vcpu placement='static' current='4'>99</vcpu>";
+        $domain .= "  <<cputune>";
+        $domain .= "    <period>100000</period>";
+        $domain .= "    <quota>80000</quota>";
+        $domain .= "    <global_period>100000</global_period>";
+        $domain .= "    <global_quota>320000</global_quota>";
+        $domain .= "  </cputune>";
+        $domain .= "  <os>";
+        $domain .= "    <type arch='x86_64' machine='pc-i440fx-rhel7.0.0'>hvm</type>";
+        $domain .= "    <boot dev='hd'/>";
+        $domain .= "    <boot dev='cdrom'/>";
+        $domain .= "  </os>";
+        $domain .= "  <features>";
+        $domain .= "    <acpi/>";
+        $domain .= "    <apic/>";
+        $domain .= "    <pae/>";
+        $domain .= "  </features>";
+
+    }
+
     public function flow()
     {
 
