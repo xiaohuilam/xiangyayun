@@ -49,6 +49,11 @@ class Api extends Base
     }
 
     //二维码登录
+
+    /**
+     * @return void
+     * 获取微信二维码，然后不断请求登录状态
+     */
     public function wx_qrcode_login()
     {
         $data = WechatService::GetQrcode("QRCODE_USER_LOGIN");
@@ -60,6 +65,10 @@ class Api extends Base
         return $this->ImageWrite($byte);
     }
 
+    /**
+     * @return false|void
+     * 定时检测微信登录状态，成功后跳转
+     */
     public function wx_qrcode_status()
     {
         //状态
