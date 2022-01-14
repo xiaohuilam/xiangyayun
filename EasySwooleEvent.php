@@ -33,7 +33,6 @@ class EasySwooleEvent implements Event
 {
     public static function initialize()
     {
-
         \EasySwoole\Component\Di::getInstance()->set(\EasySwoole\EasySwoole\SysConst::HTTP_CONTROLLER_NAMESPACE, 'App\\Controller\\');
         date_default_timezone_set('Asia/Shanghai');
 
