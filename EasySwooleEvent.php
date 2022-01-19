@@ -119,12 +119,10 @@ class EasySwooleEvent implements Event
             if ($workerId == 0) {
                 \EasySwoole\Component\Timer::getInstance()->loop(5 * 1000, function () {
                     // 从数据库，或者是redis中，去获取下个就近10秒内需要执行的任务
-                    info('开始扫描支付宝认证订单');
                     AuthTimer::run();
                 });
                 \EasySwoole\Component\Timer::getInstance()->loop(5 * 1000, function () {
                     // 从数据库，或者是redis中，去获取下个就近10秒内需要执行的任务
-                    info('开始扫描UCS实例,进行一系列操作');
                     UcsTimer::run();
                 });
             }

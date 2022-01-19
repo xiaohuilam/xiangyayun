@@ -30,7 +30,6 @@ class UcsTimer
         //计算已经使用了多少内存 CPU 以及 磁盘
         $masters = UcsService::SelectMasterAll();
         foreach ($masters as $master) {
-            info('计算宿主机资源');
             $master->use_memory = UcsService::SumUcsMemoryByMasterId($master->id);
             $master->use_harddisk = UcsService::SumUcsHarddiskByMasterId($master->id);
             $master->use_cpu = UcsService::SumUcsCpuByMasterId($master->id);
